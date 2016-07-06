@@ -49,21 +49,55 @@ Doing Business As Name 3		| Optional
 
 ```R 
 
+
+# create subdirectory for the data
+
+dir.create( "IRS Nonprofit Data" )
+
+setwd( "./IRS Nonprofit Data" )
+
+
+
 # download and unzip
 
 file.url <- "https://apps.irs.gov/pub/epostcard/data-download-epostcard.zip"
 
-download.file( file=file.url, "epostcard.zip" )
+download.file( url=file.url, "epostcard.zip" )
 
 unzip( "epostcard.zip" )
 
 file.remove( "epostcard.zip" )
 
-dir()
-
+dat.990n <- read.delim( file="data-download-epostcard.txt", 
+            header = FALSE, 
+            sep = "|", 
+            quote = "",
+            dec = ".", 
+            fill = TRUE,  
+            colClasses="character"
+          )
 
 
 # add header information - variable names
+
+var.names <- c("EIN", "Tax.Year", "Organization.Name", "Gross.Receipts.Under.$25,000", 
+"Terminated", "Tax.Period.Begin.Date", "Tax.Period.End.Date", 
+"Website.URL", "Officer.Name", "Officer.Address.Line.1", "Officer.Address.Line.2", 
+"Officer.Address.City", "Officer.Address.Province", "Officer.Address.State", 
+"Officer.Address.Postal.Code", "Officer.Address.Country", "Organization.Address.Line.1", 
+"Organization.Address.Line.2", "Organization.Address.City", "Organization.Address.Province", 
+"Organization.Address.State", "Organization.Address.Postal.Code", 
+"Organization.Address.Country", "Doing.Business.As.Name.1", "Doing.Business.As.Name.2", 
+"Doing.Business.As.Name.3")
+
+names( dat.990n ) <- var.names
+
+rm( var.names )
+
+
+# change Tax.Year from YYYY-MM to YYYY
+
+dat.990n$FileYear < substr( dat.990n$Tax.Year, 1, 4 )
 
 ```
 
@@ -74,20 +108,21 @@ dir()
 
 # AS CSV
 
-write.csv( data.ef, "ElectronicFilers.csv", row.names=F )
+write.csv( dat.990n, "PostcardFilers.csv", row.names=F )
 
 
 # IN STATA
 
-install.packages( "foreign" )
 library( foreign )
-write.dta( data.ef, "ElectronicFilers.dta" )
+write.dta( dat.990n, "PostcardFilers.dta" )
 
 
 # IN SPSS
 
-install.packages( "foreign" )
 library( foreign )
-write.dta( data.ef, "ElectronicFilers.dta" )
+write.foreign( dat.990n, "PostcardFilers.dta", package="SPSS" )
+
+
+# if package 'foreign' is not installed first try:  install.packages("foreign")
 
 ```
