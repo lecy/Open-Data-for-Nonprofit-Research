@@ -146,7 +146,7 @@ write.dta( data.ef, file="ElectronicFilers.dta" )
 # IN SPSS
 
 library( foreign )
-write.foreign( data.ef, file="ElectronicFilers.dta", package="SPSS" )
+write.foreign( data.ef, file="ElectronicFilers.sav", package="SPSS" )
 
 ```
 
