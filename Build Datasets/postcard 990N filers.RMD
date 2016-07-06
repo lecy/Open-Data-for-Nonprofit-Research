@@ -106,6 +106,11 @@ dat.990n$FileYear < substr( dat.990n$Tax.Year, 1, 4 )
 
 ```R
 
+# AS R DATA SET
+
+saveRDS( data.ef, file="ElectronicFilers.csv" )
+
+
 # AS CSV
 
 write.csv( dat.990n, "PostcardFilers.csv", row.names=F )
@@ -120,7 +125,7 @@ write.dta( dat.990n, "PostcardFilers.dta" )
 # IN SPSS
 
 library( foreign )
-write.foreign( dat.990n, "PostcardFilers.dta", package="SPSS" )
+write.foreign( dat.990n, "PostcardFilers.sav", package="SPSS" )
 
 
 # if package 'foreign' is not installed first try:  install.packages("foreign")
