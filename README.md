@@ -10,7 +10,7 @@ These developments represent significant strides forward in making data open and
 
 Tools are currently available for the following resources:
 
-* Build the Database of Electronic Filers (990, 990-EZ, 990-PF) from 2011 to Present
+* [Build the Database of Electronic Filers (990, 990-EZ, 990-PF) from 2011 to Present](electronic filers.Rmd)
 * [Build the Database of Postcard 990-N Filers](./Build Datasets/postcard 990N filers.RMD) 
 * Build the Database of Automatic Revocations of Tax Exempt Status
 * Build the Database of All Exempt Organizations
@@ -37,17 +37,17 @@ For instructions on submitting a solution, email Jesse Lecy: jdlecy@syr.edu
 
 If you know of an article, blog, or research vignette that does a good job explaning methods for working with nonprofit data, let us know and we will share it.
 
-**Feng, N. C., Ling, Q., Neely, D., & Roberts, A. A. (2014). Using archival data sources to conduct nonprofit accounting research. Journal of Public Budgeting, Accounting & Financial Management.**
+*Feng, N. C., Ling, Q., Neely, D., & Roberts, A. A. (2014). Using archival data sources to conduct nonprofit accounting research. Journal of Public Budgeting, Accounting & Financial Management.*
 
 > In an effort to broaden the awareness of the data sources and ensure the quality of nonprofit research, we discuss archival data sources available to nonprofit researchers, data issues, and potential resolutions to those problems. Overall, our paper should raise awareness of data sources in the nonprofit area, increase production, and enhance the quality of nonprofit research.
 
 
-**Lecy, J. D., & Searing, E. A. (2015). Anatomy of the Nonprofit Starvation Cycle An Analysis of Falling Overhead Ratios in the Nonprofit Sector. Nonprofit and Voluntary Sector Quarterly, 44(3), 539-563.**
+*Lecy, J. D., & Searing, E. A. (2015). Anatomy of the Nonprofit Starvation Cycle An Analysis of Falling Overhead Ratios in the Nonprofit Sector. Nonprofit and Voluntary Sector Quarterly, 44(3), 539-563.*
 
 The appendix contains a table that demonstrates how to calculate overhead expenses using NCCS Core, Digitized, and SOI files including references to lines on the respective 990 forms where the variables are derived. [ LINK() ]
 
 
-**Lecy, J., & Thornton, J. (2015). What Big Data Can Tell Us About Government Awards to the Nonprofit Sector Using the FAADS. Nonprofit and Voluntary Sector Quarterly.**
+*Lecy, J., & Thornton, J. (2015). What Big Data Can Tell Us About Government Awards to the Nonprofit Sector Using the FAADS. Nonprofit and Voluntary Sector Quarterly.*
 
 The authors share a script for merging federal contracting data with IRS 990 data using names and addresses of organizations in the absence of a unique key shared by both databases (usually the EIN). It can be accessed [HERE](https://github.com/lecy/FAADS-NCCS-Crosswalk/blob/master/README.md). 
 
