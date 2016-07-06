@@ -132,7 +132,6 @@ data.ef[ data.ef$EIN == "830229733" , ]  # submitted two filings in 2013
 saveRDS( data.ef, file="ElectronicFilers.csv" )
 
 
-
 # AS CSV
 
 write.csv( data.ef, file="ElectronicFilers.csv", row.names=F )
@@ -144,12 +143,10 @@ library( foreign )
 write.dta( data.ef, file="ElectronicFilers.dta" )
 
 
-
 # IN SPSS
 
 library( foreign )
 write.foreign( data.ef, file="ElectronicFilers.dta", package="SPSS" )
-
 
 ```
 
