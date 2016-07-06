@@ -1,0 +1,93 @@
+# 990-N Postcard Filers
+
+Info including data dictionary can be found at: https://apps.irs.gov/app/eos/forwardToEpostDownload.do
+
+
+Internal Revenue Service United States Department of the Treasury
+Form 990-N (e-Postcard) Data Download Layout
+
+The Form 990-N (e-Postcard) filing information will be listed in rows, with each field of data separated by a pipe ('|') symbol. The following table describes the format and order of each field in a row, representing one Form 990-N (e-Postcard) filing.
+
+
+## DATA DICTIONARY
+
+
+Field					| Notes
+----------------------------------------|----------------------------------------------------------
+EIN					| Required
+Tax Year				| Required
+Organization Name			| Required
+Gross Receipts Under $25,000		| Required, 'T' represents True and 'F' represents False.
+Terminated				| Required, 'T' represents True and 'F' represents False.
+Tax Period Begin Date			| Required, Format: MM-DD-YYYY
+Tax Period End Date			| Required, Format: MM-DD-YYYY
+Website URL				| Optional
+Officer Name				| Required
+Officer Address Line 1			| Required
+Officer Address Line 2			| Optional
+Officer Address City			| Required if country is US. Optional if country is not US
+Officer Address Province		| Optional if country is not US. Null if country is US
+Officer Address State			| Required if country is US. Null if country is not US
+Officer Address Postal Code		| Required if country is US. Optional if country is not US
+Officer Address Country			| Required
+Organization Address Line 1		| Required
+Organization Address Line 2		| Optional
+Organization Address City		| Required if country is US. Optional if country is not US
+Organization Address Province		| Optional if country is not US. Null if country is US
+Organization Address State		| Required if country is US. Null if country is not US
+Organization Address Postal Code	| Required if country is US. Optional if country is not US
+Organization Address Country		| Required
+Doing Business As Name 1		| Optional
+Doing Business As Name 2		| Optional
+Doing Business As Name 3		| Optional
+
+
+
+
+## BUILD THE DATASET
+
+
+```R 
+
+# download and unzip
+
+file.url <- "https://apps.irs.gov/pub/epostcard/data-download-epostcard.zip"
+
+download.file( file=file.url, "epostcard.zip" )
+
+unzip( "epostcard.zip" )
+
+file.remove( "epostcard.zip" )
+
+dir()
+
+
+
+# add header information - variable names
+
+```
+
+
+## EXPORT THE DATASET
+
+```R
+
+# AS CSV
+
+write.csv( data.ef, "ElectronicFilers.csv", row.names=F )
+
+
+# IN STATA
+
+install.packages( "foreign" )
+library( foreign )
+write.dta( data.ef, "ElectronicFilers.dta" )
+
+
+# IN SPSS
+
+install.packages( "foreign" )
+library( foreign )
+write.dta( data.ef, "ElectronicFilers.dta" )
+
+```
