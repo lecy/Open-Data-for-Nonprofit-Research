@@ -59,6 +59,10 @@ Example Forms:
 
 A History of the Tax Exempt Sector: An SOI Perspective [ [LINK](https://www.irs.gov/pub/irs-soi/tehistory.pdf) ]
 
+A Guided Tour of the 990 Form by GuideStar [ [LINK](https://www.guidestar.org/ViewCmsFile.aspx?ContentID=4208) ]
+
+Revised Form 990: The Evolution of Governance and the Nonprofit World [ [LINK](http://www.thetaxadviser.com/issues/2009/aug/revisedform990theevolutionofgovernanceandthenonprofitworld.html) ]
+
 Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#History) ]
 
 > Form 990 was first used for the tax year ending in 1941. It was as a two-page form. Organizations were also required to include a schedule with the names and addresses of payees who had given the organization at least $4,000 during the year.
@@ -69,10 +73,6 @@ Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#Hi
 
 > In June 2007, the IRS released a new Form 990 that requires significant disclosures on corporate governance and boards of directors. These new disclosures are required for all nonprofit filers for the 2009 tax year, with more significant reporting requirements for nonprofits with over $1 million in revenues or $2.5 million in assets.
 
-A Guided Tour of the 990 Form by GuideStar [ [LINK](https://www.guidestar.org/ViewCmsFile.aspx?ContentID=4208) ]
-
-Revised Form 990: The Evolution of Governance and the Nonprofit World [ [LINK](http://www.thetaxadviser.com/issues/2009/aug/revisedform990theevolutionofgovernanceandthenonprofitworld.html) ]
-
 
 
 ## Additional Resources of Note
@@ -80,5 +80,4 @@ Revised Form 990: The Evolution of Governance and the Nonprofit World [ [LINK](h
 * Foundation Center API
 * Guidestar API
 * Religious Congregation Data
-* 
-http://www.opensecrets.org/dark-money/explore-our-reports.php
+* http://www.opensecrets.org/dark-money/explore-our-reports.php
