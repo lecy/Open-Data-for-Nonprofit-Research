@@ -41,12 +41,6 @@ If you know of an article, blog, or research vignette that does a good job expla
 
 > In an effort to broaden the awareness of the data sources and ensure the quality of nonprofit research, we discuss archival data sources available to nonprofit researchers, data issues, and potential resolutions to those problems. Overall, our paper should raise awareness of data sources in the nonprofit area, increase production, and enhance the quality of nonprofit research.
 
-
-*Lecy, J. D., & Searing, E. A. (2015). Anatomy of the Nonprofit Starvation Cycle An Analysis of Falling Overhead Ratios in the Nonprofit Sector. Nonprofit and Voluntary Sector Quarterly, 44(3), 539-563.*
-
-The appendix contains a table that demonstrates how to calculate overhead expenses using NCCS Core, Digitized, and SOI files including references to lines on the respective 990 forms where the variables are derived. [ LINK() ]
-
-
 *Lecy, J., & Thornton, J. (2015). What Big Data Can Tell Us About Government Awards to the Nonprofit Sector Using the FAADS. Nonprofit and Voluntary Sector Quarterly.*
 
 The authors share a script for merging federal contracting data with IRS 990 data using names and addresses of organizations in the absence of a unique key shared by both databases (usually the EIN). It can be accessed [HERE](https://github.com/lecy/FAADS-NCCS-Crosswalk/blob/master/README.md). 
@@ -55,6 +49,13 @@ The authors share a script for merging federal contracting data with IRS 990 dat
 
 
 ## Useful Information About 990 Data
+
+Example Forms:
+
+* [990](./Resources/Form 990-PC 2015.pdf)
+* [990-EZ](./Resources/Form 990-EZ 2015.pdf)
+* [990-PF]((./Resources/Form 990-PF 2015.pdf))
+* [990-N Postcard](./Resources/Information Needed to File e-Postcard)
 
 A History of the Tax Exempt Sector: An SOI Perspective [ [LINK](https://www.irs.gov/pub/irs-soi/tehistory.pdf) ]
 
