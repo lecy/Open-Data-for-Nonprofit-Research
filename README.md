@@ -1,8 +1,6 @@
 # Open Data for Nonprofit Research
 
-This project has been created in response to recent efforts to make data on the nonprofit sector open for research and analysis in order to make the sector more transparent and research more dynamic. 
-
-As a result of a concernted effort by advocates the IRS has made 990 tax data on public charities and foundations available in free, machine-readable formats. For some background on these campaigns, see these articles and blogs:
+This project has been created to make data on the nonprofit sector open and easily accessible. Concernted efforts have been waged by advocates to make IRS 990 tax data on public charities and foundations available in free, machine-readable formats. Data on electronic filers was available starting in June of 2016. For some background on these campaigns, see these articles and blogs:
 
 * [Liberating 990 Data](http://ssir.org/articles/entry/liberating_990_data): Stanford Social Innovation Review
 * [The Nonprofit Data Project Blog](https://www.aspeninstitute.org/programs/program-on-philanthropy-and-social-innovation-psi/nonprofit-data-project-updates/): The Aspen Institute
@@ -20,6 +18,38 @@ Tools are currently available for the following resources:
 
 
 ## Research Tools
+
+Nonprofit data can be difficult to use because of messy data, multiple filing options, and changes to the 990 forms over time. 
+
+Since there is a large community of researchers using 990 data, many issues have already been identified and addressed through scripts to clean, code, merge, or reconcile data. We are encouraging people to submit their solutions in order to develop collective resources and encourage convergence in how variables like overhead and financial ratios are defined and calculated. 
+
+Please send your work if it represents solutions to problems that fall under the following categories: 
+
+* Cleaning 990 Data
+* Reconciling Data Fields Over Time
+* Merging 990 Data with Other Sources
+* Geocoding Nonprofits
+
+For instructions on submitting a solution, email Jesse Lecy: jdlecy@syr.edu
+
+
+## Research Library
+
+If you know of an article, blog, or research vignette that does a good job explaning methods for working with nonprofit data, let us know and we will share it.
+
+**Feng, N. C., Ling, Q., Neely, D., & Roberts, A. A. (2014). Using archival data sources to conduct nonprofit accounting research. Journal of Public Budgeting, Accounting & Financial Management.**
+
+> In an effort to broaden the awareness of the data sources and ensure the quality of nonprofit research, we discuss archival data sources available to nonprofit researchers, data issues, and potential resolutions to those problems. Overall, our paper should raise awareness of data sources in the nonprofit area, increase production, and enhance the quality of nonprofit research.
+
+
+**Lecy, J. D., & Searing, E. A. (2015). Anatomy of the Nonprofit Starvation Cycle An Analysis of Falling Overhead Ratios in the Nonprofit Sector. Nonprofit and Voluntary Sector Quarterly, 44(3), 539-563.**
+
+The appendix contains a table that demonstrates how to calculate overhead expenses using NCCS Core, Digitized, and SOI files including references to lines on the respective 990 forms where the variables are derived. [ LINK() ]
+
+
+**Lecy, J., & Thornton, J. (2015). What Big Data Can Tell Us About Government Awards to the Nonprofit Sector Using the FAADS. Nonprofit and Voluntary Sector Quarterly.**
+
+The authors share a script for merging federal contracting data with IRS 990 data using names and addresses of organizations in the absence of a unique key shared by both databases (usually the EIN). It can be accessed [HERE](https://github.com/lecy/FAADS-NCCS-Crosswalk/blob/master/README.md). 
 
 
 
@@ -49,4 +79,5 @@ Revised Form 990: The Evolution of Governance and the Nonprofit World [ [LINK](h
 * Foundation Center API
 * Guidestar API
 * Religious Congregation Data
+* 
 http://www.opensecrets.org/dark-money/explore-our-reports.php
