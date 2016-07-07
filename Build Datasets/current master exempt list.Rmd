@@ -11,14 +11,14 @@ Format: Pipe-Delimited ASCII Text
 
 ## Data Dictionary
 
-Field       |           Notes
-------------|------------------------------
-EIN      |  Unique Employee Identification Number for each nonprofit 
-Legal Name  |  Name of nonprofit (optional) 
-City        |  Location of nonprofit (optional) 
-State       |  Location of nonprofit (optional) 
+Variable | Notes
+-----------------
+EIN      | Unique Employee Identification Number for each nonprofit
+Legal Name  |  Name of nonprofit (optional)
+City        |  Location of nonprofit (optional)
+State       |  Location of nonprofit (optional)
 Country      |  If the country is null, it is assumed to be the United States
-Deductibility Status  |  Optional
+Deductibility Status  | PC, PF, EO, ...  (optional)
 
 
 
@@ -61,7 +61,7 @@ dat.exempt <- read.delim( file="data-download-pub78.txt",
 
 # add header information - variable names
 
-var.names <- c("EIN", "Legal.Name",  "City", "State", "ZIP.Code", 
+var.names <- c("EIN", "Legal.Name",  "City", "State", 
                "Country", "Deductibility.Status")
 
 
