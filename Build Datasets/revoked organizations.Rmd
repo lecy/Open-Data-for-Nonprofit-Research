@@ -82,7 +82,7 @@ rm( var.names )
 
 # change Tax.Year from YYYY-MM to YYYY
 
-dat.revoked$FileYear < substr( dat.revoked$Tax.Year, 1, 4 )
+dat.revoked$Year <- substr( dat.revoked$Revocation.Date, 8, 11 )
 
 ```
 
