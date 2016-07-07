@@ -43,16 +43,16 @@ setwd( "./IRS Nonprofit Data" )
 
 ### DOWNLOAD FILES AND UNZIP
 
-electronic.json <- "https://s3.amazonaws.com/irs-form-990/index.json.gz"
+electronic.filers <- "https://s3.amazonaws.com/irs-form-990/index.json.gz"
 
-download.file( electronic.json, "electronic filers.gz" )
+download.file( url=electronic.filers, "electronic.json.gz" )
 
-gunzip("electronic filers.gz", remove=TRUE )  
+gunzip("electronic.json.gz", remove=TRUE )  
 
 
 # CREATE A DATA FRAME OF ELECTRONIC FILERS FROM IRS JSON FILES
 
-data.ef <- fromJSON( txt="990index-fixed.json" )[[1]]
+data.ef <- fromJSON( txt="electronic.json" )[[1]]
 
 nrow( data.ef )
 
