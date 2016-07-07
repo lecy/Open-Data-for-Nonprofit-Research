@@ -34,9 +34,11 @@ library( R.utils )
 
 ### CREATE A DIRECTORY FOR YOUR DATA
 
+getwd()
+
 dir.create( "IRS Nonprofit Data" )
 
-setwd( "/IRS Nonprofit Data" )
+setwd( "./IRS Nonprofit Data" )
 
 
 ### DOWNLOAD FILES AND UNZIP
