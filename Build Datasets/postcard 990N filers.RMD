@@ -118,8 +118,9 @@ write.csv( dat.990n, "PostcardFilers.csv", row.names=F )
 
 # IN STATA
 
-library( foreign )
-write.dta( dat.990n, "PostcardFilers.dta" )
+install.packages( "haven" )
+library( haven )
+write_dta( dat.990n, "PostcardFilers.dta" )
 
 
 # IN SPSS  - creates a text file and a script for reading it into SPSS
