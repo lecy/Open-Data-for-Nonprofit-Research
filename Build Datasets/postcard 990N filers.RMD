@@ -12,9 +12,9 @@ The Form 990-N (e-Postcard) filing information will be listed in rows, with each
 ## DATA DICTIONARY
 
 
-Field					| Notes
+Field				| Notes
 ----------------------------------------|----------------------------------------------------------
-EIN					| Required
+EIN				| Required
 Tax Year				| Required
 Organization Name			| Required
 Gross Receipts Under $25,000		| Required, 'T' represents True and 'F' represents False.
@@ -22,7 +22,7 @@ Terminated				| Required, 'T' represents True and 'F' represents False.
 Tax Period Begin Date			| Required, Format: MM-DD-YYYY
 Tax Period End Date			| Required, Format: MM-DD-YYYY
 Website URL				| Optional
-Officer Name				| Required
+Officer Name			| Required
 Officer Address Line 1			| Required
 Officer Address Line 2			| Optional
 Officer Address City			| Required if country is US. Optional if country is not US
@@ -35,7 +35,7 @@ Organization Address Line 2		| Optional
 Organization Address City		| Required if country is US. Optional if country is not US
 Organization Address Province		| Optional if country is not US. Null if country is US
 Organization Address State		| Required if country is US. Null if country is not US
-Organization Address Postal Code	| Required if country is US. Optional if country is not US
+Organization Address Postal Code	            | Required if country is US. Optional if country is not US
 Organization Address Country		| Required
 Doing Business As Name 1		| Optional
 Doing Business As Name 2		| Optional
@@ -108,7 +108,7 @@ dat.990n$FileYear < substr( dat.990n$Tax.Year, 1, 4 )
 
 # AS R DATA SET
 
-saveRDS( data.ef, file="ElectronicFilers.csv" )
+saveRDS( data.ef, file="ElectronicFilers.rds" )
 
 
 # AS CSV
@@ -122,11 +122,10 @@ library( foreign )
 write.dta( dat.990n, "PostcardFilers.dta" )
 
 
-# IN SPSS
+# IN SPSS  - creates a text file and a script for reading it into SPSS
 
 library( foreign )
-write.foreign( dat.990n, "PostcardFilers.sav", package="SPSS" )
-
+write.foreign( df=dat.990n, datafile="PostcardFilers.txt", codefile="CodeToLoadDataInSPSS.txt", package="SPSS" )
 
 # if package 'foreign' is not installed first try:  install.packages("foreign")
 
