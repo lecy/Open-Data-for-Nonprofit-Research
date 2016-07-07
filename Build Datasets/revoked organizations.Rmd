@@ -15,8 +15,8 @@ The Automatic Revocation information will be listed in rows, with each field of 
 ## DATA DICTIONARY
 
 Field	  | Notes
---------|------------------------------------------------
-EIN	        | Required; Format: NNNNNNNNN
+--------|------------------------------------------------------
+EIN	        | Required; Employer Identification Number
 Legal Name	| Optional
 Doing Business As Name | 	Optional
 Organization Address	 | Optional
@@ -24,7 +24,7 @@ City	| Optional
 State | 	Optional
 ZIP Code  |	Optional
 Country	  | Required; Format: 2 Letter Country Code
-Exemption Type	| Optional
+Exemption Type	| Optional; 501(c) status, FE (c)(3), (c)(4)
 Revocation Date  |	Required; Format: DD-MON-YYYY
 Revocation Posting Date	  | Required; Format: DD-MON-YYYY
 Exemption Reinstatement Date  |  	Optional; Format: DD-MON-YYYY
