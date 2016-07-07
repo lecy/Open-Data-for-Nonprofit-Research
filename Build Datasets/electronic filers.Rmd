@@ -99,8 +99,6 @@ nrow( data.ef )
 
 ```R
 
-summary( data.ef )
-
 length( unique( data.ef$EIN ) )  # number of unique orgs
 
 table( table( data.ef$EIN, useNA="ifany" ) )  # available panel spells
