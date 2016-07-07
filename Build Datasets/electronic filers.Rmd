@@ -143,10 +143,9 @@ library( foreign )
 write.dta( data.ef, file="ElectronicFilers.dta" )
 
 
-# IN SPSS
+# IN SPSS - creates a text file and a script for reading it into SPSS
 
 library( foreign )
-write.foreign( data.ef, file="ElectronicFilers.sav", package="SPSS" )
+write.foreign( df=data.ef, datafile="ElectronicFilers.txt", codefile="CodeToLoadDataInSPSS.txt", package="SPSS" )
 
 ```
-
