@@ -22,7 +22,7 @@ Tools are currently available for the following resources:
 
 Nonprofit data can be difficult to use because of messy data, multiple filing options, and changes to the 990 forms over time. 
 
-Since there is a large community of researchers using 990 data, many issues have already been identified and addressed through scripts to clean, code, merge, or reconcile data. We are encouraging people to submit their solutions in order to develop collective resources and encourage convergence in how variables like overhead and financial ratios are defined and calculated. 
+Since there is a large community of researchers using 990 data, many issues have already been identified and addressed through scripts to clean, re-code, merge, or reconcile data. We are encouraging people to submit their solutions in order to develop collective resources and encourage convergence in how variables like overhead and financial ratios are defined and calculated. 
 
 Please send your work if it represents solutions to problems that fall under the following categories: 
 
