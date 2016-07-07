@@ -41,6 +41,8 @@ Exemption Reinstatement Date  |  	Optional; Format: DD-MON-YYYY
 
 # create subdirectory for the data
 
+getwd()
+
 dir.create( "IRS Nonprofit Data" )
 
 setwd( "./IRS Nonprofit Data" )
