@@ -1,4 +1,4 @@
-# CURRENT MASTER EXEMPT ORGANIZATIONS LIST
+# CURRENT EXEMPT ORGANIZATIONS LIST
 
 From the IRS Website: https://apps.irs.gov/app/eos/forwardToPub78Download.do
 
@@ -20,7 +20,7 @@ State       |  Location of nonprofit (optional)
 Country      |  If the country is null, it is assumed to be the United States
 Deductibility Status  | PC, PF, EO, ...  (optional)
 
-
+*Note that this dataset is current, not cumulative, meaning it lists only entities with current 501c3 status*.
 
 
 
