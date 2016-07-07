@@ -52,6 +52,8 @@ Doing Business As Name 3		| Optional
 
 # create subdirectory for the data
 
+getwd()
+
 dir.create( "IRS Nonprofit Data" )
 
 setwd( "./IRS Nonprofit Data" )
