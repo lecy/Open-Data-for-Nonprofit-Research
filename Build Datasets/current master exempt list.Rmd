@@ -11,14 +11,14 @@ Format: Pipe-Delimited ASCII Text
 
 ## Data Dictionary
 
-Variable | Notes
------------------
-EIN      | Unique Employee Identification Number for each nonprofit
-Legal Name  |  Name of nonprofit (optional)
-City        |  Location of nonprofit (optional)
-State       |  Location of nonprofit (optional)
+Field       |           Notes
+------------|------------------------------
+EIN      |  Unique Employee Identification Number for each nonprofit 
+Legal Name  |  Name of nonprofit (optional) 
+City        |  Location of nonprofit (optional) 
+State       |  Location of nonprofit (optional) 
 Country      |  If the country is null, it is assumed to be the United States
-Deductibility Status  | Optional
+Deductibility Status  |  Optional
 
 
 
