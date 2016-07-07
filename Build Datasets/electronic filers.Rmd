@@ -23,7 +23,7 @@ All of the data is publicly accessible via the S3 bucket's HTTPS endpoint at htt
 # INSTALL REQUIRED PACKAGES
 
 install.packages( "jsonlite" )
-install.package( "R.utils" )
+install.packages( "R.utils" )
 
 
 # LOAD REQUIRED PACKAGES
