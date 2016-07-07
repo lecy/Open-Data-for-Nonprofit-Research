@@ -103,8 +103,9 @@ write.csv( dat.revoked, "RevokedOrganizations.csv", row.names=F )
 
 # IN STATA
 
-library( foreign )
-write.dta( dat.revoked, "RevokedOrganizations.dta" )
+install.packages( "haven" )
+library( haven )
+write_dta( dat.revoked, "RevokedOrganizations.dta" )
 
 
 # IN SPSS  - creates a text file and a script for reading it into SPSS
