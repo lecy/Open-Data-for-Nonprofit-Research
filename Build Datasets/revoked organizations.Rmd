@@ -86,6 +86,17 @@ rm( var.names )
 
 dat.revoked$Year <- substr( dat.revoked$Revocation.Date, 8, 11 )
 
+
+# Note the types of exempt orgs (501c3, 501c4, etc.) are being revoked:
+
+table( dat.revoked$Exemption.Type )
+
+# New automatic revocation policy took effect in 2010 - note the purge
+
+barplot( table( dat.revoked$Year ), col="gray", border="white" )
+
+
+
 ```
 
 
