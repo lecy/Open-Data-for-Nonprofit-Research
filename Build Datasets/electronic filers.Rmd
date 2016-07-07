@@ -109,7 +109,7 @@ table( table( data.ef$EIN, useNA="ifany" ) )  # available panel spells
 
 table.ein <- table( data.ef$EIN, useNA="ifany" )
 
-table.ein[ table.ein > 6 , ]
+table.ein[ table.ein > 6 ]
 
 data.ef[ data.ef$EIN == "830229733" , ]  # submitted two filings in 2013 
 
@@ -129,7 +129,7 @@ data.ef[ data.ef$EIN == "830229733" , ]  # submitted two filings in 2013
 
 # AS R DATA SET
 
-saveRDS( data.ef, file="ElectronicFilers.csv" )
+saveRDS( data.ef, file="ElectronicFilers.rds" )
 
 
 # AS CSV
