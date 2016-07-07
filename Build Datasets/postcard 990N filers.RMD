@@ -108,7 +108,7 @@ dat.990n$FileYear < substr( dat.990n$Tax.Year, 1, 4 )
 
 # AS R DATA SET
 
-saveRDS( data.ef, file="ElectronicFilers.rds" )
+saveRDS( dat.990n, file="PostcardFilers.rds" )
 
 
 # AS CSV
