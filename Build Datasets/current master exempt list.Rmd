@@ -75,6 +75,7 @@ rm( var.names )
 
 ## EXPORT THE DATASET
 
+
 ```R
 
 # AS R DATA SET
@@ -89,9 +90,9 @@ write.csv( dat.exempt, "ExemptOrganizations.csv", row.names=F )
 
 # IN STATA
 
-library( foreign )
-write.dta( dat.exempt, "ExemptOrganizations.dta" )
-
+install.packages( "haven" )
+library( haven )
+write_dta( dat.exempt, "ExemptOrganizations.dta" )
 
 # IN SPSS  - creates a text file and a script for reading it into SPSS
 
