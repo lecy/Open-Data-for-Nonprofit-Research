@@ -139,8 +139,9 @@ write.csv( data.ef, file="ElectronicFilers.csv", row.names=F )
 
 # IN STATA
 
-library( foreign )
-write.dta( data.ef, file="ElectronicFilers.dta" )
+install.packages( "haven" )
+library( haven )
+write_dta( data.ef, file="ElectronicFilers.dta" )
 
 
 # IN SPSS - creates a text file and a script for reading it into SPSS
