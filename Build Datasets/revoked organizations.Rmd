@@ -57,7 +57,7 @@ unzip( "revoked.zip" )
 
 file.remove( "revoked.zip" )
 
-dat.revoked <- read.delim( file="./Data/data-download-revocation.txt", 
+dat.revoked <- read.delim( file="data-download-revocation.txt", 
             header = FALSE, 
             sep = "|", 
             quote = "",
@@ -98,7 +98,7 @@ saveRDS( dat.revoked, file="RevokedOrganizations.rds" )
 
 # AS CSV
 
-write.csv( dat.revoked, "RevokedOrganizations", row.names=F )
+write.csv( dat.revoked, "RevokedOrganizations.csv", row.names=F )
 
 
 # IN STATA
