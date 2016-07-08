@@ -5,12 +5,17 @@ Information about this data can be found at:  https://aws.amazon.com/public-data
 
 **Accessing IRS 990 Filings on AWS**
 
-Each electronic 990 filing is available as a unique XML file in the "irs-form-990" S3 bucket in the US East (N. Virginia) region. Schemas for electronic 990 filings are available on the IRS website. Each filing is named based on the year it was filed and a unique identifier. For example, we can tell that the filing named "201541349349307794_public.xml" was filed in 2015 because the file name starts with "2015." "41349349307794" is the unique identifier of the filing.
-
 An index listing all of the available filings is available at s3://irs-form-990/index.json. This file includes basic information about each filing including the name of the filer, the Employer Identificiation Number (EIN) of the filer, the date of the filing, and the path to download the filing.
 
-All of the data is publicly accessible via the S3 bucket's HTTPS endpoint at https://s3.amazonaws.com/irs-form-990. No authentication is required to download data over HTTPS. For example, the index file can be accessed at https://s3.amazonaws.com/irs-form-990/index.json and the example filing mentioned above can be accessed at https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml.
+All of the data is publicly accessible via the S3 bucket's HTTPS endpoint at https://s3.amazonaws.com/irs-form-990. No authentication is required to download data over HTTPS. For example, the index file can be accessed at https://s3.amazonaws.com/irs-form-990/index.json.
 
+
+## DATA DICTIONARY
+
+
+ [1] "EIN"              "SubmittedOn"      "TaxPeriod"        "DLN"             
+ [5] "LastUpdated"      "FormType"         "ObjectId"         "OrganizationName"
+ [9] "IsElectronic"     "IsAvailable"      "URL"              "FilingYear" 
 
 
 
