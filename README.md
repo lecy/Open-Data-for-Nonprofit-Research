@@ -1,14 +1,19 @@
 # Open Data for Nonprofit Research
 
-This project has been created to make data on the nonprofit sector open and easily accessible. Concernted efforts have been waged by advocates to make IRS 990 tax data on public charities and foundations available in free, machine-readable formats. Data on electronic filers was available starting in June of 2016. For some background on these campaigns, see these articles and blogs:
+Concernted efforts have been waged by advocates to make IRS 990 tax data on public charities and foundations available in free, machine-readable formats. Data on electronic filers was made available by the IRS starting in June of 2016. This project was created to make this data easily accessible to nonprofit scholars. 
 
-* [Liberating 990 Data](http://ssir.org/articles/entry/liberating_990_data): Stanford Social Innovation Review
-* [The Nonprofit Data Project Blog](https://www.aspeninstitute.org/programs/program-on-philanthropy-and-social-innovation-psi/nonprofit-data-project-updates/): The Aspen Institute
-* [IRS Plans to Begin Releasing Electronically Filed Nonprofit Tax Data](https://philanthropy.com/article/IRS-Plans-to-Begin-Releasing/231265): Chronicle of Philanthropy
+The new IRS 990 data repository, hosted at Amazon and [found here](https://aws.amazon.com/public-data-sets/irs-990/), represent significant strides forward in making data open and timely. Unfortunately the data have been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created some scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
 
-These developments represent significant strides forward in making data open and timely. Unfortunately the data have been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created some scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
+## Build IRS Nonprofit Databases
 
-Tools are currently available for the following resources:
+There are several IRS databases available online:
+
+* All current exempt organizations (all orgs granted 501(c)(3) status)
+* Electronic 990, 990-EZ and 990-PF Filers
+* All 990-N Postcard Filers
+* All Organizations with a Revoked 501(c)(*) Status
+
+Scripts are currently available to build each of these here:
 
 * [Build the Database of Electronic Filers (990, 990-EZ, 990-PF) from 2011 to Present](./Build Datasets/electronic filers.Rmd)
 * [Build the Database of All Exempt Organizations](./Build Datasets/current master exempt list.Rmd)
@@ -16,6 +21,29 @@ Tools are currently available for the following resources:
 * [Build the Database of Automatic Revocations of Tax Exempt Status](./Build Datasets/revoked organizations.Rmd)
 
 
+## Working with IRS Open Data
+
+The IRS has released electronically-filed 990 returns as XML files that look like this:
+
+https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml
+
+This format is challenging for scholars that are used to flat spreadsheets. We are creating some guides to working with this data in the R programming language (any community submissions for Stata or Python scripts are welcome). 
+
+* Tutorial on Parsing Data from XML [ [RMD](./Resources/Quick Guide to XML in R.Rmd) ] [ [PDF](./Resources/Quick_Guide_to_XML_in_R.pdf) ]
+
+
+
+## Build a Core Dataset
+
+**Coming soon!**
+
+We are working on some functions to allow digital denizens to build their own research database modeled after the NCCS Core database. The NCCS data dictionary is [available here](http://nccsweb.urban.org/PubApps/dd2.php?close=1&form=Core+2013+PC).
+
+In addition to information currently available in NCCS Core files, we can include additional information that was not previously accessible such as lists of board members and specific Schedules. We need help building out these modules! If you are interested, please contact us.
+
+The main limitation of the IRS open data is that is only includes organizations that have filed electronically. This is approximately 60% of all 990 and 990-EZ filers, and all organizations with revenues above $10 million.
+
+The current IRS data also does not include NTEE codes, so any ideas on how to incorporate these are welcome!
 
 
 ## Research Tools
@@ -36,7 +64,7 @@ For instructions on submitting a solution, email Jesse Lecy: jdlecy@syr.edu
 
 ## Research Library
 
-If you know of an article, blog, or research vignette that does a good job explaning methods for working with nonprofit data, let us know and we will share it.
+If you know of an article, blog, or research vignette that does a good job explaning methods for working with nonprofit data, let us know and we will share it. For example:
 
 *Feng, N. C., Ling, Q., Neely, D., & Roberts, A. A. (2014). Using archival data sources to conduct nonprofit accounting research. Journal of Public Budgeting, Accounting & Financial Management.*
 
@@ -46,6 +74,14 @@ If you know of an article, blog, or research vignette that does a good job expla
 
 The authors share a script for merging federal contracting data with IRS 990 data using names and addresses of organizations in the absence of a unique key shared by both databases (usually the EIN). It can be accessed [HERE](https://github.com/lecy/FAADS-NCCS-Crosswalk/blob/master/README.md). 
 
+
+## Liberating the 990 Data
+
+For some background on the campaigns to open access to IRS data, see these articles and blogs:
+
+* [Liberating 990 Data](http://ssir.org/articles/entry/liberating_990_data): Stanford Social Innovation Review
+* [The Nonprofit Data Project Blog](https://www.aspeninstitute.org/programs/program-on-philanthropy-and-social-innovation-psi/nonprofit-data-project-updates/): The Aspen Institute
+* [IRS Plans to Begin Releasing Electronically Filed Nonprofit Tax Data](https://philanthropy.com/article/IRS-Plans-to-Begin-Releasing/231265): Chronicle of Philanthropy
 
 
 
@@ -76,9 +112,11 @@ Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#Hi
 
 
 
-## Additional Resources of Note
+## Additional Resources of Note 
 
-* Foundation Center API
-* Guidestar API
-* Religious Congregation Data
-* http://www.opensecrets.org/dark-money/explore-our-reports.php
+Can we develop these further to augment the IRS data in interesting ways?
+
+* [Foundation Center API](http://data.foundationcenter.org/about.html)
+* [Guidestar APIs](https://community.guidestar.org/groups/developer)
+* [Religious Congregation Data](http://www.thearda.com/archive/browse.asp)
+* [Dark Money Given to Nonprofits](http://www.opensecrets.org/dark-money/explore-our-reports.php)
