@@ -56,7 +56,7 @@ Please send your work if it represents solutions to problems that fall under the
 
 * Cleaning 990 Data
 * Reconciling Data Fields Over Time
-* Merging 990 Data with Other Sources
+* [Merging 990 Data with Other Sources](https://gist.github.com/lecy/0aa782a873cd174573f32d243233ca5b)
 * Geocoding Nonprofits
 
 For instructions on submitting a solution, email Jesse Lecy: jdlecy@syr.edu
