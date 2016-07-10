@@ -1,0 +1,123 @@
+---
+title: "990 Electronic Filers Overview"
+author: "Jesse Lecy"
+date: "July 8, 2016"
+output: html_document
+---
+
+
+
+
+
+## STRUCTURE OF THE 990
+
+
+
+```
+
+990 RETURN
+
+   HEADER DATA
+   RETURN DATA
+   
+      REVENUES
+      EXPENSES
+      GOVERNANCE
+      
+        BOARD MEMBERS
+      
+      REVENUE CATEGORIES
+      FUNCTIONAL EXPENSES
+      
+      SCHEDULES
+      
+        A
+        B
+        D
+        M
+        O
+        
+END 990 RETURN
+
+
+```
+
+
+
+
+### SCHEDULES
+
+https://www.irs.gov/uac/current-form-990-series-forms-and-instructions
+
+
+
+SCHEDULE    |   INFORMATION REPORTED
+------------|----------------------------------------------------------------
+Schedule A	|   Public Charity Status and Public Support
+Schedule B	| 	Schedule of Contributors (instructions included in schedule)
+Schedule C	| 	Political Campaign and Lobbying Activities
+Schedule D	| 	Supplemental Financial Statements
+Schedule E	| 	Schools (instructions included in schedule)
+Schedule F	| 	Statement of Activities Outside the United States
+Schedule G	| 	Supplemental Information Regarding Fundraising or Gaming Activities
+Schedule H	| 	Hospitals
+Schedule I	| 	Supplemental Information on Grants & Assistance to US Organizations, Governments, and Individuals
+Schedule J	| 	Compensation Information
+Schedule K	| 	Supplemental Information on Tax-Exempt Bonds
+Schedule L	| 	Transactions with Interested Persons
+Schedule M	| 	Non-Cash Contributions (instructions included in schedule)
+Schedule N	| 	Liquidation, Termination, Dissolution, or Significant Disposition of Assets
+Schedule O	| 	Supplemental Information to Form 990 (instructions included in schedule)
+Schedule R	| 	Related Organizations and Unrelated Partnerships
+
+
+
+
+
+
+
+
+
+First things first, XML is a linear alternative to a relational database. It was created 
+
+```
+
+Nonprofit
+EIN
+City
+Revenues
+Expenses
+
+EIN
+Board Member
+Hours Per Week
+Salary
+
+
+```
+
+Nonprofit   |   EIN   |    City    |   Revenues  
+------------|---------|------------|-----------------
+Save the Bears | 1111  |  Chicago  |  $200,000
+Save the Lions  | 2222  |  Detroit  |  $400,000
+
+
+EIN     |     Board Member    |   Hours Per Week  |  Salary
+--------|---------------------|-------------------|----------
+1111    | Joe Shmoe 1         |   2               |  $0
+1111    | Joe Shmoe 2         |   3               |  $1
+1111    | Joe Shmoe 3         |   4               |  $0
+2222    | Jane Doe 1          |   6               |  $10000
+2222    | Jane Doe 2          |   1               |  $0
+2222    | Jane Doe 3          |   4               |  $5
+
+
+
+<contact-info>
+ <name>Tanmay Patil</name>
+ <company>TutorialsPoint</company>
+ <phone>(011) 123-4567</phone>
+</contact-info>
+
+
+
