@@ -1,8 +1,8 @@
 # Open Data for Nonprofit Research
 
-Concernted efforts have been waged by advocates to make IRS 990 tax data on public charities and foundations available in free, machine-readable formats. Data on electronic filers was made available by the IRS starting in June of 2016. This project was created to make this data easily accessible to nonprofit scholars. 
+Nonprofit sector advocates have waged concerted efforts to make IRS 990 tax data on public charities and foundations available in free, machine-readable formats. IRS 990 data from electronic filers was released in June of 2016. This project was created to make this data easily accessible to nonprofit scholars and researchers. 
 
-The new IRS 990 data repository, hosted at Amazon and [found here](https://aws.amazon.com/public-data-sets/irs-990/), represent significant strides forward in making data open and timely. Unfortunately the data have been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created some scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
+The new IRS 990 data repository, hosted at Amazon and [found here](https://aws.amazon.com/public-data-sets/irs-990/), represents a significant stride forward in making data open and timely. Unfortunately the data have been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
 
 ## Build IRS Nonprofit Databases
 
@@ -120,3 +120,8 @@ Can we develop these further to augment the IRS data in interesting ways?
 * [Guidestar APIs](https://community.guidestar.org/groups/developer)
 * [Religious Congregation Data](http://www.thearda.com/archive/browse.asp)
 * [Dark Money Given to Nonprofits](http://www.opensecrets.org/dark-money/explore-our-reports.php)
+
+
+## Contact
+
+If you are interested in submitting resources or getting involved please contact Jesse Lecy (jdlecy@syr.edu) or Nathan Grasse (nathangrasse@cunet.carleton.ca). 
