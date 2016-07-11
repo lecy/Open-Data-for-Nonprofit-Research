@@ -124,4 +124,4 @@ Can we develop these further to augment the IRS data in interesting ways?
 
 ## Contact
 
-If you are interested in submitting resources or getting involved please contact Jesse Lecy (jdlecy@syr.edu) or Nathan Grasse (nathangrasse@cunet.carleton.ca). 
+If you are interested in submitting resources or building tools to support nonprofit scholarship please contact Jesse Lecy (jdlecy@syr.edu) or Nathan Grasse (nathangrasse@cunet.carleton.ca). 
