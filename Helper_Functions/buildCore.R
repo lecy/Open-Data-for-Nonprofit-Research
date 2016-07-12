@@ -40,7 +40,10 @@ buildCore <- function( eins, years, form.type="990", modules="all", index=NULL )
   {
      one.npo <- scrapeXML( these[i], form.type, modules )
      
-     core <- bind_rows( core, one.npo )
+     if( ! is.null(one.npo) )
+     {
+       core <- bind_rows( core, one.npo )
+     }
   }
   
   # need to clean up variable types
