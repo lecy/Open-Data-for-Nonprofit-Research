@@ -46,6 +46,8 @@ scrapeXML <- function( url, form.type, modules )
     }
     
     
+
+    
     # set to null so that you can cbind if the module is not included
     header.df <- NULL
     rev.exp.df <- NULL

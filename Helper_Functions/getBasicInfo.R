@@ -40,10 +40,25 @@ getBasicInfo <- function( doc )
 	TOTUBI <- xml_text( xml_find_all( doc, "/Return/ReturnData/IRS990/TotalGrossUBIAmt" ) ) 
 	NETUBI <- xml_text( xml_find_all( doc, "/Return/ReturnData/IRS990/NetUnrelatedBusTxblIncmAmt" ) ) 
 
-	header.df <- data.frame( EIN, FISYR, NAME, STATE, ADDRESS, CITY, ZIP, STYEAR, TAXPER, TAXPREP, FORM,
-	                         GROSSRECEIPTS, GROUPRETURN, TAXEXMSTATUS, TYPEOFORG, FORMYEAR, DOMICILE, WEBSITE,  
-	                         VOTINGMEMBERS, INDVOTINGMEMBERS, TOTEMPLOYEE, TOTVOLUNTEERS, TOTUBI, NETUBI  )
 
+        namedList <- function(x){
+	    names <- as.list(substitute(list(x)))[-1L]
+	    result <- list(x)
+	    names(result) <- names
+	    x[ sapply( x, is.null) ] <- NA
+	    result
+	}
+	
+
+	
+        
+        
+	header.list <- namedList( EIN, FISYR, NAME, STATE, ADDRESS, CITY, ZIP, STYEAR, TAXPER, TAXPREP, FORM,
+	                          GROSSRECEIPTS, GROUPRETURN, TAXEXMSTATUS, TYPEOFORG, FORMYEAR, DOMICILE, WEBSITE,  
+	                          VOTINGMEMBERS, INDVOTINGMEMBERS, TOTEMPLOYEE, TOTVOLUNTEERS, TOTUBI, NETUBI  )
+
+        header.df <- as.data.frame( header.list )
+        
         return( header.df )
 
 

@@ -23,6 +23,15 @@ buildCore <- function( eins, years, form.type="990", modules="all", index=NULL )
   
   these <- index[ index$EIN %in% eins & index$FilingYear %in% years & index$FormType %in% form.type , "URL" ]
   
+  # NEED THIS TO BUILD CONSISTENT DATA.FRAMES WHEN VARIABLES ARE NOT PRESENT
+  # http://stackoverflow.com/questions/16951080/can-list-objects-be-created-in-r-that-name-themselves-based-on-input-object-name
+  namedList <- function(x) {
+  	            names <- as.list(substitute(list(x)))[-1L]
+  	            result <- list(x)
+  	            names(result) <- names
+  	            x[ sapply( x, is.null) ] <- NA
+  	            result   }
+  
   core <- NULL
   
   for( i in 1:length(these) )
