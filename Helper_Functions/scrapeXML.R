@@ -22,7 +22,7 @@ scrapeXML <- function( url, form.type, modules )
     
     # url <- "https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml"
     doc <- read_xml( url )
-    xml_ns_strip( dat )
+    xml_ns_strip( doc )
     
     
     # check to ensure it is the proper form type
