@@ -1,0 +1,1077 @@
+
+
+
+Close Window
+Core 2013 PC
+Number of variables	148
+Number of records	382,401
+Field Name
+Field Type	Description and Values
+
+Basic Info
+
+EIN
+Character
+(9)	Employer Identification Number
+Employer identification number.
+
+NCCSKEY
+Character
+(20)	Unique key: ein + return date
+Unique key: ein + return date
+
+FisYr
+Character
+(4)	Fiscal year
+Fiscal year (ending year)
+
+NAME
+Character
+(60)	Name of organization
+Organization name.
+
+STATE
+Character
+(2)	State
+Two-letter state abbreviation.
+
+NTEE1
+Character
+(2)	NTEE major group
+NTEE major group (A-Z)
+Unknown
+A	Arts, Culture, and Humanities
+B	Education
+C	Environmental Quality, Protection, and Beautification
+D	Animal-Related
+E	Health
+F	Mental Health, Crisis Intervention
+G	Diseases, Disorders, Medical Disciplines
+H	Medical Research
+I	Crime, Legal Related
+J	Employment, Job Related
+K	Food, Agriculture, and Nutrition
+L	Housing, Shelter
+M	Public Safety
+N	Recreation, Sports, Leisure, Athletics
+O	Youth Development
+P	Human Services - Multipurpose and Other
+Q	International, Foreign Affairs, and National Security
+R	Civil Rights, Social Action, Advocacy
+S	Community Improvement, Capacity Building
+T	Philanthropy, Voluntarism, and Grantmaking Foundations
+U	Science and Technology Research Institutes, Services
+V	Social Science Research Institutes, Services
+W	Public, Society Benefit - Multipurpose and Other
+X	Religion Related, Spiritual Development
+Y	Mutual/Membership Benefit Organizations, Other
+Z	Unknown
+
+NTEECC
+Character
+(4)	NTEECC primary purpose
+NTEECC classification
+
+ADDRESS
+Character
+(70)	Address
+Address
+
+CITY
+Character
+(22)	City
+City
+
+ZIP
+Character
+(10)	Zip code + 4
+ZIP code.
+
+zip5
+Character
+(5)	Zip code, 5 digits
+First 5 digits of zip code
+
+FIPS
+Character
+(5)	State + County FIPS code
+2-digit State + 3-digit County FIPS code (Federal Information Processing Standard). See also U.S. Census Bureau State & County QuickFacts.
+
+MSA_NECH
+Character
+(4)	Metropolitan Statistical Area
+Metropolitan Statistical Area (NCCS file) (list)
+PMSA
+Character
+(4)	Primary MSA
+Primary Metropolitan Statistical Area - the component areas that comprise a CMSA (76 PMSAs as of 1995). (list)
+styear
+Character
+(4)	Starting Year
+Starting year (yyyy when fiscal year began, which is also the tax form year)
+TAXPER
+Character
+(20)	Ending date for tax period
+Ending date for tax period of financial data. Core files for 1997 on are in "yyyymm" format (199412=Dec. 1994). Earlier years use 2-digit year ("9412").
+outnccs
+Character
+(3)	Out of Scope flag
+Out-of-scope (IN/OUT) (see OUTREAS doc. for details)
+OUTREAS
+Character
+(3)	Reason why out of scope
+Reason why out of scope
+No value
+4	4- Not a 501(c)(3)
+F	F- Foreign organization
+G	G- Government Entity
+I	I- Coded out of scope by Independent Sector
+N	N- Coded out of scope by NCCS (e.g. foreign address on Form 990)
+S	S- Missing geographic information
+T	T- U.S. Territory or armed forces overseas
+Classification
+SUBSECCD
+Character
+(3)	Subsection code
+IRS subsection code (03=501(c)(3), etc.)
+01	01- Corporations originated under Act of Congress, including Federal Credit Unions
+02	02- Title holding corporation for a tax-exempt organization.
+03	03- Religious, educational, charitable, scientific, and literary organizations...
+04	04- Civic leagues, social welfare organizations, and local associations of employees
+05	05- Labor, agricultural, horticultural organizations. These are eduactional or instruct. grps...
+06	06- Business leagues, chambers of commerce, real estate boards, etc. formed to improve conditions...
+07	07- Social and recreational clubs which provide pleasure, recreation, and social activities.
+08	08- Fraternal beneficiary societies and associations, with lodges providing for payment of life...
+09	09- Voluntary employees' beneficiary ass'ns (including fed. employees' voluntary beneficiary...
+10	10- Domestic fraternal societies and assoc's-lodges devoting their net earnings to charitable...
+11	11- Teachers retirement fund associations.
+12	12- Benevolent life insurance associations, mutual ditch or irrigation companies, mutual or coop...
+13	13- Cemetery companies, providing burial and incidental activities for members.
+14	14- State-chartered credit unions, mutual reserve funds, offering loans to members...
+15	15- Mutual insurance cos. ar associations, providing insurance to members substantially at cost...
+16	16- Cooperative organizations to finance crop operations, in conjunction with activities ...
+17	17- Supplemental unemployment benefit trusts, providing payments of suppl. unemployment comp...
+18	18- Employee funded pension trusts, providing benefits under a pension plan funded by employees...
+19	19- Post or organization of war veterans.
+20	20- Trusts for prepaid group legal services, as part of a qual. group legal service plan or plans.
+21	21- Black lung trusts, satisfying claims for compensation under Black Lung Acts.
+22	22- Multiemployer Pension Plan
+23	23- Veterans association formed prior to 1880
+24	24-Trust described in Section 4049 of ERISA
+25	25- Title Holding Company for Pensions, etc
+26	26- State-Sponsored High Risk Health Insurance Organizations
+27	27- State-Sponsored Workers Compensation Reinsurance
+40	40- Apostolic and religious orgs. - 501(d)
+50	50- Cooperative Hospital Service Organization - 501(e)
+60	60- Cooperative Service Org. of Operating Educ. Org.- 501(f)
+70	70- Child Care Organization - 501(k)
+71	71- Charitable Risk Pool
+80	80- Farmers' Cooperatives
+81	81- Qualified State-Sponsored Tuition Program
+82	82- 527 Political Organizations
+90	90- 4947(a)(2) Split Interest Trust
+91	91- 4947(a)(1) Public Charity (Files 990/990-EZ)
+92	92- 4947(a)(1) Private Foundations
+93	93- 1381(a)(2) Taxable Farmers Cooperative
+CO	CO- Unspecified 501(c) Organization Other Than 501(c)(3)
+ntmaj5
+Character
+(3)	Major subsector
+Major subsector (5)
+AR	Arts, culture, and humanities
+ED	Education
+HE	Health
+HU	Human services
+OT	Other
+ntmaj10
+Character
+(3)	NTEE major group (10)
+10 NTEE major groups
+AR	Arts, culture, and humanities
+ED	Education
+EN	Environment
+HE	Health
+HU	Human services
+IN	International
+MU	Mutual benefit
+PU	Public and societal benefit
+RE	Religion
+UN	Unknown
+ntmaj12
+Character
+(3)	NTEE major group (12)
+12 NTEE major groups: ntmaj10 plus higher education (BH) and hospitals (EH)
+AR	Arts, culture, and humanities
+BH	Education, higher
+ED	Education
+EH	Hospitals
+EN	Environment
+HE	Health
+HU	Human services
+IN	International
+MU	Mutual benefit
+PU	Public and societal benefit
+RE	Religion
+UN	Unknown
+MAJGRPB
+Character
+(3)	Major NTEE group
+Major NTEE group plus hospitals and higher education
+A	A-Arts, Culture & Humanities
+B	B-Education
+BH	BH-Higher educ.
+C	C-Environment
+D	D-Animal Related
+E	E-Health - General
+EH	EH-Hospitals
+F	F-Mental Health
+G	G-Health - Disease Specific (general)
+H	H-Health - Disease Specific (research)
+I	I-Crime, Legal Related
+J	J-Employment, Job Related
+K	K-Food, Agriculture, Nutrition
+L	L-Housing, Shelter
+M	M-Public Safety, Disaster Preparedness
+N	N-Recreation and Sports
+O	O-Youth Development
+P	P-Human Services, Multipurpose and Other
+Q	Q-International, Foreign Affairs
+R	R-Civil Rights/Advocacy
+S	S-Community Improvement
+T	T-Philanthropy, Voluntarism
+U	U-Science and Technology
+V	V-Social Science
+W	W-Public, Society Benefit
+X	X-Religion Related
+Y	Y-Mutual/Membership Benefit
+Z	Z-Unknown, Unclassified
+NTEEconf
+Character
+(1)	NTEE confidence rating
+NTEE classification confidence rating (A/B/C)
+ACTIV1
+Character
+(3)	IRS Activity Code 1
+First activity code.
+ACTIV2
+Character
+(3)	IRS Activity Code 2
+Second activity code.
+ACTIV3
+Character
+(3)	IRS Activity Code 3
+Third activity code.
+LEVEL2
+Character
+(3)	Reporting public charity group
+Reporting public charity groups.
+M	Mutual Benefit Public Charity
+O	Operating Public Charity
+S	Supporting Public Charity
+Revenues, Expenses, and Change in Net Assets
+CONT
+Numeric
+(3)	Total Contributions
+Total contributions, gifts, and grants
+Old 990 (DocCD=90): Part I, Line 1e
+New 990 (DocCD=93): Part VIII Line 1h
+990EZ (DocCD=09 and 92): Part I, Line 1
+PROGREV
+Numeric
+(3)	Program Service Revenue
+Program service revenue
+Old 990 (DocCD=90): Part I, Line 2
+New 990 (DocCD=93): Part VIII Line 2g (A) - includes amounts reported as DUES in Part I, Line 3 of Form 990 prior to 2008
+990EZ (DocCD=09 and 92): Part I, Line 2
+
+IMPORTANT NOTE: Amounts reported as DUES in Part I, Line 3 of Form 990 prior to tax year 2008 are reported as Program Service Revenue in Part VIII, Line 2g (PROGREV) of Form 990 beginning in tax year 2008. For this reason, DUES is not available in Core PC and CO files circa 2011 and newer. For this reason, the following adjustment will be necessary for comparison of PROGREV and DUES revenue components in Core files prior to 2011: [PROGREV+DUES in Core files prior to 2011] = [PROGREV in Core files 2011 and later]. Due to Form 990 revisions in tax year 2008: NCCS strongly recommends combining DUES and PROGREV revenue components for all analysis involving Core files containing both Old 990 (DocCD=90) and New 990 (DocCD=93) return data (Core files 2008-2010), and for all time-series analysis spanning Core file years 2008 and newer.
+INVINC
+Numeric
+(3)	Total Investment Income
+Total investment income
+Old 990 (DocCD=90): Sum of Part I, Lines 4, 5, & 7
+New 990 (DocCD=93): Part VIII Line 3A
+990EZ (DocCD=09 and 92): Part I, Line 4
+txexmptbndsproceeds
+Numeric
+(3)	Tax-exempt bond investment income
+Income from investment of tax-exempt bond proceeds
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 4A
+royaltsinc
+Numeric
+(3)	Royalties
+Royalty income
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 5A
+grsrntsreal
+Numeric
+(3)	Gross Rents, Real Estate
+Gross rents, Real Estate
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 6a (i)
+grsrntsprsnl
+Numeric
+(3)	Gross Rents, Personal
+Gross rents, Personal
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 6a (ii)
+RENTINC
+Numeric
+(3)	Gross Rents
+Gross rents
+Old 990 (DocCD=90): Part I, Line 6a
+New 990 (DocCD=93): Sum of Part VIII Line 6a (i) and 6a (ii)
+990EZ (DocCD=09 and 92): Not Available
+rntlexpnsreal
+Numeric
+(3)	Rental expense, Real Estate
+Rental expenses, Real Estate
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 6b (i)
+rntlexpnsprsnl
+Numeric
+(3)	Rental expense, Personal
+Rental expenses, Personal
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 6b (ii)
+RENTEXP
+Numeric
+(3)	Rental Expenses
+Rental expenses
+Old 990 (DocCD=90): Part I, Line 6b
+New 990 (DocCD=93): Sum of Part VIII Lines 6b(i) and 6b(ii)
+990EZ (DocCD=09 and 92): Not Available
+rntlincreal
+Numeric
+(3)	Net Rental Income, Real Estate
+Net Rental Income (loss), Real Estate
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 6c (i)
+rntlincprsnl
+Numeric
+(3)	Net Rental Income, Personal
+Net Rental Income (loss), Personal
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 6c (ii)
+NETRENT
+Numeric
+(3)	Net Rental Income
+Net rental income
+Old 990 (DocCD=90): Part I, Line 6c
+New 990 (DocCD=93): Part VIII Line 6d (A)
+990EZ (DocCD=09 and 92): Not Available
+SECUR
+Numeric
+(3)	Gross Sales of Securities
+Gross receipts from sales of securities
+Old 990 (DocCD=90): Part I, Line 8a (A)
+New 990 (DocCD=93): Part VIII Line 7a(i)
+990EZ (DocCD=09 and 92): Not Available
+SALESEXP
+Numeric
+(3)	Cost Basis: Sale of Securities
+Cost or other basis and sales expenses: securities
+Old 990 (DocCD=90): Part I, Line 8b (A)
+New 990 (DocCD=93): Part VIII Line 7b(i)
+990EZ (DocCD=09 and 92): Not Available
+SALESECN
+Numeric
+(3)	Net Gain/Loss: Sale of Securities
+Net gain/loss from sales of securities
+Old 990 (DocCD=90): Part I, Line 8c (A)
+New 990 (DocCD=93): Part VIII Line 7c (i)
+990EZ (DocCD=09 and 92): Not Available
+SALEOTHG
+Numeric
+(3)	Gross Sales of Other Assets
+Gross receipts from sales of other assets
+Old 990 (DocCD=90): Part I, Line 8a (B)
+New 990 (DocCD=93): Part VIII Line 7a (ii)
+990EZ (DocCD=09 and 92): Part I, Line 5a
+SALEOTHE
+Numeric
+(3)	Cost Basis: Sale of Other Assets
+Cost or other basis and sales expenses: other assets
+Old 990 (DocCD=90): Part I, Line 8b (B)
+New 990 (DocCD=93): Part VIII Line 7b (ii)
+990EZ (DocCD=09 and 92): Part I, Line 5b
+SALEOTHN
+Numeric
+(3)	Net Gain/Loss: Sale of Other Assets
+Net gain/loss from sales of other assets
+Old 990 (DocCD=90): Part I, Line 8c (B)
+New 990 (DocCD=93): Part VIII Line 7c (ii)
+990EZ (DocCD=09 and 92): Part I, Line 5c
+grsincfndrsng
+Numeric
+(3)	Gross income fundraising events
+Gross income from fundraising events
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 8a
+lessdirfndrsng
+Numeric
+(3)	Fundraising event expenses
+Fundraising events direct expenses
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 8b
+netincfndrsng
+Numeric
+(3)	Fundraising events net income
+Net income (loss) from fundraising events
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 8c
+grsincgaming
+Numeric
+(3)	Gross income gaming
+Gross income from gaming activities
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 9a
+lessdirgaming
+Numeric
+(3)	Gaming activity expenses
+Gaming activities direct expenses
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 9b
+netincgaming
+Numeric
+(3)	Gaming activity net income
+Net income (loss) from gaming activities
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part VIII Line 9c
+SPEVTG
+Numeric
+(3)	Special Events Gross Revenue
+Gross revenue from special events and activities
+Old 990 (DocCD=90): Part I, Line 9a (right)
+New 990 (DocCD=93): Sum of Part VIII Line 8a and 9a
+990EZ (DocCD=09 and 92): Part I, Line 6a
+DIREXP
+Numeric
+(3)	Special Events Expenses
+Special events direct expenses
+Old 990 (DocCD=90): Part I, Line 9b
+New 990 (DocCD=93): Sum of Part VIII Lines 8b and 9b
+990EZ (DocCD=09 and 92): Part I, Line 6b
+FUNDINC
+Numeric
+(3)	Special Events Net Income
+Net income from special events and activities
+Old 990 (DocCD=90): Part I, Line 9c
+New 990 (DocCD=93): Sum of Part VIII Line 8c (A) and 9c (A)
+990EZ (DocCD=09 and 92): Part I, Line 6c
+INVENTG
+Numeric
+(3)	Inventory Gross Sales
+Gross sales of inventory, less returns and allowances
+Old 990 (DocCD=90): Part I, Line 10a
+New 990 (DocCD=93): Part VIII Line 10a
+990EZ (DocCD=09 and 92): Part I, Line 7a
+GOODS
+Numeric
+(3)	Inventory Cost of Goods Sold
+Inventory cost of goods sold
+Old 990 (DocCD=90): Part I, Line 10b
+New 990 (DocCD=93): Part VIII Line 10b
+990EZ (DocCD=09 and 92): Part I, Line 7b
+GRPROF
+Numeric
+(3)	Inventory Gross Profit
+Gross profit/loss from sales of inventory
+Old 990 (DocCD=90): Part I, Line 10c
+New 990 (DocCD=93): Part VIII Line 10c (A)
+990EZ (DocCD=09 and 92): Part I, Line 7c
+OTHINC
+Numeric
+(3)	Other Income
+Other income
+Old 990 (DocCD=90): Part I, Line 11
+New 990 (DocCD=93): Part VIII Line 11e (A)
+990EZ (DocCD=09 and 92): Part I, Line 8
+TOTREV2
+Numeric
+(3)	Total Revenue
+Total revenue
+Old 990 (DocCD=90): Part I, Line 12
+New 990 (DocCD=93): Part VIII Line 12 (A)
+990EZ (DocCD=09 and 92): Part I, Line 9
+TOTREV
+Numeric
+(3)	Total Revenue (calculated)
+Calculation of total revenue is based on version of Form 990/990EZ (see DocCD)
+Old 990 (DocCD=90) and Old 990EZ (DocCD=09): calculated as (CONT + PROGREV + DUES + INVINC + NETRENT + SALESECN + SALEOTHN + FUNDINC + GRPROF + OTHINC)
+New 990 (DocCD=93) and New 990EZ (DocCD=92): calculated as (EXPS + NETINC)
+GRREC
+Numeric
+(3)	Total Gross Receipts (calculated)
+Calculation of total gross receipts is based on version of Form 990/990EZ (see DocCD)
+Old 990 (DocCD=90): Part I, Line 8b(A), plus Line 8b(B), plus Line 6b, plus Line 9b, plus Line 10b, plus Line 12
+New 990 (DocCD=93): Part VIII, Line 12, plus Line 6b(i), plus Line 6b(ii), plus Line 7b(i), plus Line 7b(ii), plus Line 8b, plus Line 9b, plus Line 10b
+990EZ (DocCD=09 and 92): Part I, Line 5b, plus Line 6b, plus Line 7b, plus Line 9
+EXPS
+Numeric
+(3)	Total Expenses
+Total expenses
+Old 990 (DocCD=90): Part I, Line 17
+New 990 (DocCD=93): Part IX Line 25 (A)
+990EZ (DocCD=09 and 92): Part I, Line 17
+NETINC
+Numeric
+(3)	Net Income/Deficit
+Net income (loss) for the year
+Old 990 (DocCD=90): Part I, Line 18
+New 990 (DocCD=93): Part I Line 19 (Current Year)
+990EZ (DocCD=09 and 92): Part I, Line 18
+OTHCHGS
+Numeric
+(3)	Other Changes in Net Assets
+Other changes in net assets or fund balances
+Old 990 (DocCD=90): Part I, Line 20
+Old 990EZ (DocCD=09): Part I, Line 20
+New 990 (DocCD=93) and New 990EZ (DocCD=92): Not available
+FUNDBAL
+Numeric
+(3)	Net Assets - EOY
+Net assets or fund balances at end of year
+Old 990 (DocCD=90): Part I, Line 21
+New 990 (DocCD=93): Part I Line 22 (End of Year)
+990EZ (DocCD=09 and 92): Part II, Line 27, Col (B)
+COMPENS
+Numeric
+(3)	Compensation of Officers
+Compensation of officers
+Old 990 (DocCD=90): Part II, Line 25a, Col (A)
+New 990 (DocCD=93): Part IX Line 5 (A)
+990EZ (DocCD=09 and 92): Not Available
+OTHSAL
+Numeric
+(3)	Other Salaries
+Other salaries and wages of employees
+Old 990 (DocCD=90): Part II, Line 26, Col (A)
+New 990 (DocCD=93): Part IX Line 7 (A)
+990EZ (DocCD=09 and 92): Not Available
+PAYTAX
+Numeric
+(3)	Payroll Taxes
+Payroll taxes
+Old 990 (DocCD=90): Part II, Line 29, Col (A)
+New 990 (DocCD=93): Part IX Line 10 (A)
+990EZ (DocCD=09 and 92): Not Available
+FUNDFEES
+Numeric
+(3)	Professional Fundraising Fees
+Professional fundraising fees
+Old 990 (DocCD=90): Part II, Line 30, Col (A) or (D)
+New 990 (DocCD=93): Part IX Line 11e (A)
+990EZ (DocCD=09 and 92): Not Available
+Balance Sheet
+ASS_BOY
+Numeric
+(3)	Total Assets - BOY
+Total assets at beginning of year
+Old 990 (DocCD=90): Part IV, Line 59, Col (A)
+New 990 (DocCD=93): Part X Line 16 (A)
+990EZ (DocCD=09 and 92): Part II, Line 25, Col (A)
+ASS_EOY
+Numeric
+(3)	Total Assets - EOY
+Total assets at end of year
+Old 990 (DocCD=90): Part IV, Line 59, Col (B)
+New 990 (DocCD=93): Part X Line 16 (B)
+990EZ (DocCD=09 and 92): Part II, Line 25, Col (B)
+BOND_BOY
+Numeric
+(3)	Tax Exempt Bonds - BOY
+Tax exempt bonds at beginning of year
+Old 990 (DocCD=90): Part IV, Line 64a, Col (A)
+New 990 (DocCD=93) and 990EZ (DocCD=09 and 92): Not available
+BOND_EOY
+Numeric
+(3)	Tax Exempt Bonds - EOY
+Tax exempt bonds at end of year
+Old 990 (DocCD=90): Part IV, Line 64a, Col (B)
+New 990 (DocCD=93): Part X Line 20 (B)
+990EZ (DocCD=09 and 92): Not Available
+MRTG_BOY
+Numeric
+(3)	Mortgages and Notes Payable - BOY
+Mortgages and other notes payable at beginning of year
+Old 990 (DocCD=90): Part IV, Line 64b, Col (A)
+New 990 (DocCD=93) and 990EZ (DocCD=09 and 92): Not available
+MRTG_EOY
+Numeric
+(3)	Mortgages and Notes Payable - EOY
+Mortgages and other notes payable at end of year
+Old 990 (DocCD=90): Part IV, Line 64b, Col (B)
+New 990 (DocCD=93): Part X Line 23 (B)
+990EZ (DocCD=09 and 92): Not Available
+unsecurednotesend
+Numeric
+(3)	Unsecured Mortgages and Notes Payable - EOY
+Unsecured mortgages and notes payable at end of year
+Old 990 and 990EZ (DocCD=90, 09 and 92): Not Available
+New 990 (DocCD=93): Part X Line 24 (B)
+LIAB_BOY
+Numeric
+(3)	Total Liabilities - BOY
+Total liabilities at beginning of year
+Old 990 (DocCD=90): Part IV, Line 66, Col (A)
+New 990 (DocCD=93): Part X Line 26 (A)
+990EZ (DocCD=09 and 92): Part II, Line 26, Col (A)
+LIAB_EOY
+Numeric
+(3)	Total Liabilities - EOY
+Total liabilities at end of year
+Old 990 (DocCD=90): Part IV, Line 66, Col (B)
+New 990 (DocCD=93): Part X Line 26 (B)
+990EZ (DocCD=09 and 92): Part II, Line 26, Col (B)
+RETE_BOY
+Numeric
+(3)	Retained Earnings - BOY
+Retained earnings at beginning of year
+Old 990 (DocCD=90): Part IV, Line 72, Col (A)
+New 990 (DocCD=93) and 990EZ (DocCD=09 and 92): Not available
+RETEARN
+Numeric
+(3)	Retained Earnings - EOY
+Retained earnings at end of year
+Old 990 (DocCD=90): Part IV, Line 72, Col (B)
+New 990 (DocCD=93): Part X Line 32 (B)
+990EZ (DocCD=09 and 92): Not Available
+NETA_BOY
+Numeric
+(3)	Net Assets - BOY
+Net assets or fund balances at beginning of year
+Old 990 (DocCD=90): Part IV, Line 73, Col (A)
+New 990 (DocCD=93): Part X line 33 (A)
+990EZ (DocCD=09 and 92): Part II, Line 27, Col (A)
+Other Information
+Q78A
+Character
+(3)	UBI Indicator
+Unrelated business gross income (UBI) of $1,000 or more during the year
+Old 990 (DocCD=90): Part VI, Question 78a
+New 990 (DocCD=93): Part V Line 3a
+990EZ (DocCD=09 and 92): Part V, Question 35a
+N	No
+Y	Yes
+INITFEES
+Numeric
+(3)	Initiation Fees
+501(c)(7) orgs - Initiation fees and capital contributions
+Old 990 (DocCD=90): Part VI, Line 86a
+New 990 (DocCD=93): Part V Line 10a
+990EZ (DocCD=09 and 92): Part V, Line 39a
+GRRECPUB
+Numeric
+(3)	Income Public Use of Facilities
+501(c)(7) orgs - Gross receipts for public use of club facilities
+Old 990 (DocCD=90): Part VI, Line 86b
+New 990 (DocCD=93): Part V Line 10b
+990EZ (DocCD=09 and 92): Part V, Line 39b
+GRRECMEM
+Numeric
+(3)	Gross Income - Members
+501(c)(12) orgs - Gross income from members or shareholders
+Old 990 (DocCD=90): Part VI, Line 87a
+New 990 (DocCD=93): Part V Line 11a
+990EZ (DocCD=09 and 92): Not Available
+GRRECOTH
+Numeric
+(3)	Gross Income - Other
+501(c)(12) orgs - Gross income from other sources
+Old 990 (DocCD=90): Part VI, Line 87b
+New 990 (DocCD=93): Part V Line 11b
+990EZ (DocCD=09 and 92): Not Available
+Schedule A
+REASON
+Character
+(3)	Non-Private Foundation Reason Code
+Reason for non-private foundation status
+Old 990 (DocCD=90) and Old 990EZ (DocCD=09): Sch A, Part IV, Left Margin
+New 990 (DocCD=93) and New 990EZ (DocCD=92): Not available
+00	Default value for those who fail to check a box or those that do not file Schedule A.
+01	Church
+02	School
+03	Hospital
+04	Governmental Unit
+05	Medical Research
+06	Operated for benefit of college or university owned or operated by governmental unit.
+07	Receives substantial part of support from government unit or general public
+08	Community Trust
+09	Receives more than 33 1/3% of support from contributions, membership fees
+10	Supporting organizations for other exempt orgs
+11	Organized and operated to test for public safety
+gftgrntsrcvd170
+Numeric
+(3)	Gifts grants membership fees received (170)
+Total gifts grants membership fees received: 170(b)(1)(A)(iv) and 170(b)(1)(A)(vi)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part II-A Public Support, Line 1(f)
+txrevnuelevied170
+Numeric
+(3)	Tax revenues levied (170)
+Total tax revenues levied: 170(b)(1)(A)(iv) and 170(b)(1)(A)(vi)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part II-A Public Support, Line 2(f)
+srvcsval170
+Numeric
+(3)	Services or facilities furnished by gov (170)
+Total value of services or facilities furnished by a governmental unit without charge: 170(b)(1)(A)(iv) and 170(b)(1)(A)(vi)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part II-A Public Support, Line 3(f)
+grsinc170
+Numeric
+(3)	Gross income from interest, etc. (170)
+Total gross income from interest, etc.: 170(b)(1)(A)(iv) and 170(b)(1)(A)(vi)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part II-B Total Support, Line 8(f)
+grsrcptsrelated170
+Numeric
+(3)	Gross receipts from related activities (170)
+Total gross receipts from related activities, etc.: 170(b)(1)(A)(iv) and 170(b)(1)(A)(vi)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part II-B Total Support, Line 12
+totgftgrntrcvd509
+Numeric
+(3)	Gifts grants membership fees received (509)
+Total gifts, grants, contributions, and membership fees received: 509(a)(2)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part III-A Public Support, Line 1(f)
+grsrcptsadmissn509
+Numeric
+(3)	Receipts from admissions, merchandise, etc. (509)
+Total receipts from admissions, merchandise, etc.: 509(a)(2)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part III-A Public Support, Line 2(f)
+txrevnuelevied509
+Numeric
+(3)	Tax revenues levied (509)
+Total Tax revenues levied: 509(a)(2)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part III-A Public Support, Line 4(f)
+srvcsval509
+Numeric
+(3)	Services or facilities furnished by gov (509)
+Total value of services or facilities furnished by a governmental unit without charge: 509(a)(2)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part III-A Public Support, Line 5(f)
+subtotsuppinc509
+Numeric
+(3)	Subtotal total support (509)
+Subtotal total support (lines 10a + 10b): 509(a)(2)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part III-B Total Support, Line 10c(f)
+totsupp509
+Numeric
+(3)	Total support (509)
+Total support (lines 9 + 10c + 11 + 12): 509(a)(2)
+Old 990 and Old 990EZ (DocCD=90 and 09): Not Available
+New 990 and New 990EZ (DocCD=93 and 92): Schedule A, Part III-B Total Support, Line 13(f)
+Other Descriptive Info
+RULEDATE
+Character
+(6)	Ruling date (YYYYMM) from IRS
+Ruling date: year and month of IRS ruling or determination letter recognizing orgs exempt status (YYYYMM)
+FNDNCD
+Character
+(6)	Reason for 501(c)(3) status
+Reason for & type of 501(c)(3) exempt status including codes for operating and grantmaking foundations, and broad type of public charity
+00	All organizations except 501(c)(3)
+02	Private operating foundation exempt from paying excise taxes on investment income
+03	Private operating foundation (other)
+04	Private non-operating foundation
+09	Suspense
+10	Church
+11	School
+12	Hospital or medical research organization
+13	Organization operated for the benefit of a public (government owned or run) college or university
+14	Governmental unit
+15	Organization with a substantial portion of support from a governmental unit or the general public
+16	Organization income is <=1/3 investment or unrelated business and >1/3 donated or related to purpose
+17	Supporting Organization 509(a)(3) for benefit and in conjunction with organization(s) coded 10-16
+18	Organization organized and operated to test for public safety
+21	Supporting Organization 509(a)(3) Type I
+22	Supporting Organization 509(a)(3) Type II
+23	Supporting Organization 509(a)(3) Type III functionally integrated
+24	Supporting Organization 509(a)(3) Type III not functionally integrated
+FRCD
+Character
+(6)	Filing Requirement Code
+Filing requirements code. The 1st 2 characters indicate the requirements for 990/990-EZ forms. The 3rd character = 1 if a 990-PF is required or 0 if not.
+000	990 - Not required to file (all other)
+001	990PF Required - 990 not required to file (all other)
+010	990 (all other) or 990EZ return
+011	990PF Required (all other)
+020	990 - Required to file Form 990-N (Income less than $25,000 per year)
+021	990PF Required - 990 Required to file Form 990-N (Income less than $25,000 per year)
+030	990 - Group return
+031	990PF Required - Group return
+040	990 - Required to file Form 990-BL, Black Lung Trusts
+041	990PF Required - 990 Required to file Form 990-BL, Black Lung Trusts
+060	990 - Not required to file (church)
+061	990PF Required - Not required to file (church)
+070	990 - Government 501(c)(1)
+071	990PF Required - Government 501(c)(1)
+130	990 - Not required to file (religious organization)
+131	990PF Required - Not required to file (religious organization)
+140	990 - Not required to file (instrumentalities of states or political subdivisions)
+141	990PF Required - Not required to file (instrumentalities of states or political subdivisions)
+AFCD
+Character
+(6)	Affiliation code
+Affiliation code
+0	Unknown
+1	Central organization (no group exemption)
+2	Intermediate organization (no group exemption)
+3	Independent org. or independent auxiliary unaffil. w. national, regional or geogr. grouping
+6	Central - parent (group ruling) and is not a church or 501(c)(1)
+7	Intermediate- group exempt intermediate organization of a national, regional or geog. group
+8	Central - parent (group ruling) and is a church or 501 (c)(1)
+9	Subordinate in a group ruling.
+CONTACT
+Character
+(70)	Contact person (from IRS files
+Contact person (from IRS files)
+SEC_NAME
+Character
+(35)	Sort Name (Secondary name)
+Secondary organization name
+GEN
+Character
+(4)	Group Exemption Number
+Group Exemption Number
+Other Classification
+LEVEL1
+Character
+(4)	Public charity or priv. fndn?
+Public charity or private foundation?
+O	Other Nonprofits
+PC	Public Charity
+PF	Private Foundation
+U	Unknown
+level3
+Character
+(4)	Major NTEE category
+Major NTEE category
+AR	Arts, culture and humanities
+ED	Education
+EN	Environment/animals
+HE	Health
+HS	Human Services
+IN	International, foreign affairs
+MO	Other mutual benefit
+MR	Pension and retirement funds
+PB	Public, societal benefit
+RE	Religion related
+UN	Unknown, unclassified
+ZA	Single organization support
+ZB	Fundraising within NTEE major group
+ZC	Private grantmaking foundations
+ZD	Public foundations
+ZE	General fundraising
+ZF	Other Supporting Public Benefit
+level4
+Character
+(4)	NTEE-CC Major Group
+NTEE-CC Major Group
+Unknown
+A	Arts, Culture, and Humanities
+B	Education
+C	Environmental Quality, Protection, and Beautification
+D	Animal-Related
+E	Health
+F	Mental Health, Crisis Intervention
+G	Diseases, Disorders, Medical Disciplines
+H	Medical Research
+I	Crime, Legal Related
+J	Employment, Job Related
+K	Food, Agriculture, and Nutrition
+L	Housing, Shelter
+M	Public Safety
+N	Recreation, Sports, Leisure, Athletics
+O	Youth Development
+P	Human Services - Multipurpose and Other
+Q	International, Foreign Affairs, and National Security
+R	Civil Rights, Social Action, Advocacy
+S	Community Improvement, Capacity Building
+T	Philanthropy, Voluntarism, and Grantmaking Foundations
+U	Science and Technology Research Institutes, Services
+V	Social Science Research Institutes, Services
+W	Public, Society Benefit - Multipurpose and Other
+X	Religion Related, Spiritual Development
+Y	Mutual/Membership Benefit Organizations, Other
+Z	Unknown
+CLASSCD
+Character
+(4)	Classification code-brkdwn of
+IRS Classification code
+DEDUCTCD
+Character
+(4)	IRS deductability code
+IRS Deductibility code
+0	Description unknown at this time
+1	Contributions are deductible
+2	Contributions are not deductible
+4	Contributions are deductible by treaty (foreign organizations)
+NTEEIRS
+Character
+(4)	NTEE assigned by IRS
+NTEE code assigned by IRS (includes NTEE-CC & XP codes)
+NAICS
+Character
+(9)	NAICS Code
+North American Industrial Classification System
+ORGCD
+Character
+(9)	Corporation, trust, assoc,etc.
+Organization code: corporation, trust, association, etc.
+0	Unknown
+1	Corporation
+2	Trust
+3	Co-operative
+4	Partnership
+5	Association
+6	Non-exempt charitable trust
+Internal Processing
+NCCSKEY2
+Character
+(14)	Unique key: ein + fiscal year
+Unique key: ein + fiscal year
+DLN
+Character
+(14)	Document locator number
+Document Locator Number used by the IRS
+VERIFY
+Character
+(14)	Financials have been verified
+Financials have been verified
+No code
+L	Financial fields were multiplied by 1000 because return reported in the thousands but inspection rev
+M	Financial fields have been verified by staff.
+S	Financial fields have been verified by SOI edited return.
+T	Current financial fields have been multiplied by 1000 because return reported in thousands.
+Miscellaneous
+DocCD
+Character
+(14)	990 Document Type Code
+A 2-digit code identifying type of Form 990 (990, 990-EZ, or 990-PF), and form revision (form revision 2007 and earlier vs. 2008 and later).
+Document Code is the 4th and 5th digits of the DLN assigned by the IRS.
+09	Form 990-EZ revision 2007 and earlier
+90	Form 990 revision 2007 and earlier
+91	Form 990-PF
+92	Form 990-EZ revision 2008 and later
+93	Form 990 revision 2008 and later
+ACCPER
+Character
+(2)	Accounting period (MM)
+Accounting period
+randnum
+Numeric
+(2)	Random number between 0 and 1
+Random number between 0 and 1 used for creating samples
+LATITUDE
+Numeric
+(2)	Latitude
+Latitude
+LONGITUDE
+Numeric
+(2)	Longitude
+Longitude
+SOIYR
+Character
+(4)	Starting year
+Starting year for org's fiscal year.
+Supplemental fields (Authorized Users Only)
+NumEmpEstimate
+Numeric
+(4)	Est. Number of employees
+Estimated number of employees
+IndSupEstimate
+Numeric
+(4)	Est. Indirect public support
+Estimated Indirect public support
+DirSupEstimate
+Numeric
+(4)	Est. Direct public support
+Estimated Direct public support
+GovGtEstimate
+Numeric
+(4)	Est. Contributions from government grants
+Estimated Contributions from government grants
+GrantEstimate
+Numeric
+(4)	Est. Grants
+Estimated Grants to governments and organizations
+AssIndEstimate
+Numeric
+(4)	Est. Assistance to Individuals
+Estimated Assistance to individuals
+BenMemEstimate
+Numeric
+(4)	Est. Benefits to members
+Estimated Benefits paid to or for members
+CompOthEstimate
+Numeric
+(4)	Est. Compensation other
+Estimated Other compensation
+PensionEstimate
+Numeric
+(4)	Est. Pension
+Estimated pension plan contributions
+EmpBenEstimate
+Numeric
+(4)	Est. Other employee benefits
+Estimated Other employee benefits
+ProffeesEstimate
+Numeric
+(4)	Est. Professional fees
+Estimated Professional and other fees
+SupplyEstimate
+Numeric
+(4)	Est. Supplies
+Estimated Supplies
+OccuEstimate
+Numeric
+(4)	Est. Occupancy
+Estimated Occupancy
+CommEstimate
+Numeric
+(4)	Est. Communication
+Estimated Communication
+PayAfflEstimate
+Numeric
+(4)	Est. Payments to affiliates
+Estimated Payments to affiliates
+InterEstimate
+Numeric
+(4)	Est. Interest
+Estimated Interest
+DepRecEstimate
+Numeric
+(4)	Est. Depreciation
+Estimated Depreciation
+OthExpEstimate
+Numeric
+(4)	Est. Other expenses
+Estimated Other expenses line
+CashEstimate
+Numeric
+(4)	Est. Cash
+Estimated Cash
+NetLandEstimate
+Numeric
+(4)	Est. Net Land Building and Equipment
+Estimated Net Land Building and Equipment
+InvSecEstimate
+Numeric
+(4)	Est. Investment Securities
+Estimated Investment Securities (other securities and publicly traded securities)
+InvOthEstimate
+Numeric
+(4)	Est. Other Investments
+Estimated Other Investments
+OthAsstEstimate
+Numeric
+(4)	Est. Other assets
+Estimated Other assets
