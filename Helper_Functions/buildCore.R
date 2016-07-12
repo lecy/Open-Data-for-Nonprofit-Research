@@ -13,7 +13,7 @@ buildCore <- function( eins, years, form.type="990", modules="all", index=NULL )
   
   library( dplyr )
   library( xml2 )
-  library( R.utils )
+  # library( R.utils )
   
   source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/scrapeXML.R")
   

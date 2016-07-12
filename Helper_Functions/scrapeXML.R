@@ -20,7 +20,7 @@ scrapeXML <- function( url, form.type, modules )
     # source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper%20Functions/getMission.R")
     
     
-    # url <- "https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml"
+    url <- "https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml"
     doc <- read_xml( url )
     xml_ns_strip( doc )
     
@@ -48,29 +48,40 @@ scrapeXML <- function( url, form.type, modules )
     
 
     
-    # set to null so that you can cbind if the module is not included
-    header.df <- NULL
-    rev.exp.df <- NULL
-    mission.df <- NULL
-    
-    if( "basic" %in% modules  & FORM == "990" )
-    {
-        header.df <- getBasicInfo( doc )
-    }
-    
-    if( "revexp" %in% modules  & FORM == "990" )
-    {
-        rev.exp.df <- getRevExp( doc )
-    }
-    
-    
-    if( "mission" %in% modules & FORM == "990" )
-    {
-        mission.df <- getMission( doc )
-    }
-    
+    # always include basic info?
 
-    xml.df <- cbind( header.df, rev.exp.df, mission.df )
+      xml.df <- getBasicInfo( doc )
+
+
+#      xml.df <- NULL  
+#
+#     if( "basic" %in% modules  & FORM == "990" )
+#     {
+#        header.df <- getBasicInfo( doc )
+#        if( is.null(xml.df) )
+#        { xml.df <- header.df }
+#        else{ xml.df <- cbind(xml.df,header.df) } 
+#    }
+#    
+#    if( "revexp" %in% modules  & FORM == "990" )
+#    {
+#       rev.exp.df <- getRevExp( doc )
+#        if( is.null(xml.df) )
+#        { xml.df <- rev.exp.df }
+#        else{ xml.df <- cbind(xml.df,rev.exp.df) } 
+#    }
+#    
+#    
+#    if( "mission" %in% modules & FORM == "990" )
+#    {
+#        mission.df <- getMission( doc )
+#        if( is.null(xml.df) )
+#        { xml.df <- mission.df }
+#        else{ xml.df <- cbind(xml.df,mission.df) } 
+#    }
+
+
+
 
     return( xml.df )
 
