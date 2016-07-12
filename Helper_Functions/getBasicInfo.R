@@ -41,13 +41,14 @@ getBasicInfo <- function( doc )
 	NETUBI <- xml_text( xml_find_all( doc, "/Return/ReturnData/IRS990/NetUnrelatedBusTxblIncmAmt" ) ) 
 
 
-        namedList <- function(x){
-	    names <- as.list(substitute(list(x)))[-1L]
-	    result <- list(x)
-	    names(result) <- names
-	    x[ sapply( x, is.null) ] <- NA
-	    result
-	}
+	# namedList <- function(...){
+	#     names <- as.list(substitute(list(...)))[-1L]
+	#     result <- list(...)
+	#     names(result) <- names
+	#     result[sapply(result, function(x){length(x)==0})] <- NA
+	#     result[sapply(result, is.null)] <- NA
+	#     result
+	# }
 	
 
 	
