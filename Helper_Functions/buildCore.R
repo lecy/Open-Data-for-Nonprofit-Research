@@ -15,7 +15,7 @@ buildCore <- function( eins, years, form.type="990", modules="all", index=NULL )
   library( xml2 )
   library( R.utils )
   
-  source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper%20Functions/scrapeXML.R")
+  source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/scrapeXML.R")
   
   if( is.null(index) ) { index <- buildIndex() }
   
