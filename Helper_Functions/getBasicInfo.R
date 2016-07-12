@@ -58,7 +58,7 @@ getBasicInfo <- function( doc )
 	                          GROSSRECEIPTS, GROUPRETURN, TAXEXMSTATUS, TYPEOFORG, FORMYEAR, DOMICILE, WEBSITE,  
 	                          VOTINGMEMBERS, INDVOTINGMEMBERS, TOTEMPLOYEE, TOTVOLUNTEERS, TOTUBI, NETUBI  )
 
-        header.df <- as.data.frame( header.list )
+        header.df <- as.data.frame( header.list, stringsAsFactors )
         
         return( header.df )
 

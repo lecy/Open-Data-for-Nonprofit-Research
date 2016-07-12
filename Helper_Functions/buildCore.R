@@ -43,6 +43,8 @@ buildCore <- function( eins, years, form.type="990", modules="all", index=NULL )
      core <- bind_rows( core, one.npo )
   }
   
+  # need to clean up variable types
+  
   return( core )
 
 }
