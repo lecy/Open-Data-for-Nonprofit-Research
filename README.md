@@ -15,10 +15,10 @@ There are several IRS databases available online:
 
 Scripts are currently available to build each of these here:
 
-* [Build the Database of Electronic Filers (990, 990-EZ, 990-PF) from 2011 to Present](./Build Datasets/electronic filers.Rmd)
-* [Build the Database of All Exempt Organizations](./Build Datasets/current master exempt list.Rmd)
-* [Build the Database of Postcard 990-N Filers](./Build Datasets/postcard 990N filers.RMD) 
-* [Build the Database of Automatic Revocations of Tax Exempt Status](./Build Datasets/revoked organizations.Rmd)
+* [Build the Database of Electronic Filers (990, 990-EZ, 990-PF) from 2011 to Present](./Build_Datasets/electronic filers.Rmd)
+* [Build the Database of All Exempt Organizations](./Build_Datasets/current master exempt list.Rmd)
+* [Build the Database of Postcard 990-N Filers](./Build_Datasets/postcard 990N filers.RMD) 
+* [Build the Database of Automatic Revocations of Tax Exempt Status](./Build_Datasets/revoked organizations.Rmd)
 
 
 ## Working with IRS Open Data
