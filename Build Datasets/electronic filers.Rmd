@@ -12,10 +12,21 @@ All of the data is publicly accessible via the S3 bucket's HTTPS endpoint at htt
 
 ## DATA DICTIONARY
 
+Variable | Notes
+---------|---------
+EIN | Employer Identification Number
+SubmittedOn | ? Unclear
+TaxPeriod | Tax year and month of the filing YYYYMM
+FilingYear | Tax year of the filing YYYY
+DLN | Document Locator Number - internal to IRS
+LastUpdated | Last time the org updated their file
+FormType | 990, 990-EZ, or 990-PF
+ObjectId | Unique ID - Tax Period + DLN (sortof)
+OrganizationName | Name of the nonprofit
+IsElectronic | Was the return filed electronically? T/F
+IsAvailable | Is the return available online? T/F
+URL | Web address of the IRS electronic return
 
- [1] "EIN"              "SubmittedOn"      "TaxPeriod"        "DLN"             
- [5] "LastUpdated"      "FormType"         "ObjectId"         "OrganizationName"
- [9] "IsElectronic"     "IsAvailable"      "URL"              "FilingYear" 
 
 
 
