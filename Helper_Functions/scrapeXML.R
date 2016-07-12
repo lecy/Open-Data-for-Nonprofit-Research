@@ -20,7 +20,7 @@ scrapeXML <- function( url, form.type, modules )
     # source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper%20Functions/getMission.R")
     
     
-    url <- "https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml"
+    # url <- "https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml"
     doc <- read_xml( url )
     xml_ns_strip( doc )
     
