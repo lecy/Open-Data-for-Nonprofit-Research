@@ -15,9 +15,7 @@ scrapeXML <- function( url, form.type, modules )
 {
 
     
-    source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/getBasicInfo.R")
-    # source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper%20Functions/getRevExp.R")
-    # source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper%20Functions/getMission.R")
+
     
     
     # url <- "https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml"
@@ -27,6 +25,8 @@ scrapeXML <- function( url, form.type, modules )
     
     # check to ensure it is the proper form type
     FORM <- xml_text( xml_find_all( doc, "//Return/ReturnHeader/ReturnTypeCd" ) )
+    if( length(FORM) == 0 ){ FORM <- "NOT REPORTED ON 990" }
+    if( is.null(FORM) ){ FORM <- "NOT REPORTED ON 990" }
     if( ! FORM %in% form.type ) 
     { 
        print( paste( "Organization is not the correct return type;", "\n",

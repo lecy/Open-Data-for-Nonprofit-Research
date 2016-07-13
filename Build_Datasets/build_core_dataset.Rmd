@@ -1,0 +1,52 @@
+---
+title: "Build Core Dataset"
+author: "Jesse Lecy"
+date: "July 12, 2016"
+output: html_document
+---
+
+
+See the [Build Index Database](details.https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_Datasets/electronic%20filers.Rmd) page for details.
+
+```{r}
+
+# load a test file for demo purposes
+
+source( "https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/tiny.index.R" )
+
+
+head( tiny.index )
+
+nrow( tiny.index )
+
+names( tiny.index )
+
+table( tiny.index$FormType )
+
+table( tiny.index$FilingYear )
+
+
+
+
+source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/buildCore.R")
+
+args( buildCore )
+# function (eins, years, form.type = "990", modules = "all", index = NULL)
+
+my.eins <- unique( tiny.index$EIN )
+# my.years <- unique( tiny.index&FilingYear )
+
+
+buildCore( eins=my.eins, years=2011:2015, form.type="990", modules="basic", index=tiny.index )
+
+
+```
+
+
+
+
+
+
+
+https://github.com/lecy/Open-Data-for-Nonprofit-Research/tree/master/Helper_Functions
+
