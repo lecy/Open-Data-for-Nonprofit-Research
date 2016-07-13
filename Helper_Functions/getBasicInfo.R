@@ -41,14 +41,16 @@ getBasicInfo <- function( doc )
 	NETUBI <- xml_text( xml_find_all( doc, "/Return/ReturnData/IRS990/NetUnrelatedBusTxblIncmAmt" ) ) 
 
 
-	# namedList <- function(...){
-	#     names <- as.list(substitute(list(...)))[-1L]
-	#     result <- list(...)
-	#     names(result) <- names
-	#     result[sapply(result, function(x){length(x)==0})] <- NA
-	#     result[sapply(result, is.null)] <- NA
-	#     result
-	# }
+	  # NEED THIS TO BUILD CONSISTENT DATA.FRAMES WHEN VARIABLES ARE NOT PRESENT
+	  # http://stackoverflow.com/questions/16951080/can-list-objects-be-created-in-r-that-name-themselves-based-on-input-object-name
+	  namedList <- function(...){
+	      names <- as.list(substitute(list(...)))[-1L]
+	      result <- list(...)
+	      names(result) <- names
+	      result[sapply(result, function(x){length(x)==0})] <- NA
+	      result[sapply(result, is.null)] <- NA
+	      result
+	  }
 	
 
 	

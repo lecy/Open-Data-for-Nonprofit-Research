@@ -15,8 +15,6 @@ scrapeXML <- function( url, form.type, modules )
 {
 
     
-
-    
     
     # url <- "https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml"
     doc <- read_xml( url )
