@@ -27,9 +27,9 @@ scrapeXML <- function( url, form.type, modules )
     if( is.null(FORM) ){ FORM <- "NOT REPORTED ON 990" }
     if( ! FORM %in% form.type ) 
     { 
-       print( paste( "Organization is not the correct return type;", "\n",
-                     "Desired: ", form.type, "; Actual Type: ", FORM, "\n",
-                     url, sep="" ) )
+       cat( paste( "Organization is not the correct return type;", "\n",
+                    "Desired: ", form.type, "; Actual Type: ", FORM, "\n",
+                    url, sep="" ) )
     
        return(NULL)
        
