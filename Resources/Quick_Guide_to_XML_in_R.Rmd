@@ -563,8 +563,9 @@ GROSSRECEIPTS <- xml_text( xml_find_all( doc, gross.receipts.xpath ) )
 
 ```
 
+Building a module to collect data from a portion of the 990s requires the user to specify all of the possible iterations of the xpath + field names for a given variable. If the variable is present on both the 990 and 990EZ that consists of two 990 version (pre and post 2014), and two 990EZ versions (pre and post 2014). This does not include 990-PF private foundations.
 
-Here is an example of how we might reconciling fields between 2012 and 2014.
+Here is an example of variation in field names between 2012 and 2014.
 
 ```
 # 2012 990 VERSION
@@ -607,31 +608,13 @@ Here is an example of how we might reconciling fields between 2012 and 2014.
  [60] "/Return/ReturnData/IRS990/NetUnrelatedBusTxblIncmAmt"
  
  
- 
-# INCLUSIVE XPATH STATEMENT
-
- [47] "/Return/ReturnData/IRS990/*[self::GrossReceipts or self::GrossReceiptsAmt]"
- [48] "/Return/ReturnData/IRS990/*[self::GroupReturnForAffiliates or self::GroupReturnForAffiliatesInd]"
- [49] "/Return/ReturnData/IRS990/*[self::Organization501c3 or self::Organization501c3Ind]"
- [50] "/Return/ReturnData/IRS990/*[self::WebSite or self::WebsiteAddressTxt]"
- [51] "/Return/ReturnData/IRS990/*[self::TypeOfOrganizationCorporation or self::TypeOfOrganizationCorpInd]"
- [52] "/Return/ReturnData/IRS990/*[self::YearFormation or self::FormationYr]"
- [53] "/Return/ReturnData/IRS990/*[self::StateLegalDomicile or self::LegalDomicileStateCd]"
- [54] "/Return/ReturnData/IRS990/*[self::ActivityOrMissionDescription or self::ActivityOrMissionDesc]"
- [55] "/Return/ReturnData/IRS990/*[self::NbrVotingMembersGoverningBody or self::VotingMembersGoverningBodyCnt]"
- [56] "/Return/ReturnData/IRS990/*[self::NbrIndependentVotingMembers or self::VotingMembersIndependentCnt]" 
- [57] "/Return/ReturnData/IRS990/*[self::TotalNbrEmployees or self::TotalEmployeeCnt]"
- [58] "/Return/ReturnData/IRS990/*[self::TotalNbrVolunteers or self::TotalVolunteersCnt]"
- [59] "/Return/ReturnData/IRS990/*[self::TotalGrossUBI or self::TotalGrossUBIAmt]"
- [60] "/Return/ReturnData/IRS990/*[self::NetUnrelatedBusinessTxblIncome or self::NetUnrelatedBusTxblIncmAmt]"
-
-
- 
 ```
 
 
 
 ## Full Path Directory for Example 990 Return
+
+To create a list of all variables and their respective xpaths available on a specific 990 return, you can use the following code: 
 
 ```{r}
 

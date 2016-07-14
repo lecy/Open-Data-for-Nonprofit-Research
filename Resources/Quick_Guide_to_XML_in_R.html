@@ -522,8 +522,98 @@ dat2 &lt;- read_xml( url.02 )
 bind_rows( header.df.01, header.df.02 )
 </code></pre>
 </div>
+<div id="reconciling-fields-across-years" class="section level2">
+<h2>Reconciling Fields Across Years</h2>
+<p>Some brilliant person or persons at the IRS have taken it upon themselves to change field names within their database system, so it is now not possible to easily scrape data across multiple years. Most change are minor:</p>
+<p><strong>BusinessNameLine1</strong> changed to <strong>BusinessNameLine1Txt</strong></p>
+<p><strong>FormType</strong> changed to <strong>FormTypeCd</strong></p>
+<p>Unfortunately even small changes will break your code since it requires an exact match. As a result, you need to write the xpath statement in such a way that it will match either version. The queries have a bunch of</p>
+<pre class="r"><code>library( xml2 )
+
+# EXAMPLE 990 File
+doc &lt;- read_xml( &quot;https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml&quot; )
+xml_ns_strip( dat )
+
+
+
+# 2014 / 2015 990 VERSION
+#
+# &quot;//Return/ReturnData/IRS990/GrossReceiptsAmt&quot;
+
+
+# 2013 / 2012 VERSION
+#
+# &quot;//Return/ReturnData/IRS990/GrossReceipts&quot;
+
+
+# This works with 2014, 2015 data, fails with 2012, 2013 data
+
+GROSSRECEIPTS &lt;- xml_text( xml_find_all( doc, &quot;//Return/ReturnData/IRS990/GrossReceiptsAmt&quot; ) )
+
+
+# INCLUSIVE XPATH VERSION WHEN TWO VARIABLE NAMES HAVE COMMON PREDICATE PATH
+
+GROSSRECEIPTS &lt;- xml_text( xml_find_all( doc, &quot;/Return/ReturnData/IRS990/*[self::GrossReceipts or self::GrossReceiptsAmt]&quot; ) )
+
+
+
+# 990EZ CHANGES PATH STRUCTURE
+#
+# //Return/ReturnData/IRS990EZ/GrossReceiptsAmt
+
+
+
+# NEW INCLUSIVE STATEMENT MUST uSE OR OPERATOR &quot;|&quot; AND FULL PATHS
+
+gross.receipts.xpath &lt;- &quot;//Return/ReturnData/IRS990/GrossReceipts|//Return/ReturnData/IRS990/GrossReceiptsAmt|//Return/ReturnData/IRS990EZ/GrossReceiptsAmt&quot;
+
+GROSSRECEIPTS &lt;- xml_text( xml_find_all( doc, gross.receipts.xpath ) )</code></pre>
+<p>Building a module to collect data from a portion of the 990s requires the user to specify all of the possible iterations of the xpath + field names for a given variable. If the variable is present on both the 990 and 990EZ that consists of two 990 version (pre and post 2014), and two 990EZ versions (pre and post 2014). This does not include 990-PF private foundations.</p>
+<p>Here is an example of variation in field names between 2012 and 2014.</p>
+<pre><code># 2012 990 VERSION
+
+
+ [47] &quot;/Return/ReturnData/IRS990/GrossReceipts&quot;
+ [48] &quot;/Return/ReturnData/IRS990/GroupReturnForAffiliates&quot;
+ [49] &quot;/Return/ReturnData/IRS990/Organization501c3&quot;
+ [50] &quot;/Return/ReturnData/IRS990/WebSite&quot;
+ [51] &quot;/Return/ReturnData/IRS990/TypeOfOrganizationCorporation&quot;
+ [52] &quot;/Return/ReturnData/IRS990/YearFormation&quot;
+ [53] &quot;/Return/ReturnData/IRS990/StateLegalDomicile&quot;
+ [54] &quot;/Return/ReturnData/IRS990/ActivityOrMissionDescription&quot;
+ [55] &quot;/Return/ReturnData/IRS990/NbrVotingMembersGoverningBody&quot;
+ [56] &quot;/Return/ReturnData/IRS990/NbrIndependentVotingMembers&quot;
+ [57] &quot;/Return/ReturnData/IRS990/TotalNbrEmployees&quot;
+ [58] &quot;/Return/ReturnData/IRS990/TotalNbrVolunteers&quot;
+ [59] &quot;/Return/ReturnData/IRS990/TotalGrossUBI&quot;
+ [60] &quot;/Return/ReturnData/IRS990/NetUnrelatedBusinessTxblIncome&quot;
+ 
+ 
+ 
+ 
+ 
+# 2014 990 VERSION
+ 
+ [47] &quot;/Return/ReturnData/IRS990/GrossReceiptsAmt&quot;
+ [48] &quot;/Return/ReturnData/IRS990/GroupReturnForAffiliatesInd&quot;   
+ [49] &quot;/Return/ReturnData/IRS990/Organization501c3Ind&quot;         
+ [50] &quot;/Return/ReturnData/IRS990/WebsiteAddressTxt&quot;          
+ [51] &quot;/Return/ReturnData/IRS990/TypeOfOrganizationCorpInd&quot;         
+ [52] &quot;/Return/ReturnData/IRS990/FormationYr&quot;
+ [53] &quot;/Return/ReturnData/IRS990/LegalDomicileStateCd&quot;
+ [54] &quot;/Return/ReturnData/IRS990/ActivityOrMissionDesc&quot;
+ [55] &quot;/Return/ReturnData/IRS990/VotingMembersGoverningBodyCnt&quot;
+ [56] &quot;/Return/ReturnData/IRS990/VotingMembersIndependentCnt&quot;
+ [57] &quot;/Return/ReturnData/IRS990/TotalEmployeeCnt&quot;
+ [58] &quot;/Return/ReturnData/IRS990/TotalVolunteersCnt&quot;
+ [59] &quot;/Return/ReturnData/IRS990/TotalGrossUBIAmt&quot;
+ [60] &quot;/Return/ReturnData/IRS990/NetUnrelatedBusTxblIncmAmt&quot;
+ 
+ </code></pre>
+</div>
 <div id="full-path-directory-for-example-990-return" class="section level2">
 <h2>Full Path Directory for Example 990 Return</h2>
+<p>To create a list of all variables and their respective xpaths available on a specific 990 return, you can use the following code:</p>
 <pre class="r"><code>dat &lt;- read_xml( &quot;https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml&quot; )
 xml_ns_strip( dat )
 
