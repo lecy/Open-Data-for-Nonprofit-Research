@@ -15,21 +15,21 @@ scrapeXML <- function( url, form.type, modules )
 {
 
     
-    
+    # print( url )
     # url <- "https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml"
     doc <- read_xml( url )
     xml_ns_strip( doc )
     
     
     # check to ensure it is the proper form type
-    FORM <- xml_text( xml_find_all( doc, "//Return/ReturnHeader/ReturnTypeCd" ) )
+    FORM <- xml_text( xml_find_all( doc, "//Return/ReturnHeader/*[contains( name(), 'ReturnType')]" ) )
     if( length(FORM) == 0 ){ FORM <- "NOT REPORTED ON 990" }
     if( is.null(FORM) ){ FORM <- "NOT REPORTED ON 990" }
     if( ! FORM %in% form.type ) 
     { 
        cat( paste( "Organization is not the correct return type;", "\n",
                     "Desired: ", form.type, "; Actual Type: ", FORM, "\n",
-                    url, sep="" ) )
+                    url, "\n \n", sep="" ) )
     
        return(NULL)
        
@@ -48,7 +48,7 @@ scrapeXML <- function( url, form.type, modules )
     
     # always include basic info?
 
-      xml.df <- getBasicInfo( doc )
+      xml.df <- getBasicInfo( doc, url )
 
 
 #      xml.df <- NULL  
@@ -85,3 +85,5 @@ scrapeXML <- function( url, form.type, modules )
 
 
 }
+
+
