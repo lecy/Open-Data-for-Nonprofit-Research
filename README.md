@@ -6,22 +6,15 @@ The new IRS 990 data repository, hosted at Amazon and [found here](https://aws.a
 
 ## Build IRS Nonprofit Databases
 
-There are several IRS databases available online:
+Scripts are currently available to build several IRS databases available online:
 
-* All current exempt organizations (all orgs granted 501(c)(3) status)
-* Electronic 990, 990-EZ and 990-PF Filers
-* All 990-N Postcard Filers
-* All Organizations with a Revoked 501(c)(*) Status
-
-Scripts are currently available to build each of these here:
-
-* [Build the Database of Electronic Filers (990, 990-EZ, 990-PF) from 2011 to Present](./Build_Datasets/electronic filers.Rmd)
-* [Build the Database of All Exempt Organizations](./Build_Datasets/current master exempt list.Rmd)
-* [Build the Database of Postcard 990-N Filers](./Build_Datasets/postcard 990N filers.RMD) 
-* [Build the Database of Automatic Revocations of Tax Exempt Status](./Build_Datasets/revoked organizations.Rmd)
+* [Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present](./Build_Datasets/electronic filers.Rmd)
+* [All Current Exempt Organizations (all orgs granted 501(c)(3) status)](./Build_Datasets/current master exempt list.Rmd)
+* [All 990-N Postcard Filers](./Build_Datasets/postcard 990N filers.RMD) 
+* [All Organizations with a Revoked 501(c)(*) Status](./Build_Datasets/revoked organizations.Rmd)
 
 
-## Working with IRS Open Data
+## Working with Open IRS 990 Returns Data
 
 The IRS has released electronically-filed 990 returns as XML files that look like this:
 
@@ -33,18 +26,121 @@ This format is challenging for scholars that are used to flat spreadsheets. We a
 
 
 
-## Build a Core Dataset
+## Build a Dataset of 990 Returns
 
-**Coming soon!**
+We have created a program to convert the 990 returns for a specified set of organizations and years from individual XML files into a single spreadsheet format to make it useful for analysis. You can try it out with this sample of 10 nonprofits:
 
-We are working on some functions to allow digital denizens to build their own research database modeled after the NCCS Core database. The NCCS data dictionary is [available here](http://nccsweb.urban.org/PubApps/dd2.php?close=1&form=Core+2013+PC).
+```r
+### INSTALL AND LOAD REQUIRED PACKAGES
 
-In addition to information currently available in NCCS Core files, we can include additional information that was not previously accessible such as lists of board members and specific Schedules. We need help building out these modules! If you are interested, please contact us.
+install.packages( "dplyr" )
+install.packages( "xml2" )
 
-The main limitation of the IRS open data is that is only includes organizations that have filed electronically. This is approximately 60% of all 990 and 990-EZ filers, and all organizations with revenues above $10 million.
+library( dplyr )
+library( xml2 )
 
-The current IRS data also does not include NTEE codes, so any ideas on how to incorporate these are welcome!
 
+####  LOAD A TEST FILE FOR DEMO PURPOSES - tiny.index
+
+source( "https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/tiny.index.R" )
+
+# CONTAINS 10 NONPROFITS
+
+unique( tiny.index$OrganizationName )
+
+
+# 36 ROWS OF DATA COVERING 5 YEARS AND BOTH 990 AND 990EZ FILINGS
+
+nrow( tiny.index )
+table( tiny.index$FilingYear )
+table( tiny.index$FormType )
+
+
+
+
+# HERE IS WHAT THE DATA LOOKS LIKE
+
+head( tiny.index )
+
+
+# VARIABLE NAMES
+
+names( tiny.index )
+
+
+### LOAD THE PROGRAM TO BUILD THE DATASET FROM 990 RETURNS - buildCore()
+
+source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/buildCore.R")
+args( buildCore )
+
+
+# eins - list of all nonprofits to include in the dataset (of omitted will collect all in index file)
+# index - the IRS index file to use
+# modules - which variables to include in the dataset based upon sections of the 990
+# years - which years of data to collect
+# form.type - which forms to include - "990", "990EZ", "990PF"
+
+
+# START SCRAPING 990 RETURNS !
+
+core.dataset <- buildCore( index=tiny.index, years=2011:2015, form.type=c("990","990EZ"), modules="basic"  )
+
+print.data.frame( core.dataset )
+
+
+
+
+
+# WRITE TO A FILE
+
+getwd()  # where will it be saved?
+
+write.csv( core.dataset, "Core.csv", row.names=F )
+
+```
+
+Sections of the 990 Forms that Can Be Included in the Build:
+
+* Basic Information (Header Data)
+* Revenues, Expenses and Change in Assets
+* Mission and Program
+* Part IV - Checklist of Activities
+* Part V - Checklist of Tax Compliance
+* Part VI Section A - Governance and Management
+* Part VI Section B - Policies
+* Part VI Section C - Diclosure
+* Part VII - Compensation of Officers and Board Members
+* Part VIII - Statement of Revenues
+* Part IX - Statement of Functional Expenses
+* Part X - Balance Sheet
+* Part XI - Reconciliation of Net Assets
+* Part XII - Financial Reporting
+* Schedule A
+* Schedule B
+* Schedule D
+* Schedule M
+* Schedule O
+
+We need help building out these modules! If you are interested, please contact us!
+
+
+
+## Limitations
+
+We have modeled the database off of the The NCCS core datasets, as it has been the industry standard for scholarship for years. The NCCS core data dictionary is [available here](http://nccsweb.urban.org/PubApps/dd2.php?close=1&form=Core+2013+PC).
+
+There are several limitations of the open IRS data relative to the core files:
+
+* The IRS open data only includes organizations that have filed electronically (approximately 60% of all 990 and 990-EZ filers, and all organizations with revenues above $10 million). 
+* The current IRS data does not include NTEE codes.
+* The data has a street address, but is not geocoded or matched to county or MSA FIPS codes (which are necessary to merge with census data). 
+ 
+Another limitation of all of these datasets is that the 990EZ forms contain a small subset of variables contained in the full 990 form. Any variables that do not have 
+
+
+## Advantages 
+
+In addition to information currently available in NCCS Core files, we can include additional information that was not previously accessible such as lists of board members and specific Schedules. 
 
 ## Research Tools
 
