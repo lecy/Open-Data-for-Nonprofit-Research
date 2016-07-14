@@ -1,7 +1,8 @@
 
 
 
-<<<<<<< HEAD
+# LOAD REQUIRED PACKAGES
+
 library( xml2 )
 library( dplyr )
 
@@ -9,12 +10,6 @@ library( dplyr )
 
 # EXAMPLE ORGANIZATIONS FROM EACH PERIOD
 
-
-=======
-
-
-
->>>>>>> e532b7c1262f85b2fcc75ef1dc427f73d272ef87
 V_990_2014 <- "https://s3.amazonaws.com/irs-form-990/201543089349301829_public.xml"
 
 V_990_2012 <- "https://s3.amazonaws.com/irs-form-990/201322949349300907_public.xml"
