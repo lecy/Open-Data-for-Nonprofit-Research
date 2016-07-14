@@ -91,13 +91,13 @@ print.data.frame( core.dataset )
 
 
 
-
-
 # WRITE TO A FILE
 
 getwd()  # where will it be saved?
 
 write.csv( core.dataset, "Core.csv", row.names=F )
+
+###
 
 ```
 
