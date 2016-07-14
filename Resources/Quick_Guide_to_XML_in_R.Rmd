@@ -505,6 +505,132 @@ bind_rows( header.df.01, header.df.02 )
 
 ```
 
+
+## Reconciling Fields Across Years
+
+Some brilliant person or persons at the IRS have taken it upon themselves to change field names within their database system, so it is now not possible to easily scrape data across multiple years. Most change are minor:
+
+**BusinessNameLine1** changed to **BusinessNameLine1Txt**
+
+**FormType** changed to **FormTypeCd**
+
+Unfortunately even small changes will break your code since it requires an exact match. As a result, you need to write the xpath statement in such a way that it will match either version. The queries have a bunch of 
+
+```{r, eval=F}
+
+library( xml2 )
+
+# EXAMPLE 990 File
+doc <- read_xml( "https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml" )
+xml_ns_strip( dat )
+
+
+
+# 2014 / 2015 990 VERSION
+#
+# "//Return/ReturnData/IRS990/GrossReceiptsAmt"
+
+
+# 2013 / 2012 VERSION
+#
+# "//Return/ReturnData/IRS990/GrossReceipts"
+
+
+# This works with 2014, 2015 data, fails with 2012, 2013 data
+
+GROSSRECEIPTS <- xml_text( xml_find_all( doc, "//Return/ReturnData/IRS990/GrossReceiptsAmt" ) )
+
+
+# INCLUSIVE XPATH VERSION WHEN TWO VARIABLE NAMES HAVE COMMON PREDICATE PATH
+
+GROSSRECEIPTS <- xml_text( xml_find_all( doc, "/Return/ReturnData/IRS990/*[self::GrossReceipts or self::GrossReceiptsAmt]" ) )
+
+
+
+# 990EZ CHANGES PATH STRUCTURE
+#
+# //Return/ReturnData/IRS990EZ/GrossReceiptsAmt
+
+
+
+# NEW INCLUSIVE STATEMENT MUST uSE OR OPERATOR "|" AND FULL PATHS
+
+gross.receipts.xpath <- "//Return/ReturnData/IRS990/GrossReceipts|//Return/ReturnData/IRS990/GrossReceiptsAmt|//Return/ReturnData/IRS990EZ/GrossReceiptsAmt"
+
+GROSSRECEIPTS <- xml_text( xml_find_all( doc, gross.receipts.xpath ) )
+
+
+
+```
+
+
+Here is an example of how we might reconciling fields between 2012 and 2014.
+
+```
+# 2012 990 VERSION
+
+
+ [47] "/Return/ReturnData/IRS990/GrossReceipts"
+ [48] "/Return/ReturnData/IRS990/GroupReturnForAffiliates"
+ [49] "/Return/ReturnData/IRS990/Organization501c3"
+ [50] "/Return/ReturnData/IRS990/WebSite"
+ [51] "/Return/ReturnData/IRS990/TypeOfOrganizationCorporation"
+ [52] "/Return/ReturnData/IRS990/YearFormation"
+ [53] "/Return/ReturnData/IRS990/StateLegalDomicile"
+ [54] "/Return/ReturnData/IRS990/ActivityOrMissionDescription"
+ [55] "/Return/ReturnData/IRS990/NbrVotingMembersGoverningBody"
+ [56] "/Return/ReturnData/IRS990/NbrIndependentVotingMembers"
+ [57] "/Return/ReturnData/IRS990/TotalNbrEmployees"
+ [58] "/Return/ReturnData/IRS990/TotalNbrVolunteers"
+ [59] "/Return/ReturnData/IRS990/TotalGrossUBI"
+ [60] "/Return/ReturnData/IRS990/NetUnrelatedBusinessTxblIncome"
+ 
+ 
+ 
+ 
+ 
+# 2014 990 VERSION
+ 
+ [47] "/Return/ReturnData/IRS990/GrossReceiptsAmt"
+ [48] "/Return/ReturnData/IRS990/GroupReturnForAffiliatesInd"   
+ [49] "/Return/ReturnData/IRS990/Organization501c3Ind"         
+ [50] "/Return/ReturnData/IRS990/WebsiteAddressTxt"          
+ [51] "/Return/ReturnData/IRS990/TypeOfOrganizationCorpInd"         
+ [52] "/Return/ReturnData/IRS990/FormationYr"
+ [53] "/Return/ReturnData/IRS990/LegalDomicileStateCd"
+ [54] "/Return/ReturnData/IRS990/ActivityOrMissionDesc"
+ [55] "/Return/ReturnData/IRS990/VotingMembersGoverningBodyCnt"
+ [56] "/Return/ReturnData/IRS990/VotingMembersIndependentCnt"
+ [57] "/Return/ReturnData/IRS990/TotalEmployeeCnt"
+ [58] "/Return/ReturnData/IRS990/TotalVolunteersCnt"
+ [59] "/Return/ReturnData/IRS990/TotalGrossUBIAmt"
+ [60] "/Return/ReturnData/IRS990/NetUnrelatedBusTxblIncmAmt"
+ 
+ 
+ 
+# INCLUSIVE XPATH STATEMENT
+
+ [47] "/Return/ReturnData/IRS990/*[self::GrossReceipts or self::GrossReceiptsAmt]"
+ [48] "/Return/ReturnData/IRS990/*[self::GroupReturnForAffiliates or self::GroupReturnForAffiliatesInd]"
+ [49] "/Return/ReturnData/IRS990/*[self::Organization501c3 or self::Organization501c3Ind]"
+ [50] "/Return/ReturnData/IRS990/*[self::WebSite or self::WebsiteAddressTxt]"
+ [51] "/Return/ReturnData/IRS990/*[self::TypeOfOrganizationCorporation or self::TypeOfOrganizationCorpInd]"
+ [52] "/Return/ReturnData/IRS990/*[self::YearFormation or self::FormationYr]"
+ [53] "/Return/ReturnData/IRS990/*[self::StateLegalDomicile or self::LegalDomicileStateCd]"
+ [54] "/Return/ReturnData/IRS990/*[self::ActivityOrMissionDescription or self::ActivityOrMissionDesc]"
+ [55] "/Return/ReturnData/IRS990/*[self::NbrVotingMembersGoverningBody or self::VotingMembersGoverningBodyCnt]"
+ [56] "/Return/ReturnData/IRS990/*[self::NbrIndependentVotingMembers or self::VotingMembersIndependentCnt]" 
+ [57] "/Return/ReturnData/IRS990/*[self::TotalNbrEmployees or self::TotalEmployeeCnt]"
+ [58] "/Return/ReturnData/IRS990/*[self::TotalNbrVolunteers or self::TotalVolunteersCnt]"
+ [59] "/Return/ReturnData/IRS990/*[self::TotalGrossUBI or self::TotalGrossUBIAmt]"
+ [60] "/Return/ReturnData/IRS990/*[self::NetUnrelatedBusinessTxblIncome or self::NetUnrelatedBusTxblIncmAmt]"
+
+
+ 
+```
+
+
+
 ## Full Path Directory for Example 990 Return
 
 ```{r}

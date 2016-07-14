@@ -8,7 +8,7 @@
 #    index - database of all electronic filers provided by the IRS
 
 
-buildCore <- function( eins=NULL, index=NULL, years, form.type="990", modules="all" )
+buildCore <- function( eins=NULL, index=NULL, years, form.type=c("990","990EZ"), modules="all" )
 {
   
   library( dplyr )

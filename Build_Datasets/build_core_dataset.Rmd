@@ -37,7 +37,7 @@ my.eins <- unique( tiny.index$EIN )
 # my.years <- unique( tiny.index&FilingYear )
 
 
-buildCore( eins=my.eins, years=2011:2015, form.type="990", modules="basic", index=tiny.index )
+buildCore( eins=my.eins, years=2013:2015, form.type="990", modules="basic", index=tiny.index )
 
 
 ```
