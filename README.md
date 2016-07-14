@@ -148,7 +148,9 @@ Another limitation of all of these datasets is that the 990EZ forms contain a sm
 
 ## Advantages 
 
-In addition to information currently available in NCCS Core files, we can include additional information that was not previously accessible such as lists of board members and specific Schedules. 
+In addition to information currently available in NCCS Core files, we can include additional information that was not previously accessible such as lists of board members and specific Schedules.
+
+The IRS releases new data every couple of months as it is available, so it is more-or-less in real time as nonprofits submit their returns. Alternatively, there is a 2-3 year time lag between when data is filed and when it is released by NCCS.
 
 ## Research Tools
 
