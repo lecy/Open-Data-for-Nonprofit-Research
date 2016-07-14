@@ -1,0 +1,15 @@
+# DOCUMENTATION FOR BASIC INFO MODULE
+
+
+
+Variable | Description | 990 | 990EZ
+---------|-------------|-----|------------
+EIN | Employer Identification Number | X | X
+
+VOTINGMEMBERS | Number of voting board members | X | .
+
+
+
+FISYR, NAME, DBA, STATE, ADDRESS, CITY, ZIP, STYEAR, ENDYEAR, TAXPREP, FORM,
+	                          GROSSRECEIPTS, GROUPRETURN, TAXEXMSTATUS, TYPEOFORG, FORMYEAR, DOMICILE, WEBSITE,  
+	                          VOTINGMEMBERS, INDVOTINGMEMBERS, TOTEMPLOYEE, TOTVOLUNTEERS, TOTUBI, NETUBI, URL 

@@ -37,16 +37,9 @@ scrapeXML <- function( url, form.type, modules )
     
     
     
-    # SET MODULES TO COLLECT
-    if( modules == "all" & FORM == "990" )
-    {
-        modules <- c("basic","revexp","mission")
-    }
-    
-    
 
     
-    # always include basic info?
+    # always include basic info
 
       xml.df <- getBasicInfo( doc, url )
 

@@ -8,23 +8,39 @@
 #    index - database of all electronic filers provided by the IRS
 
 
-buildCore <- function( eins, years, form.type="990", modules="all", index=NULL )
+buildCore <- function( eins=NULL, index=NULL, years, form.type="990", modules="all" )
 {
   
   library( dplyr )
   library( xml2 )
   # library( R.utils )
   
+  
+  # LOAD ALL REQUIRED FUNCTIONS
+  
   source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/scrapeXML.R")
   source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/getBasicInfo.R")
   # source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper%20Functions/getRevExp.R")
   # source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper%20Functions/getMission.R")
   
+  
+  # BUILD NECESSARY RESOURCES
+  
   if( is.null(index) ) { index <- buildIndex() }
   
-  # subset index
+  if( is.null(eins) ) { eins <- unique( index$EIN ) }
+  
+  if( modules == "all" ) { modules <- c("basic") }    # { modules <- c("basic","revexp","mission"...) }
+  
+  
+  
+  # SUBSET INDEX FILE BY SPECIFIED YEARS AND FORMS
   
   these <- index[ index$EIN %in% eins & index$FilingYear %in% years & index$FormType %in% form.type , "URL" ]
+  
+  
+  
+  
   
   # NEED THIS TO BUILD CONSISTENT DATA.FRAMES WHEN VARIABLES ARE NOT PRESENT
   # http://stackoverflow.com/questions/16951080/can-list-objects-be-created-in-r-that-name-themselves-based-on-input-object-name
