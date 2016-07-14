@@ -125,11 +125,11 @@ Sections of the 990 Forms that Can Be Included in the Build:
 
 There are other modules that function more like relational databases. The 990 returns contain information about board members or individual grants made by private foundations. These sections have a one-to-many relationship (many board members are associated with each nonprofit), and are better built as a separate table that can be linked to a nonprofit through the EIN rather than adding them to the same database because of the structure of the data. 
 
-We need help building out modules! If you are interested in data that is not included in the current build, we can share instructions on how to create a new module to add data to the dataset. It is a fairly straight-forward process and does not require a lot of programming knowledge, other than definining the variables and writing a data dictionary for the variables that you include. 
+If you are interested in data that is not included in the current build, you can create a new module to add data to the dataset. It is a fairly straight-forward process and does not require a lot of programming knowledge, other than definining the variable list and documenting the definition (990 field) for each variable you create. 
 
-You can [generate the variable list](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/generateAllXpaths.R) by running this script. Building a module requires you to define variables by identifying the different ways they are referenced in the four versions of the 990, the results looking something [like this](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R).
+You can generate the variable list by running [this script]((https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/generateAllXpaths.R)). Building a module requires you to define variables by identifying the different ways they are referenced in the four versions of the 990, the results looking something [like this](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R). See the [Quick Guide to XML in R](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.pdf) for more details.
 
-We welcome any contributions to this project.
+We welcome any contributions!
 
 
 
