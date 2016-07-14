@@ -103,7 +103,7 @@ write.csv( core.dataset, "Core.csv", row.names=F )
 
 Sections of the 990 Forms that Can Be Included in the Build:
 
-* Basic Information (Header Data) [ script ](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R) [ data dictionary ]
+* Basic Information (Header Data):  [ [script](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R) ] [ data dictionary ]
 * Part I - Revenues, Expenses and Change in Assets
 * Mission and Program
 * Part IV - Checklist of Activities
@@ -125,7 +125,11 @@ Sections of the 990 Forms that Can Be Included in the Build:
 
 There are other modules that function more like relational databases. The 990 returns contain information about board members or individual grants made by private foundations. These sections have a one-to-many relationship (many board members are associated with each nonprofit), and are better built as a separate table that can be linked to a nonprofit through the EIN rather than adding them to the same database because of the structure of the data. 
 
-We need help building out modules! If you are interested in data that is not included in the current build, we can share instructions on how to create a new module to add data to the dataset. It is a fairly straight-forward process and does not require a lot of programming knowledge, other than definining the variables and writing a data dictionary for the variables that you include. Please contact us if you are interested.
+We need help building out modules! If you are interested in data that is not included in the current build, we can share instructions on how to create a new module to add data to the dataset. It is a fairly straight-forward process and does not require a lot of programming knowledge, other than definining the variables and writing a data dictionary for the variables that you include. 
+
+You can [generate the variable list](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/generateAllXpaths.R) by running this script. Building a module requires you to define variables by identifying the different ways they are referenced in the four versions of the 990, the results looking something [like this](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R).
+
+We welcome any contributions to this project.
 
 
 
