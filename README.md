@@ -4,6 +4,8 @@ Nonprofit sector advocates have waged concerted efforts to make IRS 990 tax data
 
 The new IRS 990 data repository, hosted at Amazon and [found here](https://aws.amazon.com/public-data-sets/irs-990/), represents a significant stride forward in making data open and timely. Unfortunately the data have been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
 
+These scripts are written in the R language because it is a freely-available open-source platform that can be used by anyone. This project was inspired by the [R Open Science](https://ropensci.org/) initiative, which believes in making data accessible and building tools that help a research community better utilize the data. You can install R for Windows [here](https://cran.r-project.org/bin/windows/base/) or R for Macs [here](https://cran.r-project.org/bin/macosx/). 
+
 ## Build IRS Nonprofit Databases
 
 Scripts are currently available to build several IRS databases available online:
@@ -101,8 +103,8 @@ write.csv( core.dataset, "Core.csv", row.names=F )
 
 Sections of the 990 Forms that Can Be Included in the Build:
 
-* Basic Information (Header Data)
-* Revenues, Expenses and Change in Assets
+* Basic Information (Header Data) [ script ](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R) [ data dictionary ]
+* Part I - Revenues, Expenses and Change in Assets
 * Mission and Program
 * Part IV - Checklist of Activities
 * Part V - Checklist of Tax Compliance
@@ -121,7 +123,9 @@ Sections of the 990 Forms that Can Be Included in the Build:
 * Schedule M
 * Schedule O
 
-We need help building out these modules! If you are interested, please contact us!
+There are other modules that function more like relational databases. The 990 returns contain information about board members or individual grants made by private foundations. These sections have a one-to-many relationship (many board members are associated with each nonprofit), and are better built as a separate table that can be linked to a nonprofit through the EIN rather than adding them to the same database because of the structure of the data. 
+
+We need help building out modules! If you are interested in data that is not included in the current build, we can share instructions on how to create a new module to add data to the dataset. It is a fairly straight-forward process and does not require a lot of programming knowledge, other than definining the variables and writing a data dictionary for the variables that you include. Please contact us if you are interested.
 
 
 
@@ -178,6 +182,8 @@ For some background on the campaigns to open access to IRS data, see these artic
 * [Liberating 990 Data](http://ssir.org/articles/entry/liberating_990_data): Stanford Social Innovation Review
 * [The Nonprofit Data Project Blog](https://www.aspeninstitute.org/programs/program-on-philanthropy-and-social-innovation-psi/nonprofit-data-project-updates/): The Aspen Institute
 * [IRS Plans to Begin Releasing Electronically Filed Nonprofit Tax Data](https://philanthropy.com/article/IRS-Plans-to-Begin-Releasing/231265): Chronicle of Philanthropy
+* [Mandatory E-Filing: Toward a More Transparent Nonprofit Sector](http://www.urban.org/research/publication/mandatory-e-filing-toward-more-transparent-nonprofit-sector): The Urban Institute
+* [Recommendations for Improving the Effectiveness of the 990 Form for Reporting[(https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/IRS%20ACT%20Report%202015.pdf): Advisory Committee on Tax-Exempt and Government Entities (ACT) Report
 
 
 
