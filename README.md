@@ -225,6 +225,11 @@ Can we develop these further to augment the IRS data in interesting ways?
 * [Religious Congregation Data](http://www.thearda.com/archive/browse.asp)
 * [Dark Money Given to Nonprofits](http://www.opensecrets.org/dark-money/explore-our-reports.php)
 
+Working with the data on the AWS Platform:
+
+You can find some useful scripts here for running queries directly within the cloud and downloading data as CSV files:
+
+https://gist.github.com/ryankanno/a5da4c6f1f8e0136db9623ae1903d23d#form-990
 
 ## Contact
 
