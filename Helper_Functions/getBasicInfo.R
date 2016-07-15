@@ -31,7 +31,7 @@ getBasicInfo <- function( doc, url )
 
 	# BASIC INFO
 	
-	gr.xpath <- "//Return/ReturnData/IRS990/GrossReceipts|//Return/ReturnData/IRS990/GrossReceiptsAmt|//Return/ReturnData/IRS990EZ/GrossReceiptsAmt"
+	gr.xpath <- "//Return/ReturnData/IRS990/GrossReceipts|//Return/ReturnData/IRS990/GrossReceiptsAmt|//Return/ReturnData/IRS990EZ/GrossReceiptsAmt|//Return/ReturnData/IRS990EZ/GrossReceipts"
 	GROSSRECEIPTS <- xml_text( xml_find_all( doc, gr.xpath ) ) 
 	
 	GROUPRETURN <- xml_text( xml_find_all( doc, "//Return/ReturnData/IRS990/*[self::GroupReturnForAffiliates or self::GroupReturnForAffiliatesInd]" ) ) 
@@ -47,7 +47,7 @@ getBasicInfo <- function( doc, url )
 	domicile.xpath <- "//Return/ReturnData/IRS990EZ/StatesWhereCopyOfReturnIsFiled|//Return/ReturnData/IRS990EZ/StatesWhereCopyOfReturnIsFldCd|//Return/ReturnData/IRS990/StateLegalDomicile|//Return/ReturnData/IRS990/LegalDomicileStateCd"
 	DOMICILE <- xml_text( xml_find_all( doc, domicile.xpath ) )
 	
-	website.xpath <- "//Return/ReturnData/IRS990EZ/WebsiteAddressTxt|//Return/ReturnData/IRS990/WebSite|//Return/ReturnData/IRS990/WebsiteAddressTxt"
+	website.xpath <- "//Return/ReturnData/IRS990EZ/WebsiteAddressTxt|//Return/ReturnData/IRS990/WebSite|//Return/ReturnData/IRS990/WebsiteAddressTxt|//Return/ReturnData/IRS990EZ/WebSite"
 	WEBSITE <- xml_text( xml_find_all( doc, website.xpath ) ) 
 
 
