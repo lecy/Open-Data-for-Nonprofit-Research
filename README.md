@@ -132,6 +132,12 @@ You can generate the variable list by running [THIS SCRIPT](https://github.com/l
 We welcome any contributions!
 
 
+## Advantages 
+
+In addition to information currently available in NCCS Core files, we can include additional information that was not previously accessible such as lists of board members and specific Schedules.
+
+The IRS releases new data every couple of months as it is available, so it is more-or-less in real time as nonprofits submit their returns. Alternatively, there is a 2-3 year time lag between when data is filed and when it is released by NCCS.
+
 
 ## Limitations
 
@@ -146,12 +152,6 @@ There are several limitations of the open IRS data relative to the core files:
 Another limitation of all of these datasets is that the 990EZ forms contain a small subset of variables contained in the full 990 form. Any variables that do not have 
 
 
-## Advantages 
-
-In addition to information currently available in NCCS Core files, we can include additional information that was not previously accessible such as lists of board members and specific Schedules.
-
-The IRS releases new data every couple of months as it is available, so it is more-or-less in real time as nonprofits submit their returns. Alternatively, there is a 2-3 year time lag between when data is filed and when it is released by NCCS.
-
 ## Research Tools
 
 Nonprofit data can be difficult to use because of messy data, multiple filing options, and changes to the 990 forms over time. 
@@ -165,12 +165,8 @@ Please send your work if it represents solutions to problems that fall under the
 * [Merging 990 Data with Other Sources](https://gist.github.com/lecy/0aa782a873cd174573f32d243233ca5b)
 * Geocoding Nonprofits
 
-For instructions on submitting a solution, email Jesse Lecy: jdlecy@syr.edu
 
-
-## Research Library
-
-If you know of an article, blog, or research vignette that does a good job explaning methods for working with nonprofit data, let us know and we will share it. For example:
+Similarly, if you know of an article, blog, or research vignette that does a good job explaning methods for working with nonprofit data, let us know and we will share it. For example:
 
 *Feng, N. C., Ling, Q., Neely, D., & Roberts, A. A. (2014). Using archival data sources to conduct nonprofit accounting research. Journal of Public Budgeting, Accounting & Financial Management.*
 
@@ -178,7 +174,7 @@ If you know of an article, blog, or research vignette that does a good job expla
 
 *Lecy, J., & Thornton, J. (2015). What Big Data Can Tell Us About Government Awards to the Nonprofit Sector Using the FAADS. Nonprofit and Voluntary Sector Quarterly.*
 
-The authors share a script for merging federal contracting data with IRS 990 data using names and addresses of organizations in the absence of a unique key shared by both databases (usually the EIN). It can be accessed [HERE](https://github.com/lecy/FAADS-NCCS-Crosswalk/blob/master/README.md). 
+The authors share a script for merging federal contracting data with IRS 990 data using names and addresses of organizations in the absence of a unique key shared by both databases (usually the EIN). The merge script can be accessed [HERE](https://github.com/lecy/FAADS-NCCS-Crosswalk/blob/master/README.md). 
 
 
 ## Liberating the 990 Data
