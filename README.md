@@ -30,7 +30,9 @@ This format is challenging for scholars that are used to flat spreadsheets. We a
 
 ## Build a Dataset of 990 Returns
 
-We have created a program to convert the 990 returns for a specified set of organizations and years from individual XML files into a single spreadsheet format to make it useful for analysis. You can try it out with this sample of 10 nonprofits:
+We have created a program to convert the 990 returns for a specified set of organizations and years from individual XML files into a single spreadsheet format to make it useful for analysis. 
+
+You can try it out with this sample of 10 nonprofits which is a subset from the full [e-filers database](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_Datasets/electronic%20filers.Rmd):
 
 ```r
 ### INSTALL AND LOAD REQUIRED PACKAGES
