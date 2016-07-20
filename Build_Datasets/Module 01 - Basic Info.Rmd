@@ -4,6 +4,8 @@
 # Created in July 2016 by Jesse Lecy
 ```
 
+## Data Dictionary
+
 Variable | Description | 990 | 990EZ
 ---------|-------------|-----|------------
 NAME | Nonprofit Name | X | X
