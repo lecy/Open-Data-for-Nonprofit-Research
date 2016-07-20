@@ -1,15 +1,39 @@
 # DOCUMENTATION FOR BASIC INFO MODULE
-
+#
+# Created in July 2016 by Jesse Lecy
 
 
 Variable | Description | 990 | 990EZ
 ---------|-------------|-----|------------
+NAME | Nonprofit Name | X | X
 EIN | Employer Identification Number | X | X
-
+DBA | Doing-business-as name | X | .
+FORMYEAR | Year that the nonprofit was formed | X | .
+DOMICILE | State of legal domocile of the nonprofit | X | .
+WEBSITE | Web address of the nonprofit | X | X
+ADDRESS | Nonprofit address | X | X
+CITY | Domocile city of nonprofit | X | X
+STATE | Domocile state of nonprofit | X | X
+ZIP | 5-digit zip code | X | X
+FORM | Type of return: 990 or 990EZ | X | X
+FISYR | Tax year of returns | X | X
+STYEAR | Start date of tax year for the nonprofit | X | X
+ENDYEAR | End data of tax year | X | X
+GROSSRECEIPTS | ... | X | X
+GROUPRETURN | ... | X | .
 VOTINGMEMBERS | Number of voting board members | X | .
+INDVOTINGMEMBERS | ... | X | .
+TOTEMPLOYEE  | ... | X | .
+TOTVOLUNTEERS | ... | X | .
+TOTUBI | ... | X | .
+NETUBI | ... | X | .
+URL  | Web address of IRS return in XML format | X | X
 
+	                          
+Notes: 
 
+Fix TAXPREP so it represents whether an external agency filed the return - currently represents whether third party is authorized to speak with IRS regarding the returns.
 
-FISYR, NAME, DBA, STATE, ADDRESS, CITY, ZIP, STYEAR, ENDYEAR, TAXPREP, FORM,
-	                          GROSSRECEIPTS, GROUPRETURN, TAXEXMSTATUS, TYPEOFORG, FORMYEAR, DOMICILE, WEBSITE,  
-	                          VOTINGMEMBERS, INDVOTINGMEMBERS, TOTEMPLOYEE, TOTVOLUNTEERS, TOTUBI, NETUBI, URL 
+TYPEOFORG - this field is supposed to represent the type of organization, but currently only indicates whether the nonprofit selected any of the options, but not which one was selected
+
+TAXEXMSTATUS - this field is supposed to report the type of tax exempt status granted to the organization, but it currently only indicates whether the nonprofit selected any of the options, but not which one was selected
