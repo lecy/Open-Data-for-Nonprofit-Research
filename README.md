@@ -105,25 +105,43 @@ write.csv( core.dataset, "Core.csv", row.names=F )
 
 Sections of the 990 Forms that Can Be Included in the Build:
 
-* Basic Information (Header Data):  [ [script](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R) ] [ data dictionary ]
-* Part I - Revenues, Expenses and Change in Assets
-* Mission and Program
-* Part IV - Checklist of Activities
-* Part V - Checklist of Tax Compliance
-* Part VI Section A - Governance and Management
-* Part VI Section B - Policies
-* Part VI Section C - Diclosure
-* Part VII - Compensation of Officers and Board Members
-* Part VIII - Statement of Revenues
-* Part IX - Statement of Functional Expenses
-* Part X - Balance Sheet
-* Part XI - Reconciliation of Net Assets
-* Part XII - Financial Reporting
-* Schedule A
-* Schedule B
-* Schedule D
-* Schedule M
-* Schedule O
+SECTION | DESCRIPTION | 990 | 990-EZ | SCRIPT | DATA DICTIONARY
+Basic Information | Header Data | X | partial |  [ [script](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R) ] | [ data dictionary ]
+Part I | Revenues, Expenses and Change in Assets  | X | partial | | 
+Mission and Program | X | partial | | 
+Part IV | Checklist of Activities  | X | ? | | 
+Part V | Checklist of Tax Compliance  | X | ? | | 
+Part VI Section A | Governance and Management  | X | ? | | 
+Part VI Section B | Policies  | X | ? | | 
+Part VI Section C | Diclosure  | X | ? | | 
+Part VII | Compensation of Officers and Board Members  | X | ? | | 
+Part VIII | Statement of Revenues  | X | | | 
+Part IX | Statement of Functional Expenses  | X | | | 
+Part X | Balance Sheet  | X |  | | 
+Part XI | Reconciliation of Net Assets  | X |  | | 
+Part XII | Financial Reporting  | X |  | | 
+
+Schedules used required for a variety of disclosure and compliance requirements if nonprofits meet certain criteria. The following is a list of all schedules and whether 990-EZ filers would be required to submit as well (source: Wikipedia). The schedules that you will frequently see are A, B, D, M, and O.
+
+Type |	Name	Number of pages |	Can be filed with Form 990-EZ? | Common?
+-----|----------------------|--------------------------------|----------
+Schedule A	 |	Public Charity Status and Public Support	 |	4	 |	Yes
+Schedule B	 |	Schedule of Contributors	 |	8	 |	Yes
+Schedule C	 |	Political Campaign and Lobbying Activities	 |	4	 |	Yes
+Schedule D	 |	Supplemental Financial Statements	 |	5	 |	No
+Schedule E	 |	Schools	 |	1	 |	Yes
+Schedule F	 |	Statement of Activities Outside the United States	 |	4	 |	No
+Schedule G	 |	Supplemental Information Regarding Fundraising or Gaming Activities	 |	3	 |	Yes
+Schedule H	 |	Hospitals	 |	4	 |	No
+Schedule I	 |	Grants and Other Assistance to Organizations, Governments, and Individuals in the United States	 |	2	 |	No
+Schedule J	 |	Compensation Information	 |	3	 |	No
+Schedule K	 |	Supplemental Information on Tax-Exempt Bonds	 |	2	 |	No
+Schedule L	 |	Transactions With Interested Persons	 |	1	 |	Yes
+Schedule M	 |	Noncash Contributions	 |	2	 |	No
+Schedule N	 |	Liquidation, Termination, Dissolution, or Significant Disposition of Assets	 |	3	 |	Yes
+Schedule O	 |	Supplemental Information to Form 990	 |	2	 |	No
+Schedule R	 |	Related Organizations and Unrelated Partnerships	 |	4	 |	No
+
 
 There are other modules that function more like relational databases. The 990 returns contain information about board members or individual grants made by private foundations. These sections have a one-to-many relationship (many board members are associated with each nonprofit), and are better built as a separate table that can be linked to a nonprofit through the EIN rather than adding them to the same database because of the structure of the data. 
 
