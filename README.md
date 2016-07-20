@@ -103,7 +103,9 @@ write.csv( core.dataset, "Core.csv", row.names=F )
 
 ```
 
-Sections of the 990 Forms that Can Be Included in the Build:
+## Data Build Modules
+
+This table presents an overview of the sections of the 990 form, whether each section is included in the 990 exclusively or also in the 990-EZ, and a link to the documentation if the module has been built.
 
 SECTION | DESCRIPTION | 990 | 990-EZ | SCRIPT | DATA DICTIONARY
 --------|-------------|-----|--------|--------|-------------------
