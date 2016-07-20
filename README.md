@@ -109,7 +109,7 @@ SECTION | DESCRIPTION | 990 | 990-EZ | SCRIPT | DATA DICTIONARY
 --------|-------------|-----|--------|--------|-------------------
 Basic Information | Header Data | X | partial |  [ [script](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R) ] | [ data dictionary ]
 Part I | Revenues, Expenses and Change in Assets  | X | partial | | 
-Mission and Program | X | partial | | 
+Part I | Mission and Program | X | partial | | 
 Part IV | Checklist of Activities  | X | ? | | 
 Part V | Checklist of Tax Compliance  | X | ? | | 
 Part VI Section A | Governance and Management  | X | ? | | 
