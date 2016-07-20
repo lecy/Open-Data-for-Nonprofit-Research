@@ -1,7 +1,8 @@
 # DOCUMENTATION FOR BASIC INFO MODULE
-#
-# Created in July 2016 by Jesse Lecy
 
+```
+# Created in July 2016 by Jesse Lecy
+```
 
 Variable | Description | 990 | 990EZ
 ---------|-------------|-----|------------
