@@ -138,7 +138,7 @@ write.csv( core.dataset, "Core.csv", row.names=F )
 
 ```
 
-## Data Build Modules
+## Data Modules
 
 This table presents an overview of the sections of the 990 form, whether each section is included in the 990 exclusively or also in the 990-EZ, and a link to the documentation if the module has been built.
 
@@ -183,6 +183,8 @@ Schedule R	 |	Related Organizations and Unrelated Partnerships	 |	4	 |	No
 
 There are other modules that function more like relational databases. The 990 returns contain information about board members or individual grants made by private foundations. These sections have a one-to-many relationship (many board members are associated with each nonprofit), and are better built as a separate table that can be linked to a nonprofit through the EIN rather than adding them to the same database because of the structure of the data. 
 
+### Build a Module
+
 If you are interested in data that is not included in the current build, you can create a new module to add data to the dataset. It is a fairly straight-forward process and does not require a lot of programming knowledge, other than definining the variable list and documenting the definition (990 field) for each variable you create. 
 
 You can generate the variable list by running [THIS SCRIPT](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/generateAllXpaths.R). Building a module requires you to define variables by identifying the different ways they are referenced in the four versions of the 990, the results looking something [LIKE THIS](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R). See the [Quick Guide to XML in R](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.pdf) for more details.
@@ -190,14 +192,14 @@ You can generate the variable list by running [THIS SCRIPT](https://github.com/l
 We welcome any contributions!
 
 
-## Advantages 
+## Advantages of the Open IRS Database
 
 In addition to information currently available in NCCS Core files, we can include additional information that was not previously accessible such as lists of board members and specific Schedules.
 
 The IRS releases new data every couple of months as it is available, so it is more-or-less in real time as nonprofits submit their returns. Alternatively, there is a 2-3 year time lag between when data is filed and when it is released by NCCS.
 
 
-## Limitations
+## Limitations of the Open IRS Database
 
 We have modeled the database off of the The NCCS core datasets, as it has been the industry standard for scholarship for years. The NCCS core data dictionary is [available here](http://nccsweb.urban.org/PubApps/dd2.php?close=1&form=Core+2013+PC).
 
