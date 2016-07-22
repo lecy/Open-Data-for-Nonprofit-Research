@@ -8,13 +8,14 @@ These scripts are written in the R language because it is a freely-available ope
 
 ## Build IRS Nonprofit Databases
 
-Scripts are currently available to build several IRS databases available online:
+Scripts are currently available to build several IRS databases:
 
 * [Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present](./Build_Datasets/electronic filers.Rmd)
 * [All Current Exempt Organizations (all orgs granted 501(c)(3) status)](./Build_Datasets/current master exempt list.Rmd)
 * [All 990-N Postcard Filers](./Build_Datasets/postcard 990N filers.RMD) 
 * [All Organizations with a Revoked 501(c)(*) Status](./Build_Datasets/revoked organizations.Rmd)
 
+You should be able to copy and paste the script into an R console, then select the desired output, and it will generate a CSV, SPSS, or Stata dataset for you.
 
 ## Working with Open IRS 990 Returns Data
 
@@ -32,7 +33,9 @@ This format is challenging for scholars that are used to flat spreadsheets. We a
 
 We have created a program to convert the 990 returns for a specified set of organizations and years from individual XML files into a single spreadsheet format to make it useful for analysis. 
 
-You can try it out with this sample of 10 nonprofits which is a subset from the full [e-filers database](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_Datasets/electronic%20filers.Rmd):
+** We are working to generate datasets for each year with a set of the most useful variables and posting these for download **
+
+Too see the mechanics of building a dataset from the online returns, try the script below with this sample of 10 nonprofits which is a subset from the full [e-filers database](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_Datasets/electronic%20filers.Rmd). It will scrape the data from the XML files posted by the IRS and return available data as a flat spreadsheet.
 
 ```r
 ### INSTALL AND LOAD REQUIRED PACKAGES
@@ -137,6 +140,8 @@ write.csv( core.dataset, "Core.csv", row.names=F )
 ###
 
 ```
+
+The missing value NA's indicate either that the nonprofit did not provide information, or in some cases that the full 990 contains the questions but the 990-EZ does not (see the data dictionary for more information). 
 
 ## Data Modules
 
