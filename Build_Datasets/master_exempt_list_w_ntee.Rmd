@@ -1,0 +1,36 @@
+
+
+
+# business master files
+
+https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf
+
+# documentation
+
+https://www.irs.gov/pub/irs-soi/eo_info.pdf
+
+
+
+
+
+
+
+# SOI FILES 2012-2015
+
+https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data
+
+```r
+
+dat <- read.csv( "https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat", sep=" ", skip=1 )
+
+raw.names <- readLines( "https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat", n=1 )
+
+dat.names <- strsplit( raw.names, " ")[[1]]
+
+names( dat ) <- dat.names
+
+head( dat )
+
+```
+
+
