@@ -31,6 +31,52 @@ names( dat ) <- dat.names
 
 head( dat )
 
+
+
+dat <- read.csv( "https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat", sep=" ", skip=1 )
+
+raw.names <- readLines( "https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat", n=1 )
+
+dat.names <- strsplit( raw.names, " ")[[1]]
+
+names( dat ) <- dat.names
+
+head( dat )
+
+
+
+
+dat <- read.csv( "https://www.irs.gov/pub/irs-soi/15eofinextractEZ.dat", sep=" ", skip=1 )
+
+raw.names <- readLines( "https://www.irs.gov/pub/irs-soi/15eofinextractEZ.dat", n=1 )
+
+n2 <- strsplit( raw.names, " ")[[1]]
+
+names( dat ) <- n2
+
+head( dat )
+
+
+
+setwd( "C:/Users/jdlecy/Downloads/14eofinextract990ez" )
+
+
+
+dat <- read.csv( "py14_EZ.dat", sep=" ", skip=1 )
+
+raw.names <- readLines( "py14_EZ.dat", n=1 )
+
+n1 <- strsplit( raw.names, " ")[[1]]
+
+names( dat ) <- dat.names
+
+head( dat )
+
+setdiff( union(n1,n2), intersect(n1,n2) )
+
+
+
+
 ```
 
 
