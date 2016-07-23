@@ -77,6 +77,27 @@ setdiff( union(n1,n2), intersect(n1,n2) )
 
 
 
+
+# download and unzip
+
+file.url <- "https://apps.irs.gov/pub/epostcard/data-download-epostcard.zip"
+
+download.file( url=file.url, "epostcard.zip" )
+
+unzip( "epostcard.zip" )
+
+file.remove( "epostcard.zip" )
+
+dat.990n <- read.delim( file="data-download-epostcard.txt", 
+            header = FALSE, 
+            sep = "|", 
+            quote = "",
+            dec = ".", 
+            fill = TRUE,  
+            colClasses="character"
+          )
+
+
 ```
 
 
