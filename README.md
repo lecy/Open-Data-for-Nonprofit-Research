@@ -285,6 +285,7 @@ Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#Hi
 
 Can we develop these further to augment the IRS data in interesting ways?
 
+* [Pro Publica Nonprofit Explorer API](https://www.propublica.org/nerds/item/announcing-the-nonprofit-explorer-api)
 * [Foundation Center API](http://data.foundationcenter.org/about.html)
 * [Guidestar APIs](https://community.guidestar.org/groups/developer)
 * [Religious Congregation Data](http://www.thearda.com/archive/browse.asp)
