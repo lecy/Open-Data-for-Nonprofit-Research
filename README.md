@@ -33,7 +33,7 @@ This format is challenging for scholars that are used to flat spreadsheets. We a
 
 We have created a program to convert the 990 returns for a specified set of organizations and years from individual XML files into a single spreadsheet format to make it useful for analysis. 
 
-** We are working to generate datasets for each year with a set of the most useful variables and posting these for download **
+**We are working to generate datasets for each year with a set of the most useful variables and posting these for download**
 
 Too see the mechanics of building a dataset from the online returns, try the script below with this sample of 10 nonprofits which is a subset from the full [e-filers database](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_Datasets/electronic%20filers.Rmd). It will scrape the data from the XML files posted by the IRS and return available data as a flat spreadsheet.
 
