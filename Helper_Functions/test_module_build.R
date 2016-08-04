@@ -30,7 +30,7 @@ doc <- read_xml( url )
 xml_ns_strip( doc )
 
 
-# always include basic info in the build - create header data
+# grab the basic nonprofit info - name, ein, address, etc.
 
      source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/getBasicInfo.R")
 
