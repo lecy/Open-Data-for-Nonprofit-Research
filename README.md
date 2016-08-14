@@ -10,8 +10,9 @@ These scripts are written in the R language because it is a freely-available ope
 
 Scripts are currently available to build several IRS databases:
 
-* [Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present](./Build_Datasets/electronic filers.Rmd)
 * [All Current Exempt Organizations (all orgs granted 501(c)(3) status)](./Build_Datasets/current master exempt list.Rmd)
+* [Business Master File of All Current Exempt Orgs](./Build_Datasets/master_exempt_list_w_ntee.Rmd)
+* [Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present](./Build_Datasets/electronic filers.Rmd)
 * [All 990-N Postcard Filers](./Build_Datasets/postcard 990N filers.RMD) 
 * [All Organizations with a Revoked 501(c)(*) Status](./Build_Datasets/revoked organizations.Rmd)
 
