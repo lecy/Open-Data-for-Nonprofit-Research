@@ -4,9 +4,11 @@ Information on the current IRS Exempt Organization Business Master Files can be 
 
 https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf
 
-The script below parses the four separate regional files and combines them into a single Business Master File of all current Exempt Organizations including useful information about the organizational type, activities, and finances. Note that this is only current organizations, and not a cumulative database.
+The script below parses the four separate regional files and combines them into a single Business Master File of all current Exempt Organizations including useful information about the organizational type, activities, and finances. Note that this is only current organizations, and not a cumulative database. This file contains approximately 1.5 million organizations.
 
 The IRS also provides a list of all Exempt Organizations [HERE](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_Datasets/current%20master%20exempt%20list.Rmd), but this file includes a limited number of variables.
+
+![alt text](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/ruledates.png)
 
 <br/>
 <br/>
@@ -74,6 +76,12 @@ bmf <- rbind( region.01, region.02, region.03, region.04 )
 # The rule date is formatted as YYYY-MM, so split out the year
 
 bmf$RULEYEAR <- substr( bmf$RULING, 1, 4 )
+
+# barplot of ruling dates
+options( scipen=8 )
+barplot( table( RULEYEAR ), las=2, cex.names=0.5, col="gray40", border=NA )
+abline( h=seq(20000,100000,20000), col="white", lwd=2 )
+title( main="Ruling Dates of Existing Nonprofits" )
 
 
 
@@ -186,6 +194,8 @@ Note: activity codes became obsolete with the adoption of the National Taxonomy 
 in January 1995. However, organizations determined to be exempt prior to that date will reflect the activity codes
 previously assigned. 
 
+The final column in the table below represents the mapping of obsolete activity codes to current NTEE codes.
+
 http://nccs.urban.org/classification/irsactivity.cfm
 
 
@@ -237,7 +247,6 @@ CULTURAL, HISTORICAL OF OTHER EDUCATIONAL ACTIVITIES  ||
 093	|	Cultural exchanges with foreign country	|	Q21
 094	|	Genealogical activities	|	A80
 119	|	Other cultural or historical activities	|	A20 - A26, A40 - A99
-
 OTHER INSTRUCTIONS AND TRAINING ACTIVITIES  ||
 120	|	Publishing activities	|	A33, X83
 121	|	Radio or television broadcasting	|	A32, A34, X82, X84
@@ -247,7 +256,6 @@ OTHER INSTRUCTIONS AND TRAINING ACTIVITIES  ||
 125	|	Giving information or opinion (see also Advocacy)	|	Common Code 02, 05
 126	|	Apprentice training; Note: Travel tours (use 299)	|	J22
 149	|	Other instruction and training	|	A25, A6E, J20-J30, B20-B60
-
 HEALTH SERVICES AND RELATED ACTIVITIES  ||
 150	|	Hospital	|	E20 - E24
 151	|	Hospital auxiliary	|	E112, E122
@@ -270,12 +278,10 @@ HEALTH SERVICES AND RELATED ACTIVITIES  ||
 168	|	In-faculty group practice association	|	E31
 169	|	Hospital pharmacy, parking facility, food services, etc.	|	E192
 179	|	Other health services	|	E20 - E99
-
 SCIENTIFIC RESEARCH ACTIVITIES  ||
 180	|	Contact or sponsored scientific research for industry	|	U20 - U99
 181	|	Scientific research for government	|	U20 - U99
 182	|	Other scientific research activities	|	U20 - U99
-
 BUSINESS AND PROFESSIONAL ORGANIZATIONS  ||
 200	|	Business promotion	|	S41
 201	|	Real estate association	|	S47
@@ -292,7 +298,6 @@ BUSINESS AND PROFESSIONAL ORGANIZATIONS  ||
 212	|	Assigned risk insurance activities	|	Y20 - Y25
 213	|	Tourist bureau	|	S30
 229	|	Other business or professional group	|	Common Code 03, S41
-
 FARMING AND RELATED ACTIVITIES  ||
 230	|	Farming	|	K20
 231	|	Farm bureau	|	K28
@@ -303,7 +308,6 @@ FARMING AND RELATED ACTIVITIES  ||
 236	|	Dairy herd improvement association	|	K26
 237	|	Breeders association	|	K26
 249	|	Other farming and related activities	|	K20 - K28, K99
-
 MUTUAL ORGANIZATIONS  ||
 250	|	Mutual ditch, irrigation, telephone, electric company	|	W50, W80, W99, Y22
 251	|	Credit union	|	W60
@@ -311,7 +315,6 @@ MUTUAL ORGANIZATIONS  ||
 253	|	Mutual insurance company	|	Y23
 254	|	Corporation organized under an Act of Congress	|	W20
 259	|	Other mutual organization	|	Y20 - Y99
-
 EMPLOYEE OF MEMBERSHIP BENEFIT ORGANIZATIONS  ||
 260	|	Fraternal Beneficiary society, order, or association	|	Y40 - Y42
 261	|	Improvement of conditions of workers	|	J40
@@ -324,7 +327,6 @@ EMPLOYEE OF MEMBERSHIP BENEFIT ORGANIZATIONS  ||
 268	|	Pension or retirement benefits	|	Y30 - Y42
 269	|	Vacation benefits	|	Y99
 279	|	Other services or benefits to members or employees	|	Y20 - Y40, Y99
-
 SPORTS, ATHLETIC RECREATIONAL AND SOCIAL ACTIVITIES  ||
 280	|	Country club	|	N50
 281	|	Hobby club	|	N50
@@ -344,7 +346,6 @@ SPORTS, ATHLETIC RECREATIONAL AND SOCIAL ACTIVITIES  ||
 317	|	Other sports or athletic activities	|	N20 - N99
 318	|	Other recreational activities	|	N20 - N99
 319	|	Other social activities	|	N20 - N99
-
 YOUTH ACTIVITIES  ||
 320	|	Boy Scouts, Girl Scouts, etc.	|	O40 - O43
 321	|	Boys Club, Little League, etc.	|	O20 - O23, N63
@@ -356,7 +357,6 @@ YOUTH ACTIVITIES  ||
 327	|	Prevention of cruelty to children	|	I72 - I73
 328	|	Combat juvenile delinquency	|	I21, O20 - O31
 349	|	Other youth organization or activities	|	O20 - O99
-
 CONSERVATION, ENVIRONMENTAL AND BEAUTIFICATION ACTIVITIES  ||
 350	|	Preservation of natural resources (conservation)	|	C30 - C36
 351	|	Combating or preventing pollution (air, water, etc)	|	C20, C27, C34
@@ -366,14 +366,12 @@ CONSERVATION, ENVIRONMENTAL AND BEAUTIFICATION ACTIVITIES  ||
 355	|	Wildlife sanctuary or refuge	|	D30 - D34
 356	|	Garden club	|	C42
 379	|	Other conservation, environmental or beautification activities	|	C20 - C99
-
 HOUSING ACTIVITIES  ||
 380	|	Low-income housing	|	L20 - L25, L40
 381	|	Low and moderate income housing	|	L20 - L25, L40
 382	|	Housing for the aged	|	L22, P75
 398	|	Instruction and guidance on housing	|	L30, L80
 399	|	Other housing activities	|	L20 - L99
-
 INNER CITY OR COMMUNITY ACTIVITIES  ||
 400	|	Area development, redevelopment of renewal	|	S20 - S32
 401	|	Homeowners association	|	L50
@@ -385,20 +383,17 @@ INNER CITY OR COMMUNITY ACTIVITIES  ||
 407	|	Voluntary firemen's organization or auxiliary	|	M24, M112, M122
 408	|	Community service organization	|	S80 - S82
 429	|	Other inner city or community benefit activities	|	S20 - S32, S80 - S99
-
 CIVIL RIGHTS ACTIVITIES  ||
 430	|	Defense of human and civil rights	|	R20 - R99, Q70 - Q71
 431	|	Elimination of prejudice and discrimination	|	R30
 432	|	Lessen neighborhood tensions	|	R30
 449	|	Other civil rights activities	|	R20 - R99
-
 LITIGATION AND LEGAL AID ACTIVITIES  ||
 460	|	Public interest litigation activities	|	I83
 461	|	Other litigation or support of litigation	|	I80
 462	|	Legal aid to indigents	|	I80
 463	|	Providing bail	|	I40
 465	|	Plan under IRC section 120	|	I118
-
 LEGISLATIVE AND POLITICAL ACTIVITIES  ||
 480	|	Propose, support, or oppose legislation	|	Common Code 05
 481	|	Voter information on issues or candidates	|	R40
@@ -406,7 +401,6 @@ LEGISLATIVE AND POLITICAL ACTIVITIES  ||
 483	|	Support, oppose, or rate political candidates	|	R014
 484	|	Provide facilities or services for political campaign activities	|	R024
 509	|	Other legislative and political activities	|	Common Code 01
-
 ADVOCACY/ ATTEMPT TO INFLUENCE PUBLIC OPINION CONCERNING  ||
 510	|	Firearms control	|	I01
 511	|	Selective Service System	|	R60
@@ -443,7 +437,6 @@ ADVOCACY/ ATTEMPT TO INFLUENCE PUBLIC OPINION CONCERNING  ||
 542	|	Birth control methods	|	R61, R62
 543	|	Legalized abortion	|	R61, R62
 559	|	Other matters	|	R99
-
 OTHER ACTIVITIES DIRECTED TO INDIVIDUALS  ||
 560	|	Supplying money, goods or services to the poor	|	K30 - K35, P20 - P99
 561	|	Gifts or grants to individuals (other than scholarships)	|	P58 - P62
@@ -458,13 +451,11 @@ OTHER ACTIVITIES DIRECTED TO INDIVIDUALS  ||
 572	|	Rehabilitating convicts or ex-convicts	|	I40 - I44
 573	|	Rehabilitating alcoholics, drug abusers, compulsive gamblers, etc.	|	F20 - F30, F50 - F54, I23
 574	|	Day care center	|	P33
-
 ACTIVITIES PURPOSES AND ACTIVITIES  ||
 600	|	Community Chest, United Way, etc.	|	T70
 601	|	Booster club	|	Common Code 11
 602	|	Gifts, grants, or loans to other organizations	|	Common Code 11, 12
 603	|	Non-financial services of facilities to other organizations	|	Common Code 19
-
 OTHER PURPOSES AND ACTIVITIES  ||
 900	|	Cemetery or burial activities	|	Y50
 901	|	Perpetual (care fund (cemetery, columbarium, etc.)	|	Y50
@@ -500,7 +491,6 @@ OTHER PURPOSES AND ACTIVITIES  ||
 933	|	501(n) Charitable risk pool	|	Y20
 934	|	529 Qualified state-sponsored tuition	|	B82, W60
 990	|	501(k) Child care	|	P33
-
 EXCEPTIONS  ||
 990-999	|	Administrative codes	|	Z99
 0 or 000	|	Uncoded	|	Z99
