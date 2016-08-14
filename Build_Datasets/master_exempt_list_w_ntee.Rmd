@@ -1,8 +1,5 @@
 # The Business Master File with NTEE Codes
 
-<br/>
-<br/>
-
 Information on the current IRS Exempt Organization Business Master Files can be found on the IRS website:
 
 https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf
@@ -51,7 +48,12 @@ REVENUE_AMT           |          Form 990 Revenue Amount (includes negative sign
 NTEE_CD National           |          Taxonomy of Exempt Entities (NTEE) Code
 SORT_NAME           |          Sort Name (Secondary Name Line) 
 
+<br/>
+<br/>
 
+
+
+## CREATE THE BUSINESS MASTER FILE
 
 ```r
 
@@ -100,6 +102,8 @@ bmf$ACT3 <- substr( bmf$ACTIVITY, 7, 9 )
 
 ```
 
+
+
 ## WRITE DATA TO YOUR FAVORITE FORMAT
 
 ```R
@@ -126,7 +130,8 @@ library( foreign )
 write.foreign( df=bmf, datafile="BusinessMasterFile.txt", codefile="CodeToLoadDataInSPSS.txt", package="SPSS" )
 ```
 
-
+<br/>
+<br/>
 
 ## NTEE MAJOR GROUP CATEGORIES
 
@@ -167,6 +172,11 @@ Z           |          Unknown
 
 
 
+<br/>
+<br/>
+
+
+
 ## ACTIVITY CODES
 
 An organization formerly listed up to three activity codes on application Forms 1023 and 1024. These are codes which
@@ -193,7 +203,6 @@ RELIGIOUS ACTIVITIES ||
 007	|	Evangelism	|	X20
 008	|	Religious publishing activities	|	X83
 029	|	Other religious activities	|	X20 - X99
-
 SCHOOLS, COLLEGES AND RELATED ACTIVITIES ||
 030	|	School, college, trade school, etc.	|	B20 - B60
 031	|	Special school for the blind, handicapped, etc	|	B28
@@ -213,7 +222,6 @@ SCHOOLS, COLLEGES AND RELATED ACTIVITIES ||
 045	|	Student operated business)	|	O53
 046	|	Private school	|	B20 - B50
 059	|	059Other school related activities	|	B80 - B99
-
 CULTURAL, HISTORICAL OF OTHER EDUCATIONAL ACTIVITIES  ||
 060	|	Museum, zoo, planetarium, etc.	|	A50 - A57, D50
 061	|	Library	|	B70
