@@ -10,21 +10,43 @@ https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-
 
 ## LINKS TO DATA
 
+**2015**
+
 https://www.irs.gov/pub/irs-soi/15eofinextractEZ.dat
 
 https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat
 
 
+**2014**
 
 https://www.irs.gov/pub/irs-soi/14eofinextract990.zip
 
 https://www.irs.gov/pub/irs-soi/14eofinextract990ez.zip
 
 
+**2013**
 
 https://www.irs.gov/pub/irs-soi/13eofinextract990.zip
 
 https://www.irs.gov/pub/irs-soi/13eofinextract990ez.zip
+
+**2012**
+
+https://www.irs.gov/pub/irs-soi/12eofinextract990.zip
+
+https://www.irs.gov/pub/irs-soi/12eofinextract990ez.zip
+
+
+
+**Data Dictionaries**
+
+https://www.irs.gov/pub/irs-soi/15eofinextractdoc.xls
+
+https://www.irs.gov/pub/irs-soi/14eofinextractdoc.xls
+
+https://www.irs.gov/pub/irs-soi/13eofinextractdoc.xls
+
+https://www.irs.gov/pub/irs-soi/12eofinextractdoc.xls
 
 
 
