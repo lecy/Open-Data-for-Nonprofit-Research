@@ -6,7 +6,7 @@ Unfortunately the IRS data has been released in formats that are not always easy
 
 We have begun the process to catalog and document these resources, and will begin sharing them through the Dataverse Open Data portal:
 
-[Nonprofit Initiative for Open Data](https://dataverse.harvard.edu/dataverse/NIOD)
+[NONPROFIT INITIATIVE FOR OPEN DATA](https://dataverse.harvard.edu/dataverse/NIOD)
 
 <br>
 
@@ -30,7 +30,7 @@ You can install R for Windows [here](https://cran.r-project.org/bin/windows/base
 
 ## IRS E-FIler 990 Returns
 
-The new IRS 990 data repository that was released in June of 2016 is [hosted on an Amazon S3 Web Server](https://aws.amazon.com/public-data-sets/irs-990/). 
+The new IRS 990 data repository that was released in June of 2016 is [hosted on an Amazon S3 Cloud Server](https://aws.amazon.com/public-data-sets/irs-990/). 
 
 The release of the data is an important step in making it open and timely (new data is released every couple of months). However, it is currently in XML format and each 990 return is listed on a separate webpage instead of in a single database. This format can be challenging for scholars to work with.
 
