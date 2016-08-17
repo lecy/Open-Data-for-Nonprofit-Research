@@ -4,15 +4,17 @@ Nonprofit sector advocates have waged concerted efforts to make IRS 990 tax data
 
 Unfortunately the IRS data has been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
 
+We have begun the process to catalog and document these resources, and will begin sharing them through the Dataverse Open Data portal:
+
+[Nonprofit Initiative for Open Data](https://dataverse.harvard.edu/dataverse/NIOD)
+
 <br>
 
 ## Open IRS Databases on Nonprofits
 
-The IRS maintains several important nonprofit databases to track the current population of exempt organizations, their annual 990 filings, and organizations that have closed. We have begun the process to catalog and document these resources, and will begin sharing them through the Dataverse Open Data portal:
+The IRS maintains several important nonprofit databases to track the current population of exempt organizations, their annual 990 filings, and organizations that have closed. 
 
-[Nonprofit Initiative for Open Data](https://dataverse.harvard.edu/dataverse/NIOD)
-
-The following IRS databases can be generated through scripts available by following the links:
+The following IRS databases can be generated through scripts available by following these links:
 
 * [All Current Exempt Organizations (all orgs granted 501(c)(3) status)](./Build_Datasets/current master exempt list.Rmd)
 * [Business Master File of All Current Exempt Orgs](./Build_Datasets/master_exempt_list_w_ntee.Rmd)
