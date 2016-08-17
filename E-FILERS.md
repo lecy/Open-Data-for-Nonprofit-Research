@@ -37,6 +37,16 @@ source( "https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research
 unique( tiny.index$OrganizationName )
 
 
+# HERE IS WHAT THE DATA LOOKS LIKE
+
+head( tiny.index )
+
+
+# VARIABLE NAMES
+
+names( tiny.index )
+
+
 # 36 ROWS OF DATA COVERING 5 YEARS AND BOTH 990 AND 990EZ FILINGS
 
 nrow( tiny.index )
@@ -46,14 +56,7 @@ table( tiny.index$FormType )
 
 
 
-# HERE IS WHAT THE DATA LOOKS LIKE
 
-head( tiny.index )
-
-
-# VARIABLE NAMES
-
-names( tiny.index )
 
 
 ### LOAD THE PROGRAM TO BUILD THE DATASET FROM 990 RETURNS - buildCore()
