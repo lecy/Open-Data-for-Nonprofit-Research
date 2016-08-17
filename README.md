@@ -62,9 +62,7 @@ For some background on the campaigns to open access to IRS data, see these artic
 
 ## Useful Information About 990 Data
 
-A nice primer on using the 990s for research:
-
-[Form 990: A Guide for Newcomers](http://blog.boardsource.org/blog/author/chris-thompson-ph-d-director-of-research-and-evaluation-boardsource)
+Form 990: A Guide for Newcomers to Nonprofit Research [ [LINK](http://blog.boardsource.org/blog/author/chris-thompson-ph-d-director-of-research-and-evaluation-boardsource) ]
 
 Example Forms:
 
