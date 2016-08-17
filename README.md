@@ -26,16 +26,17 @@ This project was inspired by the [R Open Science](https://ropensci.org/) initiat
 
 You can install R for Windows [here](https://cran.r-project.org/bin/windows/base/) or R for Macs [here](https://cran.r-project.org/bin/macosx/). To build these datasets from scratch you can copy and paste the script into an R console, then select the desired output, and it will generate a CSV, SPSS, or Stata dataset for you.
 
+<br>
 
 ## IRS E-FIler 990 Returns
 
-The new IRS 990 data repository that was released in June 206 is hosted at Amazon and can be [found here](https://aws.amazon.com/public-data-sets/irs-990/). 
+The new IRS 990 data repository that was released in June of 2016 is [hosted on an Amazon S3 Web Server](https://aws.amazon.com/public-data-sets/irs-990/). 
 
-This is an important step in making the data open and timely (new data is released every couple of months). It is in XML format, however, which can be challenging for scholars to work with, and each 990 return is listed on a separate webpage instead of in a single database.
+The release of the data is an important step in making it open and timely (new data is released every couple of months). However, it is currently in XML format and each 990 return is listed on a separate webpage instead of in a single database. This format can be challenging for scholars to work with.
 
-We have created some tools for translating the XML files into a familiar research dataset format. We are currently building scripts for each section of the 990 forms in order to generate separate databases for each year of filers. At this early stage we are focusing on the 990 and 990-EZ forms, although the foundation 990-PF files are also available. Once these databases are generated they will be posted on the Dataverse site listed above.
+We have created some tools for translating the XML files into a familiar spreadsheet format. We are currently building scripts for each section of the 990 forms in order to generate separate databases for each year of filers. At this early stage we are focusing on the 990 and 990-EZ forms, although the foundation 990-PF files are also available. Once these databases are generated they will be posted on the Dataverse site listed above.
 
-In the meantime you can follow progress here:
+In the meantime you can find documentation and follow progress here:
 
 [Building E-Filer Databases](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/E-FILERS.md)
 
@@ -53,6 +54,9 @@ For some background on the campaigns to open access to IRS data, see these artic
 * [IRS Plans to Begin Releasing Electronically Filed Nonprofit Tax Data](https://philanthropy.com/article/IRS-Plans-to-Begin-Releasing/231265): Chronicle of Philanthropy
 * [Mandatory E-Filing: Toward a More Transparent Nonprofit Sector](http://www.urban.org/research/publication/mandatory-e-filing-toward-more-transparent-nonprofit-sector): The Urban Institute
 * [Recommendations for Improving the Effectiveness of the 990 Form for Reporting](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/IRS%20ACT%20Report%202015.pdf): Advisory Committee on Tax-Exempt and Government Entities (ACT) Report
+
+
+<br>
 
 
 
@@ -85,6 +89,9 @@ Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#Hi
 
 * In June 2007, the IRS released a new Form 990 that requires significant disclosures on corporate governance and boards of directors. These new disclosures are required for all nonprofit filers for the 2009 tax year, with more significant reporting requirements for nonprofits with over $1 million in revenues or $2.5 million in assets.
 
+<br>
+
+
 
 ## Research Tools
 
@@ -111,6 +118,9 @@ Similarly, if you know of an article, blog, or research vignette that does a goo
 The authors share a script for merging federal contracting data with IRS 990 data using names and addresses of organizations in the absence of a unique key shared by both databases (usually the EIN). The merge script can be accessed [HERE](https://github.com/lecy/FAADS-NCCS-Crosswalk/blob/master/README.md). 
 
 
+<br>
+
+
 ## Additional Resources of Note 
 
 Can we develop these further to augment the IRS data in interesting ways?
@@ -126,6 +136,11 @@ Working with the data on the AWS Platform:
 You can find some useful scripts here for running queries directly within the cloud and downloading data as CSV files:
 
 https://gist.github.com/ryankanno/a5da4c6f1f8e0136db9623ae1903d23d#form-990
+
+<br>
+
+
+
 
 ## Contact
 
