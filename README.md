@@ -2,13 +2,17 @@
 
 Nonprofit sector advocates have waged concerted efforts to make IRS 990 tax data on public charities and foundations available in free, machine-readable formats. As a result of this work the IRS released 990 tax data from electronic filers in June of 2016. This project was created to make this data easily accessible to nonprofit scholars and researchers. 
 
-The new IRS 990 data repository, hosted at Amazon and [found here](https://aws.amazon.com/public-data-sets/irs-990/), represents a significant stride forward in making data open and timely. Unfortunately the data have been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
+Unfortunately the IRS data has been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
 
-These scripts are written in the R language because it is a freely-available open-source platform that can be used by anyone. This project was inspired by the [R Open Science](https://ropensci.org/) initiative, which believes in making data accessible and building tools that help a research community better utilize the data. You can install R for Windows [here](https://cran.r-project.org/bin/windows/base/) or R for Macs [here](https://cran.r-project.org/bin/macosx/). 
+<br>
 
-## Build IRS Nonprofit Databases
+## Open IRS Databases on Nonprofits
 
-Scripts are currently available to build several IRS databases:
+The IRS maintains several important nonprofit databases to track the current population of exempt organizations, their annual 990 filings, and organizations that have closed. We have begun the process to catalog and document these resources, and will begin sharing them through the Dataverse Open Data portal:
+
+[Nonprofit Initiative for Open Data](https://dataverse.harvard.edu/dataverse/NIOD)
+
+The following IRS databases can be generated through scripts available by following the links:
 
 * [All Current Exempt Organizations (all orgs granted 501(c)(3) status)](./Build_Datasets/current master exempt list.Rmd)
 * [Business Master File of All Current Exempt Orgs](./Build_Datasets/master_exempt_list_w_ntee.Rmd)
@@ -16,206 +20,68 @@ Scripts are currently available to build several IRS databases:
 * [All 990-N Postcard Filers](./Build_Datasets/postcard 990N filers.RMD) 
 * [All Organizations with a Revoked 501(c)(*) Status](./Build_Datasets/revoked organizations.Rmd)
 
-You should be able to copy and paste the script into an R console, then select the desired output, and it will generate a CSV, SPSS, or Stata dataset for you.
+This project was inspired by the [R Open Science](https://ropensci.org/) initiative, which believes in making data accessible and building tools that help a research community better utilize the data. These scripts are written in the R language because it is a freely-available open-source platform that can be used by anyone. 
 
-## Working with Open IRS 990 Returns Data
+You can install R for Windows [here](https://cran.r-project.org/bin/windows/base/) or R for Macs [here](https://cran.r-project.org/bin/macosx/). To build these datasets from scratch you can copy and paste the script into an R console, then select the desired output, and it will generate a CSV, SPSS, or Stata dataset for you.
 
-The IRS has released electronically-filed 990 returns as XML files that look like this:
 
-https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml
+## IRS E-FIler 990 Returns
 
-This format is challenging for scholars that are used to flat spreadsheets. We are creating some guides to working with this data in the R programming language (any community submissions for Stata or Python scripts are welcome). 
+The new IRS 990 data repository that was released in June 206 is hosted at Amazon and can be [found here](https://aws.amazon.com/public-data-sets/irs-990/). 
 
-* Tutorial on Parsing Data from XML [ [RMD](./Resources/Quick_Guide_to_XML_in_R.Rmd) ] [ [PDF](./Resources/Quick_Guide_to_XML_in_R.pdf) ]
+This is an important step in making the data open and timely (new data is released every couple of months). It is in XML format, however, which can be challenging for scholars to work with, and each 990 return is listed on a separate webpage instead of in a single database.
 
+We have created some tools for translating the XML files into a familiar research dataset format. We are currently building scripts for each section of the 990 forms in order to generate separate databases for each year of filers. At this early stage we are focusing on the 990 and 990-EZ forms, although the foundation 990-PF files are also available. Once these databases are generated they will be posted on the Dataverse site listed above.
 
+In the meantime you can follow progress here:
 
-## Build a Dataset of 990 Returns
+[Building E-Filer Databases](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/E-FILERS.md)
 
-We have created a program to convert the 990 returns for a specified set of organizations and years from individual XML files into a single spreadsheet format to make it useful for analysis. 
 
-**We are working to generate datasets for each year with a set of the most useful variables and posting these for download**
+<br>
 
-Too see the mechanics of building a dataset from the online returns, try the script below with this sample of 10 nonprofits which is a subset from the full [e-filers database](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_Datasets/electronic%20filers.Rmd). It will scrape the data from the XML files posted by the IRS and return available data as a flat spreadsheet.
 
-```r
-### INSTALL AND LOAD REQUIRED PACKAGES
 
-install.packages( "dplyr" )
-install.packages( "xml2" )
+## Liberating the 990 Data
 
-library( dplyr )
-library( xml2 )
+For some background on the campaigns to open access to IRS data, see these articles and blogs:
 
+* [Liberating 990 Data](http://ssir.org/articles/entry/liberating_990_data): Stanford Social Innovation Review
+* [The Nonprofit Data Project Blog](https://www.aspeninstitute.org/programs/program-on-philanthropy-and-social-innovation-psi/nonprofit-data-project-updates/): The Aspen Institute
+* [IRS Plans to Begin Releasing Electronically Filed Nonprofit Tax Data](https://philanthropy.com/article/IRS-Plans-to-Begin-Releasing/231265): Chronicle of Philanthropy
+* [Mandatory E-Filing: Toward a More Transparent Nonprofit Sector](http://www.urban.org/research/publication/mandatory-e-filing-toward-more-transparent-nonprofit-sector): The Urban Institute
+* [Recommendations for Improving the Effectiveness of the 990 Form for Reporting](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/IRS%20ACT%20Report%202015.pdf): Advisory Committee on Tax-Exempt and Government Entities (ACT) Report
 
-####  LOAD A TEST FILE FOR DEMO PURPOSES - tiny.index
 
-source( "https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/tiny.index.R" )
 
-# CONTAINS 10 NONPROFITS
+## Useful Information About 990 Data
 
-unique( tiny.index$OrganizationName )
+A nice primer on using the 990s for research:
 
+[Form 990 — A Guide for Newcomers](http://blog.boardsource.org/blog/author/chris-thompson-ph-d-director-of-research-and-evaluation-boardsource)
 
-# 36 ROWS OF DATA COVERING 5 YEARS AND BOTH 990 AND 990EZ FILINGS
+Example Forms:
 
-nrow( tiny.index )
-table( tiny.index$FilingYear )
-table( tiny.index$FormType )
+* [990](./Resources/Form 990-PC 2015.pdf)
+* [990-EZ](./Resources/Form 990-EZ 2015.pdf)
+* [990-PF]((./Resources/Form 990-PF 2015.pdf))
+* [990-N Postcard](./Resources/Information Needed to File e-Postcard)
 
+A History of the Tax Exempt Sector: An SOI Perspective [ [LINK](https://www.irs.gov/pub/irs-soi/tehistory.pdf) ]
 
+A Guided Tour of the 990 Form by GuideStar [ [LINK](https://www.guidestar.org/ViewCmsFile.aspx?ContentID=4208) ]
 
+Revised Form 990: The Evolution of Governance and the Nonprofit World [ [LINK](http://www.thetaxadviser.com/issues/2009/aug/revisedform990theevolutionofgovernanceandthenonprofitworld.html) ]
 
-# HERE IS WHAT THE DATA LOOKS LIKE
+Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#History) ]
 
-head( tiny.index )
+* Form 990 was first used for the tax year ending in 1941. It was as a two-page form. Organizations were also required to include a schedule with the names and addresses of payees who had given the organization at least $4,000 during the year.
 
+* The form reached four pages (including instructions) in 1947. In 1976 this was increased to 5.5 pages (including instructions), with 8 pages for Schedule A. By 2000 this was 6 pages for Form 990, 42 pages for instructions, 6 pages for Schedule A, and at least 2 pages for Schedule B. This increase is due to use of a larger font and inclusion of sections that are only required for some organizations.
 
-# VARIABLE NAMES
+* Starting in 2000, political organizations were required to file Form 990.
 
-names( tiny.index )
-
-
-### LOAD THE PROGRAM TO BUILD THE DATASET FROM 990 RETURNS - buildCore()
-
-source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/buildCore.R")
-args( buildCore )
-
-
-# eins - list of all nonprofits to include in the dataset (of omitted will collect all in index file)
-# index - the IRS index file to use
-# modules - which variables to include in the dataset based upon sections of the 990
-# years - which years of data to collect
-# form.type - which forms to include - "990", "990EZ", "990PF"
-
-
-# START SCRAPING 990 RETURNS !
-
-core.dataset <- buildCore( index=tiny.index, years=2011:2015, form.type=c("990","990EZ"), modules="basic"  )
-
-
-
-# THE DATA SET WILL LOOK LIKE THIS:
-
-head( core.dataset )
-
-#         EIN FISYR                                    NAME      DBA STATE                   ADDRESS     CITY   ZIP     STYEAR    ENDYEAR TAXPREP  FORM
-# 1 562629114  2014 BROWN COMMUNITY DEVELOPMENT CORPORATION     <NA>    NY     484 WASHINGTON AVENUE BROOKLYN 11238 2014-01-01 2014-12-31    <NA> 990EZ
-# 2 270678774  2014       KIWANIS CLUB OF GLENDORA PROJECTS FUND INC    CA                PO BOX 353 GLENDORA 91740 2014-10-01 2015-09-30    true 990EZ
-# 3 464114252  2014                     CONFETTI FOUNDATION     <NA>    RI          78 THAMES STREET  NEWPORT 02840 2014-01-01 2014-12-31       1 990EZ
-# 4 510311790  2014                  THE SHEPHERD PLACE INC     <NA>    DE   1362 S GOVERNORS AVENUE    DOVER 19904 2014-07-01 2015-06-30    <NA>   990
-# 5 261460932  2014      WISE VOLUNTEER FIRE DEPARTMENT INC     <NA>    VA                PO BOX 428     WISE 24293 2014-01-01 2014-12-31    true   990
-# 6 270609504  2014           A HOLE IN THE ROOF FOUNDATION     <NA>    MI 150 STIMSON STREET NO 102  DETROIT 48201 2014-01-01 2014-12-31       1   990
-#
-#   GROSSRECEIPTS GROUPRETURN TAXEXMSTATUS TYPEOFORG FORMYEAR DOMICILE                       WEBSITE VOTINGMEMBERS INDVOTINGMEMBERS TOTEMPLOYEE
-# 1        116465        <NA>         <NA>         X     <NA>       NY                           N/A          <NA>             <NA>        <NA>
-# 2         66934        <NA>         <NA>         X     <NA>     <NA>                           N/A          <NA>             <NA>        <NA>
-# 3         22881        <NA>         <NA>         X     <NA>     <NA>    www.confettifoundation.org          <NA>             <NA>        <NA>
-# 4        434413       false            X      <NA>     1988       DE  HTTP://WWW.SHEPHERDPLACE.ORG            10               10          15
-# 5        522593       false            X      <NA>     2007       VA                           N/A             4                0           0
-# 6        422237           0            X      <NA>     2009       MI HTTP://WWW.AHOLEINTHEROOF.ORG             3                1           0
-#
-#   TOTVOLUNTEERS TOTUBI NETUBI                                                                 URL
-# 1          <NA>   <NA>   <NA> https://s3.amazonaws.com/irs-form-990/201543109349200219_public.xml
-# 2          <NA>   <NA>   <NA> https://s3.amazonaws.com/irs-form-990/201513089349200226_public.xml
-# 3          <NA>   <NA>   <NA> https://s3.amazonaws.com/irs-form-990/201513089349200236_public.xml
-# 4           250      0   <NA> https://s3.amazonaws.com/irs-form-990/201523229349300327_public.xml
-# 5             6      0   <NA> https://s3.amazonaws.com/irs-form-990/201543089349301829_public.xml
-# 6           100      0      0 https://s3.amazonaws.com/irs-form-990/201533179349306298_public.xml
-
-
-print.data.frame( core.dataset )
-
-
-
-
-
-
-
-# WRITE TO A FILE
-
-getwd()  # where will it be saved?
-
-write.csv( core.dataset, "Core.csv", row.names=F )
-
-###
-
-```
-
-The missing value NA's indicate either that the nonprofit did not provide information, or in some cases that the full 990 contains the questions but the 990-EZ does not (see the data dictionary for more information). 
-
-## Data Modules
-
-This table presents an overview of the sections of the 990 form, whether each section is included in the 990 exclusively or also in the 990-EZ, and a link to the documentation if the module has been built.
-
-SECTION | DESCRIPTION | 990 | 990-EZ | SCRIPT | DATA DICTIONARY
---------|-------------|-----|--------|--------|-------------------
-Basic Information | Header Data | X | partial |  [script](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R) | [data dictionary](./Build_Datasets/Module 01 - Basic Info.Rmd)
-Part I | Revenues, Expenses and Change in Assets  | X | partial | | 
-Part I | Mission and Program | X | partial | | 
-Part IV | Checklist of Activities  | X | ? | | 
-Part V | Checklist of Tax Compliance  | X | ? | | 
-Part VI Section A | Governance and Management  | X | ? | | 
-Part VI Section B | Policies  | X | ? | | 
-Part VI Section C | Diclosure  | X | ? | | 
-Part VII | Compensation of Officers and Board Members  | X | ? | | 
-Part VIII | Statement of Revenues  | X | | | 
-Part IX | Statement of Functional Expenses  | X | | | 
-Part X | Balance Sheet  | X |  | | 
-Part XI | Reconciliation of Net Assets  | X |  | | 
-Part XII | Financial Reporting  | X |  | | 
-
-Schedules used required for a variety of disclosure and compliance requirements if nonprofits meet certain criteria. The following is a list of all schedules and whether 990-EZ filers would be required to submit as well (source: Wikipedia). The schedules that you will frequently see are A, B, D, M, and O.
-
-Schedule |	Description |	Number of pages | Can be filed with Form 990-EZ?
------|----------------------|--------------------------------|----------
-Schedule A	 |	Public Charity Status and Public Support	 |	4	 |	Yes
-Schedule B	 |	Schedule of Contributors	 |	8	 |	Yes
-Schedule C	 |	Political Campaign and Lobbying Activities	 |	4	 |	Yes
-Schedule D	 |	Supplemental Financial Statements	 |	5	 |	No
-Schedule E	 |	Schools	 |	1	 |	Yes
-Schedule F	 |	Statement of Activities Outside the United States	 |	4	 |	No
-Schedule G	 |	Supplemental Information Regarding Fundraising or Gaming Activities	 |	3	 |	Yes
-Schedule H	 |	Hospitals	 |	4	 |	No
-Schedule I	 |	Grants and Other Assistance to Organizations, Governments, and Individuals in the United States	 |	2	 |	No
-Schedule J	 |	Compensation Information	 |	3	 |	No
-Schedule K	 |	Supplemental Information on Tax-Exempt Bonds	 |	2	 |	No
-Schedule L	 |	Transactions With Interested Persons	 |	1	 |	Yes
-Schedule M	 |	Noncash Contributions	 |	2	 |	No
-Schedule N	 |	Liquidation, Termination, Dissolution, or Significant Disposition of Assets	 |	3	 |	Yes
-Schedule O	 |	Supplemental Information to Form 990	 |	2	 |	No
-Schedule R	 |	Related Organizations and Unrelated Partnerships	 |	4	 |	No
-
-
-There are other modules that function more like relational databases. The 990 returns contain information about board members or individual grants made by private foundations. These sections have a one-to-many relationship (many board members are associated with each nonprofit), and are better built as a separate table that can be linked to a nonprofit through the EIN rather than adding them to the same database because of the structure of the data. 
-
-### Build a Module
-
-If you are interested in data that is not included in the current build, you can create a new module to add data to the dataset. It is a fairly straight-forward process and does not require a lot of programming knowledge, other than definining the variable list and documenting the definition (990 field) for each variable you create. 
-
-You can generate the variable list by running [THIS SCRIPT](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/generateAllXpaths.R). Building a module requires you to define variables by identifying the different ways they are referenced in the four versions of the 990, the results looking something [LIKE THIS](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R). See the [Quick Guide to XML in R](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.pdf) for more details.
-
-We welcome any contributions!
-
-
-## Advantages of the Open IRS Database
-
-In addition to information currently available in NCCS Core files, we can include additional information that was not previously accessible such as lists of board members and specific Schedules.
-
-The IRS releases new data every couple of months as it is available, so it is more-or-less in real time as nonprofits submit their returns. Alternatively, there is a 2-3 year time lag between when data is filed and when it is released by NCCS.
-
-
-## Limitations of the Open IRS Database
-
-We have modeled the database off of the The NCCS core datasets, as it has been the industry standard for scholarship for years. The NCCS core data dictionary is [available here](http://nccsweb.urban.org/PubApps/dd2.php?close=1&form=Core+2013+PC).
-
-There are several limitations of the open IRS data relative to the core files:
-
-* The IRS open data only includes organizations that have filed electronically (approximately 60% of all 990 and 990-EZ filers, and all organizations with revenues above $10 million). 
-* The current IRS data does not include NTEE codes.
-* The data has a street address, but is not geocoded or matched to county or MSA FIPS codes (which are necessary to merge with census data). 
- 
-Another limitation of all of these datasets is that the 990EZ forms contain a small subset of variables contained in the full 990 form. Any variables that do not have 
+* In June 2007, the IRS released a new Form 990 that requires significant disclosures on corporate governance and boards of directors. These new disclosures are required for all nonprofit filers for the 2009 tax year, with more significant reporting requirements for nonprofits with over $1 million in revenues or $2.5 million in assets.
 
 
 ## Research Tools
@@ -241,45 +107,6 @@ Similarly, if you know of an article, blog, or research vignette that does a goo
 *Lecy, J., & Thornton, J. (2015). What Big Data Can Tell Us About Government Awards to the Nonprofit Sector Using the FAADS. Nonprofit and Voluntary Sector Quarterly.*
 
 The authors share a script for merging federal contracting data with IRS 990 data using names and addresses of organizations in the absence of a unique key shared by both databases (usually the EIN). The merge script can be accessed [HERE](https://github.com/lecy/FAADS-NCCS-Crosswalk/blob/master/README.md). 
-
-
-## Liberating the 990 Data
-
-For some background on the campaigns to open access to IRS data, see these articles and blogs:
-
-* [Liberating 990 Data](http://ssir.org/articles/entry/liberating_990_data): Stanford Social Innovation Review
-* [The Nonprofit Data Project Blog](https://www.aspeninstitute.org/programs/program-on-philanthropy-and-social-innovation-psi/nonprofit-data-project-updates/): The Aspen Institute
-* [IRS Plans to Begin Releasing Electronically Filed Nonprofit Tax Data](https://philanthropy.com/article/IRS-Plans-to-Begin-Releasing/231265): Chronicle of Philanthropy
-* [Mandatory E-Filing: Toward a More Transparent Nonprofit Sector](http://www.urban.org/research/publication/mandatory-e-filing-toward-more-transparent-nonprofit-sector): The Urban Institute
-* [Recommendations for Improving the Effectiveness of the 990 Form for Reporting](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/IRS%20ACT%20Report%202015.pdf): Advisory Committee on Tax-Exempt and Government Entities (ACT) Report
-
-
-
-## Useful Information About 990 Data
-
-Example Forms:
-
-* [990](./Resources/Form 990-PC 2015.pdf)
-* [990-EZ](./Resources/Form 990-EZ 2015.pdf)
-* [990-PF]((./Resources/Form 990-PF 2015.pdf))
-* [990-N Postcard](./Resources/Information Needed to File e-Postcard)
-
-A History of the Tax Exempt Sector: An SOI Perspective [ [LINK](https://www.irs.gov/pub/irs-soi/tehistory.pdf) ]
-
-A Guided Tour of the 990 Form by GuideStar [ [LINK](https://www.guidestar.org/ViewCmsFile.aspx?ContentID=4208) ]
-
-Revised Form 990: The Evolution of Governance and the Nonprofit World [ [LINK](http://www.thetaxadviser.com/issues/2009/aug/revisedform990theevolutionofgovernanceandthenonprofitworld.html) ]
-
-Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#History) ]
-
-* Form 990 was first used for the tax year ending in 1941. It was as a two-page form. Organizations were also required to include a schedule with the names and addresses of payees who had given the organization at least $4,000 during the year.
-
-* The form reached four pages (including instructions) in 1947. In 1976 this was increased to 5.5 pages (including instructions), with 8 pages for Schedule A. By 2000 this was 6 pages for Form 990, 42 pages for instructions, 6 pages for Schedule A, and at least 2 pages for Schedule B. This increase is due to use of a larger font and inclusion of sections that are only required for some organizations.
-
-* Starting in 2000, political organizations were required to file Form 990.
-
-* In June 2007, the IRS released a new Form 990 that requires significant disclosures on corporate governance and boards of directors. These new disclosures are required for all nonprofit filers for the 2009 tax year, with more significant reporting requirements for nonprofits with over $1 million in revenues or $2.5 million in assets.
-
 
 
 ## Additional Resources of Note 
