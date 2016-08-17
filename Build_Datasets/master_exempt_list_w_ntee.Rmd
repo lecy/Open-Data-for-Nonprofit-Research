@@ -79,7 +79,7 @@ bmf$RULEYEAR <- substr( bmf$RULING, 1, 4 )
 
 # barplot of ruling dates
 options( scipen=8 )
-barplot( table( RULEYEAR ), las=2, cex.names=0.5, col="gray40", border=NA )
+barplot( table( bmf$RULEYEAR ), las=2, cex.names=0.5, col="gray40", border=NA )
 abline( h=seq(20000,100000,20000), col="white", lwd=2 )
 title( main="Ruling Dates of Existing Nonprofits" )
 
