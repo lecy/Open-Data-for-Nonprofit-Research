@@ -68,8 +68,8 @@ Example Forms:
 
 * [990](./Resources/Form 990-PC 2015.pdf)
 * [990-EZ](./Resources/Form 990-EZ 2015.pdf)
-* [990-PF]((./Resources/Form 990-PF 2015.pdf))
-* [990-N Postcard](./Resources/Information Needed to File e-Postcard)
+* [990-PF](./Resources/Form 990-PF 2015.pdf)
+* [990-N Postcard](./Resources/Information Needed to File e-Postcard.pdf)
 
 A History of the Tax Exempt Sector: An SOI Perspective [ [LINK](https://www.irs.gov/pub/irs-soi/tehistory.pdf) ]
 
