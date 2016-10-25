@@ -133,7 +133,7 @@ This table presents an overview of the sections of the 990 form, whether each se
 
 SECTION | DESCRIPTION | 990 | 990-EZ | SCRIPT | DATA DICTIONARY
 --------|-------------|-----|--------|--------|-------------------
-Basic Information | Header Data | X | partial |  [script](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R) | [data dictionary](./Build_Datasets/Module 01 - Basic Info.Rmd)
+Basic Information | Header Data | X | partial |  [script](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R) | [data dictionary](./Build_Datasets/data_dictionary.md)
 Part I | Revenues, Expenses and Change in Assets  | X | partial | | 
 Part I | Mission and Program | X | partial | | 
 Part IV | Checklist of Activities  | X | ? | | 
