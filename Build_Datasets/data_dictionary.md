@@ -11,7 +11,7 @@
 ######Values that do not start with roman numerals are in the form header section.
 ##### "." indicates that version of tax form does not have that field.
 
-Variable | Description | 990 2015 | 990EZ 2015
+Variable | Description | 990PC | 990EZ
 ---------|-------------|-----|------------
 URL | Web address of IRS return in XML format | XML | XML
 NAME | Nonprofit Name | Header,C | Header,C
