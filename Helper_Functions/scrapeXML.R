@@ -52,8 +52,20 @@ scrapeXML <- function( url, form.type, modules )
 #        if( is.null(xml.df) )
 #        { xml.df <- header.df }
 #        else{ xml.df <- cbind(xml.df,header.df) } 
-#    }
-#    
+#    } 
+    
+    # variables that are functions:
+	## EXPGAMINGFNDEVENTS: PC values are sum of GAMINGEXP and FNDEVENTSEXP
+	## NETGAMINGFNDEVENTS: PC values are sum of GAMINGNET and FNDEVENTSNET
+	## PROFEESINDEP: PC values are sum of FEESMGMT, FEESLEGAL, FEESACCT, FEESLOBBY,
+	##                                    FEESPROFND, FEESINVMGMT, FEESOTHER
+	## CASHINVBEGYEAR: PC values are sum of CASHBEGYEAR and SAVINVBEGYEAR
+	## CASHINVENDYEAR: PC values are sum of CASHENDYEAR and SAVINVENDYEAR
+    
+    
+    
+    
+    
 #    if( "revexp" %in% modules  & FORM == "990" )
 #    {
 #       rev.exp.df <- getRevExp( doc )
