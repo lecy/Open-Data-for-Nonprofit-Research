@@ -60,13 +60,15 @@ Alternatively, you can collect and verify xpaths by generating a list of all xpa
 
 ### LOAD REQUIRED PACKAGES
 
+```R
 library( xml2 )
 library( dplyr )
-
+```
 
 
 ### EXAMPLE ORGANIZATIONS FROM EACH PERIOD
 
+```R
 V_990_2014 <- "https://s3.amazonaws.com/irs-form-990/201543089349301829_public.xml"
 
 V_990_2012 <- "https://s3.amazonaws.com/irs-form-990/201322949349300907_public.xml"
@@ -104,7 +106,7 @@ doc %>% xml_find_all( '//*') %>% xml_path()
 doc <- read_xml( V_990EZ_2012 )
 xml_ns_strip( doc )
 doc %>% xml_find_all( '//*') %>% xml_path()
-
+```
 
 
 
