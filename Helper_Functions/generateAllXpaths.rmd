@@ -58,17 +58,15 @@ datatable( dat )
 
 Alternatively, you can collect and verify xpaths by generating a list of all xpaths contained within each XML document. 
 
+```R
 ### LOAD REQUIRED PACKAGES
 
-```R
 library( xml2 )
 library( dplyr )
-```
 
 
 ### EXAMPLE ORGANIZATIONS FROM EACH PERIOD
 
-```R
 V_990_2014 <- "https://s3.amazonaws.com/irs-form-990/201543089349301829_public.xml"
 
 V_990_2012 <- "https://s3.amazonaws.com/irs-form-990/201322949349300907_public.xml"
