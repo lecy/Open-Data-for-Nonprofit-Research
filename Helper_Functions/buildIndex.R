@@ -2,8 +2,8 @@ buildIndex <- function( )
 {
 
 
-	library( jsonlite )
-	library( R.utils )
+	# library( jsonlite )
+	# library( R.utils )
 
 
 	### CREATE A DIRECTORY FOR YOUR DATA
