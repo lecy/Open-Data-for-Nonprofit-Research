@@ -14,22 +14,29 @@ buildIndex <- function( )
 
 
 	### DOWNLOAD FILES AND UNZIP
-
-	electronic.filers <- "https://s3.amazonaws.com/irs-form-990/index.json.gz"
-
-	download.file( url=electronic.filers, "electronic.json.gz" )
-
-	gunzip("electronic.json.gz", remove=TRUE )  
-
-
+        #
+	# electronic.filers <- "https://s3.amazonaws.com/irs-form-990/index.json.gz"
+        #
+	# download.file( url=electronic.filers, "electronic.json.gz" )
+        #
+	# gunzip("electronic.json.gz", remove=TRUE )  
+        #
+        #
 	# CREATE A DATA FRAME OF ELECTRONIC FILERS FROM IRS JSON FILES
-
-	data.ef <- fromJSON( txt="electronic.json" )[[1]]
+        #
+	# data.ef <- fromJSON( txt="electronic.json" )[[1]]
 
 	# nrow( data.ef )
 
 
-
+	dat1 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2011.csv", stringsAsFactors=F )
+	dat2 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2012.csv", stringsAsFactors=F )
+	dat3 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2013.csv", stringsAsFactors=F )
+	dat4 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2014.csv", stringsAsFactors=F )
+	dat5 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2015.csv", stringsAsFactors=F )
+	dat6 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2016.csv", stringsAsFactors=F )
+	
+	data.ef <- rbind( dat1, dat2, dat3, dat4, dat5, dat6 )
 
 	# REFORMAT DATE FROM YYYY-MM TO YYYY
 
