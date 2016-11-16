@@ -9,18 +9,22 @@ getBasicInfo <- function( doc, url )
 {
 
 
-        # FROM NCCS CORE - HEADER DATA
-	
-	EIN  <- xml_text( xml_find_all( doc, "//Return/ReturnHeader/Filer/EIN" ) )  
-        URL <- url
+	#### FROM NCCS CORE - HEADER DATA
+
+	## EIN
+	#### EIN field is the same for all forms
+
+	EIN  <- xml_text( xml_find_all( doc, "//Return/ReturnHeader/Filer/EIN" ) )
+
 
 
 	## NAME
 	## Name field is the same for forms of the same year (990 and 990EZ post-2013; 990 and 990EZ pre-2013)
 
-	V_990NAMEpost2013 <- "//Return/ReturnHeader/Filer/BusinessName/BusinessNameLine1Txt"
+	V_990NAMEpost2014 <- "//Return/ReturnHeader/Filer/BusinessName/BusinessNameLine1Txt"
+	V_990NAME_2013 <- "//Return/ReturnHeader/Filer/BusinessName/BusinessNameLine1"
 	V_990NAMEpre2013  <- "//Return/ReturnHeader/Filer/Name/BusinessNameLine1"
-	name.xpath <- paste( V_990NAMEpost2013, V_990NAMEpre2013, sep="|" )
+	name.xpath <- paste( V_990NAME_2013, V_990NAMEpre2013, V_990NAMEpost2014, sep="|" )
 	NAME <- xml_text( xml_find_all( doc, name.xpath ) )
 
 
@@ -55,7 +59,7 @@ getBasicInfo <- function( doc, url )
 
 
 	## ADDRESS
-	## State field is the same for forms of the same year (990 and 990EZ post-2013; 990 and 990EZ pre-2013)
+	## Address field is the same for forms of the same year (990 and 990EZ post-2013; 990 and 990EZ pre-2013)
 
 	V_990ADDRpost2013 <- "//Return/ReturnHeader/Filer/USAddress/AddressLine1Txt"
 	V_990ADDRpre2013  <- "//Return/ReturnHeader/Filer/USAddress/AddressLine1"
@@ -107,8 +111,8 @@ getBasicInfo <- function( doc, url )
 	## TAX PREPARER
 	## Tax preparer field is the same for forms of the same year (990 and 990EZ post-2013; 990 and 990EZ pre-2013)
 
-	V_990TPpost2013 <- "//Return/ReturnHeader/BusinessOfficerGrp/DiscussWithPaidPreparerInd"
-	V_990TPpre2013  <- "//Return/ReturnHeader/Officer/AuthorizeThirdParty"
+	V_990TPpost2013 <- "//Return/ReturnHeader/PreparerPersonGrp/PreparerPersonNm"
+	V_990TPpre2013  <- "//Return/ReturnHeader/Preparer/Name"
 	tax.prep.xpath <- paste( V_990TPpost2013, V_990TPpre2013, sep="|" )
 	TAXPREP <- xml_text( xml_find_all( doc, tax.prep.xpath ) )
 
@@ -124,6 +128,7 @@ getBasicInfo <- function( doc, url )
 
 
 
+	#------------------------------------------------------------------------------------------------------------------------
 	##### BASIC INFO
 
 	## GROSS RECEIPTS
@@ -275,10 +280,10 @@ getBasicInfo <- function( doc, url )
 	##  TAX EXEMPT STATUS: represent the 5 possible values, broken out
 	## EXEMPT STATUS 4947(a)(1)
 
-	V_990.4947post2013 <- "//Return/ReturnHeader/IRS990/Organization4947a1NotPFInd"
-	V_990.4947pre2013  <- "//Return/ReturnHeader/IRS990/Organization4947a1"
-	V_990.4947.EZpost2013 <- "//Return/ReturnHeader/IRS990EZ/Organization4947a1NotPFInd"
-	V_990.4947.EZpre2013  <- "//Return/ReturnHeader/IRS990EZ/Organization4947a1"
+	V_990.4947post2013 <- "//Return/ReturnData/IRS990/Organization4947a1NotPFInd"
+	V_990.4947pre2013  <- "//Return/ReturnData/IRS990/Organization4947a1"
+	V_990.4947.EZpost2013 <- "//Return/ReturnData/IRS990EZ/Organization4947a1NotPFInd"
+	V_990.4947.EZpre2013  <- "//Return/ReturnData/IRS990EZ/Organization4947a1"
 	exempt.4947.xpath <- paste( V_990.4947post2013, V_990.4947pre2013, V_990.4947.EZpost2013, V_990.4947.EZpre2013, sep="|" )
 	EXEMPT4947A1 <- xml_text( xml_find_all( doc, exempt.4947.xpath ) ) 
 
@@ -286,10 +291,10 @@ getBasicInfo <- function( doc, url )
 
 	## EXEMPT STATUS 501(c)(other than 3)
 
-	V_990.501Cpost2013 <- "//Return/ReturnHeader/IRS990/Organization501cInd"
-	V_990.501Cpre2013  <- "//Return/ReturnHeader/IRS990/Organization501c"
-	V_990.501C.EZpost2013 <- "//Return/ReturnHeader/IRS990EZ/Organization501cInd"
-	V_990.501C.EZpre2013  <- "//Return/ReturnHeader/IRS990EZ/Organization501c"
+	V_990.501Cpost2013 <- "//Return/ReturnData/IRS990/Organization501cInd"
+	V_990.501Cpre2013  <- "//Return/ReturnData/IRS990/Organization501c"
+	V_990.501C.EZpost2013 <- "//Return/ReturnData/IRS990EZ/Organization501cInd"
+	V_990.501C.EZpre2013  <- "//Return/ReturnData/IRS990EZ/Organization501c"
 	exempt.501c.xpath <- paste( V_990.501Cpost2013, V_990.501Cpre2013, V_990.501C.EZpost2013, V_990.501C.EZpre2013, sep="|" )
 	EXEMPT501C <- xml_text( xml_find_all( doc, exempt.501c.xpath ) ) 
 
@@ -297,10 +302,10 @@ getBasicInfo <- function( doc, url )
 
 	## NUMBER OF EXEMPT STATUS 501(c)(other than 3)
 
-	V_990.501C.NUMpost2013 <- "//Return/ReturnHeader/IRS990/Organization501cInd/@organization501cTypeTxt"
-	V_990.501C.NUMpre2013  <- "//Return/ReturnHeader/IRS990/Organization501c/@typeOf501cOrganization"
-	V_990.501C.NUM.EZpost2013 <- "//Return/ReturnHeader/IRS990EZ/Organization501cInd/@organization501cTypeTxt"
-	V_990.501C.NUM.EZpre2013  <- "//Return/ReturnHeader/IRS990EZ/Organization501c/@typeOf501cOrganization"
+	V_990.501C.NUMpost2013 <- "//Return/ReturnData/IRS990/Organization501cInd/@organization501cTypeTxt"
+	V_990.501C.NUMpre2013  <- "//Return/ReturnData/IRS990/Organization501c/@typeOf501cOrganization"
+	V_990.501C.NUM.EZpost2013 <- "//Return/ReturnData/IRS990EZ/Organization501cInd/@organization501cTypeTxt"
+	V_990.501C.NUM.EZpre2013  <- "//Return/ReturnData/IRS990EZ/Organization501c/@typeOf501cOrganization"
 	exempt.num.xpath <- paste( V_990.501C.NUMpost2013, V_990.501C.NUMpre2013, V_990.501C.NUM.EZpost2013, V_990.501C.NUM.EZpre2013, sep="|" )
 	EXEMPT501CNUM <- xml_text( xml_find_all( doc, exempt.num.xpath ) ) 
 
@@ -308,10 +313,10 @@ getBasicInfo <- function( doc, url )
 
 	## EXEMPT STATUS 501(c)(3)
 
-	V_990.501C.3post2013 <- "//Return/ReturnHeader/IRS990/Organization501c3Ind"
-	V_990.501C.3pre2013  <- "//Return/ReturnHeader/IRS990/Organization501c3"
-	V_990.501C.3.EZpost2013 <- "//Return/ReturnHeader/IRS990EZ/Organization501c3Ind"
-	V_990.501C.3.EZpre2013  <- "//Return/ReturnHeader/IRS990EZ/Organization501c3"
+	V_990.501C.3post2013 <- "//Return/ReturnData/IRS990/Organization501c3Ind"
+	V_990.501C.3pre2013  <- "//Return/ReturnData/IRS990/Organization501c3"
+	V_990.501C.3.EZpost2013 <- "//Return/ReturnData/IRS990EZ/Organization501c3Ind"
+	V_990.501C.3.EZpre2013  <- "//Return/ReturnData/IRS990EZ/Organization501c3"
 	exempt.501c.3.xpath <- paste( V_990.501C.3post2013, V_990.501C.3pre2013, V_990.501C.3.EZpost2013, V_990.501C.3.EZpre2013, sep="|" )
 	EXEMPT501C3 <- xml_text( xml_find_all( doc, exempt.501c.3.xpath ) ) 
 
@@ -319,18 +324,16 @@ getBasicInfo <- function( doc, url )
 
 	## EXEMPT STATUS 527
 
-	V_990.527post2013 <- "//Return/ReturnHeader/IRS990/Organization527Ind"
-	V_990.527pre2013  <- "//Return/ReturnHeader/IRS990/Organization527"
-	V_990.527.EZpost2013 <- "//Return/ReturnHeader/IRS990EZ/Organization527Ind"
-	V_990.527.EZpre2013  <- "//Return/ReturnHeader/IRS990EZ/Organization527"
+	V_990.527post2013 <- "//Return/ReturnData/IRS990/Organization527Ind"
+	V_990.527pre2013  <- "//Return/ReturnData/IRS990/Organization527"
+	V_990.527.EZpost2013 <- "//Return/ReturnData/IRS990EZ/Organization527Ind"
+	V_990.527.EZpre2013  <- "//Return/ReturnData/IRS990EZ/Organization527"
 	exempt.527.xpath <- paste( V_990.527post2013, V_990.527pre2013, V_990.527.EZpost2013, V_990.527.EZpre2013, sep="|" )
 	EXEMPT527 <- xml_text( xml_find_all( doc, exempt.527.xpath ) ) 
 
 
 
-
-
-
+	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART I - ACTIVITIES AND GOVERNANCE 
 
 	## VOTING MEMBERS
@@ -387,9 +390,7 @@ getBasicInfo <- function( doc, url )
 
 
 
-
-
-
+	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART I - REVENUES 
 	## The 990-PC forms split columns in this area into Current Year and Prior Year, the 990-EZs do not. 990-EZ data
 	## in this section only maps to current year values unless indicated otherwise.
@@ -491,6 +492,12 @@ getBasicInfo <- function( doc, url )
 	total.rev.current.xpath <- paste( V_990CTRpost2013, V_990CTRpre2013, V_990CTR.EZpost2013, V_990CTR.EZpre2013, sep="|" )
 	TOTALREVCURRENT <- xml_text( xml_find_all( doc, total.rev.current.xpath ) )  
 
+
+
+	#------------------------------------------------------------------------------------------------------------------------
+	#####  PART I - REVENUES (990EZ-specific fields)
+	## Some of the paths here are on the 990 Pc but in different areas. They are included here to help
+	## with mapping across forms. Some of the PC fields here roll up to map to 1 EZ field.
 
 	## MEMBERSHIP DUES
 
@@ -597,7 +604,7 @@ getBasicInfo <- function( doc, url )
 
 	V_990totrevgampost2013 <- "//Return/ReturnData/IRS990/NetIncomeFromGamingGrp/TotalRevenueColumnAmt"
 	V_990totrevgampre2013 <- "//Return/ReturnData/IRS990/NetIncomeFromGaming/TotalRevenueColumn"
-	gaming.net.xpath <- paste( V_990gamexppost2013, V_990gamexppre2013, sep="|" )
+	gaming.net.xpath <- paste( V_990totrevgampost2013, V_990totrevgampre2013, sep="|" )
 	GAMINGNET <- xml_text( xml_find_all( doc, gaming.net.xpath ) )  
 
 
@@ -607,7 +614,7 @@ getBasicInfo <- function( doc, url )
 
 	V_990totrevfndpost2013 <- "//Return/ReturnData/IRS990/NetIncmFromFundraisingEvtGrp/TotalRevenueColumnAmt"
 	V_990totrevfndpre2013 <- "//Return/ReturnData/IRS990/NetIncomeFromFundraisingEvents/TotalRevenueColumn"
-	fnd.events.net.xpath <- paste( V_990gamexppost2013, V_990gamexppre2013, sep="|" )
+	fnd.events.net.xpath <- paste( V_990totrevfndpost2013, V_990totrevfndpre2013, sep="|" )
 	FNDEVENTSNET <- xml_text( xml_find_all( doc, fnd.events.net.xpath ) )  
 
 
@@ -658,9 +665,7 @@ getBasicInfo <- function( doc, url )
 
 
 
-
-
-
+	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART I - EXPENSES
 	## The 990-PC forms split columns in this area into Current Year and Prior Year, the 990-EZs do not. 990-EZ data
 	## in this section only maps to current year values unless indicated otherwise.
@@ -709,7 +714,7 @@ getBasicInfo <- function( doc, url )
 
 	V_990PSPpost2013 <- "//Return/ReturnData/IRS990/PYSalariesCompEmpBnftPaidAmt"
 	V_990PSPpre2013  <- "//Return/ReturnData/IRS990/SalariesEtcPriorYear"
-	salaries.prior.xpath <- paste( V_990PSPpre2013, sep="|" )
+	salaries.prior.xpath <- paste( V_990PSPpre2013, V_990PSPpost2013, sep="|" )
 	SALARIESPRIOR <- xml_text( xml_find_all( doc, salaries.prior.xpath ) ) 
 
 
@@ -729,7 +734,7 @@ getBasicInfo <- function( doc, url )
 
 	V_990PFFpost2013 <- "//Return/ReturnData/IRS990/PYTotalProfFndrsngExpnsAmt"
 	V_990PFFpre2013  <- "//Return/ReturnData/IRS990/TotalProfFundrsngExpPriorYear"
-	profund.fees.prior.xpath <- paste( V_990PFFpre2013, sep="|" )
+	profund.fees.prior.xpath <- paste( V_990PFFpre2013, V_990PFFpost2013, sep="|" )
 	PROFUNDFEESPRIOR <- xml_text( xml_find_all( doc, profund.fees.prior.xpath ) ) 
 
 
@@ -917,9 +922,7 @@ getBasicInfo <- function( doc, url )
 
 
 
-
-
-
+	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART I - NET ASSETS
 	## The 990-PC forms split columns in this area into Beginning of Year and End of Year.
 	## Some 990-EZ data is located in Part II of that form.
@@ -999,9 +1002,7 @@ getBasicInfo <- function( doc, url )
 
 
 
-
-
-
+	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART II(EZ) / X (PC) - BALANCE SHEET
 	#####   Organized to capture the values present on both PC and EZ first, then PC-specific values after
 
@@ -1017,7 +1018,7 @@ getBasicInfo <- function( doc, url )
 	## END OF YEAR CASH
 
 	V_990EOYCpost2013 <- "//Return/ReturnData/IRS990/CashNonInterestBearingGrp/EOYAmt"
-	V_990EOYCpre2013  <- "//Return/ReturnData/IRS990CashNonInterestBearing/EOY"
+	V_990EOYCpre2013  <- "//Return/ReturnData/IRS990/CashNonInterestBearing/EOY"
 	cash.end.xpath <- paste( V_990EOYCpost2013, V_990EOYCpre2013, sep="|" )
 	CASHENDYEAR <- xml_text( xml_find_all( doc, cash.end.xpath ) ) 
 
@@ -1129,9 +1130,21 @@ getBasicInfo <- function( doc, url )
 
 
 
+	#------------------------------------------------------------------------------------------------------------------------
+	####  PART III - STATEMENT OF PROGRAM SERVICE ACCOMPLISHMENTS
+
+	## TOTAL PROGRAM SERVICE EXPENSES
+
+	V_990TPSEpost2013 <- "//Return/ReturnData/IRS990/TotalProgramServiceExpensesAmt"
+	V_990TPSEpre2013  <- "//Return/ReturnData/IRS990/TotalProgramServiceExpense"
+	V_990TPSE.EZpost2013 <- "//Return/ReturnData/IRS990EZ/TotalProgramServiceExpensesAmt"
+	V_990TPSE.EZpre2013  <- "//Return/ReturnData/IRS990EZ/TotalProgramServiceExpenses"
+	land.buildings.end.xpath <- paste( V_990TPSEpost2013, V_990TPSEpre2013, V_990TPSE.EZpost2013, V_990TPSE.EZpre2013, sep="|" )
+	TOTALPROGSERVEXP <- xml_text( xml_find_all( doc, land.buildings.end.xpath ) ) 
 
 
 
+	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART X - ASSETS
 	#####   PC-specific Values
 
@@ -1355,9 +1368,7 @@ getBasicInfo <- function( doc, url )
 
 
 
-
-
-
+	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART X - LIABILITIES
 	#####   PC-specific Values
 
@@ -1545,9 +1556,7 @@ getBasicInfo <- function( doc, url )
 
 
 
-
-
-
+	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART X - NET ASSETS OR FUND BALANCES
 	#####   PC-specific Values
 
@@ -1713,25 +1722,7 @@ getBasicInfo <- function( doc, url )
 
 
 
-
-
-
-	####  PART III - STATEMENT OF PROGRAM SERVICE ACCOMPLISHMENTS
-
-	## TOTAL PROGRAM SERVICE EXPENSES
-
-	V_990TPSEpost2013 <- "//Return/ReturnData/IRS990/TotalProgramServiceExpensesAmt"
-	V_990TPSEpre2013  <- "//Return/ReturnData/IRS990/TotalProgramServiceExpense"
-	V_990TPSE.EZpost2013 <- "//Return/ReturnData/IRS990EZ/TotalProgramServiceExpensesAmt"
-	V_990TPSE.EZpre2013  <- "//Return/ReturnData/IRS990EZ/TotalProgramServiceExpenses"
-	land.buildings.end.xpath <- paste( V_990TPSEpost2013, V_990TPSEpre2013, V_990TPSE.EZpost2013, V_990TPSE.EZpre2013, sep="|" )
-	TOTALPROGSERVEXP <- xml_text( xml_find_all( doc, land.buildings.end.xpath ) ) 
-
-
-
-
-
-
+	#------------------------------------------------------------------------------------------------------------------------
 	###  BIND VARIABLES TOGETHER
 
 	namedList <- function(...){
@@ -1788,9 +1779,6 @@ getBasicInfo <- function( doc, url )
 			       #PART III
 			       TOTALPROGSERVEXP
 			      )
-
-	
-	
 	# variables that are functions:
 	## EXPGAMINGFNDEVENTS: PC values are sum of GAMINGEXP and FNDEVENTSEXP
 	## NETGAMINGFNDEVENTS: PC values are sum of GAMINGNET and FNDEVENTSNET
@@ -1799,8 +1787,10 @@ getBasicInfo <- function( doc, url )
 	## CASHINVBEGYEAR: PC values are sum of CASHBEGYEAR and SAVINVBEGYEAR
 	## CASHINVENDYEAR: PC values are sum of CASHENDYEAR and SAVINVENDYEAR
 
-                       
+
 	return( var.list )
+
+
 
 
 }
