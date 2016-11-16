@@ -11,12 +11,13 @@
 
 
 
-scrapeXML <- function( url, form.type, modules )
+scrapeXML <- function( id, form.type, modules )
 {
 
     
     # print( url )
     # url <- "https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml"
+    url <- paste( "https://s3.amazonaws.com/irs-form-990/", id, "_public.xml", sep="" )
     doc <- read_xml( url )
     xml_ns_strip( doc )
     
