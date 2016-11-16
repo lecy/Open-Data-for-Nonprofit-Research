@@ -34,13 +34,13 @@ buildIndex <- function( )
 	dat3 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2013.csv", stringsAsFactors=F )
 	dat4 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2014.csv", stringsAsFactors=F )
 	dat5 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2015.csv", stringsAsFactors=F )
-	dat6 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2016.csv", stringsAsFactors=F )
+	# dat6 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2016.csv", stringsAsFactors=F )
 	
-	data.ef <- rbind( dat1, dat2, dat3, dat4, dat5, dat6 )
+	data.ef <- rbind( dat1, dat2, dat3, dat4, dat5 )
 
 	# REFORMAT DATE FROM YYYY-MM TO YYYY
 
-	data.ef$FilingYear <- substr( data.ef$TaxPeriod, 1, 4 )
+	data.ef$FilingYear <- substr( data.ef$TAX_PERIOD, 1, 4 )
 
 
 
@@ -62,7 +62,7 @@ buildIndex <- function( )
 
 	# table( data.ef$IsElectronic, data.ef$IsAvailable )
 
-	data.ef <- data.ef[ data.ef$IsAvailable == TRUE , ]
+	# data.ef <- data.ef[ data.ef$IsAvailable == TRUE , ]
 
 	# nrow( data.ef )
 	
