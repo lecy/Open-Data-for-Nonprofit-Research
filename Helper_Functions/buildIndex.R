@@ -2,8 +2,8 @@ buildIndex <- function( )
 {
 
 
-	# library( jsonlite )
-	# library( R.utils )
+	library( jsonlite )
+	library( R.utils )
 
 
 	### CREATE A DIRECTORY FOR YOUR DATA
@@ -29,18 +29,18 @@ buildIndex <- function( )
 	# nrow( data.ef )
 
 
-	dat1 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2011.csv", stringsAsFactors=F )
-	dat2 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2012.csv", stringsAsFactors=F )
-	dat3 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2013.csv", stringsAsFactors=F )
-	dat4 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2014.csv", stringsAsFactors=F )
-	dat5 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2015.csv", stringsAsFactors=F )
-	# dat6 <- read.csv("https://s3.amazonaws.com/irs-form-990/index_2016.csv", stringsAsFactors=F )
+	dat1 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2011.json")[[1]]
+	dat2 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2012.json")[[1]]
+	dat3 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2013.json")[[1]]
+	dat4 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2014.json")[[1]]
+	dat5 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2015.json")[[1]]
+	dat6 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2016.json")[[1]]
 	
-	data.ef <- rbind( dat1, dat2, dat3, dat4, dat5 )
+	data.ef <- rbind( dat1, dat2, dat3, dat4, dat5, dat6 )
 
 	# REFORMAT DATE FROM YYYY-MM TO YYYY
 
-	data.ef$FilingYear <- substr( data.ef$TAX_PERIOD, 1, 4 )
+	data.ef$FilingYear <- substr( data.ef$TaxPeriod, 1, 4 )
 
 
 
