@@ -80,34 +80,19 @@ core.dataset <- buildCore( index=tiny.index, years=2011:2015, form.type=c("990",
 
 # THE DATA SET WILL LOOK LIKE THIS:
 
-head( core.dataset )
+core.dataset[ 1:5, c("NAME","EIN","FISYR","TAXFORM","TOTALREVCURRENT") ]
 
-#         EIN FISYR                                    NAME      DBA STATE                   ADDRESS     CITY   ZIP     STYEAR    ENDYEAR TAXPREP  FORM
-# 1 562629114  2014 BROWN COMMUNITY DEVELOPMENT CORPORATION     <NA>    NY     484 WASHINGTON AVENUE BROOKLYN 11238 2014-01-01 2014-12-31    <NA> 990EZ
-# 2 270678774  2014       KIWANIS CLUB OF GLENDORA PROJECTS FUND INC    CA                PO BOX 353 GLENDORA 91740 2014-10-01 2015-09-30    true 990EZ
-# 3 464114252  2014                     CONFETTI FOUNDATION     <NA>    RI          78 THAMES STREET  NEWPORT 02840 2014-01-01 2014-12-31       1 990EZ
-# 4 510311790  2014                  THE SHEPHERD PLACE INC     <NA>    DE   1362 S GOVERNORS AVENUE    DOVER 19904 2014-07-01 2015-06-30    <NA>   990
-# 5 261460932  2014      WISE VOLUNTEER FIRE DEPARTMENT INC     <NA>    VA                PO BOX 428     WISE 24293 2014-01-01 2014-12-31    true   990
-# 6 270609504  2014           A HOLE IN THE ROOF FOUNDATION     <NA>    MI 150 STIMSON STREET NO 102  DETROIT 48201 2014-01-01 2014-12-31       1   990
-#
-#   GROSSRECEIPTS GROUPRETURN TAXEXMSTATUS TYPEOFORG FORMYEAR DOMICILE                       WEBSITE VOTINGMEMBERS INDVOTINGMEMBERS TOTEMPLOYEE
-# 1        116465        <NA>         <NA>         X     <NA>       NY                           N/A          <NA>             <NA>        <NA>
-# 2         66934        <NA>         <NA>         X     <NA>     <NA>                           N/A          <NA>             <NA>        <NA>
-# 3         22881        <NA>         <NA>         X     <NA>     <NA>    www.confettifoundation.org          <NA>             <NA>        <NA>
-# 4        434413       false            X      <NA>     1988       DE  HTTP://WWW.SHEPHERDPLACE.ORG            10               10          15
-# 5        522593       false            X      <NA>     2007       VA                           N/A             4                0           0
-# 6        422237           0            X      <NA>     2009       MI HTTP://WWW.AHOLEINTHEROOF.ORG             3                1           0
-#
-#   TOTVOLUNTEERS TOTUBI NETUBI                                                                 URL
-# 1          <NA>   <NA>   <NA> https://s3.amazonaws.com/irs-form-990/201543109349200219_public.xml
-# 2          <NA>   <NA>   <NA> https://s3.amazonaws.com/irs-form-990/201513089349200226_public.xml
-# 3          <NA>   <NA>   <NA> https://s3.amazonaws.com/irs-form-990/201513089349200236_public.xml
-# 4           250      0   <NA> https://s3.amazonaws.com/irs-form-990/201523229349300327_public.xml
-# 5             6      0   <NA> https://s3.amazonaws.com/irs-form-990/201543089349301829_public.xml
-# 6           100      0      0 https://s3.amazonaws.com/irs-form-990/201533179349306298_public.xml
+# A tibble: 5 × 5
+#                                      NAME       EIN FISYR TAXFORM TOTALREVCURRENT
+#                                     <chr>     <chr> <chr>   <chr>           <chr>
+# 1 BROWN COMMUNITY DEVELOPMENT CORPORATION 562629114  2014   990EZ          116465
+# 2       KIWANIS CLUB OF GLENDORA PROJECTS 270678774  2014   990EZ           39959
+# 3                     CONFETTI FOUNDATION 464114252  2014   990EZ           22881
+# 4                  THE SHEPHERD PLACE INC 510311790  2014     990          430457
+# 5      WISE VOLUNTEER FIRE DEPARTMENT INC 261460932  2014     990           26316
 
 
-print.data.frame( core.dataset )
+print.data.frame( core.dataset ) # display full dataset
 
 
 
@@ -121,7 +106,7 @@ getwd()  # where will it be saved?
 
 write.csv( core.dataset, "Core.csv", row.names=F )
 
-###
+
 
 ```
 
@@ -174,9 +159,16 @@ There are other modules that function more like relational databases. The 990 re
 
 ### Build a Module
 
-If you are interested in data that is not included in the current build, you can create a new module to add data to the dataset. It is a fairly straight-forward process and does not require a lot of programming knowledge, other than definining the variable list and documenting the definition (990 field) for each variable you create. 
+If you are interested in data that is not included in the current build, you can create a new module to add data to the dataset. It is a fairly straight-forward process and does not require a lot of programming knowledge, other than definining the variable list and documenting the definition (990 field) for each variable you create.
 
-You can generate the variable list by running [THIS SCRIPT](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/generateAllXpaths.R). Building a module requires you to define variables by identifying the different ways they are referenced in the four versions of the 990, the results looking something [LIKE THIS](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R). See the [Quick Guide to XML in R](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.pdf) for more details.
+* Start with the IRS 990 form or section to identify the variables that you wish to collect.
+* Match the variables in the 990 to their xpaths available [HERE](https://www.irs.gov/charities-non-profits/990-990-ez-990-pf-ty2013-v1-0-schema-business-rules-and-release-memo).
+* Use the "Xpath to Xpath" file, and the "Updated Xpath to Xpath" files to find the four versions of each variable (one version for the 990PC form, one version for the 990EZ form, and both change between 2012 and 2013).
+* The results looking something [LIKE THIS](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/getBasicInfo.R). 
+
+If you are looking at one specific XML file, you can generate the xpath variable list by running [THIS SCRIPT](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Helper_Functions/generateAllXpaths.R). 
+
+See the [Quick Guide to XML in R](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.pdf) for more details.
 
 We welcome any contributions!
 
