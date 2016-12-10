@@ -37,7 +37,7 @@ buildCore <- function( eins=NULL, index=NULL, years, form.type=c("990","990EZ"),
   
   # SUBSET INDEX FILE BY SPECIFIED YEARS AND FORMS
   
-  these <- index[ index$EIN %in% eins & index$FilingYear %in% years & index$RETURN_TYPE %in% form.type , "OBJECT_ID" ]
+  these <- index[ index$EIN %in% eins & index$FilingYear %in% years & index$RETURN_TYPE %in% form.type , "URL" ]
   
   
   
@@ -58,7 +58,7 @@ buildCore <- function( eins=NULL, index=NULL, years, form.type=c("990","990EZ"),
   
   for( i in 1:length(these) )
   {
-     one.npo <- scrapeXML( these[i], form.type, modules )
+     one.npo <- scrapeXML( url=these[i], form.type=form.type, modules=modules )
      
      if( ! is.null(one.npo) )
      {
