@@ -8,9 +8,9 @@ buildIndex <- function( )
 
 	### CREATE A DIRECTORY FOR YOUR DATA
 
-	dir.create( "IRS Nonprofit Data" )
+	#  dir.create( "IRS Nonprofit Data" )
 
-	setwd( "./IRS Nonprofit Data" )
+	# setwd( "./IRS Nonprofit Data" )
 
 
 	### DOWNLOAD FILES AND UNZIP
