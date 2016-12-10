@@ -37,7 +37,7 @@ buildCore <- function( eins=NULL, index=NULL, years, form.type=c("990","990EZ"),
   
   # SUBSET INDEX FILE BY SPECIFIED YEARS AND FORMS
   
-  these <- index[ index$EIN %in% eins & index$FilingYear %in% years & index$RETURN_TYPE %in% form.type , "URL" ]
+  these <- index[ index$EIN %in% eins & index$FilingYear %in% years & index$FormType %in% form.type , "URL" ]
   
   
   
