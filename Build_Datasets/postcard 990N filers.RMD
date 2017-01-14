@@ -1,10 +1,16 @@
 # 990-N Postcard Filers
 
+Most small tax-exempt organizations whose annual gross receipts are normally $50,000 or less can satisfy their annual reporting requirement by electronically submitting Form 990-N if they choose not to file Form 990 or Form 990-EZ instead. 
+Exceptions to this requirement include:
+* Organizations that are included in a group return,
+* Churches, their integrated auxiliaries, and conventions or associations of churches, and
+* Organizations required to file a different return
+
+[Requirements Page](https://www.irs.gov/charities-non-profits/annual-electronic-filing-requirement-for-small-exempt-organizations-form-990-n-e-postcard)
+
+## Download Page
+
 Info including data dictionary can be found at: https://apps.irs.gov/app/eos/forwardToEpostDownload.do
-
-
-Internal Revenue Service United States Department of the Treasury
-Form 990-N (e-Postcard) Data Download Layout
 
 The Form 990-N (e-Postcard) filing information will be listed in rows, with each field of data separated by a pipe ('|') symbol. The following table describes the format and order of each field in a row, representing one Form 990-N (e-Postcard) filing.
 
