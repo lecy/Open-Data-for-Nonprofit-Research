@@ -7,16 +7,21 @@
 ``` 
  
 ## Data Dictionary 
-##### Entries for 990 and 990EZ are in the following format: Part (in roman numerals), section letter (if applicable), row number, sub-row letter, column (if applicable).  
-######Values that do not start with roman numerals are in the form header section. 
-##### "." indicates that version of tax form does not have that field. 
+Entries for 990 and 990EZ are in the following format: Part (in roman numerals), section letter (if applicable), row number, sub-row letter, column (if applicable).  
+
+Values that do not start with roman numerals are in the form header section. 
+
+"." indicates that version of tax form does not have that field. 
+ 
  
 Variable | Description | 990 PC 2015 | 990EZ 2015 | 2013 and after Field Name | Pre-2013 Field Name | Production Rules  
----------|-------------|-------------|---------------|------------|-----  
+---------|-------------|-------------|---------------|------------|----- |------------------------------------------------
 EIN | Employer Identification Number | Header,D | EIN | Header,D | EIN | .  
 NAME | Nonprofit Name | Header,C | Header,C | BusinessNameLine1Txt | BusinessNameLine1 | .  
 DBA | Doing-business-as name | Header,C | . | BusinessNameLine2Txt | BusinessNameLine2 | . 
 FISYR | Tax year of returns | XML | XML | TaxYr | TaxYear | . 
+
+
 STATE | Domicile state of nonprofit | Header,C | Header,C | . 
 ADDRESS | Nonprofit address | Header,C | Header,C | . 
 CITY | Domicile city of nonprofit | Header,C | Header,C | . 
