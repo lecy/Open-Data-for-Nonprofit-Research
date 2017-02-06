@@ -8,6 +8,8 @@ We have begun the process to catalog and document these resources, and will begi
 
 [NONPROFIT INITIATIVE FOR OPEN DATA](https://dataverse.harvard.edu/dataverse/NIOD)
 
+For a similar project, check out [Charity Navigator's 990 Toolkit](http://990.charitynavigator.org/). You can read their press release [here](http://www.charitynavigator.org/index.cfm?bay=content.view&cpid=4669).
+
 <br>
 
 ## Open IRS Databases on Nonprofits
