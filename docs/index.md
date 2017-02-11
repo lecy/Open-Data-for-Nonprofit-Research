@@ -2,40 +2,29 @@
 
 This project was created to make existing open data assets easily accessible to nonprofit scholars and researchers. 
 
-This project was inspired by the open science movement, an initiative that pushes to make data accessible and to create tools that help the research community better utilize the data. 
+The IRS maintains several important nonprofit databases to track the current population of exempt organizations, their annual 990 filings, and organizations that have closed. This data has been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
 
 We have begun the process to catalog and document these resources, and will begin sharing them through the Dataverse Open Data portal:
 
 [NONPROFIT INITIATIVE FOR OPEN DATA](https://dataverse.harvard.edu/dataverse/NIOD)
 
-These scripts to create datasets are written in the R language because it is a freely-available open-source platform that can be used by anyone. 
+We have documented and posted the following data assets:
 
+* **IRS E-Filer 990 Data** [Data Dictionary]
+* **List of all Current Exempt Organizations (all orgs granted 501(c)(3) status)**  [Data Dictionary] 
+* **Business Master File of All Current Exempt Orgs**  [Data Dictionary]
+* **Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present**  [Data Dictionary]
+* **All 990-N Postcard Filers**  [Data Dictionary]
+* **All Organizations with a Revoked 501(c)(.) Status**  [Data Dictionary]
 
 
 <br>
 
 
 
+### Additional Open Data Resources of Note 
 
-
-## Available Open Datasets
-
-The IRS maintains several important nonprofit databases to track the current population of exempt organizations, their annual 990 filings, and organizations that have closed.
-
-The IRS data has been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
-
-* [All Current Exempt Organizations (all orgs granted 501(c)(3) status)](./Build_Datasets/current master exempt list.Rmd) 
-* [Business Master File of All Current Exempt Orgs](./Build_Datasets/master_exempt_list_w_ntee.Rmd) 
-* [Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present](./Build_Datasets/electronic filers.Rmd) 
-* [All 990-N Postcard Filers](./Build_Datasets/postcard 990N filers.RMD) 
-* [All Organizations with a Revoked 501(c)(*) Status](./Build_Datasets/revoked organizations.Rmd) 
-
-
-<br/>
-
-### Additional Resources of Note 
-
-Can we develop these further to augment the IRS data in interesting ways?
+There are some additional interesting sources of nonprofit data that have the potential to be leveraged for future research:
 
 * [Pro Publica Nonprofit Explorer API](https://www.propublica.org/nerds/item/announcing-the-nonprofit-explorer-api)
 * [Foundation Center API](http://data.foundationcenter.org/about.html)
@@ -121,7 +110,6 @@ https://www.reddit.com/r/aws/comments/4p772f/how_the_heck_do_i_view_the_990_docu
 
 ## Authors and Contributors
 
-
 If you are interested in submitting resources or building tools to support nonprofit scholarship please contact Jesse Lecy (jdlecy@syr.edu) or Nathan Grasse (nathangrasse@cunet.carleton.ca).
 
 Special thanks to Francisco Santamarina for his meticulous work decoding the IRS XML documents to translate the data into a useful format and creating the Data Dictionary at the heart of this project.
@@ -131,7 +119,7 @@ Special thanks to Francisco Santamarina for his meticulous work decoding the IRS
 
 This project was inspired by the [R Open Science](https://ropensci.org/) initiative, which believes in making data accessible and building tools that help a research community better utilize the data. These scripts are written in the R language because it is a freely-available open-source platform that can be used by anyone. 
 
-You can install R for Windows [here](https://cran.r-project.org/bin/windows/base/) or R for Macs [here](https://cran.r-project.org/bin/macosx/). To build these datasets from scratch you can copy and paste the script into an R console, then select the desired output, and it will generate a CSV, SPSS, or Stata dataset for you.
+
 
 
 
