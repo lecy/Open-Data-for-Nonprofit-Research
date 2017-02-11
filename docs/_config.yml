@@ -1,0 +1,8 @@
+title: Open Data for Nonprofit Research
+description: This repository is a collection of tools for creating, wrangling, and sharing data and analysis on the nonprofit sector using open data sources
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-architect
+
+gems:
+  - jekyll-mentions
