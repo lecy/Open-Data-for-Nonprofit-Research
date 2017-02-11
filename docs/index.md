@@ -15,6 +15,8 @@ The IRS maintains several important nonprofit databases to track the current pop
 ### Data Formats
 The IRS data has been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
 
+[efilers](E-FILERS.md)
+
 ### Authors and Contributors
 If you are interested in submitting resources or building tools to support nonprofit scholarship please contact Jesse Lecy (jdlecy@syr.edu) or Nathan Grasse (nathangrasse@cunet.carleton.ca).
 
