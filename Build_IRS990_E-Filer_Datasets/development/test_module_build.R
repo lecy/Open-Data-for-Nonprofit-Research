@@ -30,26 +30,29 @@ doc <- read_xml( url )
 xml_ns_strip( doc )
 
 
+
+# load the functions to scrape data
+
+
+
 # grab the basic nonprofit info - name, ein, address, etc.
 
-     source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Helper_Functions/getBasicInfo.R")
+     source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Build_IRS990_E-Filer_Datasets/BUILD_EFILER_DATABASE.R")
 
-      xml.df <- getBasicInfo( doc, url )
+      one.npo <- scrapeXML( doc, url )
 
 
 
 # add your custom module
 
-      # return one row of data from your section
-      my.mod.df <- myModCode( doc )
-      
-      # column bind your section with basic nonprofit info
-      xml.df <- cbind( xml.df, my.mod.df ) 
+      fix( scrapeXML )
 
 
 
 # test to ensure data is collected as expected
 
-      names( xlm.df )
+      names( one.npo )
 
-      xml.df  # print results
+      options(tibble.width = Inf)
+      
+      print( one.npo )  # view results
