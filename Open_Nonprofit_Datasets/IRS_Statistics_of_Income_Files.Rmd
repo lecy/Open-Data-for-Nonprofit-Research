@@ -1,8 +1,50 @@
-# SOI FILES 2012-2015
+# SOI Tax Stats - Annual Extract of Tax-Exempt Organization Financial Data - 2012-2015
 
 https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data
 
+ 
+"These extracts contain selected financial data from filers of three Internal Revenue Service (IRS) information returns — Forms 990, 990-EZ and 990-PF — collected for program administrative purposes. During IRS administrative processing, some adjustments are made which can result in differences between the information as originally reported and the data on this extract. Other differences may be introduced during transcription of paper-filed return information. Prior to release, we also review and make additional adjustments to the data to ensure their fitness for analytical and statistical purposes."
 
+These SOI files contain the EIN as unique identifiers, but they do not contain information from the 990 header like the organizational name, location, or NTEE. As a result, to be useful you may need to merge these files with the IRS Master Business File or NCCS Master Business Files.
+
+
+## LOAD 2015 FILES
+
+"The extracts are in a space-delimited, ASCII format."
+
+Here is an example of how to download and process the ASCII files in R.
+
+
+
+```r
+
+
+
+dat1 <- read.csv( "https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat", sep=" ", skip=1 )
+
+raw.names <- readLines( "https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat", n=1 )
+
+dat.names <- strsplit( raw.names, " ")[[1]]
+
+names( dat1 ) <- dat.names
+
+head( dat1 )
+
+
+
+# 2015 990-EZ
+
+dat2 <- read.csv( "https://www.irs.gov/pub/irs-soi/15eofinextractEZ.dat", sep=" ", skip=1 )
+
+raw.names <- readLines( "https://www.irs.gov/pub/irs-soi/15eofinextractEZ.dat", n=1 )
+
+dat.names <- strsplit( raw.names, " ")[[1]]
+
+names( dat2 ) <- dat.names
+
+head( dat2 )
+
+```
 
 
 
@@ -49,127 +91,6 @@ https://www.irs.gov/pub/irs-soi/13eofinextractdoc.xls
 https://www.irs.gov/pub/irs-soi/12eofinextractdoc.xls
 
 
-
-
-
-
-
-
-
-## LOAD 2015 FILES
-
-
-```r
-dat <- read.csv( "https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat", sep=" ", skip=1 )
-
-raw.names <- readLines( "https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat", n=1 )
-
-dat.names <- strsplit( raw.names, " ")[[1]]
-
-names( dat ) <- dat.names
-
-head( dat )
-
-
-
-dat2 <- read.csv( "https://www.irs.gov/pub/irs-soi/15eofinextractEZ.dat", sep=" ", skip=1 )
-
-raw.names <- readLines( "https://www.irs.gov/pub/irs-soi/15eofinextractEZ.dat", n=1 )
-
-dat.names <- strsplit( raw.names, " ")[[1]]
-
-names( dat2 ) <- dat.names
-
-head( dat2 )
-
-```
-
-
-
-```
-
-> intersect( names(dat), names(dat2) )
- [1] "elf"                  "EIN"                  "subseccd"             "filedf990tcd"        
- [5] "prohibtdtxshltrcd"    "netincfndrsng"        "grsincgaming"         "totassetsend"        
- [9] "totliabend"           "nonpfrea"             "totsupport"           "txrevnuelevied170"   
-[13] "srvcsval170"          "pubsuppsubtot170"     "pubsupplesspct170"    "samepubsuppsubtot170"
-[17] "grsinc170"            "othrinc170"           "totgftgrntrcvd509"    "txrevnuelevied509"   
-[21] "srvcsval509"          "pubsuppsubtot509"     "rcvdfrmdisqualsub509" "subtotpub509"        
-[25] "samepubsuppsubtot509" "grsinc509"            "unreltxincls511tx509" "subtotsuppinc509"    
-[29] "othrinc509"           "totsupp509"   
-
-
-> setdiff( names(dat2), names(dat) )
- [1] "a_tax_prd"           "totcntrbs"           "prgmservrev"         "duesassesmnts"      
- [5] "othrinvstinc"        "grsamtsalesastothr"  "basisalesexpnsothr"  "gnsaleofastothr"    
- [9] "grsrevnuefndrsng"    "direxpns"            "grsalesminusret"     "costgoodsold"       
-[13] "grsprft"             "othrevnue"           "totrevnue"           "totexpns"           
-[17] "totexcessyr"         "othrchgsnetassetfnd" "networthend"         "totnetassetsend"    
-[21] "actvtynotprevrptcd"  "chngsinorgcd"        "unrelbusincd"        "contractioncd"      
-[25] "politicalexpend"     "filedfYYN0polcd"     "loanstoofficerscd"   "loanstoofficers"    
-[29] "initiationfee"       "grspublicrcpts"      "s4958excessbenefcd"  "totnoforgscnt"      
-[33] "gftgrntrcvd170"      "excds2pct170"        "netincunrelatd170"   "totsupport170"      
-[37] "grsrcptsrelatd170"   "grsrcptsadmiss509"   "grsrcptsactvts509"   "excds1pct509"       
-[41] "pubsupplesssub509"   "netincunreltd509"   
-
-
-> setdiff( names(dat), names(dat2) )
-  [1] "tax_prd"               "s50Yc3or4947aYcd"      "schdbind"              "politicalactvtscd"    
-  [5] "lbbyingactvtscd"       "subjto6033cd"          "dnradvisedfundscd"     "prptyintrcvdcd"       
-  [9] "maintwrkofartcd"       "crcounselingqstncd"    "hldassetsintermpermcd" "rptlndbldgeqptcd"     
- [13] "rptinvstothsecd"       "rptinvstprgrelcd"      "rptothasstcd"          "rptothliabcd"         
- [17] "sepcnsldtfinstmtcd"    "sepindaudfinstmtcd"    "inclinfinstmtcd"       "operateschoolsY70cd"  
- [21] "frgnofficecd"          "frgnrevexpnscd"        "frgngrntscd"           "frgnaggragrntscd"     
- [25] "rptprofndrsngfeescd"   "rptincfnndrsngcd"      "rptincgamingcd"        "operatehosptlcd"      
- [29] "hospaudfinstmtcd"      "rptgrntstogovtcd"      "rptgrntstoindvcd"      "rptyestocompnstncd"   
- [33] "txexmptbndcd"          "invstproceedscd"       "maintescrwaccntcd"     "actonbehalfcd"        
- [37] "engageexcessbnftcd"    "awarexcessbnftcd"      "loantofficercd"        "grantoofficercd"      
- [41] "dirbusnreltdcd"        "fmlybusnreltdcd"       "servasofficercd"       "recvnoncashcd"        
- [45] "recvartcd"             "ceaseoperationscd"     "sellorexchcd"          "ownsepentcd"          
- [49] "reltdorgcd"            "intincntrlcd"          "orgtrnsfrcd"           "conduct5percentcd"    
- [53] "compltschocd"          "f1096cnt"              "fw2gcnt"               "wthldngrulescd"       
- [57] "noemplyeesw3cnt"       "filerqrdrtnscd"        "unrelbusinccd"         "frgnacctcd"           
- [61] "prtynotifyorgcd"       "filedf8886tcd"         "solicitcntrbcd"        "exprstmntcd"          
- [65] "providegoodscd"        "notfydnrvalcd"         "filedf8N8Ncd"          "f8282cnt"             
- [69] "fndsrcvdcd"            "premiumspaidcd"        "filedf8899cd"          "filedfY098ccd"        
- [73] "excbushldngscd"        "s4966distribcd"        "distribtodonorcd"      "initiationfees"       
- [77] "grsrcptspublicuse"     "grsincmembers"         "grsincother"           "filedlieufY04Ycd"     
- [81] "txexmptint"            "qualhlthplncd"         "qualhlthreqmntn"       "qualhlthonhnd"        
- [85] "rcvdpdtngcd"           "filedf7N0cd"           "totreprtabled"         "totcomprelatede"      
- [89] "totestcompf"           "noindiv100kcnt"        "nocontractor100kcnt"   "totcntrbgfts"         
- [93] "prgmservcode2acd"      "totrev2acola"          "prgmservcode2bcd"      "totrev2bcola"         
- [97] "prgmservcode2ccd"      "totrev2ccola"          "prgmservcode2dcd"      "totrev2dcola"         
-[101] "prgmservcode2ecd"      "totrev2ecola"          "totrev2fcola"          "totprgmrevnue"        
-[105] "invstmntinc"           "txexmptbndsproceeds"   "royaltsinc"            "grsrntsreal"          
-[109] "grsrntsprsnl"          "rntlexpnsreal"         "rntlexpnsprsnl"        "rntlincreal"          
-[113] "rntlincprsnl"          "netrntlinc"            "grsalesecur"           "grsalesothr"          
-[117] "cstbasisecur"          "cstbasisothr"          "gnlsecur"              "gnlsothr"             
-[121] "netgnls"               "grsincfndrsng"         "lessdirfndrsng"        "lessdirgaming"        
-[125] "netincgaming"          "grsalesinvent"         "lesscstofgoods"        "netincsales"          
-[129] "miscrev11acd"          "miscrevtota"           "miscrev11bcd"          "miscrevtot11b"        
-[133] "miscrev11ccd"          "miscrevtot11c"         "miscrevtot11d"         "miscrevtot11e"        
-[137] "totrevenue"            "grntstogovt"           "grnsttoindiv"          "grntstofrgngovt"      
-[141] "benifitsmembrs"        "compnsatncurrofcr"     "compnsatnandothr"      "othrsalwages"         
-[145] "pensionplancontrb"     "othremplyeebenef"      "payrolltx"             "feesforsrvcmgmt"      
-[149] "legalfees"             "accntingfees"          "feesforsrvclobby"      "profndraising"        
-[153] "feesforsrvcinvstmgmt"  "feesforsrvcothr"       "advrtpromo"            "officexpns"           
-[157] "infotech"              "royaltsexpns"          "occupancy"             "travel"               
-[161] "travelofpublicoffcl"   "converconventmtng"     "interestamt"           "pymtoaffiliates"      
-[165] "deprcatndepletn"       "insurance"             "othrexpnsa"            "othrexpnsb"           
-[169] "othrexpnsc"            "othrexpnsd"            "othrexpnse"            "othrexpnsf"           
-[173] "totfuncexpns"          "nonintcashend"         "svngstempinvend"       "pldgegrntrcvblend"    
-[177] "accntsrcvblend"        "currfrmrcvblend"       "rcvbldisqualend"       "notesloansrcvblend"   
-[181] "invntriesalesend"      "prepaidexpnsend"       "lndbldgsequipend"      "invstmntsend"         
-[185] "invstmntsothrend"      "invstmntsprgmend"      "intangibleassetsend"   "othrassetsend"        
-[189] "accntspayableend"      "grntspayableend"       "deferedrevnuend"       "txexmptbndsend"       
-[193] "escrwaccntliabend"     "paybletoffcrsend"      "secrdmrtgsend"         "unsecurednotesend"    
-[197] "othrliabend"           "unrstrctnetasstsend"   "temprstrctnetasstsend" "permrstrctnetasstsend"
-[201] "capitalstktrstend"     "paidinsurplusend"      "retainedearnend"       "totnetassetend"       
-[205] "totnetliabastend"      "totnooforgscnt"        "gftgrntsrcvd170"       "exceeds2pct170"       
-[209] "netincunreltd170"      "totsupp170"            "grsrcptsrelated170"    "grsrcptsadmissn509"   
-[213] "grsrcptsactivities509" "exceeds1pct509"        "pubsupplesub509"       "netincunrelatd509" 
-
-```
 
 
 
@@ -791,6 +712,124 @@ subcd	|
 92	|	Section 4947(a)(1) Nonexempt Charitable Trust (Treated as Private Foundation)
 
 
+
+
+
+
+
+## 990PC and 990EZ Version Compatability
+
+
+
+```
+
+
+
+dat <- read.csv( "https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat", sep=" ", skip=1 )
+
+raw.names <- readLines( "https://www.irs.gov/pub/irs-soi/15eofinextract990.dat.dat", n=1 )
+
+dat.names <- strsplit( raw.names, " ")[[1]]
+
+names( dat ) <- dat.names
+
+head( dat )
+
+
+
+dat2 <- read.csv( "https://www.irs.gov/pub/irs-soi/15eofinextractEZ.dat", sep=" ", skip=1 )
+
+raw.names <- readLines( "https://www.irs.gov/pub/irs-soi/15eofinextractEZ.dat", n=1 )
+
+dat.names <- strsplit( raw.names, " ")[[1]]
+
+names( dat2 ) <- dat.names
+
+head( dat2 )
+
+
+> intersect( names(dat), names(dat2) )
+ [1] "elf"                  "EIN"                  "subseccd"             "filedf990tcd"        
+ [5] "prohibtdtxshltrcd"    "netincfndrsng"        "grsincgaming"         "totassetsend"        
+ [9] "totliabend"           "nonpfrea"             "totsupport"           "txrevnuelevied170"   
+[13] "srvcsval170"          "pubsuppsubtot170"     "pubsupplesspct170"    "samepubsuppsubtot170"
+[17] "grsinc170"            "othrinc170"           "totgftgrntrcvd509"    "txrevnuelevied509"   
+[21] "srvcsval509"          "pubsuppsubtot509"     "rcvdfrmdisqualsub509" "subtotpub509"        
+[25] "samepubsuppsubtot509" "grsinc509"            "unreltxincls511tx509" "subtotsuppinc509"    
+[29] "othrinc509"           "totsupp509"   
+
+
+> setdiff( names(dat2), names(dat) )
+ [1] "a_tax_prd"           "totcntrbs"           "prgmservrev"         "duesassesmnts"      
+ [5] "othrinvstinc"        "grsamtsalesastothr"  "basisalesexpnsothr"  "gnsaleofastothr"    
+ [9] "grsrevnuefndrsng"    "direxpns"            "grsalesminusret"     "costgoodsold"       
+[13] "grsprft"             "othrevnue"           "totrevnue"           "totexpns"           
+[17] "totexcessyr"         "othrchgsnetassetfnd" "networthend"         "totnetassetsend"    
+[21] "actvtynotprevrptcd"  "chngsinorgcd"        "unrelbusincd"        "contractioncd"      
+[25] "politicalexpend"     "filedfYYN0polcd"     "loanstoofficerscd"   "loanstoofficers"    
+[29] "initiationfee"       "grspublicrcpts"      "s4958excessbenefcd"  "totnoforgscnt"      
+[33] "gftgrntrcvd170"      "excds2pct170"        "netincunrelatd170"   "totsupport170"      
+[37] "grsrcptsrelatd170"   "grsrcptsadmiss509"   "grsrcptsactvts509"   "excds1pct509"       
+[41] "pubsupplesssub509"   "netincunreltd509"   
+
+
+> setdiff( names(dat), names(dat2) )
+  [1] "tax_prd"               "s50Yc3or4947aYcd"      "schdbind"              "politicalactvtscd"    
+  [5] "lbbyingactvtscd"       "subjto6033cd"          "dnradvisedfundscd"     "prptyintrcvdcd"       
+  [9] "maintwrkofartcd"       "crcounselingqstncd"    "hldassetsintermpermcd" "rptlndbldgeqptcd"     
+ [13] "rptinvstothsecd"       "rptinvstprgrelcd"      "rptothasstcd"          "rptothliabcd"         
+ [17] "sepcnsldtfinstmtcd"    "sepindaudfinstmtcd"    "inclinfinstmtcd"       "operateschoolsY70cd"  
+ [21] "frgnofficecd"          "frgnrevexpnscd"        "frgngrntscd"           "frgnaggragrntscd"     
+ [25] "rptprofndrsngfeescd"   "rptincfnndrsngcd"      "rptincgamingcd"        "operatehosptlcd"      
+ [29] "hospaudfinstmtcd"      "rptgrntstogovtcd"      "rptgrntstoindvcd"      "rptyestocompnstncd"   
+ [33] "txexmptbndcd"          "invstproceedscd"       "maintescrwaccntcd"     "actonbehalfcd"        
+ [37] "engageexcessbnftcd"    "awarexcessbnftcd"      "loantofficercd"        "grantoofficercd"      
+ [41] "dirbusnreltdcd"        "fmlybusnreltdcd"       "servasofficercd"       "recvnoncashcd"        
+ [45] "recvartcd"             "ceaseoperationscd"     "sellorexchcd"          "ownsepentcd"          
+ [49] "reltdorgcd"            "intincntrlcd"          "orgtrnsfrcd"           "conduct5percentcd"    
+ [53] "compltschocd"          "f1096cnt"              "fw2gcnt"               "wthldngrulescd"       
+ [57] "noemplyeesw3cnt"       "filerqrdrtnscd"        "unrelbusinccd"         "frgnacctcd"           
+ [61] "prtynotifyorgcd"       "filedf8886tcd"         "solicitcntrbcd"        "exprstmntcd"          
+ [65] "providegoodscd"        "notfydnrvalcd"         "filedf8N8Ncd"          "f8282cnt"             
+ [69] "fndsrcvdcd"            "premiumspaidcd"        "filedf8899cd"          "filedfY098ccd"        
+ [73] "excbushldngscd"        "s4966distribcd"        "distribtodonorcd"      "initiationfees"       
+ [77] "grsrcptspublicuse"     "grsincmembers"         "grsincother"           "filedlieufY04Ycd"     
+ [81] "txexmptint"            "qualhlthplncd"         "qualhlthreqmntn"       "qualhlthonhnd"        
+ [85] "rcvdpdtngcd"           "filedf7N0cd"           "totreprtabled"         "totcomprelatede"      
+ [89] "totestcompf"           "noindiv100kcnt"        "nocontractor100kcnt"   "totcntrbgfts"         
+ [93] "prgmservcode2acd"      "totrev2acola"          "prgmservcode2bcd"      "totrev2bcola"         
+ [97] "prgmservcode2ccd"      "totrev2ccola"          "prgmservcode2dcd"      "totrev2dcola"         
+[101] "prgmservcode2ecd"      "totrev2ecola"          "totrev2fcola"          "totprgmrevnue"        
+[105] "invstmntinc"           "txexmptbndsproceeds"   "royaltsinc"            "grsrntsreal"          
+[109] "grsrntsprsnl"          "rntlexpnsreal"         "rntlexpnsprsnl"        "rntlincreal"          
+[113] "rntlincprsnl"          "netrntlinc"            "grsalesecur"           "grsalesothr"          
+[117] "cstbasisecur"          "cstbasisothr"          "gnlsecur"              "gnlsothr"             
+[121] "netgnls"               "grsincfndrsng"         "lessdirfndrsng"        "lessdirgaming"        
+[125] "netincgaming"          "grsalesinvent"         "lesscstofgoods"        "netincsales"          
+[129] "miscrev11acd"          "miscrevtota"           "miscrev11bcd"          "miscrevtot11b"        
+[133] "miscrev11ccd"          "miscrevtot11c"         "miscrevtot11d"         "miscrevtot11e"        
+[137] "totrevenue"            "grntstogovt"           "grnsttoindiv"          "grntstofrgngovt"      
+[141] "benifitsmembrs"        "compnsatncurrofcr"     "compnsatnandothr"      "othrsalwages"         
+[145] "pensionplancontrb"     "othremplyeebenef"      "payrolltx"             "feesforsrvcmgmt"      
+[149] "legalfees"             "accntingfees"          "feesforsrvclobby"      "profndraising"        
+[153] "feesforsrvcinvstmgmt"  "feesforsrvcothr"       "advrtpromo"            "officexpns"           
+[157] "infotech"              "royaltsexpns"          "occupancy"             "travel"               
+[161] "travelofpublicoffcl"   "converconventmtng"     "interestamt"           "pymtoaffiliates"      
+[165] "deprcatndepletn"       "insurance"             "othrexpnsa"            "othrexpnsb"           
+[169] "othrexpnsc"            "othrexpnsd"            "othrexpnse"            "othrexpnsf"           
+[173] "totfuncexpns"          "nonintcashend"         "svngstempinvend"       "pldgegrntrcvblend"    
+[177] "accntsrcvblend"        "currfrmrcvblend"       "rcvbldisqualend"       "notesloansrcvblend"   
+[181] "invntriesalesend"      "prepaidexpnsend"       "lndbldgsequipend"      "invstmntsend"         
+[185] "invstmntsothrend"      "invstmntsprgmend"      "intangibleassetsend"   "othrassetsend"        
+[189] "accntspayableend"      "grntspayableend"       "deferedrevnuend"       "txexmptbndsend"       
+[193] "escrwaccntliabend"     "paybletoffcrsend"      "secrdmrtgsend"         "unsecurednotesend"    
+[197] "othrliabend"           "unrstrctnetasstsend"   "temprstrctnetasstsend" "permrstrctnetasstsend"
+[201] "capitalstktrstend"     "paidinsurplusend"      "retainedearnend"       "totnetassetend"       
+[205] "totnetliabastend"      "totnooforgscnt"        "gftgrntsrcvd170"       "exceeds2pct170"       
+[209] "netincunreltd170"      "totsupp170"            "grsrcptsrelated170"    "grsrcptsadmissn509"   
+[213] "grsrcptsactivities509" "exceeds1pct509"        "pubsupplesub509"       "netincunrelatd509" 
+
+```
 
 
 
