@@ -4,7 +4,7 @@ This folder contains a list of the current open research datasets available for 
 
 Each file contains a description of the data and instructions on how to download and process the data.
 
-If we are missing anything useful, please submit suggestions by clicking on "Issues" above.
+If we are missing anything useful, please submit suggestions by clicking on the "[Issues](https://github.com/lecy/Open-Data-for-Nonprofit-Research/issues)" link above.
 
 
 ## IRS 990 E-Filers
