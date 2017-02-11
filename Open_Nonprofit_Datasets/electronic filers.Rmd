@@ -1,0 +1,179 @@
+# Build IRS 990 E-Filers Database
+
+
+Information about this data can be found at:  https://aws.amazon.com/public-data-sets/irs-990/
+
+**Accessing IRS 990 Filings on AWS**
+
+An index listing all of the available filings is available at s3://irs-form-990/index.json. This file includes basic information about each filing including the name of the filer, the Employer Identificiation Number (EIN) of the filer, the date of the filing, and the path to download the filing.
+
+All of the data is publicly accessible via the S3 bucket's HTTPS endpoint at https://s3.amazonaws.com/irs-form-990. No authentication is required to download data over HTTPS. For example, the index file can be accessed at https://s3.amazonaws.com/irs-form-990/index.json.
+
+
+## DATA DICTIONARY
+
+Variable | Notes
+---------|---------
+EIN | Employer Identification Number
+SubmittedOn | ? Unclear
+TaxPeriod | Tax year and month of the filing YYYYMM
+FilingYear | Tax year of the filing YYYY
+DLN | Document Locator Number - internal to IRS
+LastUpdated | Last time the org updated their file
+FormType | 990, 990-EZ, or 990-PF
+ObjectId | Unique ID - Tax Period + DLN (sortof)
+OrganizationName | Name of the nonprofit
+IsElectronic | Was the return filed electronically? T/F
+IsAvailable | Is the return available online? T/F
+URL | Web address of the IRS electronic return
+
+
+
+
+## BUILD THE INDEX DATABASE OF ALL ELECTRONIC FILERS
+
+
+```R
+
+
+# INSTALL REQUIRED PACKAGES
+
+install.packages( "jsonlite" )
+install.packages( "R.utils" )
+
+
+# LOAD REQUIRED PACKAGES
+
+library( jsonlite )
+library( R.utils )
+
+
+### CREATE A DIRECTORY FOR YOUR DATA
+
+getwd()
+
+dir.create( "IRS Nonprofit Data" )
+
+setwd( "./IRS Nonprofit Data" )
+
+
+### DOWNLOAD FILES AND UNZIP (deprecated Dec 2016 - IRS released new index files)
+# 
+# electronic.filers <- "https://s3.amazonaws.com/irs-form-990/index.json.gz"
+# 
+# download.file( url=electronic.filers, "electronic.json.gz" )
+# 
+# gunzip("electronic.json.gz", remove=TRUE )  
+#
+# data.ef <- fromJSON( txt="electronic.json" )[[1]]
+
+
+
+# CREATE A DATA FRAME OF ELECTRONIC FILERS FROM IRS JSON FILES
+
+dat1 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2011.json")[[1]]
+dat2 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2012.json")[[1]]
+dat3 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2013.json")[[1]]
+dat4 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2014.json")[[1]]
+dat5 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2015.json")[[1]]
+dat6 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2016.json")[[1]]
+	
+data.ef <- rbind( dat1, dat2, dat3, dat4, dat5, dat6 )
+
+
+nrow( data.ef )
+
+
+
+
+# REFORMAT DATE FROM YYYY-MM TO YYYY
+
+data.ef$FilingYear <- substr( data.ef$TaxPeriod, 1, 4 )
+
+
+
+
+# DROP UNRELIABLE YEARS
+
+table( data.ef$FilingYear ) # note that some records are nonsensical
+
+data.ef <- data.ef[ data.ef$FilingYear > 2009 & data.ef$FilingYear < 2017 , ]
+
+table( data.ef$FilingYear, useNA="ifany" )
+
+nrow( data.ef )
+
+
+
+
+# EXCLUDE DATA THAT IS NOT AVAILABLE IN ELECTRONIC FORMAT
+
+table( data.ef$IsElectronic, data.ef$IsAvailable )
+
+data.ef <- data.ef[ data.ef$IsAvailable == TRUE , ]
+
+nrow( data.ef )
+
+
+```
+
+
+
+
+
+## DESCRIPTIVES
+
+
+```R
+
+length( unique( data.ef$EIN ) )  # number of unique orgs
+
+table( table( data.ef$EIN, useNA="ifany" ) )  # available panel spells
+
+
+
+# why do we have some organizations with more spells than years ?
+
+table.ein <- table( data.ef$EIN, useNA="ifany" )
+
+table.ein[ table.ein > 6 ]
+
+data.ef[ data.ef$EIN == "830229733" , ]  # submitted two filings in 2013 
+
+
+```
+
+
+
+
+
+
+
+## WRITE DATA TO YOUR FAVORITE FORMAT
+
+
+```R
+
+# AS R DATA SET
+
+saveRDS( data.ef, file="ElectronicFilers.rds" )
+
+
+# AS CSV
+
+write.csv( data.ef, file="ElectronicFilers.csv", row.names=F )
+
+
+# IN STATA
+
+install.packages( "haven" )
+library( haven )
+write_dta( data.ef, file="ElectronicFilers.dta" )
+
+
+# IN SPSS - creates a text file and a script for reading it into SPSS
+
+library( foreign )
+write.foreign( df=data.ef, datafile="ElectronicFilers.txt", codefile="CodeToLoadDataInSPSS.txt", package="SPSS" )
+
+```
