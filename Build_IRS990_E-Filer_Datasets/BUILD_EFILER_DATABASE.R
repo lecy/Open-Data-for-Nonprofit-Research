@@ -172,9 +172,27 @@ scrapeXML <- function( url, form.type )
        
     }
     
+
+  #------------------------------------------------------------------------------------------------------------------------
+  # TO FACILITATE PRODUCTION RULES
     
+    zeroPC <- function( var )
+    { 
+      if( FORMTYPE=="990" )
+      {
+         if( length(var) == 0 ){ return("0") }
+         if( is.na(var) ){ return("0") }
+      }
+      return( var )
+    }
 
-
+    zeroALL <- function( var )
+    {
+      if( length(var) == 0 ){ return("0") }
+      if( is.na(var)  ){ return("0") }
+      return( var )
+    }
+    
 	#------------------------------------------------------------------------------------------------------------------------
 	#### FROM NCCS CORE - HEADER DATA
 	#### Fields here are same for forms of same year (990 & 990EZ post-2013; 990 & 990EZ pre-2013)
@@ -623,6 +641,7 @@ scrapeXML <- function( url, form.type )
 	V_990TGUpre2013  <- "//Return/ReturnData/IRS990/TotalGrossUBI"
 	tot.ubi.xpath <- paste( V_990TGUpost2013, V_990TGUpre2013, sep="|" )
 	TOTUBI <- xml_text( xml_find_all( doc, tot.ubi.xpath ) )
+	TOTUBI <- zeroPC( TOTUBI )
 
 
 
@@ -632,7 +651,7 @@ scrapeXML <- function( url, form.type )
 	V_990NUpre2013  <- "//Return/ReturnData/IRS990/NetUnrelatedBusinessTxblIncome"
 	net.ubi.xpath <- paste( V_990NUpost2013, V_990NUpre2013, sep="|" )
 	NETUBI <- xml_text( xml_find_all( doc, net.ubi.xpath ) )
-
+  NETUBI <- zeroPC( NETUBI )
 
 
 	#------------------------------------------------------------------------------------------------------------------------
@@ -646,7 +665,7 @@ scrapeXML <- function( url, form.type )
 	V_990PCpre2013  <- "//Return/ReturnData/IRS990/PYContributionsGrantsAmt"
 	contrib.prior.xpath <- paste( V_990PCpost2013, V_990PCpre2013, sep="|" )
 	CONTRIBPRIOR <- xml_text( xml_find_all( doc, contrib.prior.xpath ) ) 
-
+	CONTRIBPRIOR <- zeroPC( CONTRIBPRIOR )
 
 
 	## CURRENT YEAR CONTRIBUTIONS
@@ -657,7 +676,7 @@ scrapeXML <- function( url, form.type )
 	V_990CC.EZpre2013  <- "//Return/ReturnData/IRS990EZ/ContributionsGiftsGrantsEtcAmt"
 	contrib.current.xpath <- paste( V_990CCpost2013, V_990CCpre2013, V_990CC.EZpost2013, V_990CC.EZpre2013, sep="|" )
 	CONTRIBCURRENT <- xml_text( xml_find_all( doc, contrib.current.xpath ) ) 
-
+	CONTRIBCURRENT <- zeroALL( CONTRIBCURRENT )
 
 
 	## PRIOR YEAR PROGRAM SERVICE REVENUE
@@ -666,7 +685,7 @@ scrapeXML <- function( url, form.type )
 	V_990PPSRpre2013  <- "//Return/ReturnData/IRS990/ProgramServiceRevenuePriorYear"
 	psr.prior.xpath <- paste( V_990PPSRpost2013, V_990PPSRpre2013, sep="|" )
 	PSRPRIOR <- xml_text( xml_find_all( doc, psr.prior.xpath ) ) 
-
+	PSRPRIOR <- zeroPC( PSRPRIOR )
 
 	## CURRENT YEAR PROGRAM SERVICE REVENUE
 
@@ -676,7 +695,7 @@ scrapeXML <- function( url, form.type )
 	V_990CPSR.EZpre2013  <- "//Return/ReturnData/IRS990EZ/ProgramServiceRevenue"
 	psr.current.xpath <- paste( V_990CPSRpost2013, V_990CPSRpre2013, V_990CPSR.EZpost2013, V_990CPSR.EZpre2013, sep="|" )
 	PSRCURRENT <- xml_text( xml_find_all( doc, psr.current.xpath ) )  
-
+	PSRCURRENT <- zeroALL( PSRCURRENT )
 
 
 	## PRIOR YEAR INVESTMENT INCOME
@@ -685,7 +704,7 @@ scrapeXML <- function( url, form.type )
 	V_990PIVpre2013  <- "//Return/ReturnData/IRS990/InvestmentIncomePriorYear"
 	invest.income.prior.xpath <- paste( V_990PIVpost2013, V_990PIVpre2013, sep="|" )
 	INVINCPRIOR <- xml_text( xml_find_all( doc, invest.income.prior.xpath ) )  
-
+	INVINCPRIOR <- zeroPC( INVINCPRIOR )
 
 
 	## CURRENT YEAR INVESTMENT INCOME
@@ -696,7 +715,7 @@ scrapeXML <- function( url, form.type )
 	V_990CIV.EZpre2013  <- "//Return/ReturnData/IRS990EZ/InvestmentIncome"
 	invest.income.current.xpath <- paste( V_990CIVpost2013, V_990CIVpre2013, V_990CIV.EZpost2013, V_990CIV.EZpre2013, sep="|" )
 	INVINCCURRENT <- xml_text( xml_find_all( doc, invest.income.current.xpath ) )  
-
+	INVINCCURRENT <- zeroALL( INVINCCURRENT )
 
 
 	## PRIOR YEAR OTHER REVENUE
@@ -705,7 +724,7 @@ scrapeXML <- function( url, form.type )
 	V_990PORpre2013  <- "//Return/ReturnData/IRS990/OtherRevenuePriorYear"
 	other.rev.prior.xpath <- paste( V_990PORpost2013, V_990PORpre2013, sep="|" )
 	OTHERREVPRIOR <- xml_text( xml_find_all( doc, other.rev.prior.xpath ) )  
-
+	OTHERREVPRIOR <- zeroPC( OTHERREVPRIOR )
 
 
 	## CURRENT YEAR OTHER REVENUE
@@ -716,8 +735,7 @@ scrapeXML <- function( url, form.type )
 	V_990CR.EZpre2013  <- "//Return/ReturnData/IRS990EZ/OtherRevenueTotal"
 	other.rev.current.xpath <- paste( V_990CORpost2013, V_990CORpre2013, V_990CR.EZpost2013, V_990CR.EZpre2013, sep="|" )
 	OTHERREVCURRENT <- xml_text( xml_find_all( doc, other.rev.current.xpath ) )  
-
-	OTHERREVCURRENT[ is.na( OTHERREVCURRENT ) ] <- 0
+	OTHERREVCURRENT <- zeroALL( OTHERREVCURRENT )
 
 
 
@@ -727,7 +745,7 @@ scrapeXML <- function( url, form.type )
 	V_990PTRpre2013  <- "//Return/ReturnData/IRS990/TotalRevenuePriorYear"
 	total.rev.prior.xpath <- paste( V_990PTRpost2013, V_990PTRpre2013, sep="|" )
 	TOTALREVPRIOR <- xml_text( xml_find_all( doc, total.rev.prior.xpath ) )  
-
+	TOTALREVPRIOR <- zeroPC( TOTALREVPRIOR )
 
 
 	## CURRENT YEAR TOTAL REVENUE
@@ -754,7 +772,7 @@ scrapeXML <- function( url, form.type )
 	V_990MBRD.EZpre2013  <- "//Return/ReturnData/IRS990EZ/MembershipDues"
 	member.dues.xpath <- paste( V_990MBRDpost2013, V_990MBRDpre2013, V_990MBRD.EZpost2013, V_990MBRD.EZpre2013, sep="|" )
 	MEMBERDUES <- xml_text( xml_find_all( doc, member.dues.xpath ) )  
-
+	MEMBERDUES <- zeroALL( MEMBERDUES )
 
 
 	## GROSS SALES OF NON-INVENTORY ASSETS
@@ -765,7 +783,7 @@ scrapeXML <- function( url, form.type )
 	V_990GSNA.EZpre2013  <- "//Return/ReturnData/IRS990EZ/GrossAmountFromSaleOfAssets"
 	grosssales.nonasset.xpath <- paste( V_990GSNApost2013, V_990GSNApre2013, V_990GSNA.EZpost2013, V_990GSNA.EZpre2013, sep="|" )
 	GROSSSALESOTHER <- xml_text( xml_find_all( doc, grosssales.nonasset.xpath ) )  
-
+	GROSSSALESOTHER <- zeroALL( GROSSSALESOTHER )
 
 
 	## COST AND SALES EXPENSES FROM NON-INVENTORY ASSET SALES
@@ -776,7 +794,7 @@ scrapeXML <- function( url, form.type )
 	V_990TSNA.EZpre2013  <- "//Return/ReturnData/IRS990EZ/CostOtherBasisAndSalesExpenses"
 	totalsales.nonasset.xpath <- paste( V_990TSNApost2013, V_990TSNApre2013, V_990TSNA.EZpost2013, V_990TSNA.EZpre2013, sep="|" )
 	SALESCOSTOTHER <- xml_text( xml_find_all( doc, totalsales.nonasset.xpath ) )  
-
+	SALESCOSTOTHER <- zeroALL( SALESCOSTOTHER )
 
 
 	## NET SALES OF NON-INVENTORY ASSETS
@@ -788,7 +806,7 @@ scrapeXML <- function( url, form.type )
 	V_990NSNA.EZpre2013  <- "//Return/ReturnData/IRS990EZ/GainOrLossFromSaleOfAssets"
 	netsales.nonassets.xpath <- paste( V_990NSNApost2013, V_990NSNApre2013, V_990NSNA.EZpost2013, V_990NSNA.EZpre2013, sep="|" )
 	NETSALESOTHER <- xml_text( xml_find_all( doc, netsales.nonassets.xpath ) )  
-
+	NETSALESOTHER <- zeroALL( NETSALESOTHER )
 
 
 	## GROSS INCOME FROM GAMING
@@ -799,7 +817,7 @@ scrapeXML <- function( url, form.type )
 	V_990GIG.EZpre2013  <- "//Return/ReturnData/IRS990EZ/GamingGrossIncome"
 	grossinc.gaming.xpath <- paste( V_990GIGpost2013, V_990GIGpre2013, V_990GIG.EZpost2013, V_990GIG.EZpre2013, sep="|" )
 	GROSSINCGAMING <- xml_text( xml_find_all( doc, grossinc.gaming.xpath ) )  
-
+	GROSSINCGAMING <- zeroALL( GROSSINCGAMING )
 
 
 	## GROSS INCOME FROM FUNDRAISING EVENTS
@@ -810,7 +828,7 @@ scrapeXML <- function( url, form.type )
 	V_990GIF.EZpre2013  <- "//Return/ReturnData/IRS990EZ/FundraisingGrossIncome"
 	grossinc.fundrs.xpath <- paste( V_990GIFpost2013, V_990GIFpre2013, V_990GIF.EZpost2013, V_990GIF.EZpre2013, sep="|" )
 	GROSSINCFNDEVENTS <- xml_text( xml_find_all( doc, grossinc.fundrs.xpath ) )  
-
+	GROSSINCFNDEVENTS <- zeroALL( GROSSINCFNDEVENTS )
 
 
 	## EXPENSES FROM GAMING EVENTS
@@ -821,8 +839,8 @@ scrapeXML <- function( url, form.type )
 	gaming.exp.xpath <- paste( V_990gamexppost2013, V_990gamexppre2013, sep="|" )
 	GAMINGEXP <- xml_text( xml_find_all( doc, gaming.exp.xpath ) )  
 
-	GAMINGEXP[ length( GAMINGEXP ) == 0]  <- NA
-
+	GAMINGEXP[ length( GAMINGEXP ) == 0 ]  <- NA
+	GAMINGEXP <- zeroPC( GAMINGEXP )
 
 
 	## EXPENSES FROM FUNDRAISING EVENTS
@@ -834,7 +852,7 @@ scrapeXML <- function( url, form.type )
 	FNDEVENTSEXP <- xml_text( xml_find_all( doc, fnd.events.exp.xpath ) )  
 
 	FNDEVENTSEXP[ length( FNDEVENTSEXP ) == 0]  <- NA
-
+	FNDEVENTSEXP <- zeroPC( FNDEVENTSEXP )
 
 
 	## EXPENSES FROM GAMING AND FUNDRAISING EVENTS
@@ -847,8 +865,8 @@ scrapeXML <- function( url, form.type )
 	} else if( FORMTYPE == "990" ){
 	  EXPGAMINGFNDEVENTS <- sum( as.numeric( GAMINGEXP ), as.numeric( FNDEVENTSEXP ), na.rm=T )
 	}
-	EXPGAMINGFNDEVENTS <- as.numeric( EXPGAMINGFNDEVENTS )
-
+	EXPGAMINGFNDEVENTS <- as.character( EXPGAMINGFNDEVENTS )
+	EXPGAMINGFNDEVENTS <- zeroALL( EXPGAMINGFNDEVENTS )
 
 
 	## NET GAIN OR LOSS FROM GAMING EVENTS
@@ -860,7 +878,7 @@ scrapeXML <- function( url, form.type )
 	GAMINGNET <- xml_text( xml_find_all( doc, gaming.net.xpath ) )  
 
 	GAMINGNET[ length( GAMINGNET ) == 0]  <- NA
-
+	GAMINGNET <- zeroPC( GAMINGNET )
 
 
 	## NET GAIN OR LOSS FROM FUNDRAISING EVENTS
@@ -872,7 +890,7 @@ scrapeXML <- function( url, form.type )
 	FNDEVENTSNET <- xml_text( xml_find_all( doc, fnd.events.net.xpath ) )  
 
 	FNDEVENTSNET[ length( FNDEVENTSNET ) == 0]  <- NA
-
+	FNDEVENTSNET <- zeroPC( FNDEVENTSNET )
 
 
 	## NET DIFFERENCE FOR GAMING AND FUNDRAISING EVENTS
@@ -885,8 +903,8 @@ scrapeXML <- function( url, form.type )
 	} else if( FORMTYPE == "990" ){
 	  NETGAMINGFNDEVENTS <- sum( as.numeric( GAMINGNET ), as.numeric( FNDEVENTSNET ), na.rm=T ) 
 	}
-	NETGAMINGFNDEVENTS <- as.numeric( NETGAMINGFNDEVENTS )
-
+	NETGAMINGFNDEVENTS <- as.character( NETGAMINGFNDEVENTS )
+	NETGAMINGFNDEVENTS <- zeroALL( NETGAMINGFNDEVENTS )
 
 
 	## GROSS SALES OF INVENTORY ASSETS
@@ -897,7 +915,7 @@ scrapeXML <- function( url, form.type )
 	V_990GSI.EZpre2013  <- "//Return/ReturnData/IRS990EZ/GrossSalesOfInventory"
 	gross.salesinv.xpath <- paste( V_990GSIpost2013, V_990GSIpre2013, V_990GSI.EZpost2013, V_990GSI.EZpre2013, sep="|" )
 	GROSSSALESINV <- xml_text( xml_find_all( doc, gross.salesinv.xpath ) )  
-
+	GROSSSALESINV <- zeroALL( GROSSSALESINV )
 
 
 	## COST OF GOODS SOLD
@@ -908,7 +926,7 @@ scrapeXML <- function( url, form.type )
 	V_990CSI.EZpre2013  <- "//Return/ReturnData/IRS990EZ/CostOfGoodsSold"
 	cost.salesinv.xpath <- paste( V_990CSIpost2013, V_990CSIpre2013, V_990CSI.EZpost2013, V_990CSI.EZpre2013, sep="|" )
 	SALESCOSTINV <- xml_text( xml_find_all( doc, cost.salesinv.xpath ) )  
-
+	SALESCOSTINV <- zeroALL( SALESCOSTINV )
 
 
 	## NET DIFFERENCE OF SALES MINUS COST OF GOODS
@@ -919,7 +937,7 @@ scrapeXML <- function( url, form.type )
 	V_990NSI.EZpre2013  <- "//Return/ReturnData/IRS990EZ/GroProfitLossSalesOfInventory"
 	net.salesinv.xpath <- paste( V_990NSIpost2013, V_990NSIpre2013, V_990NSI.EZpost2013, V_990NSI.EZpre2013, sep="|" )
 	NETSALESINV <- xml_text( xml_find_all( doc, net.salesinv.xpath ) )  
-
+	NETSALESINV <- zeroALL( NETSALESINV )
 
 
 	#------------------------------------------------------------------------------------------------------------------------
