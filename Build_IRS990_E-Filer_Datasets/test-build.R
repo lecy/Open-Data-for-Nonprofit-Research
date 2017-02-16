@@ -26,3 +26,13 @@ source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/
 cd <- buildCore( index=these.npos, years=2014:2015, form.type=c("990","990EZ") )
 
 head( cd )
+
+
+# TO PRINT ALL ON SCREEN:
+
+print.data.frame( cd )
+
+
+# TO VIEW AS SPREADSHEET:
+
+View( cd )
