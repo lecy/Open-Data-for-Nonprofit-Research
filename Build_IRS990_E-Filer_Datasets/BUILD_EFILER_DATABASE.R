@@ -325,7 +325,7 @@ scrapeXML <- function( url, form.type )
 	V_990GRC.EZpre2013  <- "//Return/ReturnData/IRS990EZ/GrossReceipts"
 	greceipts.xpath <- paste( V_990GRCpost2013, V_990GRCpre2013, V_990GRC.EZpost2013, V_990GRC.EZpre2013, sep="|" )
 	GROSSRECEIPTS <- xml_text( xml_find_all( doc, greceipts.xpath ) ) 
-
+	GROSSRECEIPTS <- zeroALL( GROSSRECEIPTS )
 
 
 	## GROUP RETURNS  
@@ -959,7 +959,7 @@ scrapeXML <- function( url, form.type )
 	V_990PGPpre2013  <- "//Return/ReturnData/IRS990/GrantsAndSimilarAmntsPriorYear"
 	grants.paid.prior.xpath <- paste( V_990PGPpost2013, V_990PGPpre2013, sep="|" )
 	GRANTSPAIDPRIOR <- xml_text( xml_find_all( doc, grants.paid.prior.xpath ) ) 
-
+	GRANTSPAIDPRIOR <- zeroPC( GRANTSPAIDPRIOR )
 
 
 	## CURRENT YEAR GRANTS PAID
@@ -970,7 +970,7 @@ scrapeXML <- function( url, form.type )
 	V_990CGP.EZpre2013  <- "//Return/ReturnData/IRS990EZ/GrantsAndSimilarAmountsPaid"
 	grants.paid.current.xpath <- paste( V_990CGPpost2013, V_990CGPpre2013, V_990CGP.EZpost2013, V_990CGP.EZpre2013, sep="|" )
 	GRANTSPAIDCURRENT <- xml_text( xml_find_all( doc, grants.paid.current.xpath ) ) 
-
+	GRANTSPAIDCURRENT <- zeroALL( GRANTSPAIDCURRENT )
 
 
 	## PRIOR YEAR BENEFITS PAID TO OR FOR MEMBERS 
@@ -979,7 +979,7 @@ scrapeXML <- function( url, form.type )
 	V_990PBPpre2013  <- "//Return/ReturnData/IRS990/BenefitsPaidToMembersPriorYear"
 	benefits.paid.prior.xpath <- paste( V_990PGPpost2013, V_990PGPpre2013, sep="|" )
 	MEMBERBENPRIOR <- xml_text( xml_find_all( doc, benefits.paid.prior.xpath ) ) 
-
+	MEMBERBENPRIOR <- zeroPC( MEMBERBENPRIOR )
 
 
 	## CURRENT YEAR BENEFITS PAID TO OR FOR MEMBERS 
@@ -990,7 +990,7 @@ scrapeXML <- function( url, form.type )
 	V_990CBP.EZpre2013  <- "//Return/ReturnData/IRS990EZ/BenefitsPaidToOrForMembers"
 	benefits.paid.current.xpath <- paste( V_990CBPpost2013, V_990CBPpre2013, V_990CBP.EZpost2013, V_990CBP.EZpre2013, sep="|" )
 	MEMBERBENCURRENT <- xml_text( xml_find_all( doc, benefits.paid.current.xpath ) ) 
-
+	MEMBERBENCURRENT <- zeroALL( MEMBERBENCURRENT )
 
 
 	## PRIOR YEAR SALARIES PAID
@@ -999,7 +999,7 @@ scrapeXML <- function( url, form.type )
 	V_990PSPpre2013  <- "//Return/ReturnData/IRS990/SalariesEtcPriorYear"
 	salaries.prior.xpath <- paste( V_990PSPpre2013, V_990PSPpost2013, sep="|" )
 	SALARIESPRIOR <- xml_text( xml_find_all( doc, salaries.prior.xpath ) ) 
-
+	SALARIESPRIOR <- zeroPC( SALARIESPRIOR )
 
 
 	## CURRENT YEAR SALARIES PAID
@@ -1010,7 +1010,7 @@ scrapeXML <- function( url, form.type )
 	V_990CSP.EZpre2013  <- "//Return/ReturnData/IRS990EZ/SalariesOtherCompEmplBenefits"
 	salaries.current.xpath <- paste( V_990CSPpost2013, V_990CSPpre2013, V_990CSP.EZpost2013, V_990CSP.EZpre2013, sep="|" )
 	SALARIESCURRENT <- xml_text( xml_find_all( doc, salaries.current.xpath ) ) 
-
+	SALARIESCURRENT <- zeroALL( SALARIESCURRENT )
 
 
 	## PRIOR YEAR PROFESSIONAL FUNDRAISING FEES
@@ -1019,7 +1019,7 @@ scrapeXML <- function( url, form.type )
 	V_990PFFpre2013  <- "//Return/ReturnData/IRS990/TotalProfFundrsngExpPriorYear"
 	profund.fees.prior.xpath <- paste( V_990PFFpre2013, V_990PFFpost2013, sep="|" )
 	PROFUNDFEESPRIOR <- xml_text( xml_find_all( doc, profund.fees.prior.xpath ) ) 
-
+	PROFUNDFEESPRIOR <- zeroPC( PROFUNDFEESPRIOR )
 
 
 	## CURRENT YEAR PROFESSIONAL FUNDRAISING FEES
@@ -1028,7 +1028,7 @@ scrapeXML <- function( url, form.type )
 	V_990CFFpre2013  <- "//Return/ReturnData/IRS990/TotalProfFundrsngExpCY"
 	profund.fees.current.xpath <- paste( V_990CFFpost2013, V_990CFFpre2013, sep="|" )
 	PROFUNDFEESCURRENT <- xml_text( xml_find_all( doc, profund.fees.current.xpath ) ) 
-
+	PROFUNDFEESCURRENT <- zeroPC( PROFUNDFEESCURRENT )
 
 
 	## TOTAL FUNDRAISING EXPENSES
@@ -1037,7 +1037,8 @@ scrapeXML <- function( url, form.type )
 	V_990TFFpre2013  <- "//Return/ReturnData/IRS990/TotalFundrsngExpCurrentYear"
 	totexp.fundrs.xpath <- paste( V_990TFFpost2013, V_990TFFpre2013, sep="|" )
 	TOTFUNDEXP <- xml_text( xml_find_all( doc, totexp.fundrs.xpath ) ) 
-
+	TOTFUNDEXP <- zeroPC( TOTFUNDEXP )
+	
 
 	##   FEES FOR SERVICES are broken out on PC and consolidated in EZ. 
 	## This section consolidates the PC values
@@ -1050,7 +1051,7 @@ scrapeXML <- function( url, form.type )
 	FEESMGMT <- xml_text( xml_find_all( doc, fees.mgmt.xpath ) ) 
 
 	FEESMGMT[ length( FEESMGMT ) == 0]  <- NA
-
+	FEESMGMT <- zeroPC( FEESMGMT )
 
 
 	## FEES FOR SERVICES: LEGAL
@@ -1061,7 +1062,7 @@ scrapeXML <- function( url, form.type )
 	FEESLEGAL <- xml_text( xml_find_all( doc, fees.legal.xpath ) ) 
 
 	FEESLEGAL[ length( FEESLEGAL ) == 0]  <- NA
-
+	FEESLEGAL <- zeroPC( FEESLEGAL )
 
 
 	## FEES FOR SERVICES: ACCOUNTING
@@ -1072,7 +1073,7 @@ scrapeXML <- function( url, form.type )
 	FEESACCT <- xml_text( xml_find_all( doc, fees.acct.xpath ) ) 
 
 	FEESACCT[ length( FEESACCT ) == 0]  <- NA
-
+	FEESACCT <- zeroPC( FEESACCT )
 
 
 	## FEES FOR SERVICES: LOBBYING
@@ -1083,7 +1084,7 @@ scrapeXML <- function( url, form.type )
 	FEESLOBBY <- xml_text( xml_find_all( doc, fees.lobby.xpath ) ) 
 
 	FEESLOBBY[ length( FEESLOBBY ) == 0]  <- NA
-
+	FEESLOBBY <- zeroPC( FEESLOBBY )
 
 
 	## FEES FOR SERVICES: PROFESSIONAL FUNDRAISING
@@ -1095,7 +1096,7 @@ scrapeXML <- function( url, form.type )
 	FEESPROFND <- xml_text( xml_find_all( doc, fees.profund.xpath ) ) 
 
 	FEESPROFND[ length( FEESPROFND ) == 0]  <- NA
-
+	FEESPROFND <- zeroPC( FEESPROFND )
 
 
 	## FEES FOR SERVICES: INVESTMENT MANAGEMENT
@@ -1106,7 +1107,7 @@ scrapeXML <- function( url, form.type )
 	FEESINVMGMT <- xml_text( xml_find_all( doc, fees.invmgmt.xpath ) ) 
 
 	FEESINVMGMT[ length( FEESINVMGMT ) == 0]  <- NA
-
+	FEESINVMGMT <- zeroPC( FEESINVMGMT )
 
 
 	## FEES FOR SERVICES: OTHER
@@ -1117,7 +1118,7 @@ scrapeXML <- function( url, form.type )
 	FEESOTHER <- xml_text( xml_find_all( doc, fees.other.xpath ) ) 
 
 	FEESOTHER[ length( FEESOTHER ) == 0]  <- NA
-
+	FEESOTHER <- zeroPC( FEESOTHER )
 
 
 	## PRO. FEES AND OTHERS TO INDEPENDENT CONTRACTORS   
@@ -1135,8 +1136,9 @@ scrapeXML <- function( url, form.type )
 	{
 	  PROFEESINDEP <- as.numeric( xml_text( xml_find_all( doc, profees.indep.contractors.xpath ) ) ) 
 	}
-
-
+	PROFEESINDEP <- as.character( PROFEESINDEP )
+	PROFEESINDEP <- zeroALL( PROFEESINDEP )
+  
 
 	## OCCUPANCY
 
@@ -1146,7 +1148,7 @@ scrapeXML <- function( url, form.type )
 	V_990RENT.EZpre2013  <- "//Return/ReturnData/IRS990EZ/OccupancyRentUtilitiesAndMaint"
 	occupancy.xpath <- paste( V_990RENTpost2013, V_990RENTpre2013, V_990RENT.EZpost2013, V_990RENT.EZpre2013, sep="|" )
 	OCCUPANCY <- xml_text( xml_find_all( doc, occupancy.xpath ) ) 
-
+  OCCUPANCY <- zeroALL( OCCUPANCY )
 
 
 	## OFFICE EXPENSES
@@ -1157,7 +1159,7 @@ scrapeXML <- function( url, form.type )
 	V_990EXPOF.EZpre2013  <- "//Return/ReturnData/IRS990EZ/PrintingPublicationsPostage"
 	exp.office.xpath <- paste( V_990EXPOFpost2013, V_990EXPOFpre2013, V_990EXPOF.EZpost2013, V_990EXPOF.EZpre2013, sep="|" )
 	OFFICEEXP <- xml_text( xml_find_all( doc, exp.office.xpath ) ) 
-
+  OFFICEEXP <- zeroALL( OFFICEEXP )
 
 
 	## PRIOR YEAR OTHER EXPENSES
@@ -1166,7 +1168,7 @@ scrapeXML <- function( url, form.type )
 	V_990POEpre2013  <- "//Return/ReturnData/IRS990/OtherExpensePriorYear"
 	other.exp.prior.xpath <- paste( V_990POEpost2013, V_990POEpre2013, sep="|" )
 	OTHEREXPPRIOR <- xml_text( xml_find_all( doc, other.exp.prior.xpath ) ) 
-
+	OTHEREXPPRIOR <- zeroPC( OTHEREXPPRIOR )
 
 
 	## CURRENT YEAR CURRENT EXPENSES
@@ -1177,7 +1179,7 @@ scrapeXML <- function( url, form.type )
 	V_990COE.EZpre2013  <- "//Return/ReturnData/IRS990EZ/OtherExpensesTotal"
 	other.exp.current.xpath <- paste( V_990COEpost2013, V_990COEpre2013, V_990COE.EZpost2013, V_990COE.EZpre2013, sep="|" )
 	OTHEREXPCURRENT <- xml_text( xml_find_all( doc, other.exp.current.xpath ) ) 
-
+	OTHEREXPCURRENT <- zeroALL( OTHEREXPCURRENT )
 
 
 	## PRIOR YEAR TOTAL EXPENSES
@@ -1186,7 +1188,7 @@ scrapeXML <- function( url, form.type )
 	V_990PTEpre2013  <- "//Return/ReturnData/IRS990/TotalExpensesPriorYear"
 	total.exp.prior.xpath <- paste( V_990PTEpost2013, V_990PTEpre2013, sep="|" )
 	TOTALEXPPRIOR <- xml_text( xml_find_all( doc, total.exp.prior.xpath ) ) 
-
+	TOTALEXPPRIOR <- zeroPC( TOTALEXPPRIOR )
 
 
 	## CURRENT YEAR TOTAL EXPENSES
@@ -1197,7 +1199,7 @@ scrapeXML <- function( url, form.type )
 	V_990CTE.EZpre2013  <- "//Return/ReturnData/IRS990EZ/TotalExpenses"
 	total.exp.current.xpath <- paste( V_990CTEpost2013, V_990CTEpre2013, V_990CTE.EZpost2013, V_990CTE.EZpre2013, sep="|" )
 	TOTALEXPCURRENT <- xml_text( xml_find_all( doc, total.exp.current.xpath ) ) 
-
+	TOTALEXPCURRENT <- zeroALL( TOTALEXPCURRENT )
 
 
 	## PRIOR YEAR REVENUES LESS EXPENSES
@@ -1206,7 +1208,7 @@ scrapeXML <- function( url, form.type )
 	V_990PRLEpre2013  <- "//Return/ReturnData/IRS990/RevenuesLessExpensesPriorYear"
 	rev.less.exp.prior.xpath <- paste( V_990PRLEpost2013, V_990PRLEpre2013, sep="|" )
 	REVLESSEXPPRIOR <- xml_text( xml_find_all( doc, rev.less.exp.prior.xpath ) ) 
-
+	REVLESSEXPPRIOR <- zeroPC( REVLESSEXPPRIOR )
 
 
 	## CURRENT YEAR REVENUES LESS EXPENSES
@@ -1217,7 +1219,7 @@ scrapeXML <- function( url, form.type )
 	V_990CRLE.EZpre2013  <- "//Return/ReturnData/IRS990EZ/ExcessOrDeficitForYear"
 	rev.less.exp.current.xpath <- paste( V_990CRLEpost2013, V_990CRLEpre2013, V_990CRLE.EZpost2013, V_990CRLE.EZpre2013, sep="|" )
 	REVLESSEXPCURRENT <- xml_text( xml_find_all( doc, rev.less.exp.current.xpath ) ) 
-
+	REVLESSEXPCURRENT <- zeroALL( REVLESSEXPCURRENT )
 
 
 	#------------------------------------------------------------------------------------------------------------------------
@@ -1233,7 +1235,7 @@ scrapeXML <- function( url, form.type )
 	V_990BOYTA.EZpre2013  <- "//Return/ReturnData/IRS990EZ/TotalAssets/BOY"
 	total.assets.beg.xpath <- paste( V_990BOYTApost2013, V_990BOYTApre2013, V_990BOYTA.EZpost2013, V_990BOYTA.EZpre2013, sep="|" )
 	TOTALASSETSBEGYEAR <- xml_text( xml_find_all( doc, total.assets.beg.xpath ) ) 
-
+	TOTALASSETSBEGYEAR <- zeroALL( TOTALASSETSBEGYEAR )
 
 
 	## END OF YEAR TOTAL ASSETS
@@ -1244,7 +1246,7 @@ scrapeXML <- function( url, form.type )
 	V_990EOYTA.EZpre2013  <- "//Return/ReturnData/IRS990EZ/TotalAssets/EOY"
 	total.assets.end.xpath <- paste( V_990EOYTApost2013, V_990EOYTApre2013, V_990EOYTA.EZpost2013, V_990EOYTA.EZpre2013, sep="|" )
 	TOTALASSETSENDYEAR <- xml_text( xml_find_all( doc, total.assets.end.xpath ) ) 
-
+	TOTALASSETSENDYEAR <- zeroALL( TOTALASSETSENDYEAR )
 
 
 	## BEGINNING OF YEAR TOTAL LIABILITIES
@@ -1255,7 +1257,7 @@ scrapeXML <- function( url, form.type )
 	V_990BOYTL.EZpre2013  <- "//Return/ReturnData/IRS990EZ/SumOfTotalLiabilities/BOY"
 	total.liab.beg.xpath <- paste( V_990BOYTLpost2013, V_990BOYTLpre2013, V_990BOYTL.EZpost2013, V_990BOYTL.EZpre2013, sep="|" )
 	TOTALLIABBEGYEAR <- xml_text( xml_find_all( doc, total.liab.beg.xpath ) ) 
-
+	TOTALLIABBEGYEAR <- zeroALL( TOTALLIABBEGYEAR )
 
 
 	## END OF YEAR TOTAL LIABILITIES
@@ -1266,7 +1268,7 @@ scrapeXML <- function( url, form.type )
 	V_990EOYTL.EZpre2013  <- "//Return/ReturnData/IRS990EZ/SumOfTotalLiabilities/EOY"
 	total.liab.end.xpath <- paste( V_990EOYTLpost2013, V_990EOYTLpre2013, V_990EOYTL.EZpost2013, V_990EOYTL.EZpre2013, sep="|" )
 	TOTALLIABENDYEAR <- xml_text( xml_find_all( doc, total.liab.end.xpath ) ) 
-
+	TOTALLIABENDYEAR <- zeroALL( TOTALLIABENDYEAR )
 
 
 	## BEGINNING OF YEAR NET ASSETS
@@ -1277,7 +1279,7 @@ scrapeXML <- function( url, form.type )
 	V_990BOYNA.EZpre2013  <- "//Return/ReturnData/IRS990EZ/NetAssetsOrFundBalances/BOY"
 	net.assets.beg.xpath <- paste( V_990BOYNApost2013, V_990BOYNApre2013, V_990BOYNA.EZpost2013, V_990BOYNA.EZpre2013, sep="|" )
 	NETASSETSBEGYEAR <- xml_text( xml_find_all( doc, net.assets.beg.xpath ) ) 
-
+	NETASSETSBEGYEAR <- zeroALL( NETASSETSBEGYEAR )
 
 
 	## OTHER CHANGES IN NET ASSETS
@@ -1286,7 +1288,7 @@ scrapeXML <- function( url, form.type )
 	V_990NAOC.EZpre2013  <- "//Return/ReturnData/IRS990EZ/OtherChangesInNetAssets"
 	net.assets.other.changes.xpath <- paste( V_990NAOC.EZpre2013, sep="|" )
 	OTHERASSETSCHANGES <- xml_text( xml_find_all( doc, net.assets.other.changes.xpath ) )  
-
+	OTHERASSETSCHANGES <- zeroEZ( OTHERASSETSCHANGES )
 
 
 	## END OF YEAR NET ASSETS
@@ -1297,7 +1299,7 @@ scrapeXML <- function( url, form.type )
 	V_990EOYNA.EZpre2013  <- "//Return/ReturnData/IRS990EZ/NetAssetsOrFundBalances/EOY"
 	net.assets.end.xpath <- paste( V_990EOYNApost2013, V_990EOYNApre2013, V_990EOYNA.EZpost2013, V_990EOYNA.EZpre2013, sep="|" )
 	NETASSETSENDYEAR <- xml_text( xml_find_all( doc, net.assets.end.xpath ) ) 
-
+	NETASSETSENDYEAR <- zeroALL( NETASSETSENDYEAR )
 
 
 	#------------------------------------------------------------------------------------------------------------------------
@@ -1312,7 +1314,7 @@ scrapeXML <- function( url, form.type )
 	CASHBEGYEAR <- xml_text( xml_find_all( doc, cash.beg.xpath ) ) 
 
 	CASHBEGYEAR[ length( CASHBEGYEAR ) == 0]  <- NA
-
+	CASHBEGYEAR <- zeroPC( CASHBEGYEAR )
 
 
 	## END OF YEAR CASH
@@ -1323,7 +1325,7 @@ scrapeXML <- function( url, form.type )
 	CASHENDYEAR <- xml_text( xml_find_all( doc, cash.end.xpath ) ) 
 
 	CASHENDYEAR[ length( CASHENDYEAR ) == 0]  <- NA
-
+	CASHENDYEAR <- zeroPC( CASHENDYEAR )
 
 
 	## BEGINNING OF YEAR SAVINGS AND TEMPORARY INVESTMENTS
@@ -1334,7 +1336,7 @@ scrapeXML <- function( url, form.type )
 	SAVINVBEGYEAR <- xml_text( xml_find_all( doc, sav.tempinv.beg.xpath ) ) 
 
 	SAVINVBEGYEAR[ length( SAVINVBEGYEAR ) == 0]  <- NA
-
+	SAVINVBEGYEAR <- zeroPC( SAVINVBEGYEAR )
 
 
 	## END OF YEAR SAVINGS AND TEMPORARY INVESTMENTS
@@ -1344,8 +1346,8 @@ scrapeXML <- function( url, form.type )
 	sav.tempinv.end.xpath <- paste( V_990EOYSIpost2013, V_990EOYSIpre2013, sep="|" )
 	SAVINVENDYEAR <- xml_text( xml_find_all( doc, sav.tempinv.end.xpath ) )
 
-	SAVINVBEGYEAR[ length( SAVINVBEGYEAR ) == 0]  <- NA
-
+	SAVINVENDYEAR[ length( SAVINVENDYEAR ) == 0]  <- NA
+	SAVINVENDYEAR <- zeroPC( SAVINVENDYEAR )
 
 
 	## BEGINNING OF YEAR CASH, SAVINGS, AND INVESTMENTS
@@ -1357,8 +1359,8 @@ scrapeXML <- function( url, form.type )
 	} else if( FORMTYPE == "990" ){
 	  CASHINVBEGYEAR <- sum( as.numeric( CASHBEGYEAR ), as.numeric( SAVINVBEGYEAR ), na.rm=T ) 
 	}
-	CASHINVBEGYEAR <- as.numeric( CASHINVBEGYEAR )
-
+	CASHINVBEGYEAR <- as.character( CASHINVBEGYEAR )
+  CASHINVBEGYEAR <- zeroALL( CASHINVBEGYEAR )
 
 
 	## END OF YEAR CASH, SAVINGS, AND INVESTMENTS
@@ -1370,8 +1372,8 @@ scrapeXML <- function( url, form.type )
 	} else if( FORMTYPE == "990" ){
 	  CASHINVENDYEAR <- sum( as.numeric( CASHENDYEAR ), as.numeric( SAVINVENDYEAR ), na.rm=T )
 	}
-	CASHINVENDYEAR <- as.numeric( CASHINVENDYEAR )
-
+	CASHINVENDYEAR <- as.character( CASHINVENDYEAR )
+  CASHINVENDYEAR <- zeroALL( CASHINVENDYEAR )
 
 
 	## COST OF LAND, BUILDINGS, AND EQUIPMENT
@@ -1380,7 +1382,7 @@ scrapeXML <- function( url, form.type )
 	V_990CLBEpre2013  <- "//Return/ReturnData/IRS990/LandBuildingsEquipmentBasis"
 	lbe.cost.xpath <- paste( V_990CLBEpost2013, V_990CLBEpre2013, sep="|" )
 	LANDBLDEQUIPCOST <- xml_text( xml_find_all( doc, lbe.cost.xpath ) ) 
-
+	LANDBLDEQUIPCOST <- zeroPC( LANDBLDEQUIPCOST )
 
 
 	## DEPRECIATION OF LAND, BUILDINGS, AND EQUIPMENT
@@ -1389,7 +1391,7 @@ scrapeXML <- function( url, form.type )
 	V_990DLBEpre2013  <- "//Return/ReturnData/IRS990/LandBldgEquipmentAccumDeprec"
 	lbe.depreciation.xpath <- paste( V_990DLBEpost2013, V_990DLBEpre2013, sep="|" )
 	LANDBLDEQUIPDEP <- xml_text( xml_find_all( doc, lbe.depreciation.xpath ) )
-
+	LANDBLDEQUIPDEP <- zeroPC( LANDBLDEQUIPDEP )
 
 
 	## BEGINNING OF YEAR LAND AND BUILDINGS (AND EQUIPMENT FOR 990-PC ONLY)
@@ -1400,7 +1402,7 @@ scrapeXML <- function( url, form.type )
 	V_990BOYLB.EZpre2013  <- "//Return/ReturnData/IRS990EZ/LandAndBuildings/BOY"
 	land.buildings.beg.xpath <- paste( V_990BOYLBpost2013, V_990BOYLBpre2013, V_990BOYLB.EZpost2013, V_990BOYLB.EZpre2013, sep="|" )
 	LANDBEGYEAR <- xml_text( xml_find_all( doc, land.buildings.beg.xpath ) ) 
-
+	LANDBEGYEAR <- zeroALL( LANDBEGYEAR )
 
 
 	## END OF YEAR LAND AND BUILDINGS (AND EQUIPMENT FOR 990-PC ONLY)
@@ -1411,7 +1413,7 @@ scrapeXML <- function( url, form.type )
 	V_990EOYLB.EZpre2013  <- "//Return/ReturnData/IRS990EZ/LandAndBuildings/EOY"
 	land.buildings.end.xpath <- paste( V_990EOYLBpost2013, V_990EOYLBpre2013, V_990EOYLB.EZpost2013, V_990EOYLB.EZpre2013, sep="|" )
 	LANDENDYEAR <- xml_text( xml_find_all( doc, land.buildings.end.xpath ) ) 
-
+	LANDENDYEAR <- zeroALL( LANDENDYEAR )
 
 
 	## BEGINNING OF YEAR OTHER ASSETS
@@ -1422,7 +1424,7 @@ scrapeXML <- function( url, form.type )
 	V_990BOYOA.EZpre2013  <- "//Return/ReturnData/IRS990EZ/OtherAssetsTotal/BOY"
 	other.assets.beg.xpath <- paste( V_990BOYOApost2013, V_990BOYOApre2013, V_990BOYOA.EZpost2013, sep="|" )
 	OTHERASSETSBEGYEAR <- xml_text( xml_find_all( doc, other.assets.beg.xpath ) ) 
-
+	OTHERASSETSBEGYEAR <- zeroALL( OTHERASSETSBEGYEAR )
 
 
 	## END OF YEAR OTHER ASSETS 
@@ -1433,7 +1435,7 @@ scrapeXML <- function( url, form.type )
 	V_990EOYOA.EZpre2013  <- "//Return/ReturnData/IRS990EZ/OtherAssetsTotal/EOY"
 	other.assets.end.xpath <- paste( V_990EOYOApost2013, V_990EOYOApre2013, V_990EOYOA.EZpost2013, V_990EOYOA.EZpre2013, sep="|" )
 	OTHERASSETSENDYEAR <- xml_text( xml_find_all( doc, other.assets.end.xpath ) ) 
-
+	OTHERASSETSENDYEAR <- zeroALL( OTHERASSETSENDYEAR )
 
 
 	#------------------------------------------------------------------------------------------------------------------------
@@ -1447,7 +1449,7 @@ scrapeXML <- function( url, form.type )
 	V_990TPSE.EZpre2013  <- "//Return/ReturnData/IRS990EZ/TotalProgramServiceExpenses"
 	total.psr.exp.xpath <- paste( V_990TPSEpost2013, V_990TPSEpre2013, V_990TPSE.EZpost2013, V_990TPSE.EZpre2013, sep="|" )
 	TOTALPROGSERVEXP <- xml_text( xml_find_all( doc, total.psr.exp.xpath ) ) 
-
+	TOTALPROGSERVEXP <- zeroALL( TOTALPROGSERVEXP )
 
 
 	#------------------------------------------------------------------------------------------------------------------------
