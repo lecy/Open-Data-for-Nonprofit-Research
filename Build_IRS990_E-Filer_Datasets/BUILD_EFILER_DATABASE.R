@@ -185,7 +185,17 @@ scrapeXML <- function( url, form.type )
       }
       return( var )
     }
-
+    
+    zeroEZ <- function( var )
+    { 
+      if( FORMTYPE=="990EZ" )
+      {
+        if( length(var) == 0 ){ return("0") }
+        if( is.na(var) ){ return("0") }
+      }
+      return( var )
+    }
+    
     zeroALL <- function( var )
     {
       if( length(var) == 0 ){ return("0") }
@@ -351,9 +361,7 @@ scrapeXML <- function( url, form.type )
 
 	V_990DOMpost2013 <- "//Return/ReturnData/IRS990/LegalDomicileStateCd"
 	V_990DOMpre2013  <- "//Return/ReturnData/IRS990/StateLegalDomicile"
-	V_990DOM.EZpost2013 <- "//Return/ReturnData/IRS990EZ/StatesWhereCopyOfReturnIsFldCd"
-	V_990DOM.EZpre2013  <- "//Return/ReturnData/IRS990EZ/StatesWhereCopyOfReturnIsFiled"
-	domicile.xpath <- paste( V_990DOMpost2013, V_990DOMpre2013, V_990DOM.EZpost2013, V_990DOM.EZpre2013, sep="|" )
+	domicile.xpath <- paste( V_990DOMpost2013, V_990DOMpre2013, sep="|" )
 	DOMICILE <- xml_text( xml_find_all( doc, domicile.xpath ) ) 
         DOMICILE <- paste( DOMICILE, collapse=" " )
 
@@ -756,7 +764,7 @@ scrapeXML <- function( url, form.type )
 	V_990CTR.EZpre2013  <- "//Return/ReturnData/IRS990EZ/TotalRevenue"
 	total.rev.current.xpath <- paste( V_990CTRpost2013, V_990CTRpre2013, V_990CTR.EZpost2013, V_990CTR.EZpre2013, sep="|" )
 	TOTALREVCURRENT <- xml_text( xml_find_all( doc, total.rev.current.xpath ) )  
-
+	TOTALREVCURRENT <- zeroALL( TOTALREVCURRENT )
 
 
 	#------------------------------------------------------------------------------------------------------------------------
@@ -1624,7 +1632,9 @@ scrapeXML <- function( url, form.type )
 
 	V_990SMFWpost2013 <- "//Return/ReturnData/IRS990/StatesWhereCopyOfReturnIsFldCd"
 	V_990SMFWpre2013  <- "//Return/ReturnData/IRS990/StatesWhereCopyOfReturnIsFiled"
-	states.must.file.xpath <- paste( V_990SMFWpost2013, V_990SMFWpre2013, sep="|" )
+	V_990SMFW.EZpost2013 <- "//Return/ReturnData/IRS990EZ/StatesWhereCopyOfReturnIsFldCd"
+	V_990SMFW.EZpre2013  <- "//Return/ReturnData/IRS990EZ/StatesWhereCopyOfReturnIsFiled"
+	states.must.file.xpath <- paste( V_990SMFWpost2013, V_990SMFWpre2013, V_990SMFW.EZpost2013, V_990SMFW.EZpre2013, sep="|" )
 	FILINGSTATES <- xml_text( xml_find_all( doc, states.must.file.xpath ) )     
         FILINGSTATES <- paste( FILINGSTATES, collapse=" " )
 
