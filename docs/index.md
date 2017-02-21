@@ -8,14 +8,48 @@ We have begun the process to catalog and document these resources, and will begi
 
 [NONPROFIT INITIATIVE FOR OPEN DATA](https://dataverse.harvard.edu/dataverse/NIOD)
 
-We have documented and posted the following data assets:
 
-* **IRS E-Filer 990 Data** [Data Dictionary]
-* **List of all Current Exempt Organizations (all orgs granted 501(c)(3) status)**  [Data Dictionary] 
-* **Business Master File of All Current Exempt Orgs**  [Data Dictionary]
-* **Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present**  [Data Dictionary]
-* **All 990-N Postcard Filers**  [Data Dictionary]
-* **All Organizations with a Revoked 501(c)(.) Status**  [Data Dictionary]
+
+
+# Available Data
+
+We have documented and posted the following open data assets:
+
+
+
+## IRS E-Filer 990 Data 
+
+[ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_IRS990_E-Filer_Datasets/README.md) ] [ Link to Dataset ]
+
+
+
+## List of all Current Exempt Organizations (all orgs granted 501(c)(3) status)  
+
+[Data Dictionary]  [Link to Dataset]
+
+
+
+## Business Master File of All Current Exempt Orgs
+
+[Data Dictionary]  [Link to Dataset]
+
+
+
+## Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present
+
+[Data Dictionary]  [Link to Dataset]
+
+
+
+## All 990-N Postcard Filers
+
+[Data Dictionary]  [Link to Dataset]
+
+
+
+## All Organizations with a Revoked 501(c)(.) Status
+
+[Data Dictionary]  [Link to Dataset]
 
 
 <br>
