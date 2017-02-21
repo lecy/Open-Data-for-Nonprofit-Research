@@ -1,17 +1,73 @@
 
-# DOCUMENTATION FOR BASIC INFO MODULE 
- 
-``` 
-# Created in July 2016 by Jesse Lecy 
-# Update February 2017 by Francisco Santamarina 
-``` 
- 
-## Data Dictionary 
+# Data Dictionary for IRS 990 E-Filer 'Core' Dataset
+
+This document contains information about data generated through the Nonprofit Ininiative for Open Data. The code contained in this GitHub repository creates a research database that mirrors the NCCS Core files. Data is taken from the IRS 990 E-Filer data recently posted to AWS, and converted from XML files to a flat dataset. This document contains the variable names, definitions, and production rules necessary to combine 990-PC and 990-EZ returns.
+
 Entries for 990 and 990EZ are in the following format: Part (in roman numerals), section letter (if applicable), row number, sub-row letter, column (if applicable).  
 
 Values that do not start with roman numerals are in the form header section. 
 
 "." indicates that version of tax form does not have that field. 
+
+An "NA" in the dataset signifies that the field was not contained within the particular form, or else the organization provided no response. When appropriate, we converted missing responses to zeros if (1) the field is numeric, and (2) we can infer the no response signifies no revenues or expenditures in that category. These assumptions are all documented in the "Production Rules" column of the data dictionary below.
+
+
+
+## Data Available on the 990s
+
+This table presents an basic overview of the 990 form. Nonprofits file either the full 990-PC version of the form, or an abbreviated 990-EZ version. The table signifies whether data from each section is available in the full 990-PC version exclusively or also in the 990-EZ version.
+
+SECTION | DESCRIPTION | 990 | 990-EZ | 
+--------|-------------|-----|--------|
+Basic Information | Header Data | X | most |
+Part I | Revenues, Expenses and Change in Assets  | X | partial |
+Part I | Mission and Program | X | . | 
+Part IV | Checklist of Activities  | X | . | 
+Part V | Checklist of Tax Compliance  | X | partial |
+Part VI Section A | Governance and Management  | X | . |
+Part VI Section B | Policies  | X | . |
+Part VI Section C | Diclosure  | X | . |
+Part VII | Compensation of Officers and Board Members  | X | partial | 
+Part VIII | Statement of Revenues  | X | most |
+Part IX | Statement of Functional Expenses  | X | partial |
+Part X | Balance Sheet  | X | . |
+Part XI | Reconciliation of Net Assets  | X | . |
+Part XII | Financial Reporting  | X | . |
+
+
+Schedules are required for a variety of disclosure and compliance requirements if nonprofits meet certain criteria. The following is a list of all schedules and whether 990-EZ filers would be required to submit as well (source: Wikipedia). The schedules that you will frequently see are A, B, D, M, and O.
+
+Schedule   |	Description |	Number of pages | Can be filed with Form 990-EZ?
+-----------|------------------------------------------------------------------|------|------
+Schedule A	 |	Public Charity Status and Public Support	 |	4	 |	Yes
+Schedule B	 |	Schedule of Contributors	 |	8	 |	Yes
+Schedule C	 |	Political Campaign and Lobbying Activities	 |	4	 |	Yes
+Schedule D	 |	Supplemental Financial Statements	 |	5	 |	No
+Schedule E	 |	Schools	 |	1	 |	Yes
+Schedule F	 |	Statement of Activities Outside the United States	 |	4	 |	No
+Schedule G	 |	Supplemental Information Regarding Fundraising or Gaming Activities	 |	3	 |	Yes
+Schedule H	 |	Hospitals	 |	4	 |	No
+Schedule I	 |	Grants and Other Assistance to Organizations, Governments, and Individuals in the United States	 |	2	 |	No
+Schedule J	 |	Compensation Information	 |	3	 |	No
+Schedule K	 |	Supplemental Information on Tax-Exempt Bonds	 |	2	 |	No
+Schedule L	 |	Transactions With Interested Persons	 |	1	 |	Yes
+Schedule M	 |	Noncash Contributions	 |	2	 |	No
+Schedule N	 |	Liquidation, Termination, Dissolution, or Significant Disposition of Assets	 |	3	 |	Yes
+Schedule O	 |	Supplemental Information to Form 990	 |	2	 |	No
+Schedule R	 |	Related Organizations and Unrelated Partnerships	 |	4	 |	No
+
+
+
+*NOTE that we include only a small proportion of available data in the build. Additional variables can be added as desired*
+
+*There are some sections of the IRS form that function more like relational databases. The 990 returns contain information about board members or individual grants made by private foundations. These sections have a one-to-many relationship (many board members are associated with each nonprofit), and are better built as a separate table that can be linked to a nonprofit through the EIN rather than adding them to the same database because of the structure of the data.* 
+
+
+
+
+
+
+## Data Dictionary
  
  
 ****Variable****|****Description****|****990 PC Location****|****990EZ Location****|****Production Rules****|**Consolidated**
