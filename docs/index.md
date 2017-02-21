@@ -17,7 +17,11 @@ We have documented and posted the following open data assets:
 
 <br>
 
-## IRS E-Filer 990 Data 
+## (1) IRS E-Filer 990 Data 
+
+The IRS has released all nonprofit 990 tax data that has been e-filed through their online system, approximately 60-65% of all 990-PC and 990-EZ filers. It is available for years 2012 to current years with a small set of returns avaialable for 2010 and 2011. The data has been posted as XML files in an [Amazon Web Server (AWS) Cloud Server](https://aws.amazon.com/public-datasets/irs-990/). More details about the data and the push to have it made public are below.
+
+In order to support use of this data, we have converted the XML files into a research database similar to the NCCS Core dataset.
 
 [ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_IRS990_E-Filer_Datasets/README.md) ] [ Link to Dataset ]
 
@@ -96,7 +100,11 @@ https://www.reddit.com/r/aws/comments/4p772f/how_the_heck_do_i_view_the_990_docu
 
 ## (2) List of all Current Exempt Organizations (all orgs granted 501(c)(3) status)  
 
-[Data Dictionary]  [Link to Dataset]
+
+The [IRS Publication 78](https://apps.irs.gov/app/eos/forwardToPub78Download.do) contains a list of all organizations that currently have 501(c)(3) tax exempt status and are in good standing (eligible to receive tax-deductible donations) under IRS code.
+
+
+[ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_Current_Exempt_Orgs_List.Rmd) ]  [ [Link to Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/Z4PZOG) ]
 
 
 <br>
@@ -104,7 +112,11 @@ https://www.reddit.com/r/aws/comments/4p772f/how_the_heck_do_i_view_the_990_docu
 
 ## (3) Business Master File of All Current Exempt Orgs
 
-[Data Dictionary]  [Link to Dataset]
+The [IRS Exempt Organization Business Master File Extract (EO BMF)](https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf) contains information on all active nonprofits including basic information about nonprofit location, ruling date (when they were granted tax exempt status), and activities. Note that the NTEE codes are noisy and incomplete. It is recommended to use the NCCS codes instead.
+
+[ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_Business_Master_File.Rmd) ]  [ [Link to Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZPHJYA) ]
+
+
 
 
 <br>
