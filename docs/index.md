@@ -23,7 +23,7 @@ The IRS has released all nonprofit 990 tax data that has been e-filed through th
 
 In order to support use of this data, we have converted the XML files into a research database similar to the NCCS Core dataset.
 
-[ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_IRS990_E-Filer_Datasets/README.md) ] [ Link to Dataset ]
+[ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_IRS990_E-Filer_Datasets/Data_Dictionary.md) ] [ Link to Dataset ]
 
 
 #### Liberating the 990 Data
