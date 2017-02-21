@@ -292,10 +292,4 @@ LOBNTFILING |Lobbying nontaxable amount of the filing organization|Schedule C-II
 LOBNTAFFIL |Lobbying nontaxable amount of affiliated groups|Schedule C-II-A-1f(b)|Schedule C-II-A-1f(b)|.|**2013 and After PC Xpath**:  /Return/ReturnData/IRS990ScheduleC/LobbyingNontaxableAmountGrp/AffiliatedGroupTotalAmt<br/>**Pre-2013 PC Xpath**:  /Return/ReturnData/IRS990ScheduleC/LobbyingNontaxableAmount/AffiliatedGroupTotals<br/>**2013 and After EZ Xpath**:  /Return/ReturnData/IRS990ScheduleC/LobbyingNontaxableAmountGrp/AffiliatedGroupTotalAmt<br/>**Pre-2013 EZ Xpath**:  /Return/ReturnData/IRS990ScheduleC/LobbyingNontaxableAmount/AffiliatedGroupTotals
  
 	                           
-Notes:  
- 
-ACCTMETHOD - removed and broken out into 1 variable for each accounting method: Accrual, Cash, Other.  
- 
-Fix TAXPREP so it represents whether an external agency filed the return - currently represents whether third party is authorized to speak with IRS regarding the returns. 
- 
-FORMORG - this field is supposed to represent the form or type of organization, but currently only indicates whether the nonprofit selected any of the options, but not which one was selected. It has been broken out into the 4 options on the forms
+
