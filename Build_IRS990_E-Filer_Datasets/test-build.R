@@ -1,5 +1,13 @@
 
 
+# INSTALL NECESSARY PACKAGES
+
+pckgs <- c("jsonlite","R.utils","dplyr","xml2")
+
+install.packages( pckgs )
+
+
+
 
 # LOAD THE IRS INDEX FILE FROM 2014
 
