@@ -8,14 +8,14 @@ We have begun the process to catalog and document these resources, and will begi
 
 [NONPROFIT INITIATIVE FOR OPEN DATA (NIOD)](https://dataverse.harvard.edu/dataverse/NIOD)
 
-
+<br>
 
 
 # Available Data
 
 We have documented and posted the following open data assets:
 
-
+<br>
 
 ## IRS E-Filer 990 Data 
 
@@ -42,7 +42,7 @@ For some background on the campaigns to open access to IRS data, see these artic
 * [Recommendations for Improving the Effectiveness of the 990 Form for Reporting](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/IRS%20ACT%20Report%202015.pdf): Advisory Committee on Tax-Exempt and Government Entities (ACT) Report
 
 
-<br>
+
 
 
 #### Useful Information About 990 Data
@@ -72,7 +72,7 @@ Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#Hi
 
 * In June 2007, the IRS released a new Form 990 that requires significant disclosures on corporate governance and boards of directors. These new disclosures are required for all nonprofit filers for the 2009 tax year, with more significant reporting requirements for nonprofits with over $1 million in revenues or $2.5 million in assets.
 
-<br>
+
 
 
 #### Working with the data on the AWS Platform
@@ -94,31 +94,36 @@ https://www.reddit.com/r/aws/comments/4p772f/how_the_heck_do_i_view_the_990_docu
 
 
 
-## List of all Current Exempt Organizations (all orgs granted 501(c)(3) status)  
+## (2) List of all Current Exempt Organizations (all orgs granted 501(c)(3) status)  
 
 [Data Dictionary]  [Link to Dataset]
 
 
-
-## Business Master File of All Current Exempt Orgs
-
-[Data Dictionary]  [Link to Dataset]
+<br>
 
 
-
-## Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present
+## (3) Business Master File of All Current Exempt Orgs
 
 [Data Dictionary]  [Link to Dataset]
 
 
+<br>
 
-## All 990-N Postcard Filers
+
+## (4) Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present
+
+[Data Dictionary]  [Link to Dataset]
+
+<br>
+
+## (5) All 990-N Postcard Filers
 
 [Data Dictionary]  [Link to Dataset]
 
 
+<br>
 
-## All Organizations with a Revoked 501(c)(.) Status
+## (6) All Organizations with a Revoked 501(c)(.) Status
 
 [Data Dictionary]  [Link to Dataset]
 
