@@ -36,3 +36,10 @@ print.data.frame( cd )
 # TO VIEW AS SPREADSHEET:
 
 View( cd )
+
+
+# TO SAVE TO EXCEL
+
+getwd()  # this is where the file will be saved
+
+write.csv( cd, "IRS-990-EFILERS.csv", row.names=F )
