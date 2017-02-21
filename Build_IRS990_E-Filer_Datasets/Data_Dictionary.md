@@ -37,8 +37,8 @@ Part XII | Financial Reporting  | X | . |
 
 Schedules are required for a variety of disclosure and compliance requirements if nonprofits meet certain criteria. The following is a list of all schedules and whether 990-EZ filers would be required to submit as well (source: Wikipedia). The schedules that you will frequently see are A, B, D, M, and O.
 
-Schedule   |	Description |	Number of pages | Can be filed with Form 990-EZ?
------------|------------------------------------------------------------------|------|------
+Schedule      |	Description |	Number of pages | Can be filed with Form 990-EZ?
+--------------|------------------------------------------------------------------|------|------
 Schedule A	 |	Public Charity Status and Public Support	 |	4	 |	Yes
 Schedule B	 |	Schedule of Contributors	 |	8	 |	Yes
 Schedule C	 |	Political Campaign and Lobbying Activities	 |	4	 |	Yes
