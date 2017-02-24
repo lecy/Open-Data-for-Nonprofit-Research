@@ -55,10 +55,10 @@ Form 990: A Guide for Newcomers to Nonprofit Research [ [LINK](http://blog.board
 
 Example Forms:
 
-* [990](./Resources/Form 990-PC 2015.pdf)
-* [990-EZ](./Resources/Form 990-EZ 2015.pdf)
-* [990-PF](./Resources/Form 990-PF 2015.pdf)
-* [990-N Postcard](./Resources/Information Needed to File e-Postcard.pdf)
+* [990](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Form%20990-PC%202015.pdf)
+* [990-EZ](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Form%20990-EZ%202015.pdf)
+* [990-PF](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Form%20990-PF%202015.pdf)
+* [990-N Postcard](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Information%20Needed%20to%20File%20e-Postcard.pdf)
 
 A History of the Tax Exempt Sector: An SOI Perspective [ [LINK](https://www.irs.gov/pub/irs-soi/tehistory.pdf) ]
 
@@ -144,6 +144,8 @@ The Postcard Filers dataset contains close to a million cases from the following
 ------|-------|-------|-------|--------|-------|-------|------|-------|-----------
 26,969 | 28,704 | 45,846 | 31,734 | 36,457  | 36,779 | 52,202 | 120,831 | 475,084  | 65,211 
 
+<br>
+
 [ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_990N_Postcard_Filers.RMD) ]  [ [Link to Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZQMJAL) ]
 
 
@@ -155,7 +157,9 @@ Nonprofits that fail to file 990 returns for three years have their 501(c)(3) ta
 
 2010 |  2011 |  2012 |  2013 |  2014 |  2015  | 2016
 -----|-------|-------|-------|-------|--------|-------
-372,717 |  92,360  | 47,506  |  52,111  | 36,973  | 36,935  | 35046 
+372,717 |  92,360  | 47,506  |  52,111  | 36,973  | 36,935  | 35,046  
+
+<br>
 
 [ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_Revoked_Exempt_Orgs.Rmd) ]  [ [Link to Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BETUJF) ]
 
