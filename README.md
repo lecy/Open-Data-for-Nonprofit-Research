@@ -1,8 +1,23 @@
 # Open Data for Nonprofit Research
 
-Nonprofit sector advocates have waged concerted efforts to make IRS 990 tax data on public charities and foundations available in free, machine-readable formats. As a result of this work the IRS released 990 tax data from electronic filers in June of 2016. This project was created to make this data easily accessible to nonprofit scholars and researchers. 
 
-Unfortunately the IRS data has been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
+[This project](https://lecy.github.io/Open-Data-for-Nonprofit-Research/) was created to make existing open data assets easily accessible to nonprofit scholars and researchers.
+
+The IRS maintains several important nonprofit databases to track the current population of exempt organizations, their annual 990 filings, and organizations that have closed. This data has been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
+
+
+
+
+<br>
+
+## IRS 990 Open E-Filer Data
+
+Nonprofit sector advocates have waged concerted efforts to make IRS 990 tax data on public charities and foundations available in free, machine-readable formats. As a result of this work the IRS started releasing 990 tax data from electronic filers in June of 2016, roughly 65% of nonprofit filers. 
+
+This release represents a major opportunity for nonprofit scholars as the full 990 data provides a much more extensive window into nonprofit activities than has previously been available. The NCCS dataset on 990 returns used by most scholars focuses primarily on financial variables, whereas the full returns contain information on mission-driven activities, governance, key employees and boards, transparency, compliance, and more. 
+
+This project was created to make this data easily accessible to nonprofit scholars and researchers. We have created programs that convert XML files into flat spreadsheets, and we are posting these on Dataverse for download. You can see the variables currently available in the [E-Filer Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_IRS990_E-Filer_Datasets/Data_Dictionary.md).
+
 
 
 
@@ -10,7 +25,7 @@ Unfortunately the IRS data has been released in formats that are not always easy
 
 <br>
 
-## Open IRS Databases on Nonprofits
+## Other Open IRS Databases on Nonprofits
 
 The IRS maintains several important nonprofit databases to track the current population of exempt organizations, their annual 990 filings, and organizations that have closed. 
 
@@ -38,38 +53,25 @@ The following IRS databases can be generated through scripts available by follow
 
 
 
-## Research Tools
+## Long Term Objectives
 
 Nonprofit data can be difficult to use because of messy data, multiple filing options, and changes to the 990 forms over time. 
 
 Since there is a large community of researchers using 990 data, many issues have already been identified and addressed through scripts to clean, re-code, merge, or reconcile data. We are encouraging people to submit their solutions in order to develop collective resources and encourage convergence in how variables like overhead and financial ratios are defined and calculated. 
 
-Please send your work if it represents solutions to problems that fall under the following categories: 
+Our overall project goal is to start cataloging open data assets available to nonprofit scholars, and also to create a library of tools and scripts that help researchers download data, process and clean data, aggregate or wrangle it into specific units of analysis, merge with outside sources, and visualize it in interesting ways.
 
-* Cleaning 990 Data
-* Reconciling Data Fields Over Time
-* [Merging 990 Data with Other Sources](https://gist.github.com/lecy/0aa782a873cd174573f32d243233ca5b)
-* Geocoding Nonprofits
+If you know of datasets that are available and not listed here, please contact us. If you have developed an innovative way to use data in your research, please let us know. We are starting efforts to collect these resources to make people away of opportunities to accelerate, extend, and improve empirical research in the sector.
 
 
-Similarly, if you know of an article, blog, or research vignette that does a good job explaning methods for working with nonprofit data, let us know and we will share it. For example:
 
-*Feng, N. C., Ling, Q., Neely, D., & Roberts, A. A. (2014). Using archival data sources to conduct nonprofit accounting research. Journal of Public Budgeting, Accounting & Financial Management.*
 
-> In an effort to broaden the awareness of the data sources and ensure the quality of nonprofit research, we discuss archival data sources available to nonprofit researchers, data issues, and potential resolutions to those problems. Overall, our paper should raise awareness of data sources in the nonprofit area, increase production, and enhance the quality of nonprofit research.
-
-*Lecy, J., & Thornton, J. (2015). What Big Data Can Tell Us About Government Awards to the Nonprofit Sector Using the FAADS. Nonprofit and Voluntary Sector Quarterly.*
-
-The authors share a script for merging federal contracting data with IRS 990 data using names and addresses of organizations in the absence of a unique key shared by both databases (usually the EIN). The merge script can be accessed [HERE](https://github.com/lecy/FAADS-NCCS-Crosswalk/blob/master/README.md). 
 
 
 <br>
 
-
-
-
-
-
 ## Contact
 
-If you are interested in submitting resources or building tools to support nonprofit scholarship please contact Jesse Lecy (jdlecy@syr.edu) or Nathan Grasse (nathangrasse@cunet.carleton.ca). 
+This project was started by Jesse Lecy (Assistant Professor, Syracuse University) and Nathan Grasse (Assistant Professor, Carleton University). If you are interested in submitting resources or building tools to support nonprofit scholarship please contact us at jdlecy@syr.edu or nathangrasse@cunet.carleton.ca. 
+
+We are currently collaborating with the Urban Institute, Charity Navigator, Guidestar, Boardsource, Aspen Institute, and several academic institutions to move this project forward. 
