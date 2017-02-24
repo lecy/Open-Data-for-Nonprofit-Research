@@ -31,11 +31,11 @@ The IRS maintains several important nonprofit databases to track the current pop
 
 The following IRS databases can be generated through scripts available by following these links:
 
-* [All Current Exempt Organizations (all orgs granted 501(c)(3) status)](./Build_Datasets/current master exempt list.Rmd)
-* [Business Master File of All Current Exempt Orgs](./Build_Datasets/master_exempt_list_w_ntee.Rmd)
-* [Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present](./Build_Datasets/electronic filers.Rmd)
-* [All 990-N Postcard Filers](./Build_Datasets/postcard 990N filers.RMD) 
-* [All Organizations with a Revoked 501(c)(*) Status](./Build_Datasets/revoked organizations.Rmd)
+* [All Current Exempt Organizations (all orgs granted 501(c)(3) status)](./Open_Nonprofit_Datasets/IRS_Current_Exempt_Orgs_List.Rmd)
+* [Business Master File of All Current Exempt Orgs](./Open_Nonprofit_Datasets/IRS_Business_Master_File.Rmd)
+* [Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present](./Open_Nonprofit_Datasets/IRS_E-Filers_Index.Rmd)
+* [All 990-N Postcard Filers](./Open_Nonprofit_Datasets/IRS_990N_Postcard_Filers.RMD) 
+* [All Organizations with a Revoked 501(c)(*) Status](./Open_Nonprofit_Datasets/IRS_Revoked_Exempt_Orgs.Rmd)
 
 
 
