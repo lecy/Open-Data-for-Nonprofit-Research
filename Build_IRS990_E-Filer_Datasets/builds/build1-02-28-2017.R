@@ -37,9 +37,10 @@ nrow( data.ef )  # 1,753,129
 
 data.ef$FilingYear <- substr( data.ef$TaxPeriod, 1, 4 )
 
-table( data.ef$FilingYear )
-
 table( data.ef$FilingYear, useNA="ifany" )
+
+#   2010   2011   2012   2013   2014   2015   2016 
+# 176064 245447 299310 335934 374026 312359   9989 
 
 
 
@@ -79,7 +80,7 @@ for( i in 1:99 )
 
 }
 
-
+savehistory( file=paste( year, "-build.Rhistory", sep="" ) )
 
 
 
@@ -108,7 +109,7 @@ for( i in 1:99 )
 
 }
 
-
+savehistory( file=paste( year, "-build.Rhistory", sep="" ) )
 
 
 
@@ -121,7 +122,7 @@ year <- 2013
 
 dd <- data.ef[ data.ef$FilingYear == year , ]
 
-nrow( dd )  # 
+nrow( dd )  # 335,934
 
 # build in 100 small increments and save to file
 
@@ -139,7 +140,7 @@ for( i in 1:99 )
 
 }
 
-
+savehistory( file=paste( year, "-build.Rhistory", sep="" ) )
 
 
 
@@ -169,7 +170,7 @@ for( i in 1:99 )
 
 }
 
-
+savehistory( file=paste( year, "-build.Rhistory", sep="" ) )
 
 
 
@@ -198,7 +199,7 @@ for( i in 1:99 )
 
 }
 
-
+savehistory( file=paste( year, "-build.Rhistory", sep="" ) )
 
 
 
@@ -226,7 +227,7 @@ for( i in 1:99 )
 
 }
 
-
+savehistory( file=paste( year, "-build.Rhistory", sep="" ) )
 
 
 
