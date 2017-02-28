@@ -51,18 +51,18 @@ For some background on the campaigns to open access to IRS data, see these artic
 
 #### Useful Information About 990 Data
 
-Form 990: A Guide for Newcomers to Nonprofit Research [ [LINK](http://blog.boardsource.org/blog/author/chris-thompson-ph-d-director-of-research-and-evaluation-boardsource) ]
+Form 990: A Guide for Newcomers to Nonprofit Research [ [LINK](http://blog.boardsource.org/blog/form-990-a-guide-for-newcomers-to-nonprofit-research) ]
 
 Example Forms:
 
-* [990](./Resources/Form 990-PC 2015.pdf)
-* [990-EZ](./Resources/Form 990-EZ 2015.pdf)
-* [990-PF](./Resources/Form 990-PF 2015.pdf)
-* [990-N Postcard](./Resources/Information Needed to File e-Postcard.pdf)
+* [990](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Form%20990-PC%202015.pdf)
+* [990-EZ](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Form%20990-EZ%202015.pdf)
+* [990-PF](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Form%20990-PF%202015.pdf)
+* [990-N Postcard](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Information%20Needed%20to%20File%20e-Postcard.pdf)
 
 A History of the Tax Exempt Sector: An SOI Perspective [ [LINK](https://www.irs.gov/pub/irs-soi/tehistory.pdf) ]
 
-A Guided Tour of the 990 Form by GuideStar [ [LINK](https://www.guidestar.org/ViewCmsFile.aspx?ContentID=4208) ]
+A Guided Tour of the 990 Form by GuideStar [ [LINK](https://learn.guidestar.org/help/highlights-of-irs-form-990) ]
 
 Revised Form 990: The Evolution of Governance and the Nonprofit World [ [LINK](http://www.thetaxadviser.com/issues/2009/aug/revisedform990theevolutionofgovernanceandthenonprofitworld.html) ]
 
@@ -83,13 +83,9 @@ Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#Hi
 
 Charity Navigator has created an open-source [990 Toolkit](http://990.charitynavigator.org/) that allows you to set up an Amazon EC2 instance and clone the full IRS dataset as a relational database. You can read their press release about the project [here](http://www.charitynavigator.org/index.cfm?bay=content.view&cpid=4669).
 
-You can find some useful scripts here for running queries directly within the cloud and downloading data as CSV files, for example:
+You can find some useful scripts here for running queries directly within the cloud and downloading data as CSV files, for example [this github gist](https://gist.github.com/ryankanno/a5da4c6f1f8e0136db9623ae1903d23d#form-990).
 
-https://gist.github.com/ryankanno/a5da4c6f1f8e0136db9623ae1903d23d#form-990
-
-There are some forums on using the E-Filer data, for example:
-
-https://www.reddit.com/r/aws/comments/4p772f/how_the_heck_do_i_view_the_990_documents_on/
+There are some forums on using the E-Filer data, for example [this reddit forum](https://www.reddit.com/r/aws/comments/4p772f/how_the_heck_do_i_view_the_990_documents_on/).
 
 <br>
 
@@ -124,20 +120,44 @@ The [IRS Exempt Organization Business Master File Extract (EO BMF)](https://www.
 
 ## (4) Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present
 
-[Data Dictionary]  [Link to Dataset]
+We provide an R script that builds the INDEX file (not the full dataset) for all IRS E-Filer open data provided on the Amazon Web Server. The index contains a limited number of variables such as nonprofit name, EIN, tax year, form type, and the URL link to the XML form of the 990 return data. This index file allows you to see what is available in the open E-Filer database.
+
+[ [Data Dictionary] ](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_E-Filers_Index.Rmd)  [Link to Dataset]
 
 <br>
 
 ## (5) All 990-N Postcard Filers
 
-[Data Dictionary]  [Link to Dataset]
+Most small tax-exempt organizations whose annual gross receipts are normally $50,000 or less can satisfy their annual reporting requirement by electronically submitting Form 990-N if they choose not to file Form 990 or Form 990-EZ instead. Exceptions to this requirement include:
+
+* Organizations that are included in a group return
+* Churches, their integrated auxiliaries, and conventions or associations of churches
+* Organizations required to file a different return
+
+The Postcard Filers dataset contains close to a million cases from the following years:
+
+ 2007 |  2008 |  2009 |  2010 |  2011  | 2012  | 2013  | 2014 |  2015 |  2016 
+------|-------|-------|-------|--------|-------|-------|------|-------|-----------
+26,969 | 28,704 | 45,846 | 31,734 | 36,457  | 36,779 | 52,202 | 120,831 | 475,084  | 65,211 
+
+<br>
+
+[ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_990N_Postcard_Filers.RMD) ]  [ [Link to Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZQMJAL) ]
 
 
 <br>
 
 ## (6) All Organizations with a Revoked 501(c)(.) Status
 
-[Data Dictionary]  [Link to Dataset]
+Nonprofits that fail to file 990 returns for three years have their 501(c)(3) tax exempt status automatically revoked by the IRS. This dataset contains more than 670,000 cases for the following years:
+
+2010 |  2011 |  2012 |  2013 |  2014 |  2015  | 2016
+-----|-------|-------|-------|-------|--------|-------
+372,717 |  92,360  | 47,506  |  52,111  | 36,973  | 36,935  | 35,046  
+
+<br>
+
+[ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_Revoked_Exempt_Orgs.Rmd) ]  [ [Link to Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BETUJF) ]
 
 
 <br>
