@@ -592,9 +592,7 @@ scrapeXML <- function( url, form.type )
 
 	V_990Mpost2013 <- "//Return/ReturnData/IRS990/ActivityOrMissionDesc"
 	V_990Mpre2013 <- "//Return/ReturnData/IRS990/ActivityOrMissionDescription"
-	V_990M.EZpost2013 <- "//Return/ReturnData/IRS990EZ/PrimaryExemptPurposeTxt"
-	V_990M.EZpre2013 <- "//Return/ReturnData/IRS990EZ/PrimaryExemptPurpose"
-	mission.xpath <- paste( V_990Mpost2013, V_990Mpre2013, V_990M.EZpost2013, V_990M.EZpre2013, sep="|" )
+	mission.xpath <- paste( V_990Mpost2013, V_990Mpre2013, sep="|" )
 	MISSION <- xml_text( xml_find_all( doc, mission.xpath ) ) 
 
 
