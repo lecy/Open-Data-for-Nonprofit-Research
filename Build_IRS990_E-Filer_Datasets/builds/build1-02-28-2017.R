@@ -69,6 +69,7 @@ breaks <- round( seq( from = 0, to = nrow(dd), length.out = 100 ), 0 )
 
 for( i in 1:99 )
 {
+   print( paste( "Loop-", i, ": ", format(Sys.time(), "%b %d %X"), sep="" ) )
    d.sub <- dd[ (breaks[i]+1):( breaks[i+1] ) , ]
    cd <- buildCore( index=d.sub, years=year, form.type=c("990","990EZ") )
    saveRDS( cd, paste( "d", year, "-", (breaks[i]+1), "-to-", breaks[i+1], ".rds", sep="" ) )
@@ -93,6 +94,7 @@ breaks <- round( seq( from = 0, to = nrow(dd), length.out = 100 ), 0 )
 
 for( i in 1:99 )
 {
+   print( paste( "Loop-", i, ": ", format(Sys.time(), "%b %d %X"), sep="" ) )
    d.sub <- dd[ (breaks[i]+1):( breaks[i+1] ) , ]
    cd <- buildCore( index=d.sub, years=year, form.type=c("990","990EZ") )
    saveRDS( cd, paste( "d", year, "-", (breaks[i]+1), "-to-", breaks[i+1], ".rds", sep="" ) )
@@ -119,12 +121,12 @@ breaks <- round( seq( from = 0, to = nrow(dd), length.out = 100 ), 0 )
 
 for( i in 1:99 )
 {
+   print( paste( "Loop-", i, ": ", format(Sys.time(), "%b %d %X"), sep="" ) )
    d.sub <- dd[ (breaks[i]+1):( breaks[i+1] ) , ]
    cd <- buildCore( index=d.sub, years=year, form.type=c("990","990EZ") )
    saveRDS( cd, paste( "d", year, "-", (breaks[i]+1), "-to-", breaks[i+1], ".rds", sep="" ) )
 
 }
-
 
 
 
@@ -145,6 +147,7 @@ breaks <- round( seq( from = 0, to = nrow(dd), length.out = 100 ), 0 )
 
 for( i in 1:99 )
 {
+   print( paste( "Loop-", i, ": ", format(Sys.time(), "%b %d %X"), sep="" ) )
    d.sub <- dd[ (breaks[i]+1):( breaks[i+1] ) , ]
    cd <- buildCore( index=d.sub, years=year, form.type=c("990","990EZ") )
    saveRDS( cd, paste( "d", year, "-", (breaks[i]+1), "-to-", breaks[i+1], ".rds", sep="" ) )
@@ -169,6 +172,7 @@ breaks <- round( seq( from = 0, to = nrow(dd), length.out = 100 ), 0 )
 
 for( i in 1:99 )
 {
+   print( paste( "Loop-", i, ": ", format(Sys.time(), "%b %d %X"), sep="" ) )
    d.sub <- dd[ (breaks[i]+1):( breaks[i+1] ) , ]
    cd <- buildCore( index=d.sub, years=year, form.type=c("990","990EZ") )
    saveRDS( cd, paste( "d", year, "-", (breaks[i]+1), "-to-", breaks[i+1], ".rds", sep="" ) )
@@ -193,6 +197,7 @@ breaks <- round( seq( from = 0, to = nrow(dd), length.out = 100 ), 0 )
 
 for( i in 1:99 )
 {
+   print( paste( "Loop-", i, ": ", format(Sys.time(), "%b %d %X"), sep="" ) )
    d.sub <- dd[ (breaks[i]+1):( breaks[i+1] ) , ]
    cd <- buildCore( index=d.sub, years=year, form.type=c("990","990EZ") )
    saveRDS( cd, paste( "d", year, "-", (breaks[i]+1), "-to-", breaks[i+1], ".rds", sep="" ) )
