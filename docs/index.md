@@ -176,6 +176,8 @@ Current sample sizes are at:
 --------|----------|----------|
 15,160  |  42,392  | 47,557   |
 
+<br>
+
 [ [Data Dictionary](https://www.irs.gov/pub/irs-tege/f1023ez_infosheet.pdf) ]  [ [Link to Dataset](https://www.irs.gov/charities-non-profits/exempt-organizations-form-1023ez-approvals) ]
 
 
