@@ -188,15 +188,19 @@ Current sample sizes are at:
 
 There are some additional interesting sources of nonprofit data that have the potential to be leveraged for future research:
 
-County Level Measures of Social Capital
+**County Level Measures of Social Capital**
 * [Data](http://aese.psu.edu/nercrd/community/social-capital-resources)
 * [Data Dictionary](http://aese.psu.edu/nercrd/community/social-capital-resources/social-capital-variables-for-1997-2005-and-2009/data-dictionary-sk-variables)
 * Data available for 1990, 1997, 2005, and 2009
 
+**Religious Congregation Data**
+* Measures of Church Numbers and Membership from 1950 to 2010
+* [Link to Association of Religion Data Archives](http://www.thearda.com/archive/browse.asp)
+
+**Notable APIs for Nonprofit Data**
 * [Pro Publica Nonprofit Explorer API](https://www.propublica.org/nerds/item/announcing-the-nonprofit-explorer-api)
 * [Foundation Center API](http://data.foundationcenter.org/about.html)
 * [Guidestar APIs](https://community.guidestar.org/groups/developer)
-* [Religious Congregation Data](http://www.thearda.com/archive/browse.asp)
 * [Dark Money Given to Nonprofits](http://www.opensecrets.org/dark-money/explore-our-reports.php)
 
 
