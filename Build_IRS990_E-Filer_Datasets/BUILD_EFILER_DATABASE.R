@@ -1454,6 +1454,7 @@ scrapeXML <- function( url, form.type )
 	TOTALPROGSERVEXP <- zeroALL( TOTALPROGSERVEXP )
 
 
+	
 	#------------------------------------------------------------------------------------------------------------------------
 	####  PART IV - CHECKLIST OF REQUIRED SCHEDULES
 
@@ -1465,7 +1466,16 @@ scrapeXML <- function( url, form.type )
 	V_990L.EZpre2013  <- "//Return/ReturnData/IRS990EZ/EngageInLobbyingActivities"
 	lobbying.xpath <- paste( V_990Lpost2013, V_990Lpre2013, V_990L.EZpost2013, V_990L.EZpre2013, sep="|" )
 	LOBBYING <- xml_text( xml_find_all( doc, lobbying.xpath ) )
-
+	
+	
+	
+	## FOREIGN REVENUE OR EXPENSES OR $10K, OR FOREIGN INVESTMENTS OVER $100K
+	
+	V_990FRpost2013 <- "//Return/ReturnData/IRS990/ForeignActivitiesInd"
+	V_990FRpre2013  <- "//Return/ReturnData/IRS990/ForeignActivities"
+	foreign.rev.xpath <- paste( V_990FRpost2013, V_990FRpre2013, sep="|" )
+	FOREIGNREV <- xml_text( xml_find_all( doc, foreign.rev.xpath ) )
+	
 
 
 	#------------------------------------------------------------------------------------------------------------------------
@@ -2504,7 +2514,7 @@ scrapeXML <- function( url, form.type )
 			       # PART III
 			       TOTALPROGSERVEXP,
 			       # PART IV
-			       LOBBYING,
+			       LOBBYING, FOREIGNREV,
 			       # PART VI
 			       SCHEDOPARTVI, VMGOVERNING, IVMGOVERNING, OFFICERREL, MGMTDEL,
 			       CHANGESGOVDOCS, DIVASSETS, STOCKMEMBER, MEMBERCHOOSE, 
