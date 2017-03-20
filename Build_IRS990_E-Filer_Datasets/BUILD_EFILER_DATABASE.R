@@ -664,6 +664,7 @@ scrapeXML <- function( url, form.type )
   NETUBI <- zeroPC( NETUBI )
 
 
+  
 	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART I - REVENUES 
 	## The 990-PC forms split columns in this area into Current Year and Prior Year, the 990-EZs do not. 990-EZ data
@@ -768,6 +769,7 @@ scrapeXML <- function( url, form.type )
 	TOTALREVCURRENT <- xml_text( xml_find_all( doc, total.rev.current.xpath ) )  
 	TOTALREVCURRENT <- zeroALL( TOTALREVCURRENT )
 
+	
 
 	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART I - REVENUES (990EZ-specific fields)
@@ -950,6 +952,7 @@ scrapeXML <- function( url, form.type )
 	NETSALESINV <- zeroALL( NETSALESINV )
 
 
+	
 	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART I - EXPENSES
 	## The 990-PC forms split columns in this area into Current Year and Prior Year, the 990-EZs do not. 990-EZ data
@@ -1223,6 +1226,7 @@ scrapeXML <- function( url, form.type )
 	REVLESSEXPCURRENT <- xml_text( xml_find_all( doc, rev.less.exp.current.xpath ) ) 
 	REVLESSEXPCURRENT <- zeroALL( REVLESSEXPCURRENT )
 
+	
 
 	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART I - NET ASSETS
@@ -1304,6 +1308,7 @@ scrapeXML <- function( url, form.type )
 	NETASSETSENDYEAR <- zeroALL( NETASSETSENDYEAR )
 
 
+	
 	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART II(EZ) / X (PC) - BALANCE SHEET
 	##   Organized to capture the values present on both PC and EZ first, then PC-specific values after
@@ -1440,6 +1445,7 @@ scrapeXML <- function( url, form.type )
 	OTHERASSETSENDYEAR <- zeroALL( OTHERASSETSENDYEAR )
 
 
+	
 	#------------------------------------------------------------------------------------------------------------------------
 	####  PART III - STATEMENT OF PROGRAM SERVICE ACCOMPLISHMENTS
 
@@ -1987,6 +1993,7 @@ scrapeXML <- function( url, form.type )
 	TABALSHEETENDYEAR <- xml_text( xml_find_all( doc, totalassets.balsheet.end.xpath ) ) 
 	TABALSHEETENDYEAR <- zeroPC( TABALSHEETENDYEAR )
 
+	
 
 	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART X - LIABILITIES
@@ -2176,6 +2183,7 @@ scrapeXML <- function( url, form.type )
 	TLBALSHEETENDYEAR <- zeroPC( TLBALSHEETENDYEAR )
 
 
+	
 	#------------------------------------------------------------------------------------------------------------------------
 	#####  PART X - NET ASSETS OR FUND BALANCES
 	#####   PC-specific Values
@@ -2340,12 +2348,112 @@ scrapeXML <- function( url, form.type )
 	total.liab.na.end.xpath <- paste( V_990EOYTLANApost2013, V_990EOYTLANApre2013, sep="|" )
 	TOTLIABNAENDYEAR <- xml_text( xml_find_all( doc, total.liab.na.end.xpath ) )
 	TOTLIABNAENDYEAR <- zeroPC( TOTLIABNAENDYEAR )
+	
+	
+	
+	#------------------------------------------------------------------------------------------------------------------------
+	#####  LIST OF SCHEDULES
+	
 
+	## SCHEDULE A FILED
+	
+	SCHEDA <- grepl( "IRS990ScheduleA", doc )
+	
+	
+	
+	## SCHEDULE B FILED
+	
+	SCHEDB <- grepl( "IRS990ScheduleB", doc )
+	
+	
+	
+	## SCHEDULE C FILED
+	
+	SCHEDC <- grepl( "IRS990ScheduleC", doc )
+	
+	
+	
+	## SCHEDULE D FILED
+	
+	SCHEDD <- grepl( "IRS990ScheduleD", doc )
+	
+	
+	
+	## SCHEDULE E FILED
+	
+	SCHEDE <- grepl( "IRS990ScheduleE", doc )
+	
+	
+	
+	## SCHEDULE F FILED
+	
+	SCHEDF <- grepl( "IRS990ScheduleF", doc )
+	
+	
+	
+	## SCHEDULE G FILED
+	
+	SCHEDG <- grepl( "IRS990ScheduleG", doc )
+	
+	
+	
+	## SCHEDULE H FILED
+	
+	SCHEDH <- grepl( "IRS990ScheduleH", doc )
+	
+	
+	
+	## SCHEDULE I FILED
+	
+	SCHEDI <- grepl( "IRS990ScheduleI", doc )
+	
+	
+	
+	## SCHEDULE J FILED
+	
+	SCHEDJ <- grepl( "IRS990ScheduleJ", doc )
+	
+	
+	
+	## SCHEDULE K FILED
+	
+	SCHEDK <- grepl( "IRS990ScheduleK", doc )
+	
+	
+	
+	## SCHEDULE L FILED
+	
+	SCHEDL <- grepl( "IRS990ScheduleL", doc )
+	
+	
+	
+	## SCHEDULE M FILED
+	
+	SCHEDM <- grepl( "IRS990ScheduleM", doc )
+	
+	
+	
+	## SCHEDULE N FILED
+	
+	SCHEDN <- grepl( "IRS990ScheduleN", doc )
+	
+	
+	
+	## SCHEDULE O FILED
+	
+	SCHEDO <- grepl( "IRS990ScheduleO", doc )
+	
+
+		
+	## SCHEDULE R FILED
+	
+	SCHEDR <- grepl( "IRS990ScheduleR", doc )
+
+	
 
 	#------------------------------------------------------------------------------------------------------------------------
 	#####  SCHEDULE C
 	## The xpaths are the same for PC and EZ
-
 
 
 	## PUBLIC OPINION/GRASS ROOTS LOBBYING EXPENSES OF FILING ORGANIZATION
@@ -2541,6 +2649,9 @@ scrapeXML <- function( url, form.type )
 			       TRESTNAENDYEAR, PRESTNABEGYEAR, PRESTNAENDYEAR, STOCKBEGYEAR, STOCKENDYEAR, 
 			       SURPLUSBEGYEAR, SURPLUSENDYEAR, EARNINGSBEGYEAR, EARNINGSENDYEAR,
 			       TOTNETASSETSBEGYEAR, TOTNETASSETSENDYEAR, TOTLIABNABEGYEAR, TOTLIABNAENDYEAR,
+			       # LIST OF SCHEDULES
+			       SCHEDA, SCHEDB, SCHEDC, SCHEDD, SCHEDE, SCHEDF, SCHEDG, SCHEDH, 
+			       SCHEDI, SCHEDJ, SCHEDK, SCHEDL, SCHEDM, SCHEDN, SCHEDO, SCHEDR,
 			       # SCHEDULE C
 			       LOBPOFILING, LOBPOAFFIL, LOBLBFILING, LOBLBAFFIL, TOTLOBEXPFILING, 
 			       TOTLOBEXPAFFIL, OTHEREXEMPTFILING, OTHEREXEMPTAFFIL, TOTEXEMPTFILING,
