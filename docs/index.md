@@ -163,15 +163,44 @@ Nonprofits that fail to file 990 returns for three years have their 501(c)(3) ta
 <br>
 
 
+## (7) Organizations Granted Tax Exempt Status through 1023-EZ Form
+
+This dataset contains information on nonprofits that have been granted tax-exempt status through the new 1023-EZ form, a more compact and simplified version of the original 1023 form. These data do not include organizations that filed for exempt status through the original 1023 form, nor those that filed via paper forms sent to the IRS through the mail. The forms and criteria for submitting a 1023-EZ can be found here:
+
+[ [1023-EZ Documentation](https://www.irs.gov/uac/about-form-1023ez)  ]  
+[ [1023 Documentation](https://www.irs.gov/uac/about-form-1023)  ]  
+
+Current sample sizes are at:
+
+2014    |  2015    |  2016    |
+--------|----------|----------|
+15,160  |  42,392  | 47,557   |
+
+<br>
+
+[ [Data Dictionary](https://www.irs.gov/pub/irs-tege/f1023ez_infosheet.pdf) ]  [ [Link to Dataset](https://www.irs.gov/charities-non-profits/exempt-organizations-form-1023ez-approvals) ]
+
+
+<br> 
+
 
 ### Additional Open Data Resources of Note 
 
 There are some additional interesting sources of nonprofit data that have the potential to be leveraged for future research:
 
+**County Level Measures of Social Capital**
+* [Data](http://aese.psu.edu/nercrd/community/social-capital-resources)
+* [Data Dictionary](http://aese.psu.edu/nercrd/community/social-capital-resources/social-capital-variables-for-1997-2005-and-2009/data-dictionary-sk-variables)
+* Data available for 1990, 1997, 2005, and 2009
+
+**Religious Congregation Data**
+* Measures of Church Numbers and Membership from 1950 to 2010
+* [Link to Association of Religion Data Archives](http://www.thearda.com/archive/browse.asp)
+
+**Notable APIs for Nonprofit Data**
 * [Pro Publica Nonprofit Explorer API](https://www.propublica.org/nerds/item/announcing-the-nonprofit-explorer-api)
 * [Foundation Center API](http://data.foundationcenter.org/about.html)
 * [Guidestar APIs](https://community.guidestar.org/groups/developer)
-* [Religious Congregation Data](http://www.thearda.com/archive/browse.asp)
 * [Dark Money Given to Nonprofits](http://www.opensecrets.org/dark-money/explore-our-reports.php)
 
 
