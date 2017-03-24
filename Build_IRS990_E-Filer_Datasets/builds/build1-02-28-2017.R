@@ -45,10 +45,12 @@ data.ef$FilingYear <- year - 1
 data.ef$FilingYear[ month == "12" ] <- year[ month == "12" ]
 
 
-table( data.ef$FilingYear, useNA="ifany" )
+table( data.ef$FormType, data.ef$FilingYear, useNA="ifany" )
 
-#   2009   2010   2011   2012   2013   2014   2015 
-#  51212 211635 276202 313380 348910 383203 168587
+#           2009   2010   2011   2012   2013   2014   2015
+#   990    33360 123107 159539 179675 198615 215764  73233
+#   990EZ  15500  63253  82066  93769 104425 114822  60967
+#   990PF   2352  25275  34597  39936  45870  52617  34387
 
 
 
