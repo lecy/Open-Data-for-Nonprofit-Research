@@ -35,12 +35,21 @@ nrow( data.ef )  # 1,753,129
 
 # REFORMAT FILING DATE FROM YYYY-MM TO YYYY
 
-data.ef$FilingYear <- substr( data.ef$TaxPeriod, 1, 4 )
+# Tax Period represents the end of the nonprofit's accounting year
+# The tax filing year is always the previous year, unless the accounting year ends in December
+
+year <- as.numeric( substr( data.ef$TaxPeriod, 1, 4 ) )
+month <- substr( data.ef$TaxPeriod, 5, 6 )
+
+data.ef$FilingYear <- year - 1
+data.ef$FilingYear[ month == "12" ] <- year[ month == "12" ]
+
 
 table( data.ef$FilingYear, useNA="ifany" )
 
-#   2010   2011   2012   2013   2014   2015   2016 
-# 176064 245447 299310 335934 374026 312359   9989 
+#   2009   2010   2011   2012   2013   2014   2015 
+#  51212 211635 276202 313380 348910 383203 168587
+
 
 
 
@@ -48,7 +57,7 @@ table( data.ef$FilingYear, useNA="ifany" )
 
 source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Build_IRS990_E-Filer_Datasets/BUILD_EFILER_DATABASE.R")
 
-# BUILD FILE
+# BUILD FILE SYNTAX
 # 
 # cd <- buildCore( index=these.npos, years=2014:2015, form.type=c("990","990EZ") )
 
