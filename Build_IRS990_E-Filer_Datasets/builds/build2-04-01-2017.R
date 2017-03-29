@@ -1,17 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Build_IRS990_E-Filer_Datasets/BUILD_EFILER_DATABASE.R")
-
-
-
 # Script to Build E-Filer Core Database for Posting on Dataverse
 
 
@@ -22,11 +10,11 @@ library( R.utils )
 
 ### CREATE A DIRECTORY FOR THE DATA
 
-getwd()
+setwd( "C:/Users/jdlecy/Dropbox/04 - PAPERS/01 - In Progress/38 - Digitized 990s/BUILD" )
 
-dir.create( "IRS Nonprofit Data" )
+dir.create( "March2017" )
 
-setwd( "./IRS Nonprofit Data" )
+setwd( "./March2017" )
 
 
 
