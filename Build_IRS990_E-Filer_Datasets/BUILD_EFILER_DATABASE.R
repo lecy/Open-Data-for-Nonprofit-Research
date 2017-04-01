@@ -118,8 +118,14 @@ buildIndex <- function( )
 
 	# REFORMAT DATE FROM YYYY-MM TO YYYY
 
-	data.ef$FilingYear <- substr( data.ef$TaxPeriod, 1, 4 )
+	# Tax Period represents the end of the nonprofit's accounting year
+	# The tax filing year is always the previous year, unless the accounting year ends in December
+	
+        year <- as.numeric( substr( data.ef$TaxPeriod, 1, 4 ) )
+	month <- substr( data.ef$TaxPeriod, 5, 6 )
 
+	data.ef$FilingYear <- year - 1
+	data.ef$FilingYear[ month == "12" ] <- year[ month == "12" ]
 
 
 	return( data.ef )
