@@ -89,9 +89,24 @@ nrow( data.ef )
 
 
 
-# REFORMAT DATE FROM YYYY-MM TO YYYY
+# REFORMAT FILING DATE FROM YYYY-MM TO YYYY
 
-data.ef$FilingYear <- substr( data.ef$TaxPeriod, 1, 4 )
+# Tax Period represents the end of the nonprofit's accounting year
+# The tax filing year is always the previous year, unless the accounting year ends in December
+
+year <- as.numeric( substr( data.ef$TaxPeriod, 1, 4 ) )
+month <- substr( data.ef$TaxPeriod, 5, 6 )
+
+data.ef$FilingYear <- year - 1
+data.ef$FilingYear[ month == "12" ] <- year[ month == "12" ]
+
+
+# table( data.ef$FormType, data.ef$FilingYear, useNA="ifany" )
+#
+#           2009   2010   2011   2012   2013   2014   2015
+#   990    33360 123107 159539 179675 198615 215764  73233
+#   990EZ  15500  63253  82066  93769 104425 114822  60967
+#   990PF   2352  25275  34597  39936  45870  52617  34387
 
 
 
