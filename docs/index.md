@@ -1,8 +1,8 @@
-## Open Data for Nonprofit Research
+# Open Data for Nonprofit Research
 
-This project was created to make existing open data assets easily accessible to nonprofit scholars and researchers. 
+The IRS maintains several important nonprofit databases to track the current population of exempt organizations, their annual 990 filings, and organizations that have closed. This data has been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. 
 
-The IRS maintains several important nonprofit databases to track the current population of exempt organizations, their annual 990 filings, and organizations that have closed. This data has been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
+In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
 
 We have begun the process to catalog and document these resources, and will begin sharing them through the Dataverse Open Data portal:
 
@@ -14,6 +14,14 @@ We have begun the process to catalog and document these resources, and will begi
 # Available Data
 
 We have documented and posted the following open data assets:
+
+1. **IRS E-Filer Database:** All nonprofit 990 data that is filed electronically, about 60% of nonprofits.
+2. **Index of all E-Filers from 2009 to Present:** A list of all organizations that have electronically filed each year.
+3. **Current Exempt Organizations:** The current list of all tax-exempt organizations.
+4. **IRS Business Master File:** Organizational characteristics of all current exempt organizations.
+5. **990N Postcard Filers:** Data on nonprofits that are small enough to file the abbreviated "postcard" version of the 990 form.
+6. **IRS Automatic Revocations:"** Database of nonprofits that had their tax exempt status revoked for failing to file.
+7. **Organizations Granted Tax Exempt Status through 1023-EZ Form:** Data filed electronically on the new shorter 1023-EZ application for 501(c) status.
 
 <br>
 
@@ -95,10 +103,18 @@ There are some forums on using the E-Filer data, for example [this reddit forum]
 
 
 
+## (2) Index of 990, 990-EZ and 990-PF Electronic Filers from 2009 to Present
+
+We provide an R script that builds the INDEX file (not the full dataset) for all IRS E-Filer open data provided on the Amazon Web Server. The index contains a limited number of variables such as nonprofit name, EIN, tax year, form type, and the URL link to the XML form of the 990 return data. This index file allows you to see what is available in the open E-Filer database.
+
+[ [Data Dictionary] ](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_E-Filers_Index.Rmd)  [Link to Dataset]
+
+<br>
 
 
 
-## (2) List of all Current Exempt Organizations (all orgs granted 501(c)(3) status)  
+
+## (3) List of all Current Exempt Organizations (all orgs granted 501(c)(3) status)  
 
 
 The [IRS Publication 78](https://apps.irs.gov/app/eos/forwardToPub78Download.do) contains a list of all organizations that currently have 501(c)(3) tax exempt status and are in good standing (eligible to receive tax-deductible donations) under IRS code.
@@ -110,7 +126,7 @@ The [IRS Publication 78](https://apps.irs.gov/app/eos/forwardToPub78Download.do)
 <br>
 
 
-## (3) Business Master File of All Current Exempt Orgs
+## (4) Business Master File of All Current Exempt Orgs
 
 The [IRS Exempt Organization Business Master File Extract (EO BMF)](https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf) contains information on all active nonprofits including basic information about nonprofit location, ruling date (when they were granted tax exempt status), and activities. Note that the NTEE codes are noisy and incomplete. It is recommended to use the NCCS codes instead.
 
@@ -122,13 +138,6 @@ The [IRS Exempt Organization Business Master File Extract (EO BMF)](https://www.
 <br>
 
 
-## (4) Index of 990, 990-EZ and 990-PF Electronic Filers from 2010 to Present
-
-We provide an R script that builds the INDEX file (not the full dataset) for all IRS E-Filer open data provided on the Amazon Web Server. The index contains a limited number of variables such as nonprofit name, EIN, tax year, form type, and the URL link to the XML form of the 990 return data. This index file allows you to see what is available in the open E-Filer database.
-
-[ [Data Dictionary] ](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_E-Filers_Index.Rmd)  [Link to Dataset]
-
-<br>
 
 ## (5) All 990-N Postcard Filers
 
@@ -188,7 +197,7 @@ Current sample sizes are at:
 <br> 
 
 
-### Additional Open Data Resources of Note 
+# Additional Open Data Resources of Note 
 
 There are some additional interesting sources of nonprofit data that have the potential to be leveraged for future research:
 
