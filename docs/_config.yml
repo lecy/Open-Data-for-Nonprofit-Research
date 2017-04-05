@@ -5,4 +5,3 @@ show_downloads: false
 theme: jekyll-theme-dinky
 
 -gems:
- -  - jekyll-mentions
