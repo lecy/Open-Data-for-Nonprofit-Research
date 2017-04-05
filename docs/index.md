@@ -31,6 +31,12 @@ The IRS has released all nonprofit 990 tax data that has been e-filed through th
 
 In order to support use of this data, we have converted the XML files into a research database similar to the NCCS Core dataset.
 
+ **FORM** | 2009 |  2010 |  2011  | 2012  | 2013  | 2014 |  2015
+-------|-------|--------|-------|-------|------|-------|------- 
+**990**  | 33,360 | 123,107 | 159,539 | 179,675 | 198,615 | 215,764 | 73,233
+**990EZ** | 15,500 | 63.253 |  82,066 |  93,769 | 104,425  | 114,822  | 60,967
+**990PF**  | 2,352 | 25,275  | 34,597  | 39,936 | 45,870  | 52,617  | 34387
+
 Check out a quick guide to working with XML files in R: [ [HTML](Quick_Guide_to_XML_in_R.html) ]  [ [PDF](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.pdf) ]
 
 You can download the data in CSV and RDS formats here:  [ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_IRS990_E-Filer_Datasets/Data_Dictionary.md) ] [ Link to Dataset ]
