@@ -31,19 +31,14 @@ The IRS has released all nonprofit 990 tax data that has been e-filed through th
 
 In order to support use of this data, we have converted the XML files into a research database similar to the NCCS Core dataset.
 
+Check out a quick guide to working with XML files in R: [HTML](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.html)  [PDF](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.pdf)  [Markdown](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.Rmd)
+
+You can download the data in CSV and RDS formats here:
+
 [ [Data Dictionary](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Build_IRS990_E-Filer_Datasets/Data_Dictionary.md) ] [ Link to Dataset ]
 
 
 #### Liberating the 990 Data
-
-The new IRS 990 data repository that was released in June of 2016 is [hosted on an Amazon S3 Cloud Server](https://aws.amazon.com/public-data-sets/irs-990/). 
-
-
-The release of the data is an important step in making it open and timely (new data is released every couple of months). However, it is currently in XML format and each 990 return is listed on a separate webpage instead of in a single database. This format can be challenging for scholars to work with.
-
-
-We have created some tools for translating the XML files into a familiar spreadsheet format. We are currently building scripts for each section of the 990 forms in order to generate separate databases for each year of filers. At this early stage we are focusing on the 990 and 990-EZ forms, although the foundation 990-PF files are also available. Datasets are posted on the Dataverse site listed above.
-
 
 For some background on the campaigns to open access to IRS data, see these articles and blogs:
 
@@ -57,9 +52,7 @@ For some background on the campaigns to open access to IRS data, see these artic
 
 
 
-#### Useful Information About 990 Data
-
-Form 990: A Guide for Newcomers to Nonprofit Research [ [LINK](http://blog.boardsource.org/blog/form-990-a-guide-for-newcomers-to-nonprofit-research) ]
+#### Working With 990 Data
 
 Example Forms:
 
@@ -67,6 +60,8 @@ Example Forms:
 * [990-EZ](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Form%20990-EZ%202015.pdf)
 * [990-PF](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Form%20990-PF%202015.pdf)
 * [990-N Postcard](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Information%20Needed%20to%20File%20e-Postcard.pdf)
+
+Form 990: A Guide for Newcomers to Nonprofit Research [ [LINK](http://blog.boardsource.org/blog/form-990-a-guide-for-newcomers-to-nonprofit-research) ]
 
 A History of the Tax Exempt Sector: An SOI Perspective [ [LINK](https://www.irs.gov/pub/irs-soi/tehistory.pdf) ]
 
@@ -76,18 +71,16 @@ Revised Form 990: The Evolution of Governance and the Nonprofit World [ [LINK](h
 
 Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#History) ]
 
-* Form 990 was first used for the tax year ending in 1941. It was as a two-page form. Organizations were also required to include a schedule with the names and addresses of payees who had given the organization at least $4,000 during the year.
+*Form 990 was first used for the tax year ending in 1941. It was as a two-page form. Organizations were also required to include a schedule with the names and addresses of payees who had given the organization at least $4,000 during the year.*
 
-* The form reached four pages (including instructions) in 1947. In 1976 this was increased to 5.5 pages (including instructions), with 8 pages for Schedule A. By 2000 this was 6 pages for Form 990, 42 pages for instructions, 6 pages for Schedule A, and at least 2 pages for Schedule B. This increase is due to use of a larger font and inclusion of sections that are only required for some organizations.
+*The form reached four pages (including instructions) in 1947. In 1976 this was increased to 5.5 pages (including instructions), with 8 pages for Schedule A. By 2000 this was 6 pages for Form 990, 42 pages for instructions, 6 pages for Schedule A, and at least 2 pages for Schedule B. This increase is due to use of a larger font and inclusion of sections that are only required for some organizations.*
 
-* Starting in 2000, political organizations were required to file Form 990.
+*Starting in 2000, political organizations were required to file Form 990.*
 
-* In June 2007, the IRS released a new Form 990 that requires significant disclosures on corporate governance and boards of directors. These new disclosures are required for all nonprofit filers for the 2009 tax year, with more significant reporting requirements for nonprofits with over $1 million in revenues or $2.5 million in assets.
-
-
+*In June 2007, the IRS released a new Form 990 that requires significant disclosures on corporate governance and boards of directors. These new disclosures are required for all nonprofit filers for the 2009 tax year, with more significant reporting requirements for nonprofits with over $1 million in revenues or $2.5 million in assets.*
 
 
-#### Working with the data on the AWS Platform
+#### Resources for the AWS Data
 
 Charity Navigator has created an open-source [990 Toolkit](http://990.charitynavigator.org/) that allows you to set up an Amazon EC2 instance and clone the full IRS dataset as a relational database. You can read their press release about the project [here](http://www.charitynavigator.org/index.cfm?bay=content.view&cpid=4669).
 
