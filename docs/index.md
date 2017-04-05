@@ -102,7 +102,7 @@ There are some forums on using the E-Filer data, for example [this reddit forum]
 
 We provide an R script that builds the INDEX file (not the full dataset) for all IRS E-Filer open data provided on the Amazon Web Server. The index contains a limited number of variables such as nonprofit name, EIN, tax year, form type, and the URL link to the XML form of the 990 return data. This index file allows you to see what is available in the open E-Filer database.
 
- |   | 2009 |  2010 |  2011  | 2012  | 2013  | 2014 |  2015
+ **FORM** | 2009 |  2010 |  2011  | 2012  | 2013  | 2014 |  2015
 -------|-------|--------|-------|-------|------|-------
 **990**  | 33,360 | 123,107 | 159,539 | 179,675 | 198,615 | 215,764 | 73,233
 **990EZ** | 15,500 | 63.253 |  82,066 |  93,769 | 104,425  | 114,822  | 60,967
