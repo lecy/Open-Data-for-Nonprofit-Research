@@ -31,7 +31,7 @@ The IRS has released all nonprofit 990 tax data that has been e-filed through th
 
 In order to support use of this data, we have converted the XML files into a research database similar to the NCCS Core dataset.
 
-Check out a quick guide to working with XML files in R: [HTML](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.html)  [PDF](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.pdf)  [Markdown](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.Rmd)
+Check out a quick guide to working with XML files in R: [ [HTML](Quick_Guide_to_XML_in_R.html) ]  [ [PDF](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.pdf) ]
 
 You can download the data in CSV and RDS formats here:
 
