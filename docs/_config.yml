@@ -1,7 +1,7 @@
 title: Open Data for Nonprofit Research
 description: A collection of tools for creating, wrangling, and sharing data on the nonprofit sector
 google_analytics: UA-91780879-1
-show_downloads: true
+show_downloads: false
 theme: jekyll-theme-dinky
 
 -gems:
