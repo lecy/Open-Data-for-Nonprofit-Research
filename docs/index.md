@@ -84,6 +84,8 @@ Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#Hi
 
 Charity Navigator has created an open-source [990 Toolkit](http://990.charitynavigator.org/) that allows you to set up an Amazon EC2 instance and clone the full IRS dataset as a relational database. You can read their press release about the project [here](http://www.charitynavigator.org/index.cfm?bay=content.view&cpid=4669).
 
+Chad Kruse at SmarterGiving has a script to convert 990-PF XML files into a MongoDB database on GitHub [here](https://github.com/smartergiving/irs-990-fetch).
+
 You can find some useful scripts here for running queries directly within the cloud and downloading data as CSV files, for example [this GitHub gist](https://gist.github.com/ryankanno/a5da4c6f1f8e0136db9623ae1903d23d#form-990).
 
 If you are more comfortable in Python, check out Yash Nanavati's [GitHup repo](https://github.com/yashvardhannanavati/IRS990-Data-Analysis).
@@ -99,6 +101,13 @@ There are some forums on using the E-Filer data, for example [this reddit forum]
 ## (2) Index of 990, 990-EZ and 990-PF Electronic Filers from 2009 to Present
 
 We provide an R script that builds the INDEX file (not the full dataset) for all IRS E-Filer open data provided on the Amazon Web Server. The index contains a limited number of variables such as nonprofit name, EIN, tax year, form type, and the URL link to the XML form of the 990 return data. This index file allows you to see what is available in the open E-Filer database.
+
+  2009 |  2010 |  2011  | 2012  | 2013  | 2014 |  2015
+-------|-------|--------|-------|-------|------|-------
+**990**  | 33,360 | 123,107 | 159,539 | 179,675 | 198,615 | 215,764 | 73,233
+**990EZ** | 15,500 | 63.253 |  82,066 |  93,769 | 104,425  | 114,822  | 60,967
+**990PF**  | 2,352 | 25,275  | 34,597  | 39,936 | 45,870  | 52,617  | 34387
+
 
 [ [Data Dictionary] ](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_E-Filers_Index.Rmd)  [Link to Dataset]
 
