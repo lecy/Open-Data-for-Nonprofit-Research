@@ -35,7 +35,7 @@ In order to support use of this data, we have converted the XML files into a res
 -------|-------|--------|-------|-------|------|-------|------- 
 **990**  | 33,360 | 123,107 | 159,539 | 179,675 | 198,615 | 215,764 | 73,233
 **990EZ** | 15,500 | 63.253 |  82,066 |  93,769 | 104,425  | 114,822  | 60,967
-**990PF**  | 2,352 | 25,275  | 34,597  | 39,936 | 45,870  | 52,617  | 34387
+**990PF**  | 2,352 | 25,275  | 34,597  | 39,936 | 45,870  | 52,617  | 34,387
 
 Check out a quick guide to working with XML files in R: [ [HTML](Quick_Guide_to_XML_in_R.html) ]  [ [PDF](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/Quick_Guide_to_XML_in_R.pdf) ]
 
@@ -75,13 +75,6 @@ Revised Form 990: The Evolution of Governance and the Nonprofit World [ [LINK](h
 
 Wikipedia: History of the 990 [ [LINK](https://en.wikipedia.org/wiki/Form_990#History) ]
 
-*Form 990 was first used for the tax year ending in 1941. It was as a two-page form. Organizations were also required to include a schedule with the names and addresses of payees who had given the organization at least $4,000 during the year.*
-
-*The form reached four pages (including instructions) in 1947. In 1976 this was increased to 5.5 pages (including instructions), with 8 pages for Schedule A. By 2000 this was 6 pages for Form 990, 42 pages for instructions, 6 pages for Schedule A, and at least 2 pages for Schedule B. This increase is due to use of a larger font and inclusion of sections that are only required for some organizations.*
-
-*Starting in 2000, political organizations were required to file Form 990.*
-
-*In June 2007, the IRS released a new Form 990 that requires significant disclosures on corporate governance and boards of directors. These new disclosures are required for all nonprofit filers for the 2009 tax year, with more significant reporting requirements for nonprofits with over $1 million in revenues or $2.5 million in assets.*
 
 
 #### Resources for the AWS Data
@@ -110,7 +103,7 @@ We provide an R script that builds the INDEX file (not the full dataset) for all
 -------|-------|--------|-------|-------|------|-------|------- 
 **990**  | 33,360 | 123,107 | 159,539 | 179,675 | 198,615 | 215,764 | 73,233
 **990EZ** | 15,500 | 63.253 |  82,066 |  93,769 | 104,425  | 114,822  | 60,967
-**990PF**  | 2,352 | 25,275  | 34,597  | 39,936 | 45,870  | 52,617  | 34387
+**990PF**  | 2,352 | 25,275  | 34,597  | 39,936 | 45,870  | 52,617  | 34,387
 
 
 [ [Data Dictionary] ](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Open_Nonprofit_Datasets/IRS_E-Filers_Index.Rmd)  [Link to Dataset]
