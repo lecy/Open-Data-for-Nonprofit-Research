@@ -209,6 +209,12 @@ There are some additional interesting sources of nonprofit data that have the po
 * Measures of Church Numbers and Membership from 1950 to 2010
 * [Link to Association of Religion Data Archives](http://www.thearda.com/archive/browse.asp)
 
+**Marc Joffe's Federal Audit Clearinghouse Harvester**
+* [Link to Federal Website](https://harvester.census.gov/facdissem/SearchA133.aspx)
+* [Marc's Online Repository of Audits](http://www.govwiki.info/pdfs/Non-Profit/)
+* [GitHub Repo of Harvesting Scripts](https://github.com/govwiki/SingleAuditRepo)
+
+
 **Notable APIs for Nonprofit Data**
 * [Pro Publica Nonprofit Explorer API](https://www.propublica.org/nerds/item/announcing-the-nonprofit-explorer-api)
 * [Foundation Center API](http://data.foundationcenter.org/about.html)
