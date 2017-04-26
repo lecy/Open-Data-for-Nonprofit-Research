@@ -220,12 +220,65 @@ There are some additional interesting sources of nonprofit data that have the po
 * [Marc's Online Repository of Audits](http://www.govwiki.info/pdfs/Non-Profit/)
 * [GitHub Repo of Harvesting Scripts](https://github.com/govwiki/SingleAuditRepo)
 
-
 **Notable APIs for Nonprofit Data**
 * [Pro Publica Nonprofit Explorer API](https://www.propublica.org/nerds/item/announcing-the-nonprofit-explorer-api)
 * [Foundation Center API](http://data.foundationcenter.org/about.html)
 * [Guidestar APIs](https://community.guidestar.org/groups/developer)
 * [Dark Money Given to Nonprofits](http://www.opensecrets.org/dark-money/explore-our-reports.php)
+
+
+**State of Indiana's Audit Clearinghouse**
+* [Link to the Portal](https://gateway.ifionline.org)
+* *Click on “Report Builder”, then “Entity Annual Report” and then “Entity Annual Report”.*
+* [Log of 2015 Nonprofit Audits](https://github.com/lecy/Open-Data-for-Nonprofit-Research/blob/master/Resources/sboa_e1_submission_log_2015.csv)
+* Example of organizations included:
+
+| Category Group                              | Number Audited in 2015 | 
+|---------------------------------------------|-----------------------------------------------| 
+| 4H-CLUB                                     | 62                                            | 
+| ART FOUNDATIONS/CENTERS                     | 114                                           | 
+| BIG BROTHERS/BIG SISTERS                    | 6                                             | 
+| BOYS & GIRLS CLUBS                          | 31                                            | 
+| CAP AGENCIES                                | 29                                            | 
+| CEMETERY                                    | 2                                             | 
+| CHURCH                                      | 40                                            | 
+| CIVIC ORGANIZATIONS/CLUBS                   | 8                                             | 
+| COUNCIL ON AGING                            | 43                                            | 
+| COUNTY FAIR ORGANIZATION                    | 21                                            | 
+| CRISIS CENTER                               | 48                                            | 
+| DAY CARE CENTER                             | 92                                            | 
+| ECONOMIC DEVELOPMENT CORP.                  | 128                                           | 
+| EDUCATIONAL ORGANIZATION                    | 185                                           | 
+| ELECTRIC UTILITY                            | 1                                             | 
+| EMERGENCY MEDICAL SERVICES                  | 34                                            | 
+| EMPLOYMENT & TRAINING CORP.                 | 30                                            | 
+| FOR PROFIT CORPORATION                      | 15                                            | 
+| HANDICAPPED CENTER                          | 37                                            | 
+| HEALTH SERVICE ORGANIZATION                 | 83                                            | 
+| HISTORICAL SOCIETY                          | 49                                            | 
+| HOSPITALS                                   | 50                                            | 
+| HUMANE SOCIETY                              | 35                                            | 
+| LEGAL AID                                   | 3                                             | 
+| LIBRARY                                     | 5                                             | 
+| MENTAL HEALTH ORGANIZATIONS                 | 39                                            | 
+| MENTALLY HANDICAPPED CTRS                   | 40                                            | 
+| ORCHESTRA/SYMPHONY/THEATRE                  | 69                                            | 
+| OTHER NOT-FOR-PROFIT                        | 386                                           | 
+| OTHER SPECIAL DISTRICT                      | 1                                             | 
+| PLANNED PARENTHOOD ASSOCIATION              | 1                                             | 
+| RED CROSS                                   | 1                                             | 
+| REG WASTEWATER(SEWER) DISTRICT              | 1                                             | 
+| SENIOR CITIZEN CENTER                       | 33                                            | 
+| TOURISM & PROMOTION BUREAU                  | 56                                            | 
+| UNITED WAY                                  | 4                                             | 
+| VETERANS ORGANIZATION                       | 4                                             | 
+| VOLUNTEER FIRE DEPARTMENT                   | 442                                           | 
+| WATER CORPORATION -NFP                      | 1                                             | 
+| YMCA/YWCA                                   | 29                                            | 
+| YOUTH SERVICE BUREAU                        | 33                                            | 
+| YOUTH SPORTS ORGANIZATION                   | 13                                            | 
+
+
 
 
 
