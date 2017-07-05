@@ -3,7 +3,7 @@
 
 # INSTALL NECESSARY PACKAGES
 
-pckgs <- c("jsonlite","R.utils","dplyr","xml2")
+pckgs <- c("jsonlite","R.utils","dplyr","xml2","curl")
 
 install.packages( pckgs )
 
