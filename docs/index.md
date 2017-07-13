@@ -220,6 +220,9 @@ There are some additional interesting sources of nonprofit data that have the po
 * [Marc's Online Repository of Audits](http://www.govwiki.info/pdfs/Non-Profit/)
 * [GitHub Repo of Harvesting Scripts](https://github.com/govwiki/SingleAuditRepo)
 
+**Giving (and volunteering) in the Netherlands Panel Study (GINPS) 
+* [Overview and access instructions](https://renebekkers.wordpress.com/2012/03/28/you-are-welcome-to-use-our-data/)
+
 **Notable APIs for Nonprofit Data**
 * [Pro Publica Nonprofit Explorer API](https://www.propublica.org/nerds/item/announcing-the-nonprofit-explorer-api)
 * [Foundation Center API](http://data.foundationcenter.org/about.html)
