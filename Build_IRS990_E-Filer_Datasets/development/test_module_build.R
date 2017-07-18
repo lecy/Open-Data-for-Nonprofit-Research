@@ -33,13 +33,13 @@ xml_ns_strip( doc )
 
 # load the functions to scrape data
 
+source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Build_IRS990_E-Filer_Datasets/BUILD_EFILER_DATABASE.R")
+
 
 
 # grab the basic nonprofit info - name, ein, address, etc.
 
-     source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Build_IRS990_E-Filer_Datasets/BUILD_EFILER_DATABASE.R")
-
-      one.npo <- scrapeXML( doc, url )
+one.npo <- scrapeXML( url, form.type=c("990","990EZ") )
 
 
 
