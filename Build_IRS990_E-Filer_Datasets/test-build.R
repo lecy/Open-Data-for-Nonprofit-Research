@@ -16,13 +16,22 @@ library( jsonlite )
 
 dat14 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2014.json")[[1]]
 
-dat14$FilingYear <- substr( dat14$TaxPeriod, 1, 4 )
+# does not account for december edge case
+# dat14$FilingYear <- substr( dat14$TaxPeriod, 1, 4 )
+
+year <- as.numeric( substr( dat14$TaxPeriod, 1, 4 ) )
+month <- substr( dat14$TaxPeriod, 5, 6 )
+
+dat14$FilingYear <- year - 1
+dat14$FilingYear[ month == "12" ] <- year[ month == "12" ]
+
+
 
 
 
 # CREATE A SAMPLE OF NONPROFITS
 
-these.npos <- dat14[ dat14$EIN %in% sample( dat14$EIN, 100 ) , ]
+these.npos <- dat14[ dat14$EIN %in% sample( dat14$EIN, 50 ) , ]
 
 
 # SOURCE THE BUILD FUNCTIONS
@@ -32,7 +41,7 @@ source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/
 
 # BUILD TEST FILE
 
-cd <- buildCore( index=these.npos, years=2014:2015, form.type=c("990","990EZ") )
+cd <- buildCore( index=these.npos, years=2013:2014, form.type=c("990","990EZ") )
 
 head( cd )
 
