@@ -34,6 +34,7 @@ dat14$FilingYear[ month == "12" ] <- year[ month == "12" ]
 these.npos <- dat14[ dat14$EIN %in% sample( dat14$EIN, 50 ) , ]
 
 
+
 # SOURCE THE BUILD FUNCTIONS
 
 source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Build_IRS990_E-Filer_Datasets/BUILD_EFILER_DATABASE.R")
@@ -41,7 +42,9 @@ source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/
 
 # BUILD TEST FILE
 
-cd <- buildCore( index=these.npos, years=2013:2014, form.type=c("990","990EZ") )
+table( these.npos$FormType, these.npos$FilingYear ) # data collected for given forms and years
+
+cd <- buildCore( index=these.npos, years=2011:2014, form.type=c("990","990EZ") )
 
 head( cd )
 
