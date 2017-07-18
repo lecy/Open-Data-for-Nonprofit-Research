@@ -113,8 +113,9 @@ buildIndex <- function( )
 	dat4 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2014.json")[[1]]
 	dat5 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2015.json")[[1]]
 	dat6 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2016.json")[[1]]
-	
-	data.ef <- rbind( dat1, dat2, dat3, dat4, dat5, dat6 )
+	dat7 <- fromJSON("https://s3.amazonaws.com/irs-form-990/index_2017.json")[[1]]
+
+	data.ef <- rbind( dat1, dat2, dat3, dat4, dat5, dat6, dat7  )
 
 	# REFORMAT DATE FROM YYYY-MM TO YYYY
 
