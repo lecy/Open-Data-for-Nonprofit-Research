@@ -155,9 +155,6 @@ buildIndex <- function( )
 
 scrapeXML <- function( url, form.type )
 {
-	
-    library( dplyr )
-    library( xml2 ) 
 
 
     # print( url )
