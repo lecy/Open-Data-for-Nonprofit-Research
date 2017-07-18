@@ -19,7 +19,7 @@ V_990EZ_2012 <- "https://s3.amazonaws.com/irs-form-990/201313549349200311_public
 
 
 
-# select a version to use
+# select a case to test
 
 url <- V_990_2014
 
