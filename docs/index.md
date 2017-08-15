@@ -229,6 +229,10 @@ There are some additional interesting sources of nonprofit data that have the po
 * [Guidestar APIs](https://community.guidestar.org/groups/developer)
 * [Dark Money Given to Nonprofits](http://www.opensecrets.org/dark-money/explore-our-reports.php)
 
+**OpenCorporates Project**
+* An ambitious project by the Open Data Institute to create an open database for over 49 million companies globally.
+* [Project website here](https://theodi.org/case-studies/opencorporates-case-study)
+
 
 **State of Indiana's Audit Clearinghouse**
 * [Link to the Portal](https://gateway.ifionline.org)
