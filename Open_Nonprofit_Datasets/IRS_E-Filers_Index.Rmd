@@ -43,12 +43,14 @@ All of the data is publicly accessible via the S3 bucket's HTTPS endpoint at htt
 
 install.packages( "jsonlite" )
 install.packages( "R.utils" )
+install.packages( "curl" )
 
 
 # LOAD REQUIRED PACKAGES
 
 library( jsonlite )
 library( R.utils )
+library( curl )
 
 
 ### CREATE A DIRECTORY FOR YOUR DATA
