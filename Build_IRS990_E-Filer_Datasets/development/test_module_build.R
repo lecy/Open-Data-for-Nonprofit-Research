@@ -35,15 +35,23 @@ xml_ns_strip( doc )
 
 source("https://raw.githubusercontent.com/lecy/Open-Data-for-Nonprofit-Research/master/Build_IRS990_E-Filer_Datasets/BUILD_EFILER_DATABASE.R")
 
+# ls()
+# "buildIndex"   # - this function will build the index of efilers from AWS
+# "scrapeXML"    # - this function extracts data for one 990 filing from a single XML document
+# "buildCore"    # - this function iterates through the index and stacks rows of filings to build the database
+
+
 
 
 # grab the basic nonprofit info - name, ein, address, etc.
 
 one.npo <- scrapeXML( url, form.type=c("990","990EZ") )
 
+# test it with different versions above
+# scrapeXML( url=V_990_2014, form.type=c("990","990EZ") )
+# scrapeXML( url=V_990EZ_2012, form.type=c("990","990EZ") )
 
-
-# add your custom module
+# add custom variables using xpaths from the concordance
 
       fix( scrapeXML )
 
