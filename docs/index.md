@@ -1,16 +1,18 @@
 # Open Data for Nonprofit Research
 
+
+
 ----------
 
 A slightly updated list of datasets is available on the [Nonprofit Open Data Collective website](https://nonprofit-open-data-collective.github.io/overview/).
 
 There is a new package for harvesting IRS 990 Efile data and converting XML files into a well-structured database: 
 
-https://github.com/Nonprofit-Open-Data-Collective/irs990efile
+[https://github.com/Nonprofit-Open-Data-Collective/irs990efile](https://github.com/Nonprofit-Open-Data-Collective/irs990efile)
 
 Stay tuned: several datasets and packages will be released in Fall 2022! 
 
-https://github.com/orgs/Nonprofit-Open-Data-Collective/repositories
+[https://github.com/orgs/Nonprofit-Open-Data-Collective/repositories](https://github.com/orgs/Nonprofit-Open-Data-Collective/repositories)
 
 ----------
 
