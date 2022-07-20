@@ -1,5 +1,19 @@
 # Open Data for Nonprofit Research
 
+----------
+
+A slightly updated list of datasets is available on the [Nonprofit Open Data Collective website](https://nonprofit-open-data-collective.github.io/overview/).
+
+There is a new package for harvesting IRS 990 Efile data and converting XML files into a well-structured database: 
+
+https://github.com/Nonprofit-Open-Data-Collective/irs990efile
+
+Stay tuned: several datasets and packages will be released in Fall 2022! 
+
+https://github.com/orgs/Nonprofit-Open-Data-Collective/repositories
+
+----------
+
 The IRS maintains several important nonprofit databases to track the current population of exempt organizations, their annual 990 filings, and organizations that have closed. This data has been released in formats that are not always easy to use - ASCII text files, json files, and XML queries. 
 
 In order to make the data accessible to the research community, we have created scripts to download data from IRS websites, clean and process it, and export into familiar formats (CSV, Stata, SPSS, etc.).
